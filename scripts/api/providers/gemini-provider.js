@@ -43,18 +43,18 @@ export class GeminiProvider extends BaseProvider {
      */
     validateConfiguration() {
         if (!this.config.apiKey) {
-            this.debug('No API key provided');
+            this.debug('GeminiProvider: API key is missing. Please enter your Gemini API key in the module settings.');
             return false;
         }
         
         if (!this.config.endpoint.includes('googleapis.com')) {
-            this.debug('Invalid Gemini endpoint');
+            this.debug('GeminiProvider: Invalid endpoint configuration. Expected googleapis.com domain.');
             return false;
         }
         
         const validModels = this.constructor.getAvailableModels().map(m => m.id);
         if (!validModels.includes(this.config.model)) {
-            this.debug(`Invalid model: ${this.config.model}`);
+            this.debug(`GeminiProvider: Invalid model "${this.config.model}". Available models: ${validModels.join(', ')}`);
             return false;
         }
         
@@ -77,14 +77,23 @@ export class GeminiProvider extends BaseProvider {
 
             const systemPrompt = this.buildSystemPrompt(context);
             const userPrompt = `Create a Pathfinder 1e item: ${prompt}`;
-            const fullPrompt = `${systemPrompt}\n\nUser Request: ${userPrompt}`;
 
+            // Use proper role-based structure for better context management
             const requestData = {
                 contents: [
                     {
+                        role: 'user',  // Gemini API uses 'user' role for instructions
                         parts: [
                             {
-                                text: fullPrompt
+                                text: systemPrompt
+                            }
+                        ]
+                    },
+                    {
+                        role: 'user',
+                        parts: [
+                            {
+                                text: userPrompt
                             }
                         ]
                     }
@@ -131,7 +140,24 @@ export class GeminiProvider extends BaseProvider {
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
-                throw new Error(`HTTP ${response.status}: ${errorData.error?.message || response.statusText}`);
+                
+                // Translate common API errors to user-friendly messages
+                switch (response.status) {
+                    case 400:
+                        throw new Error('Your prompt may contain unsafe content or be too complex. Please try a simpler description.');
+                    case 401:
+                        throw new Error('Invalid API key. Please check your Gemini API key in the module settings.');
+                    case 403:
+                        throw new Error('Access denied. Your API key may not have permission to use this model.');
+                    case 429:
+                        throw new Error('Rate limit exceeded. Please wait a moment and try again.');
+                    case 500:
+                        throw new Error('Gemini server error. Please try again in a moment.');
+                    case 503:
+                        throw new Error('Gemini service temporarily unavailable. Please try again later.');
+                    default:
+                        throw new Error(`Gemini API Error (${response.status}): ${errorData.error?.message || response.statusText}`);
+                }
             }
 
             const data = await response.json();
