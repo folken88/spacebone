@@ -281,8 +281,11 @@ export function applyMaterialToItem(itemData, materialId) {
     }
 
     // Set material in item data
-    itemData.system.material = itemData.system.material || { base: { value: '', custom: false }, addon: [] };
+    itemData.system.material = itemData.system.material || {};
+    itemData.system.material.base = itemData.system.material.base || {};
     itemData.system.material.base.value = materialId;
+    itemData.system.material.base.custom = false;
+    itemData.system.material.addon = itemData.system.material.addon || [];
 
     // Store material info in flags for reference
     itemData.flags = itemData.flags || {};
