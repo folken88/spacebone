@@ -75,7 +75,9 @@ export class ItemFactory {
             }
 
             const index = await pack.getDocuments();
-            const baseItem = index.find(item => {
+            
+            // Find matching items
+            const matchingItems = index.filter(item => {
                 if (item.type !== itemData.type) return false;
                 
                 // Match by name or subtype
@@ -86,6 +88,21 @@ export class ItemFactory {
                        subType.includes(itemName) ||
                        item.system.baseTypes?.some(bt => bt.toLowerCase() === subType);
             });
+            
+            // Prefer standard weapons over exotic variants
+            let baseItem = matchingItems.find(item => {
+                const itemName = item.name.toLowerCase();
+                return !itemName.includes('dwarven') && 
+                       !itemName.includes('elven') && 
+                       !itemName.includes('orcish') && 
+                       !itemName.includes('pelletbow') &&
+                       !itemName.includes('repeating');
+            });
+            
+            // Fallback to any match if no standard version found
+            if (!baseItem && matchingItems.length > 0) {
+                baseItem = matchingItems[0];
+            }
 
             if (baseItem) {
                 console.log(`Spacebone | Found base item: ${baseItem.name} for ${itemData.subType}`);

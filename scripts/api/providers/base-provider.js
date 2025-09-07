@@ -126,6 +126,25 @@ export class BaseProvider {
 - You MUST fill in ALL fields, even if with simple values
 - Your response MUST start with "=== ITEM TEMPLATE START ===" and end with "=== ITEM TEMPLATE END ==="
 
+## ACCURATE PF1 WEAPON STATS (USE EXACTLY):
+**Crossbows:**
+- Light Crossbow: 1d8 damage, 19-20/x2 crit, 80 ft range, 4 lbs, 35 gp
+- Heavy Crossbow: 1d10 damage, 19-20/x2 crit, 120 ft range, 8 lbs, 50 gp
+
+**Bows:**
+- Shortbow: 1d6 damage, x3 crit, 60 ft range, 2 lbs, 30 gp
+- Longbow: 1d8 damage, x3 crit, 100 ft range, 3 lbs, 75 gp
+- Composite bows add STR bonus to damage
+
+**Melee Weapons:**
+- Longsword: 1d8 damage, 19-20/x2 crit, 4 lbs, 15 gp
+- Greatsword: 2d6 damage, 19-20/x2 crit, 8 lbs, 50 gp
+- Rapier: 1d6 damage, 18-20/x2 crit, 2 lbs, 20 gp
+
+**Masterwork Weapons:**
+- Add +150 gp to base cost (so masterwork heavy crossbow = 200 gp)
+- Never mention enhancement bonus in MECHANICAL_EFFECTS (handled by system)
+
 ## TEMPLATE INSTRUCTIONS:
 - Replace [FIELD_NAME] with appropriate values
 - For simple items ("+1 longsword"), use standard pricing and mechanics
