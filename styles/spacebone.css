@@ -80,20 +80,18 @@
 
 /* Window content styling - ONLY for our dialog */
 .dialog.window-app.spacebone-dialog .window-content {
-    background: rgba(20, 20, 25, 0.8) !important;
+    background: #2b2b2b !important;
     border: none !important;
     border-radius: 0 0 11px 11px !important;
-    color: #e5e7eb !important;
+    color: #ffffff !important;
     padding: 16px !important;
-    backdrop-filter: blur(10px) !important;
 }
 
 /* Apply dark backgrounds to specific sections - ONLY for our dialog */
 .dialog.window-app.spacebone-dialog .glass-panel {
-    background: rgba(30, 30, 35, 0.8) !important;
-    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    background: #353535 !important;
+    border: 1px solid rgba(139, 92, 246, 0.4) !important;
     border-radius: 8px !important;
-    backdrop-filter: blur(5px) !important;
 }
 
 /* ================================================================
@@ -133,23 +131,22 @@
 }
 
 /* Glass panel sections */
-.glass-panel {
-    background: rgba(30, 30, 35, 0.6);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    border-radius: 8px;
-    padding: 16px;
-    backdrop-filter: blur(4px);
+.dialog.window-app.spacebone-dialog .glass-panel {
+    background: #353535 !important;
+    border: 1px solid rgba(139, 92, 246, 0.4) !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
 }
 
-.glass-panel h3 {
-    color: #f3f4f6;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+.dialog.window-app.spacebone-dialog .glass-panel h3 {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 0 0 12px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-shadow: none !important;
 }
 
 .glass-panel h3 i {
@@ -165,37 +162,37 @@
 }
 
 .dialog.window-app.spacebone-dialog .form-group label {
-    color: #d1d5db;
-    font-size: 14px;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-shadow: none !important;
 }
 
 /* Textarea styling */
-.spacebone-creator textarea {
-    background: rgba(20, 20, 25, 0.9);
-    border: 1px solid #4b5563;
-    border-radius: 6px;
-    color: #f3f4f6;
-    font-family: inherit;
-    font-size: 14px;
-    min-height: 80px;
-    padding: 12px;
-    resize: vertical;
-    transition: border-color 0.2s ease;
-    width: 100%;
-    box-sizing: border-box;
+.dialog.window-app.spacebone-dialog .spacebone-creator textarea {
+    background: #2a2a2a !important;
+    border: 1px solid #666666 !important;
+    border-radius: 4px !important;
+    color: #ffffff !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    min-height: 80px !important;
+    padding: 12px !important;
+    resize: vertical !important;
+    transition: border-color 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
-.spacebone-creator textarea:focus {
-    border-color: #8b5cf6;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+.dialog.window-app.spacebone-dialog .spacebone-creator textarea:focus {
+    border-color: #8b5cf6 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3) !important;
 }
 
-.spacebone-creator textarea::placeholder {
-    color: #9ca3af;
-    font-style: italic;
+.dialog.window-app.spacebone-dialog .spacebone-creator textarea::placeholder {
+    color: #aaaaaa !important;
+    font-style: italic !important;
 }
 
 /* Example text styling - ONLY for our dialog */
@@ -212,42 +209,37 @@
 
 /* SELECT DROPDOWNS - ONLY for our dialog */
 .dialog.window-app.spacebone-dialog .spacebone-creator select {
-    background: rgba(20, 20, 25, 0.95) !important;
-    border: 1px solid #6b7280 !important;
-    border-radius: 6px !important;
+    background: #2a2a2a !important;
+    border: 1px solid #666666 !important;
+    border-radius: 4px !important;
     color: #ffffff !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
     font-family: inherit !important;
-    padding: 12px 14px !important;
+    padding: 8px 12px !important;
     height: auto !important;
-    min-height: 44px !important;
-    line-height: 1.5 !important;
-    transition: border-color 0.2s ease, background-color 0.2s ease !important;
+    min-height: 36px !important;
+    line-height: 1.4 !important;
+    transition: border-color 0.2s ease !important;
     width: 100% !important;
-    min-width: 200px !important;
-    max-width: 100% !important;
     text-shadow: none !important;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3) !important;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
+    box-shadow: none !important;
 }
 
 .dialog.window-app.spacebone-dialog .spacebone-creator select:focus {
     border-color: #8b5cf6 !important;
-    background: rgba(25, 25, 30, 0.95) !important;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+    background: #333333 !important;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3) !important;
     outline: none !important;
 }
 
 .dialog.window-app.spacebone-dialog .spacebone-creator select option {
-    background: #1f2937 !important;
+    background: #2a2a2a !important;
     color: #ffffff !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    padding: 10px 14px !important;
-    line-height: 1.5 !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    padding: 8px 12px !important;
+    line-height: 1.4 !important;
     text-shadow: none !important;
     border: none !important;
 }
