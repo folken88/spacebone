@@ -1,0 +1,374 @@
+/**
+ * Spacebone Item Creator Styles
+ * Clean, organized CSS for dark glassmorphism UI
+ * 
+ * TABLE OF CONTENTS:
+ * 1. Button Styling (Directory Button)
+ * 2. Dialog Window Styling
+ * 3. Form Controls (Selectors, Inputs)
+ * 4. Layout & Structure
+ * 5. Icons & Visual Elements
+ */
+
+/* ================================================================
+   1. BUTTON STYLING - Item Directory Button
+   ================================================================ */
+
+/* Main button styling using create-entity class for compatibility */
+.create-entity.spaceboneButton {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    width: 100%;
+}
+
+.create-entity.spaceboneButton:hover {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    border-color: #8b5cf6;
+    box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
+    color: #f7fafc;
+    transform: translateY(-1px);
+}
+
+/* FontAwesome icon styling to match pf1-magic-item-gen */
+.create-entity.spaceboneButton i {
+    margin-right: 6px;
+}
+
+/* Section wrapper styling to match pf1-magic-item-gen */
+.spacebone-generator.button-div {
+    display: flex;
+    margin: 2px 0;
+}
+
+/* Ensure proper button ordering when both modules are present */
+.directory-footer .spacebone-generator {
+    order: 2; /* Appears after pf1-magic-item-gen (which uses order: 1 or default) */
+}
+
+/* Spacing between module buttons */
+.item-generator.button-div + .spacebone-generator.button-div {
+    margin-top: 4px;
+}
+
+/* ================================================================
+   2. DIALOG WINDOW STYLING - Main Dialog Container
+   ================================================================ */
+
+/* Target ONLY our specific dialog window */
+.dialog.window-app.spacebone-dialog {
+    border: 1px solid #8b5cf6 !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    background: transparent !important;
+}
+
+/* Window header styling - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .window-header {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+    border: none !important;
+    border-bottom: 1px solid #6d28d9 !important;
+    border-radius: 11px 11px 0 0 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Window content styling - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .window-content {
+    background: rgba(20, 20, 25, 0.8) !important;
+    border: none !important;
+    border-radius: 0 0 11px 11px !important;
+    color: #e5e7eb !important;
+    padding: 16px !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Apply dark backgrounds to specific sections - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .glass-panel {
+    background: rgba(30, 30, 35, 0.8) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    border-radius: 8px !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* ================================================================
+   3. FORM CONTROLS - Inputs, Selectors, Textareas
+   ================================================================ */
+
+/* Main form container */
+.spacebone-creator {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Signika', Arial, sans-serif;
+}
+
+/* Dialog header with skull icon */
+.spacebone-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0 12px 0;
+    border-bottom: 2px solid rgba(139, 92, 246, 0.3);
+    margin-bottom: 8px;
+}
+
+.spacebone-main-icon {
+    font-size: 24px;
+    color: #8b5cf6;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+}
+
+.spacebone-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f3f4f6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass panel sections */
+.glass-panel {
+    background: rgba(30, 30, 35, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    backdrop-filter: blur(4px);
+}
+
+.glass-panel h3 {
+    color: #f3f4f6;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel h3 i {
+    color: #8b5cf6;
+    font-size: 14px;
+}
+
+/* Form groups - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dialog.window-app.spacebone-dialog .form-group label {
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Textarea styling */
+.spacebone-creator textarea {
+    background: rgba(20, 20, 25, 0.9);
+    border: 1px solid #4b5563;
+    border-radius: 6px;
+    color: #f3f4f6;
+    font-family: inherit;
+    font-size: 14px;
+    min-height: 80px;
+    padding: 12px;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.spacebone-creator textarea:focus {
+    border-color: #8b5cf6;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.spacebone-creator textarea::placeholder {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* Example text styling - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .example-text {
+    margin-top: 4px;
+}
+
+.dialog.window-app.spacebone-dialog .example-text small {
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* SELECT DROPDOWNS - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .spacebone-creator select {
+    background: rgba(20, 20, 25, 0.95) !important;
+    border: 1px solid #6b7280 !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    font-family: inherit !important;
+    padding: 12px 14px !important;
+    height: auto !important;
+    min-height: 44px !important;
+    line-height: 1.5 !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease !important;
+    width: 100% !important;
+    min-width: 200px !important;
+    max-width: 100% !important;
+    text-shadow: none !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+.dialog.window-app.spacebone-dialog .spacebone-creator select:focus {
+    border-color: #8b5cf6 !important;
+    background: rgba(25, 25, 30, 0.95) !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+    outline: none !important;
+}
+
+.dialog.window-app.spacebone-dialog .spacebone-creator select option {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 10px 14px !important;
+    line-height: 1.5 !important;
+    text-shadow: none !important;
+    border: none !important;
+}
+
+.dialog.window-app.spacebone-dialog .spacebone-creator select option:hover,
+.dialog.window-app.spacebone-dialog .spacebone-creator select option:focus {
+    background: #374151 !important;
+    color: #ffffff !important;
+}
+
+/* ================================================================
+   4. LAYOUT & STRUCTURE - Grid, Spacing, Conditional Sections
+   ================================================================ */
+
+/* Form grid layout - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Category-specific sections - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .weapon-specific,
+.dialog.window-app.spacebone-dialog .armor-specific,
+.dialog.window-app.spacebone-dialog .equipment-specific {
+    padding: 12px;
+    margin-top: 8px;
+    background: rgba(20, 20, 25, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 6px;
+}
+
+.dialog.window-app.spacebone-dialog .weapon-specific h4,
+.dialog.window-app.spacebone-dialog .armor-specific h4,
+.dialog.window-app.spacebone-dialog .equipment-specific h4 {
+    color: #f3f4f6;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ================================================================
+   5. ICONS & VISUAL ELEMENTS - Status, Loading, etc.
+   ================================================================ */
+
+/* Status indicator - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .spacebone-status {
+    margin-top: 8px;
+}
+
+.dialog.window-app.spacebone-dialog #creation-status {
+    align-items: center;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid #3b82f6;
+    border-radius: 6px;
+    color: #93c5fd;
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    transition: opacity 0.3s ease;
+}
+
+.dialog.window-app.spacebone-dialog #creation-status.status-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dialog.window-app.spacebone-dialog #creation-status.status-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Loading spinner - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .spinner {
+    animation: spin 1s linear infinite;
+    height: 16px;
+    width: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error states - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .error-text {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Success states - ONLY for our dialog */
+.dialog.window-app.spacebone-dialog .success-text {
+    color: #10b981;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* ================================================================
+   SETTINGS PANEL - Using default Foundry styling
+   ================================================================ */
+
+/* No custom styling for settings - use default Foundry appearance */
+
+/* ================================================================
+   UTILITY CLASSES
+   ================================================================ */
+
+.dialog.window-app.spacebone-dialog .hidden {
+    display: none !important;
+}
+
+.dialog.window-app.spacebone-dialog .text-center {
+    text-align: center;
+}
+
+.dialog.window-app.spacebone-dialog .mt-2 {
+    margin-top: 8px;
+}
+
+.dialog.window-app.spacebone-dialog .mb-2 {
+    margin-bottom: 8px;
+}

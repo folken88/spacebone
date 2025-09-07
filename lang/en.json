@@ -1,0 +1,79 @@
+{
+  "spacebone": {
+    "settings": {
+      "apiProvider": {
+        "name": "LLM API Provider",
+        "hint": "Choose which LLM service to use for item generation"
+      },
+      "apiKey": {
+        "name": "API Key",
+        "hint": "Your API key for the selected LLM provider (not needed for local LLMs)"
+      },
+      "apiEndpoint": {
+        "name": "API Endpoint",
+        "hint": "The API endpoint URL for your LLM service"
+      },
+      "model": {
+        "name": "Model Name",
+        "hint": "The specific model to use. Examples: gpt-5, claude-4-sonnet, gemini-2.0-pro, llama3.2"
+      },
+      "folderName": {
+        "name": "Target Folder Name",
+        "hint": "Name of the folder where generated items will be stored"
+      },
+      "debugMode": {
+        "name": "Debug Mode",
+        "hint": "Enable detailed logging for troubleshooting"
+      },
+      "openItemCreator": {
+        "name": "🚀 Open Item Creator",
+        "hint": "Check this box to instantly open the Spacebone Item Creator dialog"
+      }
+    },
+    "ui": {
+      "createButton": "AI Create",
+      "dialogTitle": "Spacebone AI Item Creator",
+      "promptLabel": "Describe the item you want to create:",
+      "promptPlaceholder": "Example: A magical ring that grants +2 to Dexterity and allows the wearer to cast invisibility once per day. It's made of mithril and has a small sapphire that glows when activated.",
+      "itemTypeLabel": "Item Type Hint (optional):",
+      "priceRangeLabel": "Price Range (optional):",
+      "examplesTitle": "Example Prompts:",
+      "createItemButton": "Create Item",
+      "cancelButton": "Cancel",
+      "creatingStatus": "Creating item...",
+      "apiNotConfigured": "Please configure your LLM API settings in module settings first.",
+      "enterDescription": "Please enter a description for the item you want to create.",
+      "itemCreated": "Successfully created item:",
+      "creationFailed": "Failed to create item. Check the console for details."
+    },
+    "examples": {
+      "elementalCloak": "A cloak that grants resistance to cold and fire damage, and allows the wearer to cast endure elements at will.",
+      "flamingSword": "A +1 longsword that deals an extra 1d6 fire damage and can cast burning hands 3 times per day.",
+      "waterWalkingBoots": "Boots that increase movement speed by 10 feet and allow the wearer to walk on water for up to 1 hour per day.",
+      "healingPotion": "A healing potion that restores 2d4+2 hit points and removes one condition (poison, disease, or curse)."
+    },
+    "itemTypes": {
+      "equipment": "Equipment (Wondrous Item)",
+      "weapon": "Weapon",
+      "armor": "Armor/Shield",
+      "consumable": "Consumable (Potion, Scroll, etc.)",
+      "loot": "Treasure/Loot"
+    },
+    "priceRanges": {
+      "minor": "Minor (under 4,000 gp)",
+      "medium": "Medium (4,000-15,000 gp)",
+      "major": "Major (15,000+ gp)"
+    },
+    "notifications": {
+      "folderCreated": "Created new folder:",
+      "cleanedFolders": "Cleaned up {count} empty Spacebone folders"
+    },
+    "errors": {
+      "apiKeyMissing": "API key not configured for {provider}",
+      "apiError": "LLM API Error: {message}",
+      "parseError": "Failed to parse item data: {message}",
+      "createError": "An error occurred while creating the item",
+      "folderError": "Failed to create or find folder: {name}"
+    }
+  }
+}
