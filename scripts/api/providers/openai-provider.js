@@ -28,7 +28,7 @@ export class OpenAIProvider extends BaseProvider {
             endpoint: 'https://api.openai.com/v1/chat/completions',
             model: 'gpt-4o',
             defaultOptions: {
-                max_tokens: 1000
+                // Removed hardcoded token limit - set dynamically based on model
             },
             ...config
         });
@@ -77,6 +77,10 @@ export class OpenAIProvider extends BaseProvider {
 
 IMPORTANT: You MUST respond using the exact template format specified in the system prompt. Start your response with "=== ITEM TEMPLATE START ===" and end with "=== ITEM TEMPLATE END ===".`;
 
+            // Use correct token parameter based on model
+            const isNewerModel = this.config.model.startsWith('gpt-5') || this.config.model.startsWith('o1');
+            const tokenParam = isNewerModel ? 'max_completion_tokens' : 'max_tokens';
+            
             const requestData = {
                 model: this.config.model,
                 messages: [
@@ -89,6 +93,7 @@ IMPORTANT: You MUST respond using the exact template format specified in the sys
                         content: userPrompt
                     }
                 ],
+                [tokenParam]: 1000,  // Set correct token parameter dynamically
                 ...this.config.defaultOptions
             };
 
@@ -105,7 +110,14 @@ IMPORTANT: You MUST respond using the exact template format specified in the sys
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
-                throw new Error(`HTTP ${response.status}: ${errorData.error?.message || response.statusText}`);
+                const errorMessage = errorData.error?.message || response.statusText;
+                
+                // Improved error handling for common issues
+                if (response.status === 400 && errorMessage.includes('max_tokens')) {
+                    throw new Error(`OpenAI API Error: This model requires 'max_completion_tokens' instead of 'max_tokens'. Please update your model settings or try a different model. Original error: ${errorMessage}`);
+                }
+                
+                throw new Error(`HTTP ${response.status}: ${errorMessage}`);
             }
 
             const data = await response.json();
@@ -227,7 +239,7 @@ IMPORTANT: You MUST respond using the exact template format specified in the sys
             endpoint: 'https://api.openai.com/v1/chat/completions',
             model: 'gpt-4o',
             defaultOptions: {
-                max_tokens: 1000
+                // Token limits set dynamically based on model type
             }
         };
     }
@@ -238,6 +250,14 @@ IMPORTANT: You MUST respond using the exact template format specified in the sys
      */
     static getAvailableModels() {
         return [
+            {
+                id: 'gpt-5',
+                name: 'GPT-5',
+                description: 'Latest model with enhanced capabilities (uses max_completion_tokens)',
+                recommended: false,
+                maxTokens: 4000,
+                costPer1kTokens: 0.015
+            },
             {
                 id: 'gpt-4o',
                 name: 'GPT-4o',
