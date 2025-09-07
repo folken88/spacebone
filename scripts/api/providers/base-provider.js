@@ -375,23 +375,59 @@ IMPORTANT: Return ONLY the filled template, starting with "=== ITEM TEMPLATE STA
      * @private
      */
     convertJsonToTemplate(jsonData) {
-        console.log('[Spacebone Debug] Converting JSON to template format');
+        console.log('[Spacebone Debug] Converting JSON to template format:', jsonData);
+        
+        // Handle both uppercase and lowercase field names from LLM responses
+        const getValue = (obj, ...keys) => {
+            for (const key of keys) {
+                if (obj[key] !== undefined && obj[key] !== null && obj[key] !== '') {
+                    return obj[key];
+                }
+            }
+            return null;
+        };
+        
+        // Extract mechanical effects from MECHANICAL_EFFECTS field
+        const mechanicalEffectsText = getValue(jsonData, 'MECHANICAL_EFFECTS', 'mechanical_effects', 'mechanicalEffects', 'mechanical');
+        const mechanical = {};
+        if (mechanicalEffectsText && typeof mechanicalEffectsText === 'string') {
+            mechanical.effects = mechanicalEffectsText;
+        }
+        
+        // Parse enhancement value (remove + if present)
+        const enhancementRaw = getValue(jsonData, 'ENHANCEMENT', 'enhancement');
+        let enhancement = 0;
+        if (enhancementRaw) {
+            const enhMatch = String(enhancementRaw).match(/\+?(\d+)/);
+            enhancement = enhMatch ? parseInt(enhMatch[1]) : 0;
+        }
+        
+        // Build spell-like abilities from SPELL_ABILITY fields
+        const spellLikeAbilities = [];
+        for (let i = 1; i <= 3; i++) {
+            const spellAbility = getValue(jsonData, `SPELL_ABILITY_${i}`, `spell_ability_${i}`, `spellAbility${i}`);
+            if (spellAbility && spellAbility.trim() !== '') {
+                spellLikeAbilities.push(spellAbility);
+            }
+        }
+        
         return {
-            name: jsonData.name || 'Unknown Item',
-            type: jsonData.type || 'equipment',
-            subType: jsonData.subType || '',
-            price: jsonData.price || 0,
-            weight: jsonData.weight || 0,
-            enhancement: jsonData.enhancement || 0,
-            casterLevel: jsonData.casterLevel || 1,
-            aura: jsonData.aura || 'faint universal',
-            description: jsonData.description || 'A mysterious item.',
-            requirements: jsonData.requirements || '',
-            creationCost: jsonData.creationCost || 0,
-            abilities: jsonData.abilities || [],
-            mechanical: jsonData.mechanical || {},
-            spellLikeAbilities: jsonData.spellLikeAbilities || [],
-            level: jsonData.level || this.estimateLevel(jsonData.price || 0)
+            name: getValue(jsonData, 'NAME', 'name') || 'Unknown Item',
+            type: getValue(jsonData, 'TYPE', 'type') || 'equipment',
+            subType: getValue(jsonData, 'SUBTYPE', 'subType', 'subtype') || '',
+            material: getValue(jsonData, 'MATERIAL', 'material') || 'Standard',
+            price: parseInt(getValue(jsonData, 'PRICE', 'price')) || 0,
+            weight: parseFloat(getValue(jsonData, 'WEIGHT', 'weight')) || 0,
+            enhancement: enhancement,
+            casterLevel: parseInt(getValue(jsonData, 'CASTER_LEVEL', 'caster_level', 'casterLevel')) || 1,
+            aura: getValue(jsonData, 'AURA', 'aura') || 'faint universal',
+            description: getValue(jsonData, 'DESCRIPTION', 'description') || 'A mysterious item.',
+            requirements: getValue(jsonData, 'CREATION_REQUIREMENTS', 'creation_requirements', 'requirements') || '',
+            creationCost: parseInt(getValue(jsonData, 'CREATION_COST', 'creation_cost', 'creationCost')) || 0,
+            abilities: [],
+            mechanical: mechanical,
+            spellLikeAbilities: spellLikeAbilities,
+            level: getValue(jsonData, 'level') || this.estimateLevel(parseInt(getValue(jsonData, 'PRICE', 'price')) || 0)
         };
     }
 
