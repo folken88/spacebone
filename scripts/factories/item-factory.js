@@ -671,36 +671,35 @@ export class ItemFactory {
 
         const action = {
             _id: this.generateRandomId(),
-            name: spellName,
-            img: spellData.icon || "systems/pf1/icons/spells/generic.jpg",
+            name: "Use", // Use generic name like in sample
+            actionType: spellData.actionType || 'other',
             activation: {
-                cost: activationData.cost,
                 type: activationData.type,
+                cost: activationData.cost,
                 unchained: {
-                    cost: activationData.unchainedCost || activationData.cost,
-                    type: activationData.unchainedType || activationData.type
+                    cost: activationData.unchainedCost || 2, // Default unchained cost
+                    type: activationData.unchainedType || "action"
                 }
             },
-            actionType: spellData.actionType || 'other',
-            uses: usesData,
+            area: spellData.area || '',
             duration: spellData.duration || { units: 'inst' },
             range: spellData.range || { units: 'personal' },
-            area: spellData.area || '',
+            uses: {}, // Uses handled at item level, not action level
+            ability: {
+                critRange: 20,
+                critMult: 2
+            },
             powerAttack: {
                 damageBonus: 2,
                 critMultiplier: 1
             },
-            naturalAttack: {
-                secondary: { attackBonus: "-5", damageMult: 0.5 },
-                primary: true
-            },
-            ammo: { type: "none", cost: 1 }
+            ammo: { type: "none" }
         };
 
         // Add save information if the spell allows a save
-        if (spellData.allowsSave && saveDC > 0) {
+        if (spellData.allowsSave) {
             action.save = {
-                dc: saveDC.toString(),
+                dc: saveDC > 0 ? saveDC.toString() : "", // Empty string if no DC calculated
                 type: spellData.saveType || 'ref',
                 description: spellData.saveDescription || 'see spell description',
                 harmless: false
@@ -734,10 +733,10 @@ export class ItemFactory {
                 saveType: 'ref',
                 saveDescription: 'Reflex half',
                 damage: { formula: '1d6', type: 'fire', perLevel: true, maxLevel: 10 },
-                range: { value: "400", units: "ft" },
+                range: { units: "long" },
                 area: "20-ft.-radius spread",
                 duration: { units: 'inst' },
-                template: { type: "circle", size: "20", color: "#ff4500" }
+                template: { type: "circle", size: "20", color: null, texture: null }
             },
             'lightning bolt': {
                 icon: "systems/pf1/icons/spells/lightning-bolt.jpg",
@@ -792,7 +791,8 @@ export class ItemFactory {
             actionType: 'other',
             allowsSave: false,
             range: { units: 'personal' },
-            duration: { units: 'inst' }
+            duration: { units: 'inst' },
+            template: { type: "circle", size: "5", color: null, texture: null }
         };
     }
 
@@ -922,7 +922,7 @@ export class ItemFactory {
      * @param {Array} spellAbilities - Spell abilities
      */
     updateItemUses(itemData, spellAbilities) {
-        // Find the most restrictive use pattern
+        // Find the most restrictive use pattern for item-level tracking
         let mostRestrictive = null;
         
         spellAbilities.forEach(ability => {
@@ -940,11 +940,21 @@ export class ItemFactory {
         });
 
         if (mostRestrictive) {
+            // Set item-level uses like in the user's example
             itemData.system.uses = {
-                value: mostRestrictive.count,
-                per: mostRestrictive.period,
-                autoDeductChargesCost: "1",
-                maxFormula: mostRestrictive.count.toString(),
+                value: null, // Will be set to max on creation
+                per: "",
+                autoDeductChargesCost: "",
+                maxFormula: "",
+                rechargeFormula: ""
+            };
+        } else {
+            // Ensure uses is properly initialized even without spell abilities
+            itemData.system.uses = {
+                value: null,
+                per: "",
+                autoDeductChargesCost: "",
+                maxFormula: "",
                 rechargeFormula: ""
             };
         }

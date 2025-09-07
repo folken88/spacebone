@@ -1,0 +1,245 @@
+{
+  "name": "Infernal Ring of Flame",
+  "type": "equipment",
+  "img": "systems/pf1/icons/items/jewelry/ring-gold.jpg",
+  "system": {
+    "description": {
+      "value": "<p>This ring, wrought from black iron and etched with infernal script, glows faintly with a deep crimson hue. Crafted in the diabolic forges of Cheliax, the Infernal Ring of Flame channels the fiery might of Hell itself. Known to be a favored tool among the Hellknights and diabolist mages of the Thrice-Damned House of Thrune, this ring is a potent testament to Cheliax's mastery over fire and flame. The ring's wearer is imbued with the ability to call forth powerful explosions of fire, wielding the destructive magic with precision and deadly effect.</p><p><strong>Aura:</strong> strong evocation</p><p><strong>Caster Level:</strong> 10</p><p><strong>Requirements:</strong> Forge Ring, Fireball, caster level 10</p><p><strong>Creation Cost:</strong> 31500 gp</p>",
+      "instructions": "",
+      "unidentified": "",
+      "chat": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": false,
+    "carried": true,
+    "price": 63000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 63000,
+      "name": "Infernal Ring of Flame"
+    },
+    "cursed": false,
+    "cl": 10,
+    "aura": {
+      "custom": false,
+      "school": "",
+      "strength": "strong"
+    },
+    "hp": {
+      "max": 10,
+      "value": 10
+    },
+    "broken": false,
+    "hardness": 10,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "actionType": "spellsave",
+        "activation": {
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          },
+          "cost": 1
+        },
+        "area": "20-ft.-radius spread",
+        "damage": {
+          "parts": [
+            {
+              "formula": "10d6",
+              "types": [
+                "fire"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "measureTemplate": {
+          "size": "20",
+          "type": "circle",
+          "color": null,
+          "texture": null
+        },
+        "name": "Use",
+        "range": {
+          "units": "long"
+        },
+        "save": {
+          "description": "Reflex half",
+          "type": "ref",
+          "harmless": false,
+          "dc": ""
+        },
+        "uses": {},
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "_id": "gj8kp0jtCZkbkjyh",
+        "ammo": {
+          "type": "none"
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "armor",
+    "slot": "armor",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      },
+      "check": 0,
+      "spell": 0,
+      "type": "misc"
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "material": {
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": [
+        "magic"
+      ]
+    },
+    "requirements": "Forge Ring, Fireball, caster level 10",
+    "creationCost": 31500,
+    "showInCombat": false,
+    "nonlethal": false
+  },
+  "flags": {
+    "folken-games-spacebone": {
+      "generated": true,
+      "version": "1.0.0",
+      "originalData": {
+        "abilities": [],
+        "spellLikeAbilities": [
+          {
+            "name": "Fireball",
+            "activation": "command word",
+            "uses": "3/day",
+            "casterLevel": 10,
+            "description": "This spell unleashes a 20-foot-radius spread of fire that deals 10d6 points of fire damage to all creatures within the area. Reflex save DC 24 for half damage."
+          }
+        ],
+        "mechanical": {
+          "effects": ""
+        },
+        "name": "Infernal Ring of Flame",
+        "type": "equipment",
+        "subType": "ring",
+        "material": "Standard",
+        "price": 63000,
+        "weight": 0,
+        "enhancement": 0,
+        "casterLevel": 10,
+        "aura": "strong evocation",
+        "description": "This ring, wrought from black iron and etched with infernal script, glows faintly with a deep crimson hue. Crafted in the diabolic forges of Cheliax, the Infernal Ring of Flame channels the fiery might of Hell itself. Known to be a favored tool among the Hellknights and diabolist mages of the Thrice-Damned House of Thrune, this ring is a potent testament to Cheliax's mastery over fire and flame. The ring's wearer is imbued with the ability to call forth powerful explosions of fire, wielding the destructive magic with precision and deadly effect.",
+        "requirements": "Forge Ring, Fireball, caster level 10",
+        "creationCost": 31500,
+        "level": 15
+      }
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "effects": [],
+  "folder": null,
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757278758580,
+    "modifiedTime": 1757281397496,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.RuMtZFrdNVhlwlJg",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}
