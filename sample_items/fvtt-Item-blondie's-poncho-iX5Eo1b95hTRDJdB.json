@@ -1,0 +1,195 @@
+{
+  "img": "Art%20-%20Items/worn-items/poncho_cloak_wool_golden_seal.webp",
+  "name": "Blondie's Poncho",
+  "system": {
+    "description": {
+      "value": "<p><strong>Couple steps back.</strong></p><img src=\"Art%20-%20Items/worn-items/poncho_cloak_wool_golden_seal.webp\" /><p>This garment offers magic protection in the form of a +1 to +5 <em>resistance bonus</em> on all saving throws (<em>Fortitude</em>, <em>Reflex</em>, and <em>Will</em>).</p><h3>Construction</h3><p><strong>Requirements</strong> @UUID[Compendium.pf1.feats.Item.tD76K8QGco9scT0r]{Craft Wondrous Item}, @UUID[Compendium.pf1.spells.Item.g8j278xcu2s1zlwy]{resistance}, creator's caster level must be at least three times the cloak's bonus; <strong>Cost</strong> 4,500 gp</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 9000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Cloak"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "nCKZYjL1",
+        "formula": "3",
+        "target": "allSavingThrows",
+        "type": "resist",
+        "operator": "add",
+        "priority": 0
+      },
+      {
+        "type": "circumstance",
+        "_id": "W6yX5fhq",
+        "operator": "add",
+        "priority": 0,
+        "formula": "2",
+        "target": "skill.int"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "nklQvFRurgRFRd1o",
+        "name": "Look Cool",
+        "activation": {
+          "cost": 1,
+          "type": "nonaction",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/hypetracks/western_hypetrack_titoli_.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "shoulders",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "leather",
+          "custom": false
+        },
+        "normal": {
+          "value": "leather",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "sources": [],
+    "nonlethal": false,
+    "showInCombat": false
+  },
+  "type": "equipment",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274175414,
+    "modifiedTime": 1757274175414,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.iX5Eo1b95hTRDJdB",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

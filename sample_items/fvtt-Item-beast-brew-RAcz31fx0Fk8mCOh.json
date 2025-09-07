@@ -1,0 +1,125 @@
+{
+  "name": "Beast Brew",
+  "type": "consumable",
+  "img": "Art%20-%20Items/consumables/beer_stein_full_of_glowing_purple_liquid_beast_brew.webp",
+  "system": {
+    "description": {
+      "value": "<p>This bubbling and glowing beverage tastes like a thick dark ale. While sipping, one can hear the authentic 'Call of the Beast of Lepidstadt' from somewhere out in the Northern Swamps where the creature still lurks today, waiting for his next victim!</p><img src=\"Art%20-%20Items/consumables/beer_stein_full_of_glowing_purple_liquid_beast_brew.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0.5
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 2,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "drink"
+    },
+    "cursed": false,
+    "cl": 3,
+    "aura": {
+      "custom": false,
+      "school": "ill"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "pricePerUse": 0
+    },
+    "actions": [
+      {
+        "_id": "XAYh3NGroAkgqGDC",
+        "name": "Drink",
+        "img": "Art%20-%20Items/consumables/beer_stein_full_of_glowing_purple_liquid_beast_brew.webp",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/effects/beer_pour_glass_roar.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "misc",
+    "showInQuickbar": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273970217,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.RAcz31fx0Fk8mCOh",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

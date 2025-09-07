@@ -1,0 +1,236 @@
+{
+  "img": "Art%20-%20Items/weapons/hammer_jet-black_hammer_like_mjolnir_has_is_et_.webp",
+  "name": "Retaliation",
+  "system": {
+    "description": {
+      "value": "<p>This heavy black steel hammer seems to add momentum to every swing, causing extra damage whenever possible. This effect functions as \"keen\" with \"critical focus\" and does not stack with those abilities.</p><img src=\"Art%20-%20Items/weapons/hammer_jet-black_hammer_like_mjolnir_has_is_et_.webp\" />",
+      "instructions": "",
+      "unidentified": "<p>This weapon consists of a wooden haft and a heavy, metal head. The head may be single (like a carpenter's hammer) or double (like a sledgehammer). The haft is long enough that you may wield it one- or two-handed. Though heavy and relatively slow to wield, warhammers are capable of delivering immense blows, crushing armor and flesh alike.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 5,
+      "total": 5,
+      "converted": {
+        "total": 5,
+        "value": 5
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 10324,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 12,
+      "name": "Warhammer"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 14,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "sc0l1rnnsr44o6a5",
+        "ability": {
+          "attack": "str",
+          "critMult": 3,
+          "damage": "str",
+          "critRange": 19
+        },
+        "actionType": "mwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 8, @size)",
+              "types": [
+                "bludgeoning"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {}
+        },
+        "name": "Attack",
+        "range": {
+          "units": "melee",
+          "value": "0"
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "uses": {},
+        "critConfirmBonus": "4",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "1h",
+    "hands": 1,
+    "baseTypes": [
+      "Warhammer"
+    ],
+    "weaponGroups": [
+      "hammers"
+    ],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "coldIron",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "142"
+      },
+      {
+        "id": "PZO1123",
+        "pages": "18"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273852779,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.JDAIDH9QfQWyCJk6",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

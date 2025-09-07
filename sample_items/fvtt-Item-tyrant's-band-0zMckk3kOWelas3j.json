@@ -1,0 +1,288 @@
+{
+  "name": "Tyrant's Band",
+  "type": "equipment",
+  "img": "Art%20-%20Items/rings/ring_whispering_way_skull_gag.webp",
+  "system": {
+    "description": {
+      "value": "<p>This ring, forged from black steel and set with six deep emerald gems, exudes a sense of dark purpose and power. The centerpiece is a skull, its mouth gagged—an emblem reflecting the cult's reverence for silence and secrets, and their goal of serving the Whispering Tyrant, Tar-Baphon, the former ruler of Ustalav. Each gem could be said to represent an aspect of the Tyrant's power, and the gagged skull symbolizes the silence under which these powers must be reassembled.</p><p>Base Ability: As a Ring of Protection +1, it offers a +1 deflection bonus to AC. This protective aura is more pronounced than in a typical ring of its kind, occasionally manifesting as emerald sparks that dance along the wearer's forearm when in danger.</p><p>Additional Powers:</p><ol><li><p>Veil of Silence: Once per day, the wearer can activate the ring to cast Silence as a 2nd-level spell, but with a twist. Instead of nullifying all sound, this version allows the wearer and up to two chosen allies within the area to communicate silently, their words transmitted directly into each other's minds. This ability is particularly useful for secretive communication or evading detection by enemies. To others nearby, only unintelligible whispers are heard. The Silence lasts for 5 minutes or until the wearer decides to end it prematurely.</p></li><li><p>Necrotic Navigation: The ring holds a charge of 3 uses, which replenish at dawn. Spending a charge grants the wearer the ability to cast Detect Undead at will for 10 minutes, enhancing their ability to sense undead creatures through walls and barriers up to a certain depth.</p><p>Additionally, once per long journey (defined as travel taking more than a week), the wearer can expend all remaining charges to conjure a spectral guide. This guide appears as a hooded figure of indeterminate race, visible only to the ring's wearer, leading them through the safest or most direct path to their destination. While this path might not always be the most morally straightforward, it ensures the wearer's survival through treacherous terrains and against potential threats.</p></li></ol><p></p><img src=\"Art%20-%20Items/rings/ring_whispering_way_skull_gag.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 2000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Ring"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "HUSPkjKU",
+        "formula": "1",
+        "operator": "add",
+        "target": "ac",
+        "type": "deflection",
+        "priority": 0
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "l4LSCSnXOdvv5Rck",
+        "name": "Veil of Silence",
+        "img": "Art%20-%20Items/rings/ring_whispering_way_skull_gag.webp",
+        "description": "<p>Once per day, the wearer can activate the ring to cast Silence as a 2nd-level spell, but with a twist. Instead of nullifying all sound, this version allows the wearer and up to two chosen allies within the area to communicate silently, their words transmitted directly into each other's minds. This ability is particularly useful for secretive communication or evading detection by enemies. To others nearby, only unintelligible whispers are heard. The Silence lasts for 5 minutes or until the wearer decides to end it prematurely.</p>",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "value": "5",
+          "units": "minute"
+        },
+        "range": {
+          "value": "15",
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 1,
+            "maxFormula": "1",
+            "per": "day"
+          }
+        },
+        "actionType": "other",
+        "soundEffect": "audio/effects/shh.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "area": "20' radius"
+      },
+      {
+        "_id": "YxigPxJkbytJ145D",
+        "name": "Detect Undead",
+        "img": "systems/pf1/icons/misc/magic-swirl.png",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "value": "concentration, up to 1 minute/level",
+          "units": "spec"
+        },
+        "range": {
+          "value": "60",
+          "units": "ft"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 3,
+            "maxFormula": "3",
+            "per": "day"
+          }
+        },
+        "measureTemplate": {
+          "type": "cone",
+          "size": "60",
+          "color": null,
+          "texture": null
+        },
+        "actionType": "other",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "area": "cone-shaped emanation"
+      },
+      {
+        "_id": "rd0YT772d5mXs5wN",
+        "name": "Spectral Guide",
+        "img": "Art%20-%20Items/rings/ring_whispering_way_skull_gag.webp",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 1,
+            "maxFormula": "1",
+            "per": "week"
+          }
+        },
+        "actionType": "other",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "ring",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.4"
+    },
+    "item-piles": {
+      "item": {}
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274030984,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.0zMckk3kOWelas3j",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

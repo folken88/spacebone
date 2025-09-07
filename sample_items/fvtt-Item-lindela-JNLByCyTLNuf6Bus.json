@@ -1,0 +1,183 @@
+{
+  "name": "Lindela",
+  "type": "equipment",
+  "img": "Art%20-%20Items/rings/ring_black_silver_writing_elegant.webp",
+  "system": {
+    "description": {
+      "value": "<p>Inscribed in Osiriani on this ring is the quote \"Never interupt your enemy when they are making a mistake.\"</p><p></p><p>This +2 ring of protection has a unique tactical power in addition to its defensive qualities. When the wearer casts a spell against a target that fails their will-save, the wearer can instantly cast a defensive buff spell on themselves if they can do so without verbal or somatic components.</p><img src=\"Art%20-%20Items/rings/ring_black_silver_writing_elegant.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 11000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Ring"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 12,
+    "changes": [
+      {
+        "_id": "ph29lvMJ",
+        "formula": "2",
+        "operator": "add",
+        "target": "ac",
+        "type": "deflection",
+        "priority": 0
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "ring",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274229845,
+    "modifiedTime": 1757274229845,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.JNLByCyTLNuf6Bus",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

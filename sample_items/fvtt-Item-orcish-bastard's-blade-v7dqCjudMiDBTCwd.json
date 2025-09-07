@@ -1,0 +1,255 @@
+{
+  "name": "Orcish Bastard's Blade",
+  "type": "weapon",
+  "img": "Art%20-%20Items/weapons/glaive462px-Weapon_b_1010200800.webp",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>An Orcish-Bastard's Blade reforged in Adamantine steel.</p><img src=\"Art%20-%20Items/weapons/glaive462px-Weapon_b_1010200800.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 8
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 24000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "glaive"
+    },
+    "cursed": false,
+    "cl": 15,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 10,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "1ezds2xueeyrfh5q",
+        "name": "Attack",
+        "img": "Art%20-%20Items/weapons/glaive462px-Weapon_b_1010200800.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "reach"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 10, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 20,
+          "critMult": 3
+        },
+        "soundEffect": "audio/effects/sword_hit_meaty1.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "rGOfNfk1i5BoBhT1",
+            "name": "Sneak Attack",
+            "modifiers": [
+              {
+                "_id": "s53hMhIQqjqyxBku",
+                "formula": "(@resources.classFeat_sneakAttackSla.max)d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "precision"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ],
+        "notes": {
+          "footer": [
+            "Reach 5' or 10'. Adamantine edge ignores most DR."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 3,
+    "proficient": true,
+    "held": "2h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "2h",
+    "hands": 1,
+    "baseTypes": [],
+    "weaponGroups": [
+      "polearms"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274193592,
+    "modifiedTime": 1757274193592,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.v7dqCjudMiDBTCwd",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

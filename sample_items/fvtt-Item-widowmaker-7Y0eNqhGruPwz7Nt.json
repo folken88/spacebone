@@ -1,0 +1,242 @@
+{
+  "img": "Art%20-%20Items/weapons/greataxe_black_steel_evil.webp",
+  "name": "Widowmaker",
+  "system": {
+    "description": {
+      "value": "<p><em>No vow, no bond, no sacred thread,<br />Shall keep me from the justice bled,<br />Beneath her gaze, with stinging grace,<br />I end his breath, cleave his face.<br /></em></p><p>Legends say this axe &amp; poem are both the creation of an infamous priest of Calistria. The weapon was made for disposing of jealous husbands.</p><img src=\"Art%20-%20Items/weapons/greataxe_black_steel_evil.webp\" />",
+      "instructions": "",
+      "unidentified": "<p>This two-handed battle axe is heavy enough that you can't wield it with one hand. The head may have one blade or two, and may be \"bearded\" (meaning hooked or trailing at the bottom) to increase cleaving power and help pull down enemy shields. The haft is usually 3 to 4 feet long.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 12,
+      "total": 12,
+      "converted": {
+        "total": 12,
+        "value": 12
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8320,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 20,
+      "name": "Greataxe"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 30,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 14,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "mqsu8ycqg6lbdbna",
+        "ability": {
+          "attack": "str",
+          "critMult": 3,
+          "damage": "str",
+          "critRange": 20
+        },
+        "actionType": "mwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 12, @size)",
+              "types": [
+                "slashing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "negative"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {}
+        },
+        "name": "Attack",
+        "range": {
+          "units": "melee",
+          "value": "0"
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "uses": {},
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "soundEffect": "audio/effects/slam_unholy_.mp3"
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": false,
+    "held": "2h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "2h",
+    "hands": 1,
+    "baseTypes": [
+      "Greataxe"
+    ],
+    "weaponGroups": [
+      "axes"
+    ],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "143"
+      },
+      {
+        "id": "PZO1123",
+        "pages": "18"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273865415,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.7Y0eNqhGruPwz7Nt",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

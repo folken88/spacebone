@@ -1,0 +1,99 @@
+{
+  "name": "Winterhold  Student's Satchel",
+  "type": "container",
+  "system": {
+    "description": {
+      "value": "<p>Part of the <em>Carriers by Calvin</em> line of luxury containers, this finely crafted leather satchel has runework hidden in its stitching.</p><p>This dimensional pocket magically stores up to 100 cubic feet of items, and reduces their material-plane-weight by 88%.</p><img src=\"Art%20-%20Items/containers/satchel_of_blue_suade_dd_magic_item_bag_of_holding_oil1.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0,
+      "reduction": {
+        "value": 0,
+        "percent": 88
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "bag"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 10,
+    "items": {},
+    "maxWeight": null,
+    "sellMultiplier": 0.5,
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "masterwork": false
+  },
+  "img": "Art%20-%20Items/containers/satchel_of_blue_suade_dd_magic_item_bag_of_holding_oil1.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.1"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273946470,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.seh03AWApnpt6ov9",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

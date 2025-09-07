@@ -1,0 +1,251 @@
+{
+  "name": "Phase Spider Bracers",
+  "type": "equipment",
+  "img": "Art%20-%20Items/worn-items/bracer_phase_venom.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.4"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>This enchanted silver bracer is made in the shape of a phase-spider, a deadly monster that is able to enter and exit the ethereal realm at will.</p><p>It provides the wearer with several benefits.</p><p><strong>Defense:</strong><br />Functions as bracers of armor +2</p><p><strong>Powers:</strong></p><p>Casts @UUID[Compendium.pf1.spells.68m9du7zw2di7ew6]{Feather Fall} on the wearer automatically, extending silken webs in all directions if they suddenly fall. These webs are only semi-tangible and can only be touched or cut by a creature sensitive to ethereal travel. They disappear after the wearer stops falling. This is usable several times per day. With practice, the wearer can even use these webs to \"catch\" others within 60'.</p><p>The wearer can use the spell @UUID[Compendium.pf1.spells.3mfmhx8avu7h3iom]{Spider Climb} at-will, granting them a climb speed of 20.</p><img src=\"Art%20-%20Items/worn-items/bracer_phase_venom.webp\" /><p></p><p></p><img src=\"Art%20-%20Items/worn-items/bracer_phase_venom.jpg\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 6400,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "bracers"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 12,
+    "changes": [
+      {
+        "_id": "u7TcjWse",
+        "formula": "20",
+        "operator": "add",
+        "priority": 0,
+        "target": "climbSpeed",
+        "type": "enh"
+      },
+      {
+        "_id": "0LyW1stc",
+        "formula": "8",
+        "operator": "add",
+        "priority": 0,
+        "target": "skill.clm",
+        "type": "enh"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "WbIhPK7MSbqcd64h",
+        "name": "Feather Fall",
+        "img": "Art%20-%20Items/worn-items/bracer_phase_venom.jpg",
+        "activation": {
+          "cost": 1,
+          "type": "immediate",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "value": "60",
+          "units": "ft"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 6,
+            "maxFormula": "(max( @abilities.int.mod, @abilities.wis.mod, @abilities.cha.mod))",
+            "per": "day"
+          }
+        },
+        "actionType": "other",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "wrists",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 2,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": true,
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": ""
+      },
+      "bonus": {
+        "formula": ""
+      },
+      "label": null
+    },
+    "formula": "",
+    "ability": {
+      "attack": null,
+      "damage": null,
+      "damageMult": 1,
+      "critRange": 20,
+      "critMult": 2
+    },
+    "save": {
+      "dc": 0,
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false,
+    "conditionals": [],
+    "weightConverted": 1
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274224969,
+    "modifiedTime": 1757274224969,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.aGZQ9KNunfG5kL4D",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

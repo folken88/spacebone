@@ -6,6 +6,8 @@
  * @version 1.0.0
  */
 
+import { SPECIAL_MATERIALS, applyMaterialToItem, calculateMaterialCost } from '../data/materials.js';
+
 export class ItemFactory {
     constructor() {
         this.moduleId = 'folken-games-spacebone';
@@ -139,6 +141,15 @@ export class ItemFactory {
         // Add special weapon abilities from mechanical effects
         if (itemData.type === 'weapon' && itemData.mechanical?.effects) {
             this.addSpecialWeaponAbilities(baseItem, itemData.mechanical.effects);
+        }
+
+        // Detect and apply special materials
+        const detectedMaterial = this.detectMaterial(itemData);
+        if (detectedMaterial) {
+            applyMaterialToItem(baseItem, detectedMaterial);
+            // Update price with material cost
+            const materialCost = calculateMaterialCost(detectedMaterial, baseItem);
+            baseItem.system.price = (baseItem.system.price || 0) + materialCost;
         }
 
         // Add caster level and aura
@@ -302,12 +313,76 @@ export class ItemFactory {
     }
 
     /**
+     * Detect special material from item data
+     * @param {Object} itemData - LLM generated item data
+     * @returns {string|null} Material ID or null if none detected
+     */
+    detectMaterial(itemData) {
+        // Check explicit material field first
+        if (itemData.material && itemData.material.toLowerCase() !== 'standard') {
+            const materialLower = itemData.material.toLowerCase();
+            const materialKeywords = {
+                'mithral': ['mithral', 'mithril'],
+                'adamantine': ['adamantine'],
+                'cold_iron': ['cold iron', 'coldiron'],
+                'silver': ['silver', 'alchemical silver'],
+                'darkwood': ['darkwood', 'dark wood'],
+                'dragonhide': ['dragonhide', 'dragon hide', 'dragon scale'],
+                'skymetal': ['skymetal', 'sky metal', 'numerian'],
+                'sea_steel': ['sea-steel', 'sea steel', 'seasteel'],
+                'living_steel': ['living steel', 'livingsteel'],
+                'bone': ['bone', 'skeletal'],
+                'obsidian': ['obsidian', 'volcanic glass']
+            };
+
+            for (const [materialId, keywords] of Object.entries(materialKeywords)) {
+                if (keywords.some(keyword => materialLower.includes(keyword))) {
+                    console.log(`Spacebone | Detected material from MATERIAL field: ${materialId}`);
+                    return materialId;
+                }
+            }
+        }
+
+        // Combine all text sources for material detection
+        const searchText = [
+            itemData.name || '',
+            itemData.description || '',
+            itemData.mechanical?.effects || '',
+            itemData.subType || ''
+        ].join(' ').toLowerCase();
+
+        // Check for each material keyword
+        const materialKeywords = {
+            'mithral': ['mithral', 'mithril'],
+            'adamantine': ['adamantine', 'adamantine'],
+            'cold_iron': ['cold iron', 'coldiron'],
+            'silver': ['silver', 'silvered', 'alchemical silver'],
+            'darkwood': ['darkwood', 'dark wood'],
+            'dragonhide': ['dragonhide', 'dragon hide', 'dragon scale'],
+            'skymetal': ['skymetal', 'sky metal', 'numerian'],
+            'sea_steel': ['sea-steel', 'sea steel', 'seasteel'],
+            'living_steel': ['living steel', 'livingsteel'],
+            'bone': ['bone', 'skeletal'],
+            'obsidian': ['obsidian', 'volcanic glass']
+        };
+
+        for (const [materialId, keywords] of Object.entries(materialKeywords)) {
+            if (keywords.some(keyword => searchText.includes(keyword))) {
+                console.log(`Spacebone | Detected material: ${materialId} from text containing: ${keywords.find(k => searchText.includes(k))}`);
+                return materialId;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Build a custom item from scratch (fallback method)
      * @param {Object} itemData - LLM generated item data
      * @returns {Object} Custom item data
      */
     buildCustomItem(itemData) {
-        return {
+        const customItem = {
             name: itemData.name,
             type: this.mapItemType(itemData.type),
             img: this.getDefaultIcon(itemData.type, itemData.subType),
@@ -320,6 +395,17 @@ export class ItemFactory {
                 }
             }
         };
+
+        // Detect and apply special materials
+        const detectedMaterial = this.detectMaterial(itemData);
+        if (detectedMaterial) {
+            applyMaterialToItem(customItem, detectedMaterial);
+            // Update price with material cost
+            const materialCost = calculateMaterialCost(detectedMaterial, customItem);
+            customItem.system.price = (customItem.system.price || 0) + materialCost;
+        }
+
+        return customItem;
     }
 
     /**

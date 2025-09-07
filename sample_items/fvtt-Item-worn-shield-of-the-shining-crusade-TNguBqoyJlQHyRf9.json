@@ -1,0 +1,191 @@
+{
+  "name": "Worn Shield of the Shining Crusade",
+  "type": "equipment",
+  "img": "systems/pf1/icons/items/armor/shield-heavy-wood.png",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.0"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p><span id=\"ctl00_MainContent_DataListTypes_ctl00_LabelName\">A heavy wooden shield is essentially the same as a heavy steel shield, except that it responds differently to some spells and effects (such as <em>rusting grasp</em>). A druid can use a heavy wooden shield, but not a heavy steel shield.</span></p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 10
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 1157,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "heavy wooden shield"
+    },
+    "cursed": false,
+    "cl": 3,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 7,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 1,
+      "per": "",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "max": 1
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "shield",
+    "slot": "shield",
+    "equipmentSubtype": "heavyShield",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 2,
+      "dex": null,
+      "acp": 2,
+      "enh": 1,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 15,
+    "showInQuickbar": false,
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": ""
+      },
+      "bonus": {
+        "formula": ""
+      },
+      "label": null
+    },
+    "formula": "",
+    "ability": {
+      "attack": null,
+      "damage": null,
+      "damageMult": 1,
+      "critRange": 20,
+      "critMult": 2
+    },
+    "save": {
+      "dc": 0,
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274021856,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.TNguBqoyJlQHyRf9",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

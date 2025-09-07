@@ -1,0 +1,156 @@
+{
+  "img": "Art%20-%20Items/shields/dinvaya_shield_angel_emblem.webp",
+  "name": "CP-USS Guard",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/shields/dinvaya_shield_angel_emblem.webp\" />",
+      "instructions": "",
+      "unidentified": "<p>You strap a heavy steel shield to your forearm and grip it with your hand. A heavy steel shield is so heavy that you can’t use your shield hand for anything else. Whether wooden or steel, a heavy shield offers the same basic protection and attack benefits, though the two versions respond differently to some spells and effects (such as rusting grasp). A druid can use a heavy wooden shield, but not a heavy steel shield.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 8,
+      "total": 15,
+      "converted": {
+        "total": 15,
+        "value": 15
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 9600,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 20,
+      "name": "shield"
+    },
+    "cursed": false,
+    "cl": 9,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 30,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "shield",
+    "slot": "shield",
+    "equipmentSubtype": "heavyShield",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 2,
+      "dex": null,
+      "acp": 2,
+      "enh": 3,
+      "material": {
+        "base": {
+          "value": "steel",
+          "custom": false
+        },
+        "normal": {
+          "value": "mithral",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 15,
+    "showInQuickbar": false,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "151-152"
+      }
+    ],
+    "nonlethal": false
+  },
+  "type": "equipment",
+  "effects": [],
+  "flags": {
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "core": {},
+    "pf1": {
+      "migration": "11.0"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274083406,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.37lztTHXl9ldjFmf",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

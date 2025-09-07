@@ -1,0 +1,167 @@
+{
+  "img": "Art%20-%20Items/worn-items/headband_worn_by_an_evil_warlord_in_a_bloody_war_morwen.webp",
+  "name": "Morwen's Band",
+  "system": {
+    "description": {
+      "value": "<p>Famously worn by Morwen Steel, terror of the Demonskin wars, this headband provides +4 wisdom to the wearer, and makes older residents of Ustalav cross the street to avoid you.</p><img src=\"Art%20-%20Items/worn-items/headband_worn_by_an_evil_warlord_in_a_bloody_war_morwen.webp\" />",
+      "instructions": "",
+      "unidentified": "<p>This simple bronze headband is decorated with an intricate pattern of fine green etchings.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 16000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Headband"
+    },
+    "cursed": false,
+    "cl": 8,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "Riw0PGV0",
+        "formula": "4",
+        "target": "wis",
+        "type": "enh",
+        "operator": "add",
+        "priority": 0
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "headband",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "leather",
+          "custom": false
+        },
+        "normal": {
+          "value": "leather",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "sources": [
+      {
+        "id": "PZO1123",
+        "pages": "250"
+      },
+      {
+        "id": "PZO1110",
+        "pages": "516"
+      }
+    ],
+    "nonlethal": false
+  },
+  "type": "equipment",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "item-piles": {
+      "item": {}
+    },
+    "pf1": {
+      "migration": "11.1"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273932577,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.VDuDSNb6nSjGZTu0",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

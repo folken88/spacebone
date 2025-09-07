@@ -1,0 +1,3838 @@
+{
+  "name": "Northgarde Thicc Boi",
+  "type": "container",
+  "system": {
+    "description": {
+      "value": "<p>Part of the <em>Carriers by Calvin</em> line of luxury containers, this finely crafted backpack has runework hidden in its stitching.</p><p>This dimensional pocket magically stores up to 200 cubic feet of items, and reduces their material-plane-weight by 95%. The bag is huge, even when empty, and can detract from stealth attempts.</p><img src=\"Art%20-%20Items/containers/backpack_hiking_pack_magical_item_dd_item_dark_fantasy1.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0,
+      "reduction": {
+        "value": 0,
+        "percent": 95
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 12000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "bag"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 10,
+    "items": {
+      "pOqrbmJEaJ0CVTci": {
+        "name": "Ustalav: This is fine.",
+        "type": "equipment",
+        "system": {
+          "description": {
+            "value": "<p>A book on various principles with supporting data & tables. This item grants +5 circumstance bonus on knowledge checks when used to \"take 10\" or the book is consulted for at least 10 minutes.</p><img src=\"Art%20-%20Items/books/book_of_history_dd_item_arcanograph_fantasy.webp\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 2
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 350,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "Book"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [
+            {
+              "text": "This is fine: +5 circumstance bonus when consulted.",
+              "target": "skill.khi"
+            }
+          ],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "masterwork": true,
+          "enh": null,
+          "proficient": true,
+          "held": "1h",
+          "ammo": {
+            "type": "",
+            "capacity": null,
+            "misfire": null,
+            "explode": null
+          },
+          "subType": "wondrous",
+          "slot": "slotless",
+          "equipmentSubtype": "lightArmor",
+          "baseTypes": [],
+          "armor": {
+            "value": 0,
+            "dex": null,
+            "acp": 0,
+            "enh": 0,
+            "material": {
+              "base": {
+                "value": "",
+                "custom": false
+              },
+              "normal": {
+                "value": "",
+                "custom": false
+              },
+              "addon": []
+            }
+          },
+          "spellFailure": 0,
+          "showInQuickbar": false,
+          "nonlethal": false
+        },
+        "sort": -100080,
+        "_id": "pOqrbmJEaJ0CVTci",
+        "img": "Art%20-%20Items/books/book_of_history_dd_item_arcanograph_fantasy.webp",
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Actor.glQ3hff6Y8rlpl0z.Item.aB6rM9r4JJYEdyTk"
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Actor.glQ3hff6Y8rlpl0z.Item.aB6rM9r4JJYEdyTk"
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273061105,
+          "modifiedTime": 1708905749132,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "HL0hyw8bhQwoYtPS": {
+        "_id": "HL0hyw8bhQwoYtPS",
+        "name": "Outfit, Barrister",
+        "type": "equipment",
+        "img": "systems/pf1/icons/items/equipment/belt-plain.jpg",
+        "sort": 0,
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf1.items.LZLwdGasEUnMplnc"
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "system": {
+          "description": {
+            "value": "<p class=\"source\" style=\"box-sizing: border-box; user-select: text; color: #191813; font-size: 13px;\"><strong style=\"box-sizing: border-box; user-select: text;\">Source</strong>&nbsp;<a style=\"box-sizing: border-box; user-select: text;\" title=\"PZO1110\" href=\"http://www.amazon.com/gp/product/1601251505/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1601251505&amp;linkCode=as2&amp;tag=httpwwwd20pfs-20\" target=\"_blank\" rel=\"noopener\">PZO1110</a></p>\n<p style=\"box-sizing: border-box; user-select: text; color: #191813; font-size: 13px;\">This set of clothes is for someone who never knows what to expect. It includes sturdy boots, leather breeches or a skirt, a belt, a shirt (perhaps with a vest or jacket), gloves, and a cloak. Rather than a leather skirt, a leather overtunic may be worn over a cloth skirt. The clothes have plenty of pockets (especially the cloak). The outfit also includes any extra accessories you might need, such as a scarf or a wide-brimmed hat.</p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 4
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 10,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "masterwork": false,
+          "enh": null,
+          "proficient": true,
+          "held": "1h",
+          "ammo": {
+            "type": "",
+            "capacity": null,
+            "misfire": null,
+            "explode": null
+          },
+          "subType": "clothing",
+          "slot": "clothing",
+          "equipmentSubtype": "lightArmor",
+          "baseTypes": [],
+          "armor": {
+            "value": 0,
+            "dex": null,
+            "acp": 0,
+            "enh": 0,
+            "material": {
+              "base": {
+                "value": "",
+                "custom": false
+              },
+              "normal": {
+                "value": "",
+                "custom": false
+              },
+              "addon": []
+            }
+          },
+          "spellFailure": 0,
+          "showInQuickbar": false,
+          "nonlethal": false
+        },
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273064832,
+          "modifiedTime": 1687717480007,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "9IRYe1LMEqhgZH9c": {
+        "name": "Foundrystein",
+        "type": "consumable",
+        "flags": {
+          "beavers-crafting": {
+            "subtype": ""
+          },
+          "core": {
+            "sourceId": "Item.Q1UCSIfV97MgCo2u"
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "_id": "9IRYe1LMEqhgZH9c",
+        "img": "Art%20-%20Items/consumables/mug_foundrystein_steampunk_beer_cup_clear_sides_with_bioluminescent.webp",
+        "system": {
+          "description": {
+            "value": "<p>This copper-steel beer stein perfectly seals and preserves any liquid stored within it. At its tavern of origin, the Foundry Tavern in Torch of Numeria, these can be quickly refilled with a strange device unique to that location. This \"Tap\" as it is called, fills the stein with ice cold Cayden-Brew, imported from the distant South.</p><img src=\"Art%20-%20Items/consumables/mug_foundrystein_steampunk_beer_cup_clear_sides_with_bioluminescent.webp\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 3
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 45,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "beermug"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 25,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 5,
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0
+          },
+          "actions": [
+            {
+              "_id": "BtETTpis9ZqjqMfM",
+              "name": "Use",
+              "img": "Art%20-%20Items/consumables/mug_foundrystein_steampunk_beer_cup_clear_sides_with_bioluminescent.webp",
+              "activation": {
+                "cost": 1,
+                "type": "",
+                "unchained": {
+                  "cost": 1,
+                  "type": ""
+                }
+              },
+              "range": {
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "heal",
+              "damage": {
+                "parts": [
+                  {
+                    "formula": "1",
+                    "types": [
+                      "nonlethal"
+                    ]
+                  }
+                ]
+              },
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "save": {
+                "dc": "15",
+                "type": "fort",
+                "description": "Save vs Enjoyment",
+                "harmless": false
+              },
+              "soundEffect": "audio/effects/beer_pour_glass.mp3",
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              },
+              "notes": {
+                "effect": [
+                  "Refreshing."
+                ]
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": true
+        },
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273067791,
+          "modifiedTime": 1697409635498,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "9bk2gT8kQU4XgDEA": {
+        "name": "Wyvern Cassoulet",
+        "type": "consumable",
+        "system": {
+          "description": {
+            "value": "<p>A famous recipe from @UUID[Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-journal-entries.JournalEntry.sqEE4iaGlPaZwFLC]{Savage Sustenance},<span style=\"font-family: ALBR55X, 'Font Awesome 5 Free'\">this recipe combines tender chunks of wyvern meat with hearty beans, aromatic herbs, and vegetables to create a dish worthy of the mightiest warriors!</span></p><p>Eating a full bowl of this delicacy causes an @UUID[Compendium.pf1.spells.Item.6l904edkt8jv9jor]{Neutralize Poison} effect along with a 12 hour @UUID[Compendium.pf1.spells.Item.l7e01shgg8c44zfg]{Delay Poison}!</p><img src=\"modules/folken-games-fantasy-chef/images/cassoulet_dd_magic_item_dark_fantasy.jpg\"><p></p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 1
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 250,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "stew"
+          },
+          "cursed": false,
+          "cl": 7,
+          "aura": {
+            "custom": false,
+            "school": "trs"
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 0,
+            "per": "single",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 0
+          },
+          "actions": [
+            {
+              "_id": "XxAMylUUxCDFAf8V",
+              "name": "Use",
+              "img": "modules/folken-games-fantasy-chef/images/cassoulet_dd_magic_item_dark_fantasy.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "minute",
+                "unchained": {
+                  "cost": 1,
+                  "type": ""
+                }
+              },
+              "range": {
+                "units": "personal"
+              },
+              "uses": {
+                "autoDeductChargesCost": "1"
+              },
+              "actionType": "other",
+              "soundEffect": "modules/folken-games-fantasy-chef/audio/eat_canned.mp3",
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "summary": "A bag of nuts"
+            }
+          },
+          "scriptCalls": [],
+          "subType": "pharmaceutical",
+          "showInQuickbar": false,
+          "masterwork": false,
+          "spellType": ""
+        },
+        "img": "modules/folken-games-fantasy-chef/images/cassoulet_dd_magic_item_dark_fantasy.jpg",
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-items-pf1e.Item.zqR5artv82eOs264"
+          },
+          "world": {
+            "buffToggle": {
+              "XxAMylUUxCDFAf8V": {
+                "activate": [
+                  "#oDRjsxdNmT81bafR"
+                ]
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.4"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273070132,
+          "modifiedTime": 1698015351505,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "9bk2gT8kQU4XgDEA",
+        "sort": 0,
+        "folder": null
+      },
+      "FFtnAMU5XMU1HBXQ": {
+        "type": "consumable",
+        "name": "Clamdrinc",
+        "system": {
+          "description": {
+            "value": "<p>Introducing the peculiar elixir that combines the unlikeliest of flavors, Clamdrinc! Drawing inspiration from the iconic elven weapon wielded against the Orcs, this unique soda delivers a briny surprise with every sip. Imagine the essence of the sea captured in a fizzy concoction, where the salty undertones dance alongside a subtle hint of clam, creating an unforgettable taste adventure. With each refreshing gulp, Clamdrinc transports you to a mythical shoreline, where the Elves and the clams unite in an unlikely alliance. Served chilled in a bottle adorned with intricate Elvish engravings, this clam-flavored elixir invites you to embark on a whimsical journey of flavor, defying expectations and tickling your taste buds with its extraordinary blend. Whether you dare to embrace the unexpected or simply seek a conversation starter, Clamdrinc offers a savory salute to the whimsical side of culinary experimentation.</p><img src=\"Art%20-%20Items/potions/bottle_of_soda_dd_magic_item_arcanograph.jpg\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 0,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 150,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "drank"
+          },
+          "cursed": false,
+          "cl": 8,
+          "aura": {
+            "custom": false,
+            "school": "con"
+          },
+          "hp": {
+            "base": 1,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 1,
+          "uses": {
+            "value": 2,
+            "per": "single",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 2
+          },
+          "actions": [
+            {
+              "_id": "6qvlVMEAosqXxn1F",
+              "name": "Drink",
+              "img": "Art%20-%20Items/potions/bottle_of_soda_dd_magic_item_arcanograph.webp",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "value": "0",
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "heal",
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "save": {
+                "dc": "10 + 1[Spell Level] + 0[Spellcasting Ability]",
+                "type": "will",
+                "description": "Will save negates burning need to do a dazzling display next turn.",
+                "harmless": false
+              },
+              "soundEffect": "audio/effects/drink_edamame.mp3",
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false,
+          "masterwork": false,
+          "spellType": ""
+        },
+        "img": "Art%20-%20Items/potions/bottle_of_soda_dd_magic_item_arcanograph.webp",
+        "_id": "FFtnAMU5XMU1HBXQ",
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Scene.tQe58kF0xOReW1VV.Token.EoEB9SHR2YSdU3LU.Item.vQz7U27j8j5h6ySM"
+          },
+          "world": {
+            "buffToggle": {
+              "6qvlVMEAosqXxn1F": {
+                "activate": [
+                  "#KHOXWOfNMsA8sgDj"
+                ]
+              }
+            }
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Scene.tQe58kF0xOReW1VV.Token.EoEB9SHR2YSdU3LU.Item.vQz7U27j8j5h6ySM"
+              },
+              "world": {
+                "buffToggle": {
+                  "6qvlVMEAosqXxn1F": {
+                    "activate": [
+                      "#KHOXWOfNMsA8sgDj"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.8"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273085487,
+          "modifiedTime": 1708905798258,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "ZfLc4tVdXrVbpPSo": {
+        "type": "consumable",
+        "name": "Potion of Nondetection",
+        "system": {
+          "description": {
+            "value": "<p>The warded creature or object becomes difficult to <i>detect</i> by divination spells such as <i>clairaudience/clairvoyance, locate object,</i> and <i>detect</i> spells. <i>Nondetection</i> also prevents location by such magic items as <i>crystal ball</i>s. If a divination is attempted against the warded creature or item, the caster of the divination must succeed on a caster level check (1d20 + caster level) against a DC of 11 + the caster level of the spellcaster who cast <i>nondetection</i>. If you cast <i>nondetection</i> on yourself or on an item currently in your possession, the DC is 15 + your caster level.</p><p>If cast on a creature, <i>nondetection</i> wards the creature's gear as well as the creature itself.</p>\n",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 450,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 4,
+          "aura": {
+            "custom": false,
+            "school": "abj"
+          },
+          "hp": {
+            "base": 1,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 1,
+          "uses": {
+            "value": 2,
+            "per": "single",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 2
+          },
+          "actions": [
+            {
+              "_id": "oAYn4TMsnSvtV3NK",
+              "name": "Drink",
+              "img": "systems/pf1/icons/items/potions/minor-blue.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "value": "0",
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "spellsave",
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "save": {
+                "dc": "10 + 2[Spell Level] + 1[Spellcasting Ability]",
+                "type": "will",
+                "description": "Will negates (object)",
+                "harmless": true
+              },
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false
+        },
+        "img": "systems/pf1/icons/items/potions/minor-blue.jpg",
+        "_id": "ZfLc4tVdXrVbpPSo",
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default"
+            }
+          },
+          "core": {
+            "sourceId": "Actor.BF9LakTPq67vuWcd.Item.sdSLlGcKNftHJ4az"
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273088390,
+          "modifiedTime": 1690753351986,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "qNf1t5AiJSiQBBma": {
+        "type": "consumable",
+        "name": "Potion of Invisibility",
+        "system": {
+          "description": {
+            "value": "<p>The creature or object touched becomes invisible. If the recipient is a creature carrying gear, that vanishes, too. If you cast the spell on someone else, neither you nor your allies can see the subject, unless you can normally see invisible things or you employ magic to do so.</p><p>Items dropped or put down by an invisible creature become visible; items picked up disappear if tucked into the clothing or pouches worn by the creature. Light, however, never becomes invisible, although a source of light can become so (thus, the effect is that of a light with no visible source). Any part of an item that the subject carries but that extends more than 10 feet from it becomes visible.</p><p>Of course, the subject is not magically silenced, and certain other conditions can render the recipient detectable (such as swimming in water or stepping in a puddle). If a check is required, a stationary invisible creature has a +40 bonus on its Stealth checks. This bonus is reduced to +20 if the creature is moving. The spell ends if the subject attacks any creature. For purposes of this spell, an attack includes any spell targeting a foe or whose area or effect includes a foe. Exactly who is a foe depends on the invisible character's perceptions. Actions directed at unattended objects do not break the spell. Causing harm indirectly is not an attack. Thus, an invisible being can open doors, talk, eat, climb stairs, summon monsters and have them attack, cut the ropes holding a rope bridge while enemies are on the bridge, remotely trigger traps, open a portcullis to release attack dogs, and so forth. If the subject attacks directly, however, it immediately becomes visible along with all its gear.</p><p>Spells such as <i>bless</i> that specifically affect allies but not foes are not attacks for this purpose, even when they include foes in their area.</p><p><i>Invisibility</i> can be made permanent (on objects only) with a <i>permanency</i> spell.</p>\n",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 300,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 3,
+          "aura": {
+            "custom": false,
+            "school": "ill"
+          },
+          "hp": {
+            "base": 1,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 1,
+          "uses": {
+            "value": 2,
+            "per": "single",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 2
+          },
+          "actions": [
+            {
+              "_id": "j6holeWpKxPdzc7I",
+              "name": "Drink",
+              "img": "systems/pf1/icons/items/potions/minor-blue.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "value": "0",
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "spellsave",
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "save": {
+                "dc": "10 + 2[Spell Level] + 1[Spellcasting Ability]",
+                "type": "will",
+                "description": "Will negates  or Will negates (object)",
+                "harmless": true
+              },
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false
+        },
+        "img": "systems/pf1/icons/items/potions/minor-blue.jpg",
+        "_id": "qNf1t5AiJSiQBBma",
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default"
+            }
+          },
+          "core": {
+            "sourceId": "Actor.BF9LakTPq67vuWcd.Item.pkNVpfvf1Obud6FM"
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273090122,
+          "modifiedTime": 1690753345579,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "6UKEBLRMcFQ4a5df": {
+        "type": "consumable",
+        "name": "Wand of Light",
+        "system": {
+          "description": {
+            "value": "<p>This spell causes a touched object to glow like a torch, shedding normal light in a 20-foot radius from the point touched, and increasing the light level for an additional 20 feet by one step, up to normal light (darkness becomes dim light, and dim light becomes normal light). In an area of normal or bright light, this spell has no effect. The effect is immobile, but it can be cast on a movable object.</p><p>You can only have one light spell active at any one time. If you cast this spell while another casting is still in effect, the previous casting is dispelled. If you make this spell permanent (through permanency or a similar effect), it does not count against this limit. Light can be used to counter or dispel any darkness spell of equal or lower spell level.</p>\n",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 0,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "Wand"
+          },
+          "cursed": false,
+          "cl": 1,
+          "aura": {
+            "custom": false,
+            "school": "evo"
+          },
+          "hp": {
+            "base": 5,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 5,
+          "uses": {
+            "value": 45,
+            "per": "charges",
+            "autoDeductChargesCost": "",
+            "maxFormula": "50",
+            "rechargeFormula": "",
+            "pricePerUse": 7.5,
+            "max": 50
+          },
+          "actions": [
+            {
+              "_id": "JsoMknQeqEj8GmIw",
+              "name": "Use",
+              "img": "systems/pf1/icons/items/inventory/wand-star.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "units": "touch"
+              },
+              "uses": {},
+              "actionType": "other",
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "wand",
+          "showInQuickbar": false
+        },
+        "img": "systems/pf1/icons/items/inventory/wand-star.jpg",
+        "_id": "6UKEBLRMcFQ4a5df",
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "item-piles": {
+            "item": {}
+          },
+          "core": {
+            "sourceId": "Actor.BF9LakTPq67vuWcd.Item.6eVCfAIDvF5Uo2cR"
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273093831,
+          "modifiedTime": 1706485584396,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "B6JHRRYRPBmN3Agh": {
+        "type": "consumable",
+        "name": "Wand of Mending",
+        "system": {
+          "description": {
+            "value": "<p>This spell repairs damaged objects, restoring 1d4 hit points to the object. If the object has the broken condition, this condition is removed if the object is restored to at least half its original hit points. All of the pieces of an object must be present for this spell to function. Magic items can be repaired by this spell, but you must have a caster level equal to or higher than that of the object. Magic items that are destroyed (at 0 hit points or less) can be repaired with this spell, but this spell does not restore their magic abilities. This spell does not affect creatures (including constructs). This spell has no effect on objects that have been warped or otherwise transmuted, but it can still repair damage done to such items.</p>\n",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 0,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "Wand"
+          },
+          "cursed": false,
+          "cl": 1,
+          "aura": {
+            "custom": false,
+            "school": "trs"
+          },
+          "hp": {
+            "base": 5,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 5,
+          "uses": {
+            "value": 24,
+            "per": "charges",
+            "autoDeductChargesCost": "",
+            "maxFormula": "50",
+            "rechargeFormula": "",
+            "pricePerUse": 7.5,
+            "max": 50
+          },
+          "actions": [
+            {
+              "_id": "WuTZAIGvpZO9a8gF",
+              "name": "Use",
+              "img": "systems/pf1/icons/items/inventory/wand-star.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "value": "10",
+                "units": "ft"
+              },
+              "uses": {},
+              "actionType": "spellsave",
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "save": {
+                "dc": "10 + 0[Spell Level] + 0[Spellcasting Ability]",
+                "type": "will",
+                "description": "Will negates (object)",
+                "harmless": true
+              },
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "wand",
+          "showInQuickbar": false
+        },
+        "img": "systems/pf1/icons/items/inventory/wand-star.jpg",
+        "_id": "B6JHRRYRPBmN3Agh",
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "item-piles": {
+            "item": {}
+          },
+          "core": {
+            "sourceId": "Actor.BF9LakTPq67vuWcd.Item.wUAsQ2pzxQc1wIO8"
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273097080,
+          "modifiedTime": 1706485586759,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "kSnKoFzLxv2dHxwH": {
+        "name": "Potion of Cure Light Wounds",
+        "type": "consumable",
+        "img": "systems/pf1/icons/items/potions/minor-blue.jpg",
+        "effects": [],
+        "sort": 100000,
+        "flags": {
+          "core": {
+            "sourceId": "Actor.IDDbHQvvX6bBQ6ny.Item.xso48g2ot8cxyhnj"
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "system": {
+          "description": {
+            "value": "<p>When laying your hand upon a living creature, you channel positive energy that cures 1d8 points of damage + 1 point per caster level (maximum +5). Since undead are powered by negative energy, this spell deals damage to them instead of curing their wounds. An undead creature can apply spell resistance, and can attempt a Will save to take half damage.</p>\n",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 5,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 50,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 1,
+          "aura": {
+            "custom": false,
+            "school": "con"
+          },
+          "hp": {
+            "base": 1,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 1,
+          "uses": {
+            "value": 1,
+            "per": "single",
+            "autoDeductChargesCost": "1",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 1
+          },
+          "actions": [
+            {
+              "_id": "nhiesujb9hq2ayz4",
+              "name": "Use",
+              "img": "systems/pf1/icons/items/potions/minor-blue.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "value": "0",
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "heal",
+              "damage": {
+                "parts": [
+                  {
+                    "formula": "1d8 + min(5, @item.cl)",
+                    "types": [
+                      "positive"
+                    ]
+                  }
+                ]
+              },
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "save": {
+                "dc": "10 + 1[Spell Level] + 0[Spellcasting Ability]",
+                "type": "will",
+                "description": "Will half ; see text",
+                "harmless": true
+              },
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false,
+          "duration": {
+            "value": null,
+            "units": ""
+          },
+          "target": {
+            "value": ""
+          },
+          "attackName": "",
+          "attackBonus": "",
+          "critConfirmBonus": "",
+          "damage": {
+            "parts": [
+              [
+                "1d8 + min(5, @item.cl)",
+                ""
+              ]
+            ],
+            "critParts": [],
+            "nonCritParts": []
+          },
+          "attackParts": [],
+          "formulaicAttacks": {
+            "count": {
+              "formula": ""
+            },
+            "bonus": {
+              "formula": ""
+            },
+            "label": null
+          },
+          "formula": "",
+          "ability": {
+            "attack": null,
+            "damage": null,
+            "damageMult": 1,
+            "critRange": 20,
+            "critMult": 2
+          },
+          "save": {
+            "dc": "10 + 1[Spell Level] + 0[Spellcasting Ability]",
+            "type": "will",
+            "description": "Will half (harmless); see text"
+          },
+          "soundEffect": "",
+          "powerAttack": {
+            "multiplier": "",
+            "damageBonus": 2,
+            "critMultiplier": 1
+          }
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273100123,
+          "modifiedTime": 1698020385901,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "kSnKoFzLxv2dHxwH",
+        "folder": null
+      },
+      "aRicZHBY364hwGF7": {
+        "name": "Valkyrie Berry Crumble",
+        "type": "consumable",
+        "system": {
+          "description": {
+            "value": "<p><span style=\"font-family:Signika, sans-serif\">A famous recipe from @UUID[Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-journal-entries.JournalEntry.sqEE4iaGlPaZwFLC]{Savage Sustenance}, this delicious dessert can be shared by up to 4 medium creatures.</span></p><p><span style=\"box-sizing:border-box;user-select:text\"><span style=\"font-family:ALBR55X, 'Font Awesome 5 Free'\">A warm and bubbling berry filling topped with a buttery crumble made with oats, flour, brown sugar, and spices. Served with a scoop of vanilla ice cream or a dollop of whipped cream.</span></span></p><ul style=\"box-sizing:border-box;user-select:text;margin:0.5em 0px;padding:0px 0px 0px 1.5em;color:rgb(25, 24, 19);font-family:ALBR55X, 'Font Awesome 5 Free';font-size:14px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\"><li style=\"box-sizing:border-box;user-select:text\"><p class=\"MsoNormal\" style=\"box-sizing:border-box;user-select:text;margin:0.5em 0px 0in;line-height:normal;vertical-align:baseline\"><span style=\"box-sizing:border-box;user-select:text\"><span style=\"font-family:ALBR55X, 'Font Awesome 5 Free'\"><em style=\"box-sizing:border-box;user-select:text\"><strong style=\"box-sizing:border-box;user-select:text\">Benefit:</strong></em> The smell of this delicacy while baking provides a @UUID[Compendium.pf1.spells.Item.a1jn7g374wcrb9mz]{Stone to Flesh} effect with +4 morale bonus on the save. Up to 4 consumers of this dessert receive Truespeech for 4 hours (as <a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.pf1.spells.Item.m1rmcpcaixcpz9ib\" data-id=\"m1rmcpcaixcpz9ib\" data-type=\"Item\" data-pack=\"pf1.spells\" data-tooltip=\"Spell Item\" data-scope style=\"box-sizing:border-box;user-select:text;cursor:pointer;background:rgb(221, 221, 221);padding:1px 4px;border:1px solid var(--color-border-dark-tertiary);border-radius:2px;white-space:nowrap;word-break:break-all\">Tongues</a>).</span></span></p></li></ul><img src=\"modules/folken-games-fantasy-chef/images/berry_crisp_in_a_fluted_ramekin_arcanograph_dd_magic.jpg\" />",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 1
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 250,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "stew"
+          },
+          "cursed": false,
+          "cl": 7,
+          "aura": {
+            "custom": false,
+            "school": "trs"
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 1,
+            "per": "single",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 0
+          },
+          "actions": [
+            {
+              "_id": "XxAMylUUxCDFAf8V",
+              "name": "Use",
+              "img": "modules/folken-games-fantasy-chef/images/berry_crisp_in_a_fluted_ramekin_arcanograph_dd_magic.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "minute",
+                "unchained": {
+                  "cost": 1,
+                  "type": ""
+                }
+              },
+              "range": {
+                "units": "personal"
+              },
+              "uses": {
+                "autoDeductChargesCost": "1"
+              },
+              "actionType": "other",
+              "soundEffect": "modules/folken-games-fantasy-chef/audio/eat_canned.mp3",
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "summary": "A bag of nuts"
+            }
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false,
+          "masterwork": false,
+          "spellType": "",
+          "showInCombat": false
+        },
+        "img": "modules/folken-games-fantasy-chef/images/berry_crisp_in_a_fluted_ramekin_arcanograph_dd_magic.jpg",
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-items-pf1e.Item.IETasilX861dkfR4"
+          },
+          "pf1": {
+            "migration": "11.4"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          },
+          "item-piles": {
+            "item": {}
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273102360,
+          "modifiedTime": 1721596519696,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "aRicZHBY364hwGF7",
+        "sort": 300000,
+        "folder": null
+      },
+      "NEzVqpJ6lr3L9Z1E": {
+        "name": "Tater Tot Hot Dish",
+        "type": "consumable",
+        "img": "modules/folken-games-fantasy-chef/images/tater_tot_hot_dish_arcanograph_dd_magic_item.jpg",
+        "effects": [],
+        "flags": {
+          "autoanimations": {
+            "killAnim": false,
+            "override": false,
+            "animType": "t1",
+            "animName": "",
+            "bards": {
+              "bardAnim": "a1",
+              "bardTarget": true,
+              "bardTargetAnim": "a1",
+              "bardTargetColor": "a1",
+              "bardSelf": true,
+              "marker": true,
+              "markerColor": "a1",
+              "markerColorTarget": "a1"
+            },
+            "spellVar": "a1",
+            "hmAnim": "a1",
+            "color": "n1",
+            "spellOptions": {
+              "spellLoops": 1
+            },
+            "uaStrikeType": "physical",
+            "dtvar": "dt1",
+            "divineSmite": {
+              "dsEnable": false,
+              "dsSelf": true,
+              "dsSelfDelay": 0,
+              "dsSelfColor": "a1",
+              "dsTarget": true,
+              "dsTargetDelay": 1250,
+              "dsTargetColor": "a1"
+            },
+            "explosion": false,
+            "explodeVariant": "ev1",
+            "explodeColor": "",
+            "explodeRadius": "0",
+            "explodeLoop": "1",
+            "allSounds": {
+              "explosion": {
+                "audioExplodeEnabled": false,
+                "file": "",
+                "delay": 100,
+                "volume": 0.25
+              },
+              "item": {
+                "enableAudio": false,
+                "file": "",
+                "delay": 100,
+                "volume": 0.25
+              }
+            },
+            "selfRadius": "5",
+            "animTint": "#ffffff",
+            "auraOpacity": 0.75,
+            "ctaOption": false,
+            "teleDist": 30,
+            "templates": {
+              "tempType": "a1",
+              "tempAnim": "",
+              "tempColor": "",
+              "tempLoop": 1,
+              "customAnim": false,
+              "customPath": ""
+            }
+          },
+          "core": {
+            "sourceId": "Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-items-pf1e.Item.Srav56Fe5vpBfzv9"
+          },
+          "world": {
+            "buffToggle": {
+              "0guatg12i5xfv8e1": {
+                "activate": [
+                  "#qQdY7rcsR75Mox2G"
+                ]
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.8"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          },
+          "item-piles": {
+            "item": {}
+          }
+        },
+        "system": {
+          "description": {
+            "value": "<p>A famous recipe from @UUID[Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-journal-entries.JournalEntry.sqEE4iaGlPaZwFLC]{Savage Sustenance}</p><p>Provides @UUID[Compendium.pf1.spells.jnlr9cuepka1l26e]{Enlarge Person} for 30 minutes.</p><p><span style=\"font-family:Signika, sans-serif\">The recipe for this hearty creation was gifted to me by Zokar Elkarid, the owner of Ravengo’s own Laughing Demon! While it isn’t his signature horror-themed fare, Zokar told me this is what he enjoys on his day off. Tater tot hotdish combines golden tater tots, succulent ground meat, and a symphony of vegetables, bound together by a velvety sauce. It is a feast fit for champions, promising satisfaction and nourishment after a hard-fought battle or a day of epic adventures.</span></p><img src=\"modules/folken-games-fantasy-chef/images/tater_tot_hot_dish_arcanograph_dd_magic_item.jpg\" />",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 1,
+          "weight": {
+            "value": 2
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 150,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "food"
+          },
+          "cursed": false,
+          "cl": 7,
+          "aura": {
+            "custom": false,
+            "school": "trs"
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 5,
+          "uses": {
+            "value": 2,
+            "per": "single",
+            "autoDeductChargesCost": "1",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 2
+          },
+          "actions": [
+            {
+              "_id": "0guatg12i5xfv8e1",
+              "name": "Use",
+              "img": "modules/folken-games-fantasy-chef/images/tater_tot_hot_dish_arcanograph_dd_magic_item.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "minute",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "range": {
+                "value": "0",
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "other",
+              "save": {
+                "description": "Will half ; see text",
+                "harmless": true
+              },
+              "soundEffect": "modules/folken-games-fantasy-chef/audio/eat_canned.mp3",
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false,
+          "duration": {
+            "value": null,
+            "units": ""
+          },
+          "target": {
+            "value": ""
+          },
+          "attackName": "",
+          "attackBonus": "",
+          "critConfirmBonus": "",
+          "damage": {
+            "parts": [
+              [
+                "3d8 + min(15, @item.cl)",
+                ""
+              ]
+            ],
+            "critParts": [],
+            "nonCritParts": []
+          },
+          "attackParts": [],
+          "formulaicAttacks": {
+            "count": {
+              "formula": "",
+              "value": null
+            },
+            "bonus": {
+              "formula": ""
+            },
+            "label": null
+          },
+          "formula": "",
+          "ability": {
+            "attack": null,
+            "damage": "",
+            "damageMult": 1,
+            "critRange": 20,
+            "critMult": 2
+          },
+          "save": {
+            "dc": "14",
+            "type": "",
+            "description": "Will half (harmless); see text"
+          },
+          "soundEffect": "audio/effects/Child%20Soup%20Slurp.mp3",
+          "powerAttack": {
+            "multiplier": "",
+            "damageBonus": 2,
+            "critMultiplier": 1
+          },
+          "conditionals": [],
+          "weightConverted": 0.5,
+          "masterwork": false,
+          "spellType": "",
+          "showInCombat": false
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273108838,
+          "modifiedTime": 1721596979047,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "NEzVqpJ6lr3L9Z1E",
+        "sort": 1400000,
+        "folder": null
+      },
+      "Bn9DLEsviECKyMtJ": {
+        "_id": "Bn9DLEsviECKyMtJ",
+        "name": "Journal",
+        "type": "loot",
+        "img": "icons/sundries/books/book-open-brown.webp",
+        "system": {
+          "description": {
+            "value": "<h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 1</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>The sounds are a trick of the caves. I told them it was nothing. They wouldn't believe me. I've spent the night here now and nothing has happened. The noises are strange, like a distant shout or call barely masked behind the sound of moving water.</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 2</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>They couldn't take it. They all swore they were hearing wails and calls. I just hear a vague echo. I don't get it. They will all get caught and hanged while I survive here alone because they won't listen to me.</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 3</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Very quiet today. I thought I heard a banging sound upstairs, outside and I had the terror in my mind that they would come stomping down here, drag me up into the light and execute me on the spot. They said as much to us before.</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 4</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Silence outside, and only a vague scraping or scratching in here. Rats or something, but I see no droppings or other clues to them. The cave plays tricks. You hear things that are probably so far off as to be irrelevant, but they sound like they're right next to you.</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 5</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>I can't leave. Running out of food. I smelled what I would swear was cooking meat from farther into the caves. I followed it to the water pools but, the scent went away. Perhaps I imagined it. Getting very hungry here.</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 6</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>I cant………….leave….. I hear it now. I hear them. I dreamt there were people being silently dragged past my bedroll in the night. Like the law caught up with them and they were dragged off to justice but somehow they left me. It makes no sense.</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Day 7</em></span></h2><h2><span style=\"font-family: IMFellEnglish-Italic\"><em>Screams. Screams from far away but I can hear the persons body burning away or something. It's beyond terror. It sounds like someone being unmade. I can't stay here.</em></span></h2><h2></h2>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 1
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 10,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "book"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "max": 0
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "Category": "Adventuring Gear"
+            }
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273114347,
+          "modifiedTime": 1709505939187,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "effects": [],
+        "sort": 0,
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf-content.pf-items.vuXWbt2eRaebNsWe"
+          },
+          "item-piles": {
+            "item": {}
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "folder": null
+      },
+      "GaEOv1r7Kle61O3j": {
+        "_id": "GaEOv1r7Kle61O3j",
+        "name": "Torch",
+        "type": "loot",
+        "img": "systems/pf1/icons/items/inventory/torch.jpg",
+        "effects": [],
+        "sort": 0,
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf1.items.snfogneawzopfzzl"
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "system": {
+          "description": {
+            "value": "<p><strong>Price</strong> 1 cp; <strong>Weight</strong> 1 lb.</p>\n<p>A torch burns for 1 hour, shedding normal light in a 20-foot radius and increasing the light level by one step for an additional 20 feet beyond that area (darkness becomes dim light and dim light becomes normal light). A torch does not increase the light level in normal light or bright light. If a torch is used in combat, treat it as a one-handed improvised weapon that deals bludgeoning damage equal to that of a gauntlet of its size, plus 1 point of fire damage.</p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 0.01,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 55,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "max": 55
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273116397,
+          "modifiedTime": 1688393986941,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "folder": null
+      },
+      "6b341T362U0q13OC": {
+        "name": "Bloodstained Envelope",
+        "type": "loot",
+        "img": "Art%20-%20Items/carrioncrown-items/_letter_with_a_wax_seal_splattered_with_dark_rede.webp",
+        "system": {
+          "description": {
+            "value": "<h3><span style=\"font-family: IMFellEnglish-Italic\">Lord Echtmoor Dravin,</span></h3><h3><span style=\"font-family: IMFellEnglish-Italic\">In recognition of your esteemed position and notable contributions to the realm, it is with great honor that we extend to you an invitation to Ascanor Lodge for a period of respite and recreation. Your visit is scheduled for the duration of the month of Abadius, in the year 4717.</span></h3><h3><span style=\"font-family: IMFellEnglish-Italic\">Ascanor Lodge, nestled in the heart of the Shudderwood, offers unparalleled solace amidst the natural beauty and tranquility of the forest. It is a place where the nobility may find peace away from the burdens of their duties, partake in the hunt, and enjoy the company of their peers.</span></h3><h3><span style=\"font-family: IMFellEnglish-Italic\">We kindly request that you inform us of your intentions regarding this invitation by the end of Kuthona, so we may prepare for your arrival with the appropriate accommodations to ensure a stay befitting your status.</span></h3><h3><span style=\"font-family: IMFellEnglish-Italic\">We look forward to the pleasure of your company at Ascanor Lodge and are eager to make your acquaintance or renew our fellowship.</span></h3><h3><span style=\"font-family: IMFellEnglish-Italic\">With the highest regards,</span></h3><h3><span style=\"font-family: IMFellEnglish-Italic\">Estovion Lozarov, Keeper of Ascanor Lodge</span></h3><img src=\"Art%20-%20Items/carrioncrown-items/_letter_with_a_wax_seal_splattered_with_dark_rede.webp\">",
+            "unidentified": "<p>Sealed with the symbol of Ascanor Lodge, addressed to Lord Echtmoor Dravin, Lepidstadt.</p><img src=\"Art%20-%20Items/carrioncrown-items/_letter_with_a_wax_seal_splattered_with_dark_rede.webp\">"
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 1
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 10,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "envelope"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false
+        },
+        "effects": [],
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf1.items.Item.hdK27WBFJFUNODbx"
+          },
+          "item-piles": {
+            "item": {}
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273118738,
+          "modifiedTime": 1710717793258,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "6b341T362U0q13OC",
+        "folder": null
+      },
+      "RG2Xyssmj1EUStLK": {
+        "name": "Empire of the Eaten",
+        "type": "loot",
+        "img": "Art%20-%20Assets/midjourney/book_dark_gothic_fantasy_setting.webp",
+        "effects": [],
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.folken-games-carrion-crown-pathfinder-rpg.folken-games-carrion-crown-items-pf1e.Item.m8GENnJsvbWihrss"
+          },
+          "item-piles": {
+            "item": {}
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "system": {
+          "description": {
+            "value": "<p>In the shadow-drenched lands of Ghoulvaria, a relentless struggle for supremacy unfolds among the ruling ghoul clans of the Withered Throne. The novel \"Empire of the Eaten\" centers around the voracious Gristlegrim family, who have ruled over the rotting wastes of Mortuarium with a cold and bony hand. As the patriarch, King Marrowgrin Gristlegrim, faces the decay of his own unlife, his children conspire and clash in grotesque displays of cunning and brutality, each vying to devour their way to sovereignty. Their machinations are set against a backdrop of ancient crypts, forbidden necromantic arts, and the ever-present threat of rebellion by the subjugated skeletal serfs.</p><p>Amidst this bone-strewn political landscape, the sinister plot of the Bone Oracle unfolds. She weaves prophecies from the marrow of the dead, manipulating clans and fomenting conflict to achieve her own mysterious ends. As alliances form and fracture, the narrative deepens with each character's pursuit of power and immortality, painting a vivid tableau of ghoul politics where betrayal is as common as grave dirt, and loyalty is as fleeting as life itself. With each clan bringing their own dark magic and monstrous creatures into the fray, \"Empire of the Eaten\" explores the monstrous depths of ambition and the brutal consequences of insatiable hunger for power.</p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 1
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 12,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "book"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "max": 0
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "Category": "Tools"
+            }
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273122800,
+          "modifiedTime": 1714942897242,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "sort": 250000,
+        "_id": "RG2Xyssmj1EUStLK",
+        "folder": null
+      },
+      "U1iPzlqx2trJwCwH": {
+        "name": "Oregano",
+        "type": "loot",
+        "img": "modules/folken-games-fantasy-chef/images/oregano_DD_item_arcanograph_oil.webp",
+        "system": {
+          "description": {
+            "value": "<p>A fragrant herb commonly used in Mediterranean cuisine for its bold flavor.</p><img src=\"modules/folken-games-fantasy-chef/images/oregano_DD_item_arcanograph_oil.webp\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 2,
+          "weight": {
+            "value": 0.01
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 0.05,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "spice"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "summary": "A fragrant herb commonly used in Mediterranean cuisine for its bold flavor."
+            }
+          },
+          "scriptCalls": [],
+          "subType": "food",
+          "extraType": "",
+          "abundant": false,
+          "masterwork": false
+        },
+        "effects": [],
+        "sort": 400000,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf1.items.Item.ovmuotfglyqldnnf"
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Compendium.pf1.items.Item.ovmuotfglyqldnnf"
+              },
+              "item-piles": {
+                "item": {
+                  "core": {
+                    "sourceId": "Compendium.pf1.items.Item.ovmuotfglyqldnnf"
+                  }
+                },
+                "version": "2.4.17"
+              }
+            },
+            "version": "2.4.17"
+          },
+          "pf1": {
+            "migration": "11.0"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273126837,
+          "modifiedTime": 1691352300989,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "U1iPzlqx2trJwCwH",
+        "folder": null
+      },
+      "2I4aB2I6Ul3LfyXc": {
+        "name": "Sugar",
+        "type": "loot",
+        "img": "modules/folken-games-fantasy-chef/images/sugar_DD_item_arcanograph_oil.webp",
+        "system": {
+          "description": {
+            "value": "<p>A prized sweetener used in desserts and various dishes, often imported from exotic lands. Borrowable.</p><img src=\"modules/folken-games-fantasy-chef/images/sugar_DD_item_arcanograph_oil.webp\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0.01
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 0.07,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "ingredient"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "summary": "A prized sweetener used in desserts and various dishes, often imported from exotic lands."
+            }
+          },
+          "scriptCalls": [],
+          "subType": "food",
+          "extraType": "",
+          "abundant": false,
+          "masterwork": false
+        },
+        "effects": [],
+        "sort": 600000,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Item.MiD2h0KCSeOjZoXS"
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Item.MiD2h0KCSeOjZoXS"
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.0"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273129492,
+          "modifiedTime": 1691352297890,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "2I4aB2I6Ul3LfyXc",
+        "folder": null
+      },
+      "wrbib95n7fWqxaCE": {
+        "name": "Steel-Cut Oats",
+        "type": "loot",
+        "img": "modules/folken-games-fantasy-chef/images/oats__steel_cut_DD_item_arcanograph_oil_painting.webp",
+        "system": {
+          "description": {
+            "value": "<p>Whole oat groats that are cut into smaller pieces, resulting in a hearty and nutritious breakfast option when cooked.</p><img src=\"modules/folken-games-fantasy-chef/images/oats__steel_cut_DD_item_arcanograph_oil_painting.webp\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 0.1
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 0.05,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "starch"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 5,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "summary": "Whole oat groats that are cut into smaller pieces."
+            }
+          },
+          "scriptCalls": [],
+          "subType": "food",
+          "extraType": "",
+          "abundant": false,
+          "masterwork": false
+        },
+        "effects": [],
+        "sort": 800000,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Item.AfHb6O4qIZ3IsUfJ"
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Item.AfHb6O4qIZ3IsUfJ"
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.0"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273134664,
+          "modifiedTime": 1691352317659,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "wrbib95n7fWqxaCE",
+        "folder": null
+      },
+      "nP5dviCaRre4I7np": {
+        "name": "Cheese",
+        "type": "loot",
+        "img": "modules/kctg-1e/images/Cheese.webp",
+        "effects": [],
+        "system": {
+          "description": {
+            "value": "Cheese",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 1
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 0.75,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "misc",
+          "extraType": "",
+          "abundant": false,
+          "source": "Kris's Compendium of Trade Goods",
+          "attuned": false,
+          "attunement": 0,
+          "rarity": "common",
+          "attributes": {
+            "spelldc": 10
+          },
+          "damage": {
+            "parts": []
+          },
+          "sources": [
+            {
+              "title": "Kris's Compendium of Trade Goods"
+            }
+          ],
+          "masterwork": false
+        },
+        "flags": {
+          "scene-packer": {
+            "hash": "ed8509738f5273c65537ae883c2409b7d0f51cec"
+          },
+          "core": {
+            "sourceId": "Compendium.kctg-pf1e.data-toolbox-kctg-1e-1719364889243.Item.YFJMvI82dg07pgwa"
+          },
+          "pf1": {
+            "migration": "11.0"
+          },
+          "item-piles": {
+            "item": {}
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273201513,
+          "modifiedTime": 1728956340200,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "nP5dviCaRre4I7np",
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "sort": 1800000,
+        "folder": null
+      },
+      "ETnAKEHxeQEmVKxE": {
+        "img": "systems/pf1/icons/items/inventory/liquid-orange.jpg",
+        "name": "Cheese",
+        "system": {
+          "description": {
+            "value": "<p>The listed prices are for one hunk of cheese in a tavern or restaurant in an average city.</p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 2,
+          "weight": {
+            "value": 0
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 0,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false,
+          "sources": [
+            {
+              "id": "PZO1110"
+            }
+          ]
+        },
+        "type": "loot",
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf1.items.Item.kiqqcvwgkzxqkgtx"
+          },
+          "item-piles": {
+            "item": {}
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273206583,
+          "modifiedTime": 1722806348995,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "ETnAKEHxeQEmVKxE",
+        "sort": 100000,
+        "folder": null
+      },
+      "8nAeOMBSSL6bp8SD": {
+        "name": "La Calstroix Bottle",
+        "type": "consumable",
+        "img": "Art%20-%20Items/consumables/drink_bottle_la_calstroix_water.webp",
+        "system": {
+          "description": {
+            "value": "<p>A bottle of sparkling water from La Calstroix river in Shudderwood.</p><img src=\"Art%20-%20Items/consumables/drink_bottle_la_calstroix_water.webp\">",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 2,
+          "weight": {
+            "value": 0.25
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 3,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "drink"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0
+          },
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false,
+          "masterwork": false,
+          "spellType": ""
+        },
+        "effects": [],
+        "sort": 2300000,
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "flags": {
+          "core": {
+            "sourceId": "Item.7CGOKziDPiv9W3ZD"
+          },
+          "item-piles": {
+            "item": {}
+          },
+          "pf1": {
+            "migration": "11.0"
+          },
+          "lilhelper": {
+            "item": {
+              "hideAttacks": false,
+              "autoPowerAttack": false,
+              "keen": false,
+              "skipDialog": 0,
+              "rollmodeOverride": "",
+              "rollOverride": ""
+            }
+          }
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273349204,
+          "modifiedTime": 1722812999560,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "8nAeOMBSSL6bp8SD",
+        "folder": null
+      },
+      "8IfgIpCY3O52IOsv": {
+        "name": "Potion of Cure Moderate Wounds",
+        "type": "consumable",
+        "flags": {
+          "pick-up-stix": {
+            "pick-up-stix": {
+              "owner": {
+                "actorId": "ZfFQBfrdarIKjByL"
+              },
+              "initialState": {
+                "count": 1,
+                "itemData": {
+                  "name": "Potion of Cure Light Wounds",
+                  "permission": {
+                    "default": 0,
+                    "T9i9xVjdkHeFZC72": 3
+                  },
+                  "type": "consumable",
+                  "data": {
+                    "description": {
+                      "value": "<p><strong style=\"box-sizing: border-box; user-select: text; color: #191813; font-size: 13px;\">Aura</strong><span style=\"color: #191813; font-size: 13px;\"> faint <a href=\"https://www.d20pfsrd.com/magic#TOC-Conjuration\">conjuration</a></span><span style=\"color: #191813; font-size: 13px;\">;&nbsp;</span><strong style=\"box-sizing: border-box; user-select: text; color: #191813; font-size: 13px;\">CL</strong><span style=\"color: #191813; font-size: 13px;\"> 1st</span></p>\n<h2>Spell Description</h2>\n<p>When laying your hand upon a living creature, you channel positive energy that cures 1d8 points of damage +1 point per caster level (maximum +5). Since undead are powered by negative energy, this spell deals damage to them instead of curing their wounds. An undead creature can apply Spell Resistance, and can attempt a&nbsp;<a href=\"https://www.d20pfsrd.com/gamemastering/combat#will\">Will</a>&nbsp;save to take half damage.</p>",
+                      "chat": "",
+                      "unidentified": ""
+                    },
+                    "tags": [],
+                    "quantity": 1,
+                    "weight": 0,
+                    "price": 50,
+                    "identified": true,
+                    "hp": {
+                      "max": 1,
+                      "value": 1
+                    },
+                    "hardness": 1,
+                    "carried": true,
+                    "unidentified": {
+                      "price": 0,
+                      "name": ""
+                    },
+                    "identifiedName": "",
+                    "activation": {
+                      "cost": 1,
+                      "type": "standard"
+                    },
+                    "duration": {
+                      "value": null,
+                      "units": "inst"
+                    },
+                    "target": {
+                      "value": ""
+                    },
+                    "range": {
+                      "value": null,
+                      "units": "personal",
+                      "long": null
+                    },
+                    "uses": {
+                      "value": 0,
+                      "max": 0,
+                      "per": "single",
+                      "autoDeductCharges": true,
+                      "maxFormula": ""
+                    },
+                    "measureTemplate": {
+                      "type": "",
+                      "size": 0,
+                      "overrideColor": false,
+                      "customColor": "",
+                      "overrideTexture": false,
+                      "customTexture": ""
+                    },
+                    "actionType": "heal",
+                    "attackBonus": "",
+                    "critConfirmBonus": "",
+                    "damage": {
+                      "parts": [
+                        [
+                          "1d8+1",
+                          "Healing"
+                        ]
+                      ],
+                      "critParts": []
+                    },
+                    "attackParts": [],
+                    "formula": "",
+                    "ability": {
+                      "attack": null,
+                      "damage": "",
+                      "damageMult": 1,
+                      "critRange": 20,
+                      "critMult": 2
+                    },
+                    "save": {
+                      "dc": "11",
+                      "type": "",
+                      "description": ""
+                    },
+                    "effectNotes": "",
+                    "attackNotes": "",
+                    "links": {
+                      "children": []
+                    },
+                    "consumableType": "potion",
+                    "charges": {
+                      "value": 1,
+                      "max": 1,
+                      "_deprecated": true
+                    },
+                    "consume": {
+                      "value": "",
+                      "_deprecated": true
+                    },
+                    "autoUse": {
+                      "value": true,
+                      "_deprecated": true
+                    },
+                    "autoDestroy": {
+                      "value": true,
+                      "_deprecated": true
+                    },
+                    "attack": {
+                      "parts": []
+                    },
+                    "weightConverted": 0,
+                    "weightUnits": "lbs",
+                    "priceUnits": "gp"
+                  },
+                  "flags": {},
+                  "img": "systems/pf1/icons/items/potions/minor-red.jpg"
+                }
+              },
+              "itemType": "Item",
+              "isLocked": false
+            }
+          },
+          "core": {
+            "sourceId": "Compendium.folken-games-iron-gods-pathfinder-rpg.iron-gods-items-pf1e.Item.DuWCOmZQK8wvfsiR"
+          },
+          "item-piles": {
+            "item": {}
+          },
+          "pf1": {
+            "migration": "11.8"
+          }
+        },
+        "img": "systems/pf1/icons/items/potions/major-red.jpg",
+        "effects": [],
+        "system": {
+          "description": {
+            "value": "<p>This spell functions like&nbsp;<a href=\"https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds\">cure light wounds</a>, except that it cures 2d8 points of damage + 1 point per caster level (maximum +10).</p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "quantity": 3,
+          "weight": {
+            "value": 0
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 300,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 1,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 1,
+          "uses": {
+            "value": 5,
+            "per": "single",
+            "autoDeductChargesCost": "1",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "pricePerUse": 0,
+            "max": 5
+          },
+          "actions": [
+            {
+              "_id": "sgxe2azorisps6bn",
+              "name": "Use",
+              "img": "systems/pf1/icons/items/potions/major-red.jpg",
+              "activation": {
+                "cost": 1,
+                "type": "standard",
+                "unchained": {
+                  "cost": 2,
+                  "type": "action"
+                }
+              },
+              "duration": {
+                "units": "inst"
+              },
+              "range": {
+                "units": "personal"
+              },
+              "uses": {},
+              "actionType": "heal",
+              "damage": {
+                "parts": [
+                  {
+                    "formula": "2d8+3",
+                    "types": [
+                      "untyped"
+                    ]
+                  }
+                ]
+              },
+              "ability": {
+                "critRange": 20,
+                "critMult": 2
+              },
+              "powerAttack": {
+                "multiplier": 0,
+                "damageBonus": 2,
+                "critMultiplier": 1
+              },
+              "naturalAttack": {
+                "secondary": {
+                  "attackBonus": "-5",
+                  "damageMult": 0.5
+                },
+                "primary": true
+              },
+              "ammo": {
+                "cost": 1
+              }
+            }
+          ],
+          "attackNotes": [],
+          "effectNotes": [],
+          "links": {
+            "children": [],
+            "charges": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "potion",
+          "showInQuickbar": false,
+          "duration": {
+            "value": null,
+            "units": "inst"
+          },
+          "target": {
+            "value": ""
+          },
+          "attackName": "",
+          "attackBonus": "",
+          "critConfirmBonus": "",
+          "damage": {
+            "parts": [
+              [
+                "2d8+3",
+                "Healing"
+              ]
+            ],
+            "critParts": [],
+            "nonCritParts": []
+          },
+          "attackParts": [],
+          "formulaicAttacks": {
+            "count": {
+              "formula": "",
+              "value": null
+            },
+            "bonus": {
+              "formula": ""
+            },
+            "label": null
+          },
+          "formula": "",
+          "ability": {
+            "attack": null,
+            "damage": "",
+            "damageMult": 1,
+            "critRange": 20,
+            "critMult": 2
+          },
+          "save": {
+            "dc": "11",
+            "type": "",
+            "description": ""
+          },
+          "soundEffect": "",
+          "powerAttack": {
+            "multiplier": "",
+            "damageBonus": 2,
+            "critMultiplier": 1
+          },
+          "source": "",
+          "charges": {
+            "value": 1,
+            "max": 1,
+            "_deprecated": true
+          },
+          "consume": {
+            "value": "",
+            "_deprecated": true
+          },
+          "autoUse": {
+            "value": true,
+            "_deprecated": true
+          },
+          "autoDestroy": {
+            "value": true,
+            "_deprecated": true
+          },
+          "attack": {
+            "parts": []
+          },
+          "spellArea": ""
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273354786,
+          "modifiedTime": 1721599017540,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "sort": 2400000,
+        "_id": "8IfgIpCY3O52IOsv",
+        "folder": null
+      },
+      "YAzGdgiPRyNSTWzQ": {
+        "name": "Mantrap",
+        "type": "loot",
+        "img": "icons/environment/traps/trap-jaw-green.webp",
+        "system": {
+          "description": {
+            "value": "<p><strong>Source</strong> <em>Ultimate Equipment pg. 77</em>, <em>Advanced Player's Guide pg. 184</em>, <em>Adventurer's Armory pg. 19</em><br /><strong>Price</strong> 2 gp; <strong>Weight</strong> 10 lbs.<br /><strong>Category</strong> Tools</p><h2 class=\"framing\"><img src=\"modules/pf-content/assets/PathfinderSocietySymbol.gif\" style=\"margin:3px 3px 0px 3px\" title=\"PFS Legal\" />Description</h2><p>Although intended for trapping large animals, bear traps work as well for trapping humanoids or monsters. The hinged jaws of the trap are attached to a chain, which in turn is secured to a spike driven into the ground to ensure that the victim cannot simply crawl away. Prying open the jaws or pulling the spike from the ground requires a DC 20 Strength check.<br /> </p><h2 class=\"title\">Bear Trap - CR 1</h2><p> <strong>Type </strong>mechanical; <strong>Perception </strong>DC 15; <strong>Disable Device </strong>DC 20 </p><h2 class=\"framing\">Effects</h2> <strong>Trigger </strong>location; <strong>Reset </strong>manual<br /> <strong>Effect </strong>Atk +10 melee (2d6+3); sharp jaws spring shut around the creature's ankle and halve the creature's base speed (or hold the creature immobile if the trap is attached to a solid object); the creature can escape with a DC 20 Disable Device check, DC 22 Escape Artist check, or DC 26 Strength check.<p></p>",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 3
+          },
+          "equipped": false,
+          "carried": true,
+          "price": 2,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": ""
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": 0,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": "",
+            "max": 0
+          },
+          "changes": [],
+          "changeFlags": {
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false
+          },
+          "contextNotes": [],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {
+              "Category": "Tools"
+            }
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false
+        },
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "systemId": "pf1",
+          "systemVersion": "10.8",
+          "coreVersion": "11.315",
+          "createdTime": 1731273363030,
+          "modifiedTime": 1722809582856,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "effects": [],
+        "sort": 0,
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf-content.pf-items.Item.VUPd8jmwF8LmSNKP"
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Compendium.pf-content.pf-items.Item.VUPd8jmwF8LmSNKP"
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "_id": "YAzGdgiPRyNSTWzQ",
+        "folder": null
+      },
+      "6pg1vCWRfUrYqjsw": {
+        "name": "Real Housewives of Ustalav",
+        "type": "loot",
+        "img": "Art%20-%20Items/books/book_of_magic_dd_item_arcanograph_fantasy.webp",
+        "flags": {
+          "core": {
+            "sourceId": "Compendium.pf1.items.cejaaqjlwwfmnrmw"
+          },
+          "item-piles": {
+            "item": {
+              "hidden": false,
+              "notForSale": false,
+              "infiniteQuantity": "default",
+              "displayQuantity": "default",
+              "free": false,
+              "keepZeroQuantity": false,
+              "disableNormalCost": false,
+              "cantBeSoldToMerchants": false,
+              "isService": false,
+              "keepOnMerchant": false,
+              "macro": "",
+              "customCategory": "",
+              "prices": [],
+              "vaultExpander": false,
+              "vaultSlot": null,
+              "addsCols": 0,
+              "addsRows": 0,
+              "x": null,
+              "y": null,
+              "width": 1,
+              "height": 1,
+              "canStack": "default",
+              "core": {
+                "sourceId": "Compendium.pf1.items.cejaaqjlwwfmnrmw"
+              },
+              "item-piles": {
+                "item": {
+                  "hidden": false,
+                  "notForSale": false,
+                  "infiniteQuantity": "default",
+                  "displayQuantity": "default",
+                  "free": false,
+                  "keepZeroQuantity": false,
+                  "disableNormalCost": false,
+                  "cantBeSoldToMerchants": false,
+                  "isService": false,
+                  "keepOnMerchant": false,
+                  "macro": "",
+                  "customCategory": "",
+                  "prices": [],
+                  "vaultExpander": false,
+                  "vaultSlot": null,
+                  "addsCols": 0,
+                  "addsRows": 0,
+                  "x": null,
+                  "y": null,
+                  "width": 1,
+                  "height": 1,
+                  "canStack": "default"
+                }
+              }
+            }
+          },
+          "pf1": {
+            "migration": "11.0"
+          }
+        },
+        "system": {
+          "description": {
+            "value": "<p>A book on various principles with supporting data &amp; tables. This item grants +5 circumstance bonus on knowledge checks (referring to Ustalavian Nobility) when used to \"take 10\" or the book is consulted for at least 10 minutes.</p><img src=\"Art%20-%20Items/books/book_of_magic_dd_item_arcanograph_fantasy.webp\" />",
+            "instructions": "",
+            "unidentified": ""
+          },
+          "tags": [],
+          "actions": [],
+          "attackNotes": [],
+          "effectNotes": [],
+          "quantity": 1,
+          "weight": {
+            "value": 2
+          },
+          "equipped": true,
+          "carried": true,
+          "price": 250,
+          "size": "med",
+          "resizing": false,
+          "timeworn": false,
+          "artifact": false,
+          "identified": true,
+          "unidentified": {
+            "price": 0,
+            "name": "book"
+          },
+          "cursed": false,
+          "cl": 0,
+          "aura": {
+            "custom": false,
+            "school": ""
+          },
+          "hp": {
+            "base": 10,
+            "offset": 0
+          },
+          "broken": false,
+          "hardness": 0,
+          "uses": {
+            "value": null,
+            "per": "",
+            "autoDeductChargesCost": "",
+            "maxFormula": "",
+            "rechargeFormula": ""
+          },
+          "changes": [],
+          "changeFlags": {
+            "immuneToMorale": false,
+            "loseDexToAC": false,
+            "noMediumEncumbrance": false,
+            "noHeavyEncumbrance": false,
+            "mediumArmorFullSpeed": false,
+            "heavyArmorFullSpeed": false,
+            "lowLightVision": false,
+            "seeInvisibility": false,
+            "seeInDarkness": false
+          },
+          "contextNotes": [
+            {
+              "text": "Real Housewives of Ustalav: +5 circumstance bonus when consulted.",
+              "target": "skill.kno"
+            }
+          ],
+          "links": {
+            "children": []
+          },
+          "tag": "",
+          "flags": {
+            "boolean": {},
+            "dictionary": {}
+          },
+          "scriptCalls": [],
+          "subType": "gear",
+          "extraType": "",
+          "abundant": false
+        },
+        "effects": [],
+        "ownership": {
+          "default": 0,
+          "pIdfjNwf5s6S5Znd": 3
+        },
+        "_stats": {
+          "compendiumSource": "Compendium.pf1.items.cejaaqjlwwfmnrmw",
+          "duplicateSource": null,
+          "coreVersion": "12.331",
+          "systemId": "pf1",
+          "systemVersion": "11.0",
+          "createdTime": 1739145319208,
+          "modifiedTime": 1739145304314,
+          "lastModifiedBy": "pIdfjNwf5s6S5Znd"
+        },
+        "_id": "6pg1vCWRfUrYqjsw",
+        "sort": 200000,
+        "folder": null
+      }
+    },
+    "maxWeight": null,
+    "sellMultiplier": 0.5,
+    "currency": {
+      "pp": 14,
+      "gp": 8600,
+      "sp": 0,
+      "cp": 0
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "masterwork": true
+  },
+  "img": "Art%20-%20Items/containers/backpack_hiking_pack_magical_item_dd_item_dark_fantasy1.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "item-piles": {
+      "item": {}
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274243242,
+    "modifiedTime": 1757274243242,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.j6oprBBCnuMIrLLD",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

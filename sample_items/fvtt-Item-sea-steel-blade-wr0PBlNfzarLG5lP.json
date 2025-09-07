@@ -1,0 +1,221 @@
+{
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273854714,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.wr0PBlNfzarLG5lP",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "img": "Art%20-%20Items/weapons/folken88_httpss.mj.run0eimiz3f53k_fantasy_sword_made_of_magic_2f30162b-58eb-4608-a1ac-ce2c8907f609_3.webp",
+  "name": "Sea-Steel Blade",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/weapons/folken88_httpss.mj.run0eimiz3f53k_fantasy_sword_made_of_magic_2f30162b-58eb-4608-a1ac-ce2c8907f609_3.webp\" /><p>Sea-Steel is a rare, magically hardened form of <strong data-start=\"363\" data-end=\"381\">deep-sea coral</strong> that is nearly <strong data-start=\"397\" data-end=\"438\">indistinguishable from polished steel</strong>, save for its <strong data-start=\"453\" data-end=\"479\">faint iridescent sheen</strong> that shifts between <strong data-start=\"500\" data-end=\"529\">blue-green and storm-gray</strong> under certain light. Found only in <strong data-start=\"565\" data-end=\"588\">deep ocean trenches</strong>, it is harvested and shaped by <strong data-start=\"620\" data-end=\"647\">sahuagin weapon forgers</strong>, who <strong data-start=\"653\" data-end=\"711\">infuse it with abyssal salts and elemental water magic</strong> to make it as strong as steel.</p><p data-start=\"746\" data-end=\"1046\"><strong data-start=\"746\" data-end=\"784\">Unlike normal coral, Sea-Steel is:</strong><br data-start=\"784\" data-end=\"787\" />✔ As <strong data-start=\"792\" data-end=\"812\">durable as steel</strong> but naturally <strong data-start=\"827\" data-end=\"838\">buoyant</strong>, making it easier to wield underwater.<br data-start=\"877\" data-end=\"880\" />✔ <strong data-start=\"882\" data-end=\"917\">Resistant to rust and corrosion</strong>, even in the harshest seawater.<br data-start=\"949\" data-end=\"952\" />✔ Retains a <strong data-start=\"964\" data-end=\"984\">razor-sharp edge</strong>, allowing for <strong data-start=\"999\" data-end=\"1043\">clean cuts through armor and flesh alike</strong>.</p><hr data-start=\"1048\" data-end=\"1051\" /><h3 data-start=\"1053\" data-end=\"1092\"><strong data-start=\"1057\" data-end=\"1090\">Sea-Steel Falchions in Battle</strong></h3><p data-start=\"1093\" data-end=\"1399\">These wickedly curved <strong data-start=\"1115\" data-end=\"1139\">masterwork falchions</strong> are <strong data-start=\"1144\" data-end=\"1163\">favored weapons</strong> among <strong data-start=\"1170\" data-end=\"1233\">sahuagin raiders, deep-sea reavers, and aquatic mercenaries</strong>. Each blade is <strong data-start=\"1249\" data-end=\"1271\">ritually inscribed</strong> with sahuagin runes of <strong data-start=\"1295\" data-end=\"1319\">hunger and dominance</strong>, and many are <strong data-start=\"1334\" data-end=\"1351\">stained black</strong> from the blood of countless surface-dwellers.</p><h4 data-start=\"1401\" data-end=\"1446\"><strong data-start=\"1406\" data-end=\"1446\">Special Effects (Sea-Steel Material)</strong></h4><ul data-start=\"1447\" data-end=\"2024\"><li data-start=\"1447\" data-end=\"1591\"><strong data-start=\"1449\" data-end=\"1468\">Buoyant Blades:</strong> When wielded <strong data-start=\"1482\" data-end=\"1496\">underwater</strong>, a Sea-Steel falchion does <strong data-start=\"1524\" data-end=\"1588\">not take the normal attack penalties for fighting underwater</strong>.</li></ul>",
+      "instructions": "",
+      "unidentified": "<p>This sword has one curved, sharp edge like a scimitar, with the back edge unsharpened and either flat or slightly curved. Its weight is greater toward the end, making it better for chopping rather than stabbing.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 8,
+      "total": 8,
+      "converted": {
+        "total": 8,
+        "value": 8
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 450,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 75,
+      "name": "Falchion"
+    },
+    "cursed": false,
+    "cl": 3,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 8,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "gntaanu0qgah9nhj",
+        "ability": {
+          "attack": "_default",
+          "critRange": 18,
+          "damage": "str",
+          "critMult": 2
+        },
+        "actionType": "mwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(2, 4, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {}
+        },
+        "name": "Attack",
+        "range": {
+          "units": "melee",
+          "value": "0"
+        },
+        "uses": {},
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "2h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "2h",
+    "hands": 2,
+    "baseTypes": [
+      "Falchion"
+    ],
+    "weaponGroups": [
+      "bladesHeavy"
+    ],
+    "material": {
+      "base": {
+        "value": "bone",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "143"
+      },
+      {
+        "id": "PZO1123",
+        "pages": "18"
+      }
+    ],
+    "showInCombat": false,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "pf1": {
+      "migration": "11.5"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

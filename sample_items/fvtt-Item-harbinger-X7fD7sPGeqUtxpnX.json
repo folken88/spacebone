@@ -1,0 +1,334 @@
+{
+  "name": "Harbinger",
+  "type": "weapon",
+  "img": "Art%20-%20Items/weapons/weapon_axe_tyrant_magic.webp",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/weapons/weapon_axe_tyrant_magic.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [
+      "PFS"
+    ],
+    "quantity": 1,
+    "weight": {
+      "value": 12
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8320,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "greataxe"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 30,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 25,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "mqsu8ycqg6lbdbna",
+        "name": "Attack",
+        "img": "Art%20-%20Items/weapons/weapon_axe_tyrant_magic.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 12, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 1.5,
+          "critRange": 20,
+          "critMult": 3
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + @abilities.cha.mod",
+          "type": "will",
+          "description": "On death blow and failed save, target animates as a random undead.",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/slam10_evil_legend_has_it_outro.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "jwV2Y0Vw6s7BPyQI",
+            "default": true,
+            "name": "Challenge",
+            "modifiers": [
+              {
+                "_id": "iGSzvFV9j4SM4LdP",
+                "formula": "@classes.cavalier.level",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "slashing"
+                ]
+              },
+              {
+                "_id": "zT7A945o4aJFzxd9",
+                "formula": "@abilities.cha.mod",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "profane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "oMHxAhJPURf6uIP0",
+        "name": "Sunder",
+        "img": "Art%20-%20Items/weapons/weapon_axe_tyrant_magic.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mcman",
+        "attackBonus": "2[Improved Sunder]",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 12, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 1.5,
+          "critRange": 20,
+          "critMult": 3
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + @abilities.cha.mod",
+          "type": "will",
+          "description": "On death blow and failed save, target animates as a random undead.",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/slam10_evil_legend_has_it_outro.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "jwV2Y0Vw6s7BPyQI",
+            "default": true,
+            "name": "Challenge",
+            "modifiers": [
+              {
+                "_id": "iGSzvFV9j4SM4LdP",
+                "formula": "@classes.cavalier.level",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "slashing"
+                ]
+              },
+              {
+                "_id": "zT7A945o4aJFzxd9",
+                "formula": "@abilities.cha.mod",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "profane"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": true,
+    "held": "2h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "2h",
+    "hands": 1,
+    "baseTypes": [
+      "Greataxe"
+    ],
+    "weaponGroups": [
+      "axes"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273847707,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.X7fD7sPGeqUtxpnX",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

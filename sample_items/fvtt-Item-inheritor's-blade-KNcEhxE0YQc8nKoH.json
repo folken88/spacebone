@@ -1,0 +1,217 @@
+{
+  "name": "Inheritor's Blade",
+  "type": "weapon",
+  "img": "Art%20-%20Items/swords/longsword_of_iomedae-copy.webp",
+  "system": {
+    "description": {
+      "value": "<p>A masterfully crafted blade made in homage to the inheritor's own, from the time before her ascension. This blade functions as a holy symbol for any Lawful-Good Divine Caster.</p><img src=\"Art%20-%20Items/swords/longsword_of_iomedae-copy.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [
+      "PFS"
+    ],
+    "quantity": 1,
+    "weight": {
+      "value": 4
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 315,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "longsword"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 5,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 10,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "jelb63mz9vrxa43c",
+        "name": "Attack",
+        "img": "systems/pf1/icons/items/weapons/longsword.png",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 8, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_hit_clunk2.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "1h",
+    "hands": 1,
+    "baseTypes": [
+      "Longsword"
+    ],
+    "weaponGroups": [
+      "bladesHeavy"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "pf1": {
+      "migration": "11.8"
+    },
+    "core": {}
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273850757,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.KNcEhxE0YQc8nKoH",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

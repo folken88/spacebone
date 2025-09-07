@@ -1,0 +1,243 @@
+{
+  "type": "equipment",
+  "name": "Divine Precision",
+  "system": {
+    "description": {
+      "value": "<p></p><img src=\"Art%20-%20Items/weapons/guns/scope_black_steel_with_silver_highlights_science.webp\" /><h3><strong>Description</strong></h3><p><em>Divine Precision</em> is the sole creation of Olrik Haerst, a gunsmith-artificer of unparalleled skill who operated a small but renowned shop in northern Ustalav. Unlike his other works, this rifle scope was a personal labor of love—designed specifically for a mysterious client known only as \"The Vigilant Eye,\" a famous monster hunter tasked with protecting the region from supernatural threats. After finishing this masterpiece, Olrik sealed away his shop, declaring that he had crafted his life's magnum opus and would create no more.</p><p><em>Divine Precision</em> is a meticulously crafted scope that combines arcane magic with precision engineering, offering unparalleled flexibility and versatility in the face of both mundane and otherworldly enemies. Its sleek body, crafted from dark steel etched with delicate Ustalavic sigils, houses both complex mechanics and embedded divination magic. The lenses, perfectly cut and enchanted, shift with ease to accommodate various ranges and detection modes.</p><h3><strong>Powers</strong></h3><ul><li><strong>Variable Magnification</strong>: <em>Divine Precision</em> can adjust between x1 and x6 magnification. At x1, it allows for pinpoint accuracy even at point-blank range, negating any penalties normally associated with firing so close. At x6 magnification, it halves the range penalties for shots taken beyond the firearm's standard effective range.</li><li><strong>See Invisible</strong>: When hunting elusive enemies, the wielder can activate the scope's <em>see invisibility</em> function by expending one spell slot of any level. This allows the user to see invisible creatures as if under the effects of the <em>see invisibility</em> spell, for a duration of 10 minutes.</li><li><strong>True Seeing</strong>: For the most dangerous adversaries, <em>Divine Precision</em> has a <em>true seeing</em> mode. Activating this setting requires a 4th-level spell slot, and it grants the effects of <em>true seeing</em> for up to 1 minute, allowing the wielder to pierce illusions, disguises, and even see through the most deceptive magical concealments.</li></ul>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 22000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "variable scope"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": "div"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "VByPZJ7PvBOafKvw",
+        "name": "See Invisibility",
+        "img": "Art%20-%20Icons/invisible%5Binvisible%2Chidden%2Cobscured%5D.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "value": "10 min./level",
+          "units": "spec"
+        },
+        "target": {
+          "value": "you"
+        },
+        "range": {
+          "value": null,
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/11labs-created/scope_a_delicate_mechanica.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      },
+      {
+        "_id": "L1oNelxjr5y3Oqqb",
+        "name": "True Seeing",
+        "img": "Art%20-%20Icons/true-sight%5Bstatus%2Ctruesight%2Ctrueseeing%5D.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "value": "13",
+          "units": "minute"
+        },
+        "target": {
+          "value": "affects the view through the scope only"
+        },
+        "range": {
+          "value": null,
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "spellsave",
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "",
+          "type": "will",
+          "description": "Will negates",
+          "harmless": true
+        },
+        "soundEffect": "audio/11labs-created/scope_a_delicate_mechanica.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "img": "Art%20-%20Items/weapons/guns/scope_black_steel_with_silver_highlights_science.webp",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "core": {},
+    "item-piles": {
+      "item": {}
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274172589,
+    "modifiedTime": 1757274172589,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.A8WSRsZQqgOeMrRS",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

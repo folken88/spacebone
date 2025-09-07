@@ -1,0 +1,455 @@
+{
+  "name": "Great Buffalo Hunt",
+  "type": "weapon",
+  "img": "Art%20-%20Characters/halforc_female_archer_great_hornbow_orcish.webp",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "item-piles": {
+      "item": {
+        "hidden": false,
+        "notForSale": false,
+        "infiniteQuantity": "default",
+        "displayQuantity": "default",
+        "free": false,
+        "keepZeroQuantity": false,
+        "disableNormalCost": false,
+        "cantBeSoldToMerchants": false,
+        "isService": false,
+        "keepOnMerchant": false,
+        "macro": "",
+        "customCategory": "",
+        "prices": [],
+        "vaultExpander": false,
+        "vaultSlot": null,
+        "addsCols": 0,
+        "addsRows": 0,
+        "x": null,
+        "y": null,
+        "width": 1,
+        "height": 1,
+        "canStack": "default"
+      }
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Made from the horns of a great buffalo, this Orcish-Hornbow is a massive compound bow that requires a +4 strength bonus to use.</p><p>It also requires custom ammunition, as regular arrows are snapped into pieces by the greater forces exerted by this weapon. Properly built and treated arrows for GBH are enchanted at least +1 to survive being fired out of it. On impact, they explode in a small but potent 2' diameter orange fireball.</p><p>The noise of the impacts from this weapon can be heard for miles. It is easily as loud as most firearms.</p><img src=\"Art%20-%20Characters/halforc_female_archer_great_hornbow_orcish.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 16
+    },
+    "equipped": true,
+    "carried": false,
+    "price": 12500,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "orcish hornbow"
+    },
+    "cursed": false,
+    "cl": 15,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "ll27db3t56nui61f",
+        "name": "Attack",
+        "img": "systems/pf1/icons/items/weapons/orc-hornbow.png",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "60",
+          "units": "ft",
+          "maxIncrements": 5
+        },
+        "uses": {},
+        "actionType": "rwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "2d6",
+              "types": [
+                "piercing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "fire",
+                "force"
+              ]
+            }
+          ],
+          "critParts": [
+            {
+              "formula": "2d10",
+              "types": [
+                "force",
+                "fire"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "str",
+          "damageMult": 1,
+          "critRange": 20,
+          "critMult": 3
+        },
+        "soundEffect": "audio/effects/bow_pull_fire_02_heavy_hail.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "arrow",
+          "cost": 1
+        }
+      },
+      {
+        "_id": "C5IPHo5E6ZF9jn6y",
+        "name": "Bullseye Single Shot",
+        "img": "systems/pf1/icons/items/weapons/orc-hornbow.png",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "60",
+          "units": "ft",
+          "maxIncrements": 5
+        },
+        "uses": {},
+        "actionType": "rwak",
+        "attackBonus": "4[Bullseye]",
+        "critConfirmBonus": "4[Critical Focus]",
+        "damage": {
+          "parts": [
+            {
+              "formula": "2d6",
+              "types": [
+                "piercing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "fire",
+                "force"
+              ]
+            }
+          ],
+          "critParts": [
+            {
+              "formula": "2d10",
+              "types": [
+                "force",
+                "fire"
+              ]
+            }
+          ],
+          "nonCritParts": [
+            {
+              "formula": "2d6",
+              "types": [
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "str",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/bow_pull_fire_02_heavy.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "arrow",
+          "cost": 1
+        }
+      },
+      {
+        "_id": "i76quRDwRdq7ptZL",
+        "name": "Explosive Shot",
+        "img": "systems/pf1/icons/items/weapons/orc-hornbow.png",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "100",
+          "units": "ft"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 2,
+            "maxFormula": "@abilities.wis.mod",
+            "per": "day"
+          }
+        },
+        "measureTemplate": {
+          "type": "circle",
+          "size": "10",
+          "texture": "modules/jb2a_patreon/Library/3rd_Level/Fireball/FireballExplosion_01_Dark_Green_800x800.webm",
+          "color": null
+        },
+        "actionType": "save",
+        "critConfirmBonus": "0",
+        "damage": {
+          "parts": [
+            {
+              "formula": "1d6",
+              "types": [
+                "piercing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "bludgeoning"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "force"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "fire"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "damage": "str",
+          "damageMult": 1
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + @abilities.str.mod + @item.enh",
+          "type": "ref",
+          "description": "Reflex for Half",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/bow_explosive_arrow_sound.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "notes": {
+          "effect": [
+            "Reflex halves damage and negates \"Glitter-Cone\" effect which is -20 stealth for 2 rounds."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {
+        "source_level": 15
+      }
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "arrow",
+      "capacity": null,
+      "misfire": null,
+      "explode": null,
+      "default": "74EBYiS8NdT9jx5n"
+    },
+    "subType": "martial",
+    "weaponSubtype": "ranged",
+    "hands": 1,
+    "baseTypes": [],
+    "weaponGroups": [
+      "bows"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274277444,
+    "modifiedTime": 1757274277444,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.vRg9SbeUiliW43fa",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

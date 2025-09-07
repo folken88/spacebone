@@ -1,0 +1,255 @@
+{
+  "img": "Art%20-%20Items/cloaks/cloak_childs_navy_blue_fleece_traveling_cloak_with_blue.webp",
+  "name": "Blue Summer",
+  "system": {
+    "description": {
+      "value": "<p>Crafted from a rich blue fabric, this cloak glimmers like the ocean under a bright summer sky.</p><p><strong>Powers:</strong></p><ul><li><strong>Aquatic Affinity:</strong> Grants a +5 competence bonus to Swim checks. Always dry and clean.</li><li><strong>Sun's Blessing:</strong> Provides resistance 15 to fire damage.</li></ul><p><strong>History:</strong> Breeze Underhill, the party's bard, wore this cloak, drawing inspiration from the summer's warmth and the sea's freedom.</p><img src=\"Art%20-%20Items/cloaks/cloak_childs_navy_blue_fleece_traveling_cloak_with_blue.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 1000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Hobbit Cloak"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "wMr1joSp",
+        "formula": "1",
+        "target": "allSavingThrows",
+        "type": "resist",
+        "operator": "add",
+        "priority": 0
+      },
+      {
+        "type": "circumstance",
+        "_id": "ErIpBzfs",
+        "operator": "add",
+        "priority": 0,
+        "formula": "2",
+        "target": "chaChecks"
+      },
+      {
+        "type": "competence",
+        "_id": "Q0UHvC51",
+        "operator": "add",
+        "priority": 0,
+        "formula": "5",
+        "target": "skill.swm"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "shoulders",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "leather",
+          "custom": false
+        },
+        "normal": {
+          "value": "leather",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "sources": [
+      {
+        "id": "PZO1123",
+        "pages": "264"
+      },
+      {
+        "id": "PZO1110",
+        "pages": "507"
+      }
+    ],
+    "nonlethal": false
+  },
+  "type": "equipment",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=buyPriceModifier": null,
+        "-=sellPriceModifier": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null,
+        "core": {
+          "sourceId": "Compendium.pf1.items.Item.MrxwYWWezbJTZLog"
+        },
+        "lilhelper": {
+          "item": {
+            "hideAttacks": false,
+            "autoPowerAttack": false,
+            "keen": false,
+            "skipDialog": 0,
+            "rollmodeOverride": "",
+            "rollOverride": ""
+          }
+        },
+        "item-piles": {
+          "item": {
+            "-=hidden": null,
+            "-=notForSale": null,
+            "-=infiniteQuantity": null,
+            "-=displayQuantity": null,
+            "-=free": null,
+            "-=keepZeroQuantity": null,
+            "-=disableNormalCost": null,
+            "-=cantBeSoldToMerchants": null,
+            "-=isService": null,
+            "-=keepOnMerchant": null,
+            "-=macro": null,
+            "-=customCategory": null,
+            "-=prices": null,
+            "-=buyPriceModifier": null,
+            "-=sellPriceModifier": null,
+            "-=vaultExpander": null,
+            "-=vaultSlot": null,
+            "-=addsCols": null,
+            "-=addsRows": null,
+            "-=x": null,
+            "-=y": null,
+            "-=width": null,
+            "-=height": null,
+            "-=flipped": null,
+            "-=vaultImage": null,
+            "-=vaultImageFlipped": null,
+            "-=canStack": null
+          }
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274042754,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.jv1jmXkVO72C8asK",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

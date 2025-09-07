@@ -1,0 +1,297 @@
+{
+  "name": "Taldane Handshake",
+  "type": "weapon",
+  "img": "systems/pf1/icons/items/weapons/brass-knuckles.PNG",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>A silver-steel alloy forms the frame and spikes of these knuckles. They strike as magic/silver and are easily concealed.</p><img src=\"systems/pf1/icons/items/weapons/brass-knuckles.PNG\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "metal knuckles"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 12,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "ivs2c9y3segotaao",
+        "name": "Attack",
+        "img": "systems/pf1/icons/items/weapons/brass-knuckles.PNG",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": "attack"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "critConfirmBonus": "4",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "bludgeoning"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 3
+        },
+        "soundEffect": "audio/effects/mc_ride_auhh_mummy_melee.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1,
+          "type": "none"
+        },
+        "enh": {
+          "value": 2
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "simple",
+    "weaponSubtype": "light",
+    "hands": 1,
+    "baseTypes": [],
+    "weaponGroups": [],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": true,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "duration": {
+      "value": null,
+      "units": "inst"
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [
+        [
+          "sizeRoll(1, 6, @size)",
+          "Bludgeoning"
+        ],
+        [
+          "1d6",
+          "Divine"
+        ]
+      ],
+      "critParts": [
+        [
+          "1d10",
+          "Divine"
+        ]
+      ],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": "ceil(@attributes.bab.total / 5) - 1"
+      },
+      "bonus": {
+        "formula": "@formulaicAttack * -5"
+      },
+      "label": ""
+    },
+    "formula": "",
+    "ability": {
+      "attack": "str",
+      "damage": "str",
+      "damageMult": 1,
+      "critRange": 20,
+      "critMult": 3
+    },
+    "save": {
+      "dc": "0",
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "audio/effects/sword_smack_holy.mp3",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false,
+    "conditionals": [],
+    "usesAmmo": false,
+    "spellArea": "",
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273885389,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.uCWFJmSwLSvuX988",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "name": "Warrant: The Whispering Way",
+  "type": "equipment",
+  "system": {
+    "description": {
+      "value": "<h4><span style=\"font-family:BLKCHCRY\"><strong>Arrest Warrant for the Members of The Whispering Way</strong></span></h4><h4><span style=\"font-family:BLKCHCRY\">By the authority vested in the Palatinate Council of the Sovereign Realm of Ustalav and with the grave concerns of security and welfare for its citizens at heart, this warrant has been issued for the immediate arrest and detainment of any and all individuals found to be in association with the nefarious cult known as The Whispering Way.</span></h4><h4><span style=\"font-family:BLKCHCRY\"><strong>Whereas,</strong> the said organization has been found guilty beyond a shadow of a doubt of engaging in maleficent rituals, murders most foul, and conspiracies aimed at undermining the very fabric of our society and inspiring worship of the Whispering Tyrant across our beloved land;</span></h4><h4><span style=\"font-family:BLKCHCRY\"><strong>And Whereas,</strong> the continued existence of such a cult poses an existential threat not only to the physical well-being of Ustalav's populace but to the sanctity of their souls;</span></h4><h4><span style=\"font-family:BLKCHCRY\"><strong>Now, Therefore,</strong> it is hereby declared that any individual identified as a member, sympathizer, or associate of The Whispering Way is to be executed or preferably apprehended with all due haste and brought before the Court of the Palatinate to answer for their crimes against the Crown and its people.</span></h4><h4><span style=\"font-family:BLKCHCRY\">Such individuals are to be considered highly dangerous, armed with dark knowledge and sorcery most foul. All agents of the law are granted full authority to employ necessary force to ensure their capture.</span></h4><h4></h4><h4><span style=\"font-family:BLKCHCRY\"><strong>This warrant remains in effect indefinitely or until such a time as The Whispering Way is dismantled and its threat to Ustalav nullified.</strong></span></h4><h4></h4><h4><span style=\"font-family:BLKCHCRY\"><strong>Given under my hand and seal</strong> this 14th of Pharast, 4717</span></h4><h4><span style=\"font-family:BLKCHCRY\">Judge Embreth Darymid, Lepidstadt Palatinates</span></h4><h4><span style=\"font-family:BLKCHCRY\"><strong>And with the hand and seal of:</strong></span></h4><h4><span style=\"font-family:BLKCHCRY\">Chief Justice Ambrose Khard, Lepidstadt Palatinates</span></h4><h4><span style=\"font-family:BLKCHCRY\">Judge Gustav Kaple Lepidstadt Palatinates</span></h4><h4><span style=\"font-family:BLKCHCRY\">Barrister Otto Heiger Lepidstadt Palatinates</span></h4><h4><span style=\"font-family:BLKCHCRY\">Magistrate Billonius Rawls, Lepidstadt University</span></h4><h4><span style=\"font-family:BLKCHCRY\">Doctor Montagnie Crowl, Lepidstadt University</span></h4><p><span style=\"font-family:BLKCHCRY\">Doctor Alaric Voss, Lepidstadt Police Investigative Unit</span></p><h4><span style=\"font-family:BLKCHCRY\"><strong>Witnessed by:</strong></span></h4><h4><span style=\"font-family:BLKCHCRY\">Lady Kendra Lorrimor, Lepidstadt</span></h4><h4><span style=\"font-family:BLKCHCRY\">Lady Detective Farrah Richton, Lepidstadt Police Investigative Unit</span></h4><img src=\"Art%20-%20Items/books/document_freshly_written_and_warrantd.webp\" /><p></p><h4></h4><h4></h4>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 10,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Document of Ustalav"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "DF5vXKE3kOv7gbFs",
+        "name": "Use",
+        "img": "Art%20-%20Items/books/document_freshly_written_and_warrantd.webp",
+        "activation": {
+          "cost": 1,
+          "type": "full",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/hypetracks/smokey_bear_jackie_gleason_lack_of_respect_for_the_law.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "other",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "img": "Art%20-%20Items/books/document_freshly_written_and_warrantd.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null,
+        "core": {
+          "sourceId": "Actor.WltKDpvZ7yEmGcnJ.Item.GmkeOfsF6pZZ85M5"
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "skipDialog": -1,
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273936925,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.j5xGSx2cSAEUMBeu",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

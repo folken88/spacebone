@@ -1,0 +1,257 @@
+{
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "name": "Dragonshart Hot Sawse",
+  "type": "consumable",
+  "img": "Art%20-%20Items/consumables/sauce_hot_logo_of_a_dragon_farting_fire_dark_fantasy.webp",
+  "system": {
+    "description": {
+      "value": "<p>Set your taste buds ablaze with this molten concoction of ill-advised ingredients from the furthest corners of the Inner Sea. You'll Inner-See-What-Youre-Made-Of with just a drop of this heat.</p><img src=\"Art%20-%20Items/consumables/sauce_hot_logo_of_a_dragon_farting_fire_dark_fantasy.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0.25
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 150,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "sauce"
+    },
+    "cursed": false,
+    "cl": 7,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "uses": {
+      "value": 12,
+      "per": "charges",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "12",
+      "rechargeFormula": "",
+      "pricePerUse": "0",
+      "max": 12
+    },
+    "actions": [
+      {
+        "_id": "Qd3OflBDmUbO5B75",
+        "name": "A Little Dab'll Do Ya",
+        "img": "Art%20-%20Items/consumables/sauce_hot_logo_of_a_dragon_farting_fire_dark_fantasy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "touch"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1"
+        },
+        "actionType": "save",
+        "save": {
+          "dc": "19",
+          "type": "fort",
+          "description": "Fort save or you are a pussy bitch.",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/fire_wall_short.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      },
+      {
+        "_id": "H7g3sLzqc3W7jxr2",
+        "name": "Throw The Whole Bottle",
+        "img": "Art%20-%20Items/consumables/sauce_hot_logo_of_a_dragon_farting_fire_dark_fantasy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "value": "20",
+          "units": "ft",
+          "maxIncrements": 3
+        },
+        "uses": {
+          "autoDeductChargesCost": "10"
+        },
+        "measureTemplate": {
+          "type": "circle",
+          "size": "10",
+          "color": "#5c0000",
+          "texture": null
+        },
+        "actionType": "spellsave",
+        "damage": {
+          "parts": [
+            {
+              "formula": "5d6",
+              "types": [
+                "fire",
+                "acid"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "17",
+          "type": "ref",
+          "description": "Reflex for Half",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/tarkov_grenade_hellbrotht.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "potion",
+    "showInQuickbar": false
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "hidden": false,
+        "notForSale": false,
+        "infiniteQuantity": "default",
+        "displayQuantity": "default",
+        "free": false,
+        "keepZeroQuantity": false,
+        "disableNormalCost": false,
+        "cantBeSoldToMerchants": false,
+        "isService": false,
+        "keepOnMerchant": false,
+        "macro": "",
+        "customCategory": "",
+        "prices": [],
+        "vaultExpander": false,
+        "vaultSlot": null,
+        "addsCols": 0,
+        "addsRows": 0,
+        "x": null,
+        "y": null,
+        "width": 1,
+        "height": 1,
+        "canStack": "default",
+        "core": {
+          "sourceId": "Item.FV1NkhxkcI6PT3ah"
+        },
+        "item-piles": {
+          "item": {
+            "hidden": false,
+            "notForSale": false,
+            "infiniteQuantity": "default",
+            "displayQuantity": "default",
+            "free": false,
+            "keepZeroQuantity": false,
+            "disableNormalCost": false,
+            "cantBeSoldToMerchants": false,
+            "isService": false,
+            "keepOnMerchant": false,
+            "macro": "",
+            "customCategory": "",
+            "prices": [],
+            "vaultExpander": false,
+            "vaultSlot": null,
+            "addsCols": 0,
+            "addsRows": 0,
+            "x": null,
+            "y": null,
+            "width": 1,
+            "height": 1,
+            "canStack": "default",
+            "core": {
+              "sourceId": "Item.FV1NkhxkcI6PT3ah"
+            }
+          }
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.4"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274290352,
+    "modifiedTime": 1757274290352,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.1qN3ExMIdYMMm3KZ",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

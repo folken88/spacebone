@@ -1,0 +1,300 @@
+{
+  "name": "Tater Tot Hot Dish",
+  "type": "consumable",
+  "img": "modules/folken-games-fantasy-chef/images/tater_tot_hot_dish_arcanograph_dd_magic_item.jpg",
+  "effects": [],
+  "flags": {
+    "autoanimations": {
+      "killAnim": false,
+      "override": false,
+      "animType": "t1",
+      "animName": "",
+      "bards": {
+        "bardAnim": "a1",
+        "bardTarget": true,
+        "bardTargetAnim": "a1",
+        "bardTargetColor": "a1",
+        "bardSelf": true,
+        "marker": true,
+        "markerColor": "a1",
+        "markerColorTarget": "a1"
+      },
+      "spellVar": "a1",
+      "hmAnim": "a1",
+      "color": "n1",
+      "spellOptions": {
+        "spellLoops": 1
+      },
+      "uaStrikeType": "physical",
+      "dtvar": "dt1",
+      "divineSmite": {
+        "dsEnable": false,
+        "dsSelf": true,
+        "dsSelfDelay": 0,
+        "dsSelfColor": "a1",
+        "dsTarget": true,
+        "dsTargetDelay": 1250,
+        "dsTargetColor": "a1"
+      },
+      "explosion": false,
+      "explodeVariant": "ev1",
+      "explodeColor": "",
+      "explodeRadius": "0",
+      "explodeLoop": "1",
+      "allSounds": {
+        "explosion": {
+          "audioExplodeEnabled": false,
+          "file": "",
+          "delay": 100,
+          "volume": 0.25
+        },
+        "item": {
+          "enableAudio": false,
+          "file": "",
+          "delay": 100,
+          "volume": 0.25
+        }
+      },
+      "selfRadius": "5",
+      "animTint": "#ffffff",
+      "auraOpacity": 0.75,
+      "ctaOption": false,
+      "teleDist": 30,
+      "templates": {
+        "tempType": "a1",
+        "tempAnim": "",
+        "tempColor": "",
+        "tempLoop": 1,
+        "customAnim": false,
+        "customPath": ""
+      }
+    },
+    "core": {},
+    "world": {
+      "buffToggle": {
+        "0guatg12i5xfv8e1": {
+          "activate": [
+            "#qQdY7rcsR75Mox2G"
+          ]
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=buyPriceModifier": null,
+        "-=sellPriceModifier": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>A famous recipe from @UUID[Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-journal-entries.JournalEntry.sqEE4iaGlPaZwFLC]{Savage Sustenance}</p><p>Provides @UUID[Compendium.pf1.spells.jnlr9cuepka1l26e]{Enlarge Person} for 30 minutes.</p><p><span style=\"font-family:Signika, sans-serif\">The recipe for this hearty creation was gifted to me by Zokar Elkarid, the owner of Ravengo’s own Laughing Demon! While it isn’t his signature horror-themed fare, Zokar told me this is what he enjoys on his day off. Tater tot hotdish combines golden tater tots, succulent ground meat, and a symphony of vegetables, bound together by a velvety sauce. It is a feast fit for champions, promising satisfaction and nourishment after a hard-fought battle or a day of epic adventures.</span></p><img src=\"modules/folken-games-fantasy-chef/images/tater_tot_hot_dish_arcanograph_dd_magic_item.jpg\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 2
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 150,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "food"
+    },
+    "cursed": false,
+    "cl": 7,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 5,
+    "uses": {
+      "value": 2,
+      "per": "single",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "pricePerUse": 0,
+      "max": 2
+    },
+    "actions": [
+      {
+        "_id": "0guatg12i5xfv8e1",
+        "name": "Use",
+        "img": "modules/folken-games-fantasy-chef/images/tater_tot_hot_dish_arcanograph_dd_magic_item.jpg",
+        "activation": {
+          "cost": 1,
+          "type": "minute",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "range": {
+          "value": "0",
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "save": {
+          "description": "Will half ; see text",
+          "harmless": true
+        },
+        "soundEffect": "modules/folken-games-fantasy-chef/audio/eat_canned.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "potion",
+    "showInQuickbar": false,
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [
+        [
+          "3d8 + min(15, @item.cl)",
+          ""
+        ]
+      ],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": "",
+        "value": null
+      },
+      "bonus": {
+        "formula": ""
+      },
+      "label": null
+    },
+    "formula": "",
+    "ability": {
+      "attack": null,
+      "damage": "",
+      "damageMult": 1,
+      "critRange": 20,
+      "critMult": 2
+    },
+    "save": {
+      "dc": "14",
+      "type": "",
+      "description": "Will half (harmless); see text"
+    },
+    "soundEffect": "audio/effects/Child%20Soup%20Slurp.mp3",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "conditionals": [],
+    "weightConverted": 0.5,
+    "masterwork": false,
+    "spellType": ""
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274292425,
+    "modifiedTime": 1757274292425,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.1TKrCwUz2bMfHyuN",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

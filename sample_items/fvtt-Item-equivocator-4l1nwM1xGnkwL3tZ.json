@@ -1,0 +1,649 @@
+{
+  "name": "Equivocator",
+  "type": "weapon",
+  "flags": {
+    "pick-up-stix": {
+      "pick-up-stix": {
+        "owner": {
+          "actorId": "A9Ab7VMJc8MWNP8T"
+        },
+        "initialState": {
+          "count": 1,
+          "itemData": {
+            "name": "Musket Pistol MW",
+            "permission": {
+              "default": 0,
+              "n8REKaKbUodLowfK": 3
+            },
+            "type": "weapon",
+            "data": {
+              "description": {
+                "value": "",
+                "chat": "",
+                "unidentified": ""
+              },
+              "tags": [],
+              "quantity": 1,
+              "weight": 3,
+              "price": 1300,
+              "identified": true,
+              "hp": {
+                "max": 10,
+                "value": 10
+              },
+              "hardness": 0,
+              "carried": true,
+              "unidentified": {
+                "price": 0,
+                "name": ""
+              },
+              "identifiedName": "Musket Pistol MW",
+              "changes": [],
+              "changeFlags": {
+                "loseDexToAC": false,
+                "noStr": false,
+                "noDex": false,
+                "oneInt": false,
+                "oneWis": false,
+                "oneCha": false,
+                "noEncumbrance": false,
+                "mediumArmorFullSpeed": false,
+                "heavyArmorFullSpeed": false
+              },
+              "contextNotes": [],
+              "links": {
+                "children": []
+              },
+              "equipped": true,
+              "masterwork": true,
+              "weaponType": "exotic",
+              "weaponSubtype": "ranged",
+              "properties": {
+                "blc": false,
+                "brc": false,
+                "dbl": false,
+                "dis": false,
+                "fin": false,
+                "frg": false,
+                "grp": false,
+                "imp": false,
+                "mnk": false,
+                "nnl": false,
+                "prf": false,
+                "rch": false,
+                "snd": false,
+                "thr": false,
+                "trp": false
+              },
+              "enh": null,
+              "weaponData": {
+                "damageRoll": "1d8",
+                "damageType": "P",
+                "critRange": "20",
+                "critMult": "3",
+                "range": 30,
+                "attackFormula": "",
+                "damageFormula": "",
+                "size": "med"
+              },
+              "bonus": {
+                "value": 0,
+                "_deprecated": true
+              },
+              "damageType": {
+                "value": "",
+                "_deprecated": true
+              },
+              "damage2": {
+                "value": "",
+                "_deprecated": true
+              },
+              "damage2Type": {
+                "value": "",
+                "_deprecated": true
+              },
+              "damage": {
+                "parts": [],
+                "critParts": []
+              },
+              "weightConverted": 3,
+              "weightUnits": "lbs",
+              "priceUnits": "gp"
+            },
+            "flags": {},
+            "img": "Art%20-%20Items/weapons/guns/musket_pistol.jpg"
+          }
+        },
+        "itemType": "Item",
+        "isLocked": false
+      }
+    },
+    "pf1": {
+      "migration": "11.4"
+    },
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "img": "Art%20-%20Items/weapons/guns/pistol_made_of_gold_and_silver_with_a_symbol_key.webp",
+  "effects": [],
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/weapons/guns/pistol_made_of_gold_and_silver_with_a_symbol_key.webp\" /><p>Forged from a mysterious Numerian Metal, this ultra-heavy revolver takes a strong arm to even hold, and a strong-body to discharge without falling over. It's mechanism is purely focused on delivering a steady, potent shot, and gives zero thought to comfort or recoil management.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 5
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 14300,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "pistol"
+    },
+    "cursed": false,
+    "cl": 17,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 45,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 30,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false,
+      "noStr": false,
+      "noDex": false,
+      "oneInt": false,
+      "oneWis": false,
+      "oneCha": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "ZHlTXQCsIAdg1QXZ",
+        "name": "BANG BANG BANG BANG BANG BANG",
+        "img": "Art%20-%20Items/weapons/guns/pistol_made_of_gold_and_silver_with_a_symbol_key.webp",
+        "activation": {
+          "cost": 1,
+          "type": "nonaction",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "value": "50",
+          "units": "ft",
+          "maxIncrements": 5
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "perAttack": true
+        },
+        "actionType": "rwak",
+        "critConfirmBonus": "4",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 12, @size)",
+              "types": [
+                "bludgeoning",
+                "piercing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "positive"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 4
+        },
+        "soundEffect": "audio/effects/tarkov_pistol_rsh12_empty_reload2.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "wlX1vX4amDbHFRR4",
+            "name": "Bane",
+            "modifiers": [
+              {
+                "_id": "syrNPjgu6vjwZChh",
+                "formula": "2",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "untyped"
+              },
+              {
+                "_id": "9hDkigAlr9nq0AcR",
+                "formula": "2d6 + 2",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Vs Undead",
+            "modifiers": [
+              {
+                "formula": "1",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred",
+                "_id": "pjv3lhiwhl46c380"
+              },
+              {
+                "formula": "1",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "qmazljtciigva7fp",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "1tD5vp7MJsEk8K5U"
+          },
+          {
+            "_id": "7KwLFwBUvpAolnRa",
+            "name": "Flames of the Faithful",
+            "modifiers": [
+              {
+                "_id": "37gh8xOnX175ANjD",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ]
+              },
+              {
+                "_id": "GSVxAjjvPbFRic4c",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "9WGGTFZdpzXaoS7E",
+        "name": "Vital Shot",
+        "img": "Art%20-%20Items/weapons/guns/pistol_made_of_gold_and_silver_with_a_symbol_key.webp",
+        "activation": {
+          "cost": 1,
+          "type": "nonaction",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "value": "50",
+          "units": "ft",
+          "maxIncrements": 5
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "perAttack": true
+        },
+        "actionType": "rwak",
+        "critConfirmBonus": "4",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 12, @size)",
+              "types": [
+                "bludgeoning",
+                "piercing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "positive"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 4
+        },
+        "soundEffect": "audio/effects/tarkov_svd_loud_1shot.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "fshOnrrwbQYfZJsP",
+            "default": true,
+            "name": "Smite",
+            "modifiers": [
+              {
+                "_id": "cyq8UX16ZSBWCuYU",
+                "formula": "@abilities.cha.mod",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "profane"
+              },
+              {
+                "_id": "2PqhL08Q6AFkdNDN",
+                "formula": "@classes.paladin.level",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "slashing",
+                  "piercing",
+                  "bludgeoning"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "CHTiLOWiuxs1YIev",
+            "default": true,
+            "name": "Vital Shot",
+            "modifiers": [
+              {
+                "_id": "ZvA8XWPjJiEgvsHi",
+                "formula": "2d12",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "slashing",
+                  "piercing",
+                  "bludgeoning"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "yOfbS6BaNHJ0oaZA",
+        "name": "Reload",
+        "activation": {
+          "cost": 1,
+          "type": "move",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "range": {
+          "value": null,
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "-6"
+        },
+        "actionType": "other",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 5,
+      "per": "charges",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "6",
+      "rechargeFormula": "",
+      "max": 0,
+      "pricePerUse": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "gunBullet",
+      "capacity": null,
+      "misfire": null,
+      "explode": null,
+      "default": "SSZygn14HIby3El6"
+    },
+    "subType": "martial",
+    "weaponSubtype": "ranged",
+    "hands": 1,
+    "baseTypes": [],
+    "weaponGroups": [],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "glaucite",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": false,
+      "brc": false,
+      "dbl": false,
+      "dis": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "dea": false,
+      "dst": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "duration": {
+      "value": null,
+      "units": "inst"
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [
+        [
+          "sizeRoll(1, 8, @size)",
+          "P"
+        ]
+      ],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": "ceil(@attributes.bab.total / 5) - 1"
+      },
+      "bonus": {
+        "formula": "@formulaicAttack * -5"
+      },
+      "label": null
+    },
+    "formula": "",
+    "ability": {
+      "attack": "dex",
+      "damage": "str",
+      "damageMult": 1,
+      "critRange": "20",
+      "critMult": "3"
+    },
+    "save": {
+      "dc": 0,
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false,
+    "conditionals": [],
+    "usesAmmo": false,
+    "bonus": {
+      "value": 0,
+      "_deprecated": true
+    },
+    "damageType": {
+      "value": "",
+      "_deprecated": true
+    },
+    "damage2": {
+      "value": "",
+      "_deprecated": true
+    },
+    "damage2Type": {
+      "value": "",
+      "_deprecated": true
+    },
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    },
+    "showInCombat": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274196171,
+    "modifiedTime": 1757274196171,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.4l1nwM1xGnkwL3tZ",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

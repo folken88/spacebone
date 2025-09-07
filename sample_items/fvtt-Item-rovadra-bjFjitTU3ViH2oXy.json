@@ -1,0 +1,685 @@
+{
+  "name": "Rovadra",
+  "type": "weapon",
+  "img": "Art%20-%20Items/weapons/guns/rifle_square_roman-grigorev-021-dragonflame-rifle-2022-copy.webp",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "item-piles": {
+      "item": {
+        "hidden": false,
+        "notForSale": false,
+        "infiniteQuantity": "default",
+        "displayQuantity": "default",
+        "free": false,
+        "keepZeroQuantity": false,
+        "disableNormalCost": false,
+        "cantBeSoldToMerchants": false,
+        "isService": false,
+        "keepOnMerchant": false,
+        "macro": "",
+        "customCategory": "",
+        "prices": [],
+        "vaultExpander": false,
+        "vaultSlot": null,
+        "addsCols": 0,
+        "addsRows": 0,
+        "x": null,
+        "y": null,
+        "width": 1,
+        "height": 1,
+        "canStack": "default",
+        "core": {
+          "sourceId": "Compendium.pf1.weapons-and-ammo.fzP5dhevEliYzAv4"
+        },
+        "pf1": {
+          "defaultAmmo": "vb07wn8fIVqiE9ub"
+        }
+      }
+    },
+    "maestro": {
+      "playlist": "",
+      "track": ""
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/weapons/guns/rifle_square_roman-grigorev-021-dragonflame-rifle-2022-copy.webp\" /><p><strong>The Weapon</strong></p><p>This lever action precision-rifle is of unkown origins. Many modifications have been made to the mechanism and barrel, with most parts being replaced by a strange alloy (glaucite) that few outside of Numeria have ever seen.</p><p>The most recent modification to the weapon, is a gold-and-mithril-alloy wrapping in the shape of a dragon with its mouth as the barrel.</p><p><strong>Abilities</strong></p><p>With great focus the rifle can emit a cone of gold and orange fire, with potency relative to the will and power of its current wielder.</p><p><strong>Construction</strong></p><p>This weapon cannot be fitted with a bayonet, but its construction is so sturdy, magically reinforced, and imbued with unknown energy that it is nearly indestructable. As such, it can be used as a quarterstaff.</p><p><strong>Aura</strong></p><p>The weapon radiates good, and very potent magic. When fired, a muffled roar can be heard, and a wave of terror passes over the wielder. To fire this weapon requires a DC28 Will Save vs fear, or the wielder drops it immediately and is frightened for 1 round.</p><p><strong>Scope</strong></p><p>Using the scope requires concentration and a steady hand. It grants +2 to hit, but causes -2 to armor class for the round.</p><p><strong>Ammunition</strong></p><p>The weapon fires .308 cartridges and adds a touch of fire to every bullet it sends.</p><p><strong>Inscription</strong></p><p>Inscribed impossibly small etching on the black-steel barrel of this weapon reads:</p><p><em>Beloved Rovadra,</em></p><p><em>Immortal golden scales in flight,</em></p><p><em>Rolling golden curls by night.</em></p><p><em>She soared across the field of war,</em></p><p><em>And nightly came unto my door.</em></p><p><em>Felled at last by Tyrant's word,</em></p><p><em>Just one last time her love I heard.</em></p><p><em>She gave her soul unto my steel,</em></p><p><em>So her wrath our foes could feel.</em></p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 11
+    },
+    "equipped": true,
+    "carried": false,
+    "price": 24000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "rifle"
+    },
+    "cursed": false,
+    "cl": 14,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 55,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 25,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "n0O66LZjCSnlinVk",
+        "name": "Bite of Rovadra",
+        "img": "Art%20-%20Items/weapons/guns/rifle_barrel_roman-grigorev-021-dragonflame-rifle-2022.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "value": "80",
+          "units": "ft",
+          "maxIncrements": 5
+        },
+        "uses": {
+          "autoDeductChargesCost": "1"
+        },
+        "actionType": "rwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 12, @size)",
+              "types": [
+                "piercing",
+                "bludgeoning"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaticAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 3
+        },
+        "soundEffect": "audio/effects/dragonrifle_option1_delay.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "dragoonBullet",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "name": "Smiting Shot",
+            "modifiers": [
+              {
+                "formula": "@classes.paladin.level[Paladin Level] + @abilities.cha.mod[Charisma Mod -Smiting Shot]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "s9rnc6amqbb2a225",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "qD33Qr97wC543JpC"
+          },
+          {
+            "name": "Super Smiting Shot",
+            "modifiers": [
+              {
+                "formula": "(@classes.paladin.level[Paladin Level] * 2[Undead Bonus]) + @abilities.cha.mod[Charisma Mod - Super Smiting Shot]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "43grw1zom1y71wnh",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "DRCizKRetdvUaP7h"
+          },
+          {
+            "_id": "5ryzcI5TIevu8MWy",
+            "name": "Vs Undead",
+            "modifiers": [
+              {
+                "_id": "oZhnWrCgAtHz0ced",
+                "formula": "1[Undead Slayer]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "w73Ig2erfK9n8hge",
+            "name": "Scope",
+            "modifiers": [
+              {
+                "_id": "FrbwECr7Sqe4vfUO",
+                "formula": "2[Scope]",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "untyped"
+              }
+            ]
+          },
+          {
+            "_id": "EGcGBEcsscMw1JzY",
+            "name": "Flaming",
+            "modifiers": [
+              {
+                "_id": "XEu6paw6NNt2OkIY",
+                "formula": "1d6[Flaming]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire",
+                  "positive"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "kMzGcRL5uqEQZjUe",
+            "name": "Bane [Holy]",
+            "modifiers": [
+              {
+                "_id": "yQosEd9OMdXYElMT",
+                "formula": "2d6[Holy]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped",
+                  "Bane"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "skKsgSCQtIxns6Yv",
+            "name": "Bane [Axiomatic]",
+            "modifiers": [
+              {
+                "_id": "yQosEd9OMdXYElMT",
+                "formula": "2d6[Axiomatic]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped",
+                  "Bane"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "zbhXv383YbfW38Ft",
+            "name": "Bane [Deadslayer Rounds]",
+            "modifiers": [
+              {
+                "_id": "yQosEd9OMdXYElMT",
+                "formula": "2d6[Deadslayer Rounds]",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped",
+                  "Bane"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "zAUI1sVgTkLNGztM",
+            "name": "First-in-Initiative Attack Bonus",
+            "modifiers": [
+              {
+                "_id": "oGTXjYBLk0jBdJCQ",
+                "formula": "4[Blondie's Belt]",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "circumstance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "9ArnGAEVS15Ir1iR",
+        "name": "Breath of Rovadra",
+        "img": "Art%20-%20Icons/dragon_head_fire_flippedsquare.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 4,
+            "maxFormula": "(@abilities.cha.mod)",
+            "per": "day"
+          }
+        },
+        "measureTemplate": {
+          "type": "cone",
+          "size": "30",
+          "color": "#ffa200",
+          "texture": "modules/jb2a_patreon/Library/Generic/Template/Cone/Breath_Weapon/BreathWeapon_Fire01_Regular_Orange_30ft_Cone_Burst_600x600.webm"
+        },
+        "actionType": "spellsave",
+        "damage": {
+          "parts": [
+            {
+              "formula": "(floor( @details.level.value / 2 ))d10",
+              "types": [
+                "fire",
+                "positive"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + (max( @abilities.int.mod, @abilities.wis.mod, @abilities.cha.mod))",
+          "type": "ref",
+          "description": "Reflex for half, fire resist only works against half of this damage, and positive energy damage does not affect Good or Neutral targets.",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/fire_rovadras_breath_reaper_.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "area": "30' cone starting at wielder",
+        "notes": {
+          "effect": [
+            "Wielder must make DC28 Fear Save to fire the weapon or they are frightened 1r."
+          ]
+        }
+      },
+      {
+        "_id": "2KgNNpmGtlHclyju",
+        "name": "Tail of Rovadra",
+        "img": "Art%20-%20Items/weapons/guns/rifle_square_roman-grigorev-021-dragonflame-rifle-2022-copy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "reach"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "bludgeoning"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "fire",
+                "positive"
+              ]
+            }
+          ],
+          "critParts": [
+            {
+              "formula": "1d10",
+              "types": [
+                "fire",
+                "positive"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 20,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/SledgehammerHammer%20Hit%20Sound%20Effect.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      },
+      {
+        "_id": "eid2a7jskHrJ543s",
+        "name": "Reload",
+        "activation": {
+          "cost": 1,
+          "type": "move",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "uses": {},
+        "actionType": "other",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [
+      "Wielder must make a DC 28 Fear Save to use the weapon or they are frightened 1r."
+    ],
+    "uses": {
+      "value": 1,
+      "per": "",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "5",
+      "rechargeFormula": "",
+      "pricePerUse": "",
+      "max": 5
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {
+        "summary": "A rifle of Blacksteel & Golden Mithral Scales"
+      }
+    },
+    "scriptCalls": [
+      {
+        "_id": "qVfX4ZT2EAg4z3UM",
+        "name": "Pray to Pharasma",
+        "img": "icons/svg/dice-target.svg",
+        "type": "script",
+        "value": "// Retrieve the macro by name\nconst macro = game.macros.find(m => m.name === \"dpray\");\n\n// Check if the macro exists\nif (macro) {\n    // Execute the macro\n    macro.execute();\n} else {\n    // Notify if the macro was not found\n    ui.notifications.warn(\"Macro 'dpray' not found.\");\n}\n",
+        "category": "use",
+        "hidden": false
+      }
+    ],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "gunBullet",
+      "capacity": 5,
+      "misfire": null,
+      "explode": null,
+      "default": "uC8CTOgVM1ELRfDt"
+    },
+    "subType": "exotic",
+    "weaponSubtype": "ranged",
+    "hands": 1,
+    "baseTypes": [
+      "Firearms"
+    ],
+    "weaponGroups": [
+      "firearms"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": true,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "duration": {
+      "value": null,
+      "units": "inst"
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [
+        [
+          "sizeRoll(1, 10, @size)",
+          "B and P"
+        ]
+      ],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": "ceil(@attributes.bab.total / 5) - 1"
+      },
+      "bonus": {
+        "formula": "@formulaicAttack * -5"
+      },
+      "label": ""
+    },
+    "formula": "",
+    "ability": {
+      "attack": "dex",
+      "damage": "",
+      "damageMult": 1.5,
+      "critRange": 20,
+      "critMult": 3
+    },
+    "save": {
+      "dc": "0",
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "audio/effects/tarkov_mosin_sniper.mp3",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false,
+    "conditionals": [
+      {
+        "default": false,
+        "name": "Smiting Shot",
+        "modifiers": [
+          {
+            "formula": "@classes.holyGunPaladin.level + @abilities.cha.mod",
+            "target": "damage",
+            "subTarget": "allDamage",
+            "type": "Sacred",
+            "critical": "normal"
+          }
+        ]
+      },
+      {
+        "default": false,
+        "name": "Super Smiting Shot",
+        "modifiers": [
+          {
+            "formula": "(@classes.holyGunPaladin.level)*2 + @abilities.cha.mod",
+            "target": "damage",
+            "subTarget": "allDamage",
+            "type": "Sacred",
+            "critical": "normal"
+          }
+        ]
+      }
+    ],
+    "usesAmmo": true,
+    "spellArea": "",
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": true,
+      "evil": false
+    },
+    "showInCombat": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274162059,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.bjFjitTU3ViH2oXy",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

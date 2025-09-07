@@ -1,0 +1,164 @@
+{
+  "img": "icons/equipment/finger/ring-cabochon-spiral-gold-green.webp",
+  "name": "Good Boy Cowboy Hat of Inspired Wisdom +2",
+  "system": {
+    "description": {
+      "value": "<p>This simple bronze headband is decorated with an intricate pattern of fine green etchings.</p><p>The headband grants the wearer an <em>enhancement bonus</em> to <em>Wisdom</em> of +2, +4, or +6. Treat this as a temporary ability bonus for the first 24 hours the headband is worn.</p><h3>Construction</h3><p><strong>Requirements</strong> @UUID[Compendium.pf1.feats.Item.tD76K8QGco9scT0r]{Craft Wondrous Item}, @UUID[Compendium.pf1.spells.Item.b9ggsagifzk4fwut]{owl's wisdom}; <strong>Cost</strong> 2,000 gp</p>",
+      "instructions": "",
+      "unidentified": "<p>This simple bronze headband is decorated with an intricate pattern of fine green etchings.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 4000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Headband"
+    },
+    "cursed": false,
+    "cl": 8,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "OOq9HRqx",
+        "formula": "2",
+        "target": "wis",
+        "type": "enh",
+        "operator": "add",
+        "priority": 0
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "headband",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "leather",
+          "custom": false
+        },
+        "normal": {
+          "value": "leather",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "sources": [
+      {
+        "id": "PZO1123",
+        "pages": "250"
+      },
+      {
+        "id": "PZO1110",
+        "pages": "516"
+      }
+    ],
+    "nonlethal": false
+  },
+  "type": "equipment",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274099152,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.o3MfLWQgg6Ei3z3f",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

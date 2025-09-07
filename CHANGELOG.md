@@ -12,9 +12,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Burst Abilities Support**: Full support for burst weapons with both normal and critical hit damage (flaming burst, icy burst, etc.)
 - **Critical Damage System**: Proper `damage.critParts` implementation for abilities that trigger on critical hits
 - **Custom Damage Parsing**: Advanced regex parsing for complex damage descriptions in LLM responses
+- **Comprehensive Materials System**: Full PF1 special materials implementation with 15+ materials including mithral, adamantine, cold iron, silver, and campaign-specific materials
+- **Material Auto-Detection**: Intelligent material detection from item names, descriptions, and explicit MATERIAL template fields
+- **Material Properties**: Complete material effects including weight modification, hardness changes, masterwork requirements, and armor category reduction
+- **Campaign Materials**: Custom materials inspired by user's campaign (Sea-Steel, Skymetal, Living Steel) with unique properties
+- **Material Cost Calculation**: Automatic price adjustments based on PF1 material pricing formulas
 
 ### Changed
 - **Special Abilities Processing**: Intelligent detection of burst vs. regular abilities with proper damage distribution
+- **LLM Template**: Enhanced item generation template with dedicated MATERIAL field and comprehensive material guidance
+- **Material Integration**: Seamless integration of materials system with existing item creation workflow
 
 ### Fixed
 - **Damage Type Detection**: Burst abilities correctly add both normal damage and critical hit damage

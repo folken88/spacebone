@@ -1,0 +1,153 @@
+{
+  "type": "equipment",
+  "name": "Stanky Leg",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/worn-items/prosthetic_leg_pirate_stanky_leg.webp\" /><p></p><p>Crafted from a blend of driftwood and metal salvaged from a pirate shipwreck, <em>Stanky-Leg </em>is a well-worn prosthetic leg with a strange and storied past. Its surface bears the faint outlines of a hand-drawn map, depicting a portion of the Shackles' treacherous isles. Though the map has no coordinates or markings of known locations, experienced sailors may recognize key landmarks and silhouettes of certain notorious pirate strongholds. The map's details are rumored to shift slightly with the tides, subtly hinting at hidden treasure or dangers.</p><h3><strong>Mechanics</strong></h3><ol><li><p><strong>Magically-Enhanced Unarmed Strike (Kick)</strong>: When the wearer kicks in combat, their unarmed strike is treated as a <em>magic weapon</em>, bypassing damage reduction as though it were enchanted. This allows the pirate to deal with creatures resistant to mundane attacks without needing a weapon, as long as they use their prosthetic leg to strike.</p></li><li><p><strong>Hidden Compartment</strong>: A small, almost invisible compartment can be found within the leg's inner structure. This compartment grants a +5 bonus to <em>Sleight of Hand</em> checks made to hide small items (up to 1 pound). The compartment is particularly difficult to detect, even during a thorough search, and has saved many a pirate from losing contraband or illicit goods in dangerous situations.</p></li></ol>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 2
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 750,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "prosthetic lower leg"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [
+      {
+        "text": "Stanky Leg: +5 to hide items within this item.",
+        "target": "skill.slt"
+      }
+    ],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "other",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false,
+    "showInCombat": false
+  },
+  "img": "Art%20-%20Items/worn-items/prosthetic_leg_pirate_stanky_leg.webp",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "scene-packer": {
+      "hash": "bbf1bdf3779ae276f0ad18f17890690102c7410d"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273859565,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.LbroGrqFD0OmhGdP",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

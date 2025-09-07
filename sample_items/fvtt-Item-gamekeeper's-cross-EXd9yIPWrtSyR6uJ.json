@@ -1,0 +1,236 @@
+{
+  "name": "Gamekeeper's Cross",
+  "type": "equipment",
+  "img": "Art%20-%20Items/jewelry/amulet_a_bladed_cross_made_of_wood_magic_item_dd_magic.webp",
+  "system": {
+    "description": {
+      "value": "<p>This 3\" diameter amulet of wood bears an inscription in varisian across the back: \"<em>They killed my uncle, the were-bear called \"Bern the Bloodsoaked.\" When they buried him, a great tree grew out of his grave within days. They chopped it down and burned it. I saved only this piece. Now for vengeance.\"</em></p><p>This item provides a number of benefits to a druid or ranger who holds it.</p><p>It acts as an amulet of Natural Armor +1.</p><p>When the wearer recieves a  @UUID[Compendium.pf1.spells.Item.la7kuehewu85ybnt]{Barkskin} spell, the amulet also casts @UUID[Compendium.pf1.spells.Item.jnlr9cuepka1l26e]{Enlarge Person} and @UUID[Compendium.pf1.spells.Item.hosf489xyoexmp57]{Longstrider}. This combined buff lasts 10 minutes per wearer level. The wearer appears to be a large werebear made entirely of enchanted oak bark. They gain two claw attacks and one bite, and can use both claw attacks on a charge as if they have the Pounce feat.</p><img src=\"Art%20-%20Items/jewelry/amulet_a_bladed_cross_made_of_wood_magic_item_dd_magic.png\" />",
+      "instructions": "",
+      "unidentified": "<p>Weird little wooden amulet.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8000,
+    "size": "fine",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Amulet"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 5,
+    "changes": [
+      {
+        "_id": "q1RhLSUF",
+        "formula": "1",
+        "operator": "add",
+        "target": "nac",
+        "type": "enh",
+        "priority": 0
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "zuP0AQS4ndXbeex8",
+        "name": "Use",
+        "img": "Art%20-%20Items/jewelry/amulet_a_bladed_cross_made_of_wood_magic_item_dd_magic.webp",
+        "activation": {
+          "cost": 1,
+          "type": "passive",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/dota2/dota2_ursa_Enrage.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "neck",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "world": {
+      "buffToggle": {
+        "zuP0AQS4ndXbeex8": {
+          "activate": [
+            "#DZ1CA7wx978IAAbM"
+          ]
+        }
+      }
+    },
+    "item-piles": {
+      "item": {
+        "hidden": false,
+        "notForSale": false,
+        "infiniteQuantity": "default",
+        "displayQuantity": "default",
+        "free": false,
+        "keepZeroQuantity": false,
+        "disableNormalCost": false,
+        "cantBeSoldToMerchants": false,
+        "isService": false,
+        "keepOnMerchant": false,
+        "macro": "",
+        "customCategory": "",
+        "prices": [],
+        "vaultExpander": false,
+        "vaultSlot": null,
+        "addsCols": 0,
+        "addsRows": 0,
+        "x": null,
+        "y": null,
+        "width": 1,
+        "height": 1,
+        "canStack": "default",
+        "core": {
+          "sourceId": "Compendium.pf1.items.Item.9Uxwqax0pLPyT2j7"
+        },
+        "world": {
+          "buffToggle": {
+            "zuP0AQS4ndXbeex8": {
+              "activate": [
+                "#x70syqqAko441l3m"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274282366,
+    "modifiedTime": 1757274282366,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.EXd9yIPWrtSyR6uJ",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

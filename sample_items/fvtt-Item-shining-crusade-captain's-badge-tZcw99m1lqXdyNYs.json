@@ -1,0 +1,232 @@
+{
+  "name": "Shining Crusade Captain's Badge",
+  "type": "equipment",
+  "img": "Art%20-%20Icons/ranks/badge_shining_crusade_sword_captain.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "infiniteQuantity": false,
+        "core": {
+          "sourceId": "Compendium.pf1.items.9Uxwqax0pLPyT2j7"
+        },
+        "item-piles": {
+          "item": {
+            "hidden": false,
+            "notForSale": false,
+            "infiniteQuantity": false,
+            "displayQuantity": "default",
+            "free": false,
+            "keepZeroQuantity": false,
+            "disableNormalCost": false,
+            "cantBeSoldToMerchants": false,
+            "isService": false,
+            "macro": "",
+            "customCategory": "",
+            "prices": [],
+            "vaultExpander": false,
+            "vaultSlot": null,
+            "addsCols": 0,
+            "addsRows": 0,
+            "x": null,
+            "y": null,
+            "width": 1,
+            "height": 1
+          }
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Icons/ranks/badge_shining_crusade_sword_captain.webp\" /><p>One of only a hundred talismans made for the highest ranking Shining Crusade officers. Few survived the war, and even fewer have been seen in the intervening 1000 years.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0.01
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 28000,
+    "size": "fine",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Amulet"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [
+      {
+        "_id": "FCVU0t5R",
+        "formula": "5",
+        "operator": "add",
+        "priority": 0,
+        "target": "allSavingThrows",
+        "type": "resist"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "max": 0
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "chest",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": ""
+      },
+      "bonus": {
+        "formula": ""
+      },
+      "label": null
+    },
+    "formula": "",
+    "ability": {
+      "attack": null,
+      "damage": null,
+      "damageMult": 1,
+      "critRange": 20,
+      "critMult": 2
+    },
+    "save": {
+      "dc": 0,
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274227548,
+    "modifiedTime": 1757274227548,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.tZcw99m1lqXdyNYs",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

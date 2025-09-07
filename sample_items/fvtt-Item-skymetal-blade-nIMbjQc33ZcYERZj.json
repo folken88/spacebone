@@ -1,0 +1,246 @@
+{
+  "name": "Skymetal Blade",
+  "type": "weapon",
+  "img": "Art%20-%20Items/weapons/kukri_blade_knife.webp",
+  "system": {
+    "description": {
+      "value": "<p>This large knife, or small short sword, is constructed with materials and techniques that are unknown outside of Numeria. It is very durable, contains a compass in the handle cap, and has space inside the handle for a number of very small items.</p><img src=\"Art%20-%20Items/weapons/kukri_blade_knife.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [
+      "PFS"
+    ],
+    "quantity": 1,
+    "weight": {
+      "value": 3
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8330,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "shortsword"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 22,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 14,
+    "changes": [
+      {
+        "_id": "jsJvGoo7",
+        "formula": "2",
+        "operator": "add",
+        "priority": 0,
+        "target": "skill.sur",
+        "type": "circumstance"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "lkzee7hknlqx9chs",
+        "name": "Attack",
+        "img": "systems/pf1/icons/items/weapons/sword-short.PNG",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "critConfirmBonus": "4",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 17,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_hit_meaty5_smallerblade.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1,
+          "type": "none"
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "light",
+    "hands": 1,
+    "baseTypes": [
+      "Shortsword"
+    ],
+    "weaponGroups": [
+      "bladesLight"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273889357,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.nIMbjQc33ZcYERZj",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

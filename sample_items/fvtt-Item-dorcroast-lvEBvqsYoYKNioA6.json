@@ -1,0 +1,146 @@
+{
+  "type": "consumable",
+  "name": "Dorcroast",
+  "system": {
+    "description": {
+      "value": "<p>Dorcroast, the invigorating cold brew coffee inspired by the triumph over darkness in Ustalav, awakens your senses with a bittersweet symphony. With a delightful spritz of energy, Dorcroast revitalizes your day, infusing it with the indomitable spirit that arises from the genocide of one's enemies. This remarkable brew serves as a tribute to the resilience of those who stood against evil, reminding you that even in the face of adversity, there is always room for celebration and the promise of a brighter tomorrow.</p><p><em>Brewed and Bottled in Caliphas.</em></p><img src=\"Art%20-%20Items/potions/coffee_in_a_bottle_dd_magic_item_arcanograph.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 300,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "drank"
+    },
+    "cursed": false,
+    "cl": 3,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 1,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 1,
+    "uses": {
+      "value": 1,
+      "per": "single",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "pricePerUse": 0,
+      "max": 2
+    },
+    "actions": [
+      {
+        "_id": "f9tLJpXvbzZPDIOh",
+        "name": "Drink",
+        "img": "Art%20-%20Items/potions/coffee_in_a_bottle_dd_magic_item_arcanograph.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "range": {
+          "value": "0",
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "spellsave",
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "10 + 2[Spell Level] + 1[Spellcasting Ability]",
+          "type": "fort",
+          "description": "Fort negates 1r of blindness + blindsense 30'",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/blinding_drink.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "potion",
+    "showInQuickbar": false
+  },
+  "img": "Art%20-%20Items/potions/coffee_in_a_bottle_dd_magic_item_arcanograph.webp",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "world": {
+      "buffToggle": {
+        "f9tLJpXvbzZPDIOh": {
+          "activate": [
+            "#nEYh5DiJuKXYt1rU"
+          ]
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274051130,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.lvEBvqsYoYKNioA6",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "name": "Wack Juce",
+  "type": "consumable",
+  "system": {
+    "description": {
+      "value": "<p>Refreshingly intoxicating, Wack Juce is made with the finest synthetic oranges in Numeria, and the 3rd finest potato vodka in the world: Smashka Noble!</p><p>Enjoy this sweet and soothing taste of home, you can almost hear the anthem of the Fatherland as you slurp!</p><img src=\"Art%20-%20Items/consumables/drink_wack_juce_juice_vodka_background.jpg\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 4,
+    "weight": {
+      "value": 0.25
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "drink"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "nec"
+    },
+    "hp": {
+      "base": 5,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "uses": {
+      "value": 0,
+      "per": "single",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "pricePerUse": 0
+    },
+    "actions": [
+      {
+        "_id": "30TKhYmzwHIcG21P",
+        "name": "Use",
+        "img": "Art%20-%20Items/consumables/drink_wack_juce_juice_vodka.webp",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "uses": {},
+        "actionType": "other",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "nonlethal"
+              ]
+            }
+          ]
+        },
+        "soundEffect": "audio/effects/drink_slurp_russian_anthemt.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "potion",
+    "showInQuickbar": false
+  },
+  "img": "Art%20-%20Items/consumables/drink_wack_juce_juice_vodka.webp",
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273901527,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.grWPbkrEJAypId6b",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

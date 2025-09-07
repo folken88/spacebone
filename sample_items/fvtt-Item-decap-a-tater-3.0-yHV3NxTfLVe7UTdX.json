@@ -1,0 +1,592 @@
+{
+  "img": "Art%20-%20Items/swords/sword_tech_katana_saber_glow_blade.webp",
+  "name": "Decap A Tater 3.0",
+  "system": {
+    "description": {
+      "value": "<p>This blade is forged of a Glaucite alloy that is beyond modifcation by most smithies in the Inner Sea. Scrying spells cast upon it indicate it is over 7000 years old and does not originate on Golarion.</p><p>The blade has an unknown power-source and radiates no magic or external energy at all until swung or thrust in skillful use. The blade exhibits a soft blue-white glow while in use but this effect is not bright enougt to be seen any distance away.</p><p>It functions as a +1 keen Wakazashi or Shortsword. Due to it's laser-sharp blade that never needs to be sharpened, it bypasses DR as if it is adamantine.</p><img src=\"Art%20-%20Items/swords/sword_tech_katana_saber_glow_blade.webp\" />",
+      "instructions": "",
+      "unidentified": "<p>These short, slender blades are between 1 to 2 feet long. They are primarily used as back-up weapons, to decapitate defeated enemies, or to commit seppuku (ritual suicide) as a matter of honor. These blades are specifically worn by samurai and are intended to be paired with a katana. Together, this set of blades is referred to as a daisho.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 2,
+      "total": 3,
+      "converted": {
+        "total": 3,
+        "value": 3
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8405,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 35,
+      "name": "Wakizashi"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 22,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 19,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "jvxjrgiwkop1t2bi",
+        "name": "Attack",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": "attack"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "critConfirmBonus": "4 + @abilities.int.mod",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "piercing",
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "critRange": 18,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_parry3_slash_ring.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "9Ta0f1782S4Ylflb",
+            "name": "Flaming",
+            "modifiers": [
+              {
+                "_id": "IqWwylDBapr0Zs08",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ]
+              },
+              {
+                "_id": "7V59Kb4TNTf4H5kE",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ],
+                "critical": "crit"
+              }
+            ]
+          },
+          {
+            "_id": "ew4xSKnzwzOLYP1V",
+            "name": "Frost",
+            "modifiers": [
+              {
+                "_id": "4flQGwKaiPT5Oc9C",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "cold"
+                ]
+              },
+              {
+                "_id": "2htV6lvWa2mQhWQ9",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "cold"
+                ],
+                "critical": "crit"
+              }
+            ]
+          },
+          {
+            "_id": "bFDbMF6e3y6CSNBG",
+            "default": true,
+            "name": "Shock",
+            "modifiers": [
+              {
+                "_id": "EReGLOu6Cr6TL8XI",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "electric"
+                ]
+              },
+              {
+                "_id": "lzhchDUV0iLpf097",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "electric"
+                ],
+                "critical": "crit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "9H0vmWG8PkXC5Ibj",
+        "name": "Spellstrike",
+        "activation": {
+          "cost": 1,
+          "type": "nonaction",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "critConfirmBonus": "4 + @abilities.int.mod",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "slashing",
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 18,
+          "critMult": 2
+        },
+        "soundEffect": "audio/hypetracks/boudicca_ult__mixdown3.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "kks82g6ithzgdI1J",
+            "name": "Mind Thrust 1",
+            "modifiers": [
+              {
+                "_id": "iuksvTfBjacBVf7D",
+                "formula": "5d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          },
+          {
+            "_id": "jeBEEIqElu1yzcVX",
+            "name": "Mind Thrust 3",
+            "modifiers": [
+              {
+                "_id": "iuksvTfBjacBVf7D",
+                "formula": "(@classes.magus.level)d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          },
+          {
+            "_id": "rH94oNzgOYNUveeU",
+            "name": "Frigid Touch",
+            "modifiers": [
+              {
+                "_id": "9YoZwpbkX5QHeFDO",
+                "formula": "4d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "cold"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "ZzaoCoGsX8YUdrDu",
+            "name": "Vampiric Touch",
+            "modifiers": [
+              {
+                "_id": "VvDf0hv4QMqBKO9R",
+                "formula": "(floor(@classes.magus.level/2) ) d8",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "negative"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "UQm6B2RvPLlZEVw1",
+            "name": "Intensified Shocking Grasp",
+            "modifiers": [
+              {
+                "_id": "xXuMB2DcoJCrNT7L",
+                "formula": "(@classes.magus.level)d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "electric"
+                ]
+              }
+            ]
+          }
+        ],
+        "material": {
+          "normal": {
+            "value": "adamantine",
+            "custom": false
+          }
+        }
+      },
+      {
+        "_id": "SsATiB90sYAW5ZjR",
+        "name": "Perfect Spellstrike",
+        "activation": {
+          "cost": 1,
+          "type": "nonaction",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "critConfirmBonus": "4 + @abilities.int.mod",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 6, @size)",
+              "types": [
+                "slashing",
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 18,
+          "critMult": 3
+        },
+        "soundEffect": "audio/hypetracks/boudicca_ult__mixdown3.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "kks82g6ithzgdI1J",
+            "name": "Mind Thrust 1",
+            "modifiers": [
+              {
+                "_id": "iuksvTfBjacBVf7D",
+                "formula": "5d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          },
+          {
+            "_id": "jeBEEIqElu1yzcVX",
+            "name": "Mind Thrust 3",
+            "modifiers": [
+              {
+                "_id": "iuksvTfBjacBVf7D",
+                "formula": "(@classes.magus.level)d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          },
+          {
+            "_id": "rH94oNzgOYNUveeU",
+            "name": "Frigid Touch",
+            "modifiers": [
+              {
+                "_id": "9YoZwpbkX5QHeFDO",
+                "formula": "4d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "cold"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "ZzaoCoGsX8YUdrDu",
+            "name": "Vampiric Touch",
+            "modifiers": [
+              {
+                "_id": "VvDf0hv4QMqBKO9R",
+                "formula": "(floor(@classes.magus.level/2) ) d8",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "negative"
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "sOb3GkE6QRCkla2z",
+            "default": true,
+            "name": "Intensified Shocking Grasp",
+            "modifiers": [
+              {
+                "_id": "xXuMB2DcoJCrNT7L",
+                "formula": "(@classes.magus.level)d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "electric"
+                ]
+              }
+            ]
+          }
+        ],
+        "material": {
+          "normal": {
+            "value": "adamantine",
+            "custom": false
+          }
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 1,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "light",
+    "hands": 1,
+    "baseTypes": [
+      "Wakizashi"
+    ],
+    "weaponGroups": [
+      "bladesLight"
+    ],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "glaucite",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "dea": true,
+      "fin": true,
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1123",
+        "pages": "20"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": true,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274217348,
+    "modifiedTime": 1757274217348,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.yHV3NxTfLVe7UTdX",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

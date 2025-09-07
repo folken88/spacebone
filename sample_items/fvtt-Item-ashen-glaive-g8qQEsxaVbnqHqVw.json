@@ -1,0 +1,266 @@
+{
+  "img": "Art%20-%20Items/weapons/glaive_ashen_black_polearm_ghostly.webp",
+  "name": "Ashen Glaive",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/weapons/glaive_ashen_black_polearm_ghostly.webp\" /><p>Forged during the Shining Crusade, this ash-colored glaive not only ignores the insubstantial nature of incorporeal creatures but also strikes undead with devastating power. It is said to be forged from the smoldering ruin of a greater lich destroyed by the holy fire of Arazni herself.</p><p>The item appears as a smoking black glaive but feels cool to the touch. In the hands of a skilled wielder, it can be commanded to \"burn\" into the form of a tattoo depicting a thin line of smoke and fire from their hand to their shoulder and it can reside there until called.</p><p>It to function as +1, keen, ghost-touch, and undead bane.</p>",
+      "instructions": "",
+      "unidentified": "<p>A glaive is composed of a simple blade mounted on the end of a pole about 7 feet in length.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 10,
+      "total": 10,
+      "converted": {
+        "total": 10,
+        "value": 10
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 18308,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 8,
+      "name": "Glaive"
+    },
+    "cursed": false,
+    "cl": 9,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 40,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 25,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "1ezds2xueeyrfh5q",
+        "ability": {
+          "attack": "dex",
+          "critMult": 2,
+          "damage": "dex",
+          "critRange": 15,
+          "damageMult": 1
+        },
+        "actionType": "mwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 10, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {}
+        },
+        "name": "Attack",
+        "range": {
+          "units": "reach",
+          "value": "0"
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "uses": {},
+        "critConfirmBonus": "4",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "soundEffect": "audio/effects/sword_eviscerate1_spirit.mp3",
+        "conditionals": [
+          {
+            "_id": "BQ28uOLLp86Pumb7",
+            "name": "Undead Bane",
+            "modifiers": [
+              {
+                "_id": "XxAw8zSo6SPQdNC9",
+                "formula": "2",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred"
+              },
+              {
+                "_id": "JKCZNdbRJb7Y8jkV",
+                "formula": "2d6 + 2",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "positive"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 1,
+    "proficient": false,
+    "held": "2h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "2h",
+    "hands": 1,
+    "baseTypes": [
+      "Glaive"
+    ],
+    "weaponGroups": [
+      "polearms"
+    ],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "rch": true,
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "143, 146"
+      },
+      {
+        "id": "PZO1123",
+        "pages": "18"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "item-piles": {
+      "item": {}
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273826387,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.g8qQEsxaVbnqHqVw",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

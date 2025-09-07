@@ -1,0 +1,196 @@
+{
+  "name": "Devil in Grey Cloak",
+  "type": "equipment",
+  "img": "Art%20-%20Items/worn-items/valheim_wolf_cloak.webp",
+  "system": {
+    "description": {
+      "value": "<p>A cloak made from the famous Devil In Grey. This item grants a number of powerful benefits.</p><p>It grants Cold Resist 30, Functions as a belt of CON +4 and Cloak of Resistance +4, and the wearer leaves no tracks.</p><p></p><img src=\"Art%20-%20Characters/animal/wolf_winter_huge_blue_eyes_menacing.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 42000,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Cloak"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 35,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [
+      {
+        "_id": "q4m7nb93",
+        "formula": "4",
+        "operator": "add",
+        "target": "allSavingThrows",
+        "type": "resist",
+        "priority": 0
+      },
+      {
+        "_id": "Ef8RZuBd",
+        "formula": "4",
+        "operator": "add",
+        "priority": 0,
+        "target": "con",
+        "type": "enh"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [
+      {
+        "text": "Devil in Grey Cloak: +30 cold resistance.",
+        "target": "ref"
+      }
+    ],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "shoulders",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "x": 0,
+        "y": 1,
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274284599,
+    "modifiedTime": 1757274284599,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.NHXfd7vuQlzRWnhu",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

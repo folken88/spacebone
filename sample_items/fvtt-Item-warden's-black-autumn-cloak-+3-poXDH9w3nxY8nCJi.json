@@ -1,0 +1,266 @@
+{
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "img": "Art%20-%20Items/cloaks/cloak_childs_brick_red_fleece_traveling_cloak_with_simple_.webp",
+  "name": "Warden's Black Autumn Cloak +3",
+  "system": {
+    "description": {
+      "value": "<p>This cloak is a deep black, with subtle hints of amber and crimson, resembling the colors of autumn leaves at dusk.</p><p><strong>Powers:</strong></p><ul><li><strong>Shadow's Embrace:</strong> Grants a +10 on escape artist checks. Nothing sticks to the fabric and it slips and flows through any grip like water.</li><li><strong>Harvest's Fortune:</strong> Once per day, the wearer can cast <em>Entangle</em> as a spell-like ability.</li></ul><p>History: Worn by Thorn Blackthorn, the group's rogue, this cloak helped him escape danger and manipulate the environment to his advantage.</p><p></p><p>Constant @UUID[Compendium.pf1.spells.Item.pau0ejk30fs1eebl]{Endure Elements} effect.</p><img src=\"Art%20-%20Items/cloaks/cloak_childs_brick_red_fleece_traveling_cloak_with_simple_.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 1500,
+    "size": "med",
+    "resizing": true,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Hobbit Cloak"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "nB6usehz",
+        "formula": "3",
+        "target": "allSavingThrows",
+        "type": "resist",
+        "operator": "add",
+        "priority": 0
+      },
+      {
+        "type": "circumstance",
+        "_id": "2aAANWgB",
+        "operator": "add",
+        "priority": 0,
+        "formula": "2",
+        "target": "chaChecks"
+      },
+      {
+        "type": "competence",
+        "_id": "DmU9nKIF",
+        "operator": "add",
+        "priority": 0,
+        "formula": "10",
+        "target": "skill.esc"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "cragrCcaHjeAXz1J",
+        "name": "Use",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "value": "1 min./level",
+          "units": "spec",
+          "dismiss": true
+        },
+        "uses": {},
+        "measureTemplate": {
+          "type": "circle",
+          "size": "40",
+          "color": "#332839",
+          "texture": "modules/jb2a_patreon/Library/1st_Level/Entangle/Entangle02_03_Dark_Blue_500x500.webm"
+        },
+        "actionType": "spellsave",
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + @abilities.int.mod",
+          "type": "ref",
+          "description": "Reflex partial; see text",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/tree_falling).mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "area": "plants in a 40-ft.-radius spread"
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [
+      ""
+    ],
+    "uses": {
+      "value": 1,
+      "per": "day",
+      "autoDeductChargesCost": "",
+      "maxFormula": "1",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "shoulders",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "leather",
+          "custom": false
+        },
+        "normal": {
+          "value": "leather",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "sources": [
+      {
+        "id": "PZO1123",
+        "pages": "264"
+      },
+      {
+        "id": "PZO1110",
+        "pages": "507"
+      }
+    ],
+    "nonlethal": false
+  },
+  "type": "equipment",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=buyPriceModifier": null,
+        "-=sellPriceModifier": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274260964,
+    "modifiedTime": 1757274260964,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.poXDH9w3nxY8nCJi",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

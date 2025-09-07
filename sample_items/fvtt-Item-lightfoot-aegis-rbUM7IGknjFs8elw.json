@@ -1,0 +1,185 @@
+{
+  "name": "Lightfoot Aegis",
+  "type": "equipment",
+  "img": "Art%20-%20Items/armor/armor_breastplate_semi-modern_design_scratched.webp",
+  "system": {
+    "description": {
+      "value": "<p>Worn with either Medium or Light armor proficiency, this breastplate is so well made that it encumbers as light armor. Made of an unknown alloy, it can only be modified by the finest forges.</p><p>It is decades old with hundreds of scratches, punctures, dents, and a dozen major repairs. At one point, an advanced ballistic deflection layer was added under the plates, and the outer surfaces themselves coated in an energy-resistant chemical which was permanently bonded to the item. This translates into a small bonus to Touch-AC.</p><p>It has marks from old mounting points to show rank or symbols of different owners, but is completely unadorned now.</p><img src=\"Art%20-%20Items/armor/armor_breastplate_semi-modern_design_scratched.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 11
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 12500,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "breastplate"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 50,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 25,
+    "changes": [
+      {
+        "_id": "pF0sCLCj",
+        "formula": "4",
+        "operator": "add",
+        "priority": 0,
+        "target": "tac",
+        "type": "alchemical"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "armor",
+    "slot": "armor",
+    "equipmentSubtype": "mediumArmor",
+    "hands": 0,
+    "baseTypes": [
+      "Agile Breastplate"
+    ],
+    "armor": {
+      "value": 6,
+      "dex": 5,
+      "acp": 2,
+      "enh": 2,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 5,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    },
+    "pf1": {
+      "migration": "11.0"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274199467,
+    "modifiedTime": 1757274199467,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.rbUM7IGknjFs8elw",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

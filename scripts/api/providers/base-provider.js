@@ -126,6 +126,14 @@ export class BaseProvider {
 - For legendary items ("once worn by Iomedae"), create powerful abilities and high-level mechanics
 - Calculate prices using standard Pathfinder 1e formulas
 - Include spell-like abilities when appropriate (format as separate SPELL_ABILITY entries)
+- Consider special materials when appropriate:
+  * Mithral: Half weight, lighter armor category, higher cost
+  * Adamantine: Extremely durable, bypasses hardness, damage reduction
+  * Cold Iron: Effective against fey and demons
+  * Silver: Effective against lycanthropes and some undead
+  * Darkwood: Light magical wood for shields/hafts
+  * Dragonhide: Dragon scales with energy resistance
+  * Custom materials: Sea-Steel (underwater combat), Skymetal (Numerian tech), Living Steel (self-repairing)
 
 ## CONTEXT:
 - Item Type: ${context.itemType || '[AUTO-DETECT]'}
@@ -138,6 +146,7 @@ Fill out this template and return it EXACTLY as shown (keep all field names and 
 NAME: [Item Name]
 TYPE: [weapon/armor/equipment/consumable]
 SUBTYPE: [longsword/breastplate/ring/wand/etc]
+MATERIAL: [Standard/Mithral/Adamantine/Cold Iron/Silver/Darkwood/etc, or leave blank for standard]
 PRICE: [Gold piece value]
 WEIGHT: [Weight in pounds]
 ENHANCEMENT: [0-5 for weapons/armor, or N/A]
@@ -238,6 +247,8 @@ IMPORTANT: Return ONLY the filled template, starting with "=== ITEM TEMPLATE STA
                 itemData.type = this.extractValue(trimmedLine, 'TYPE:');
             } else if (trimmedLine.startsWith('SUBTYPE:')) {
                 itemData.subType = this.extractValue(trimmedLine, 'SUBTYPE:');
+            } else if (trimmedLine.startsWith('MATERIAL:')) {
+                itemData.material = this.extractValue(trimmedLine, 'MATERIAL:');
             } else if (trimmedLine.startsWith('PRICE:')) {
                 itemData.price = this.parseNumber(this.extractValue(trimmedLine, 'PRICE:'));
             } else if (trimmedLine.startsWith('WEIGHT:')) {

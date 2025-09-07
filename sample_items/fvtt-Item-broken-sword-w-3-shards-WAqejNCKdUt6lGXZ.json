@@ -1,0 +1,292 @@
+{
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "name": "Broken Sword w 3 shards",
+  "type": "weapon",
+  "img": "modules/boss-loot-magic-items-advanced/artwork/022-sword-of-the-broken-one/art-animated-for-chat-3-shards.gif",
+  "system": {
+    "description": {
+      "value": "<p><span style=\"font-family:ALBR55X, 'Font Awesome 5 Free'\">This blade bears the old symbol of Pharasma that has not been used by her followers since the Shining Crusade. The blade is snapped off just above the guard despite the weapons superior construction. It radiates powerful necromantic magic.</span></p><p>Handle: +1 Dagger 1d4 19/2</p><p>1 Shard: +2 Short Sword Undead Bane 1d6 19/2</p><p>2 Shards: Keen, Ghost Touch 1d6 17/2</p><p>3 Shards: +3, Dispelling Strike 1d8 17/2</p><img src=\"modules/boss-loot-magic-items-advanced/artwork/022-sword-of-the-broken-one/art-animated-for-chat-3-shards.gif\" />",
+      "instructions": "",
+      "unidentified": "<p>A broken sword, shattered just above the guard. </p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 4
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 0,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "broken sword"
+    },
+    "cursed": false,
+    "cl": 20,
+    "aura": {
+      "custom": false,
+      "school": "nec"
+    },
+    "hp": {
+      "base": 50,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 50,
+    "changes": [
+      {
+        "_id": "bKgUzE42",
+        "formula": "3",
+        "operator": "add",
+        "priority": 0,
+        "target": "allSavingThrows",
+        "type": "resist"
+      },
+      {
+        "_id": "snMNi2Ok",
+        "formula": "5",
+        "operator": "add",
+        "priority": 0,
+        "target": "init",
+        "type": "sacred"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "ONgZCT3U6Sbqdw57",
+        "name": "Attack",
+        "img": "modules/boss-loot-magic-items-advanced/artwork/022-sword-of-the-broken-one/art-animated-for-chat-0-shards.gif",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "critConfirmBonus": "4[Critical Focus]",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 8, @size)",
+              "types": [
+                "slashing",
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "dex",
+          "damage": "dex",
+          "damageMult": 1,
+          "critRange": 17,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_slice_bloody1.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1,
+          "type": "none"
+        },
+        "conditionals": [
+          {
+            "_id": "qkken0qhzunmT7Aq",
+            "name": "Undead Bane",
+            "modifiers": [
+              {
+                "_id": "c3sIeomImyY0FRFy",
+                "formula": "2",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred"
+              },
+              {
+                "_id": "YCYduJQk5g9nhWWv",
+                "formula": "2d6 + 2",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "positive"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          },
+          {
+            "name": "Sneak Attack",
+            "modifiers": [
+              {
+                "formula": "(floor(@classes.rogueUnchained.level / 2)  + floor(@classes.arcaneTrickster.level / 2) + 2)d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "critical": "nonCrit",
+                "_id": "uqsuniyztzeqigco",
+                "damageType": [
+                  "precision"
+                ]
+              }
+            ],
+            "_id": "76tfvgxjQQQa2deD"
+          }
+        ],
+        "notes": {
+          "effect": [
+            "Ghost Touch. Dispelling Strike, On Confirmed crit: cancels highest level buff that is caster level [[1d20 + @details.level.value[Wielder Level] + 3[Item Bonus] - 11]]  or lower."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 3,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "1h",
+    "hands": 1,
+    "baseTypes": [],
+    "weaponGroups": [],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": true,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    },
+    "showInCombat": false
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274251520,
+    "modifiedTime": 1757274251520,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.WAqejNCKdUt6lGXZ",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

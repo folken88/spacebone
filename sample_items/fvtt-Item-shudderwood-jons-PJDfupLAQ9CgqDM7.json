@@ -1,0 +1,191 @@
+{
+  "name": "Shudderwood Jons",
+  "type": "equipment",
+  "img": "Art%20-%20Items/worn-items/clothing_shorts_jean_jorts.webp",
+  "system": {
+    "description": {
+      "value": "<p>These flexible short-pants are divinely crafted out of the finest woven jean. They are so unimaginably comfortable that when worn under armor, they reduce the check penalty by 1. </p><p>If worn by a shapeshifter, they stretch and adapt to any size of bipedal form.</p><img src=\"Art%20-%20Items/worn-items/clothing_shorts_jean_jorts.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 12,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "clothing"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 5,
+    "changes": [
+      {
+        "_id": "0kQqHDEK",
+        "formula": "-1",
+        "operator": "add",
+        "priority": 0,
+        "target": "acpA",
+        "type": "circumstance"
+      },
+      {
+        "_id": "rLnjurE1",
+        "formula": "2",
+        "operator": "add",
+        "priority": 0,
+        "target": "skill.ste",
+        "type": "circumstance"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "5hyPfr659CP8PVhp",
+        "name": "Use",
+        "img": "Art%20-%20Items/worn-items/clothing_shorts_jean_jorts.webp",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 1,
+            "maxFormula": "1",
+            "per": "day"
+          }
+        },
+        "actionType": "other",
+        "soundEffect": "audio/hypetracks/john_cena_.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": null,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.4"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274034803,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.PJDfupLAQ9CgqDM7",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,789 @@
+{
+  "name": "Nanite Hypogun 2.0 Black",
+  "type": "equipment",
+  "img": "Art%20-%20Items/technological%20items/gun_hypostim_medical.webp",
+  "effects": [],
+  "flags": {
+    "pick-up-stix": {
+      "pick-up-stix": {
+        "owner": {
+          "actorId": "zCm5d1F3MMIjXzAE"
+        },
+        "initialState": {
+          "count": 1,
+          "itemData": {
+            "name": "Nanite Hypogun (Brown)",
+            "type": "equipment",
+            "data": {
+              "description": {
+                "value": "<p>Color Primary Effect (1ch) Secondary Effect CL (5ch)</p>\n<p>Brown 1d8+1 healing Remove sickness 1st</p>",
+                "chat": "",
+                "unidentified": ""
+              },
+              "tags": [],
+              "quantity": 1,
+              "weight": 1,
+              "price": 1000,
+              "identified": true,
+              "hp": {
+                "max": 10,
+                "value": 10
+              },
+              "hardness": 0,
+              "carried": true,
+              "unidentified": {
+                "price": 0,
+                "name": ""
+              },
+              "identifiedName": "Nanite Hypogun (Brown)",
+              "changes": [],
+              "changeFlags": {
+                "loseDexToAC": false,
+                "noStr": false,
+                "noDex": false,
+                "oneInt": false,
+                "oneWis": false,
+                "oneCha": false,
+                "noEncumbrance": false,
+                "mediumArmorFullSpeed": false,
+                "heavyArmorFullSpeed": false
+              },
+              "contextNotes": [],
+              "links": {
+                "children": []
+              },
+              "equipped": false,
+              "equipmentType": "misc",
+              "equipmentSubtype": "other",
+              "armor": {
+                "value": 0,
+                "dex": null,
+                "acp": 0,
+                "enh": 0
+              },
+              "spellFailure": 0,
+              "slot": "slotless",
+              "masterwork": false,
+              "size": "med",
+              "activation": {
+                "cost": null,
+                "type": "standard"
+              },
+              "measureTemplate": {
+                "type": ""
+              },
+              "damage": {
+                "parts": [],
+                "critParts": [],
+                "nonCritParts": []
+              },
+              "target": {
+                "value": ""
+              },
+              "range": {
+                "units": "touch",
+                "value": null,
+                "long": null
+              },
+              "duration": {
+                "units": "inst",
+                "value": null
+              },
+              "uses": {
+                "per": "charges",
+                "autoDeductCharges": true,
+                "value": 4,
+                "maxFormula": "10",
+                "max": 10,
+                "autoDeductChargesCost": "1"
+              },
+              "ability": {
+                "critRange": null,
+                "critMult": null,
+                "attack": "wis",
+                "damage": "",
+                "damageMult": 1
+              },
+              "save": {
+                "dc": "",
+                "description": "",
+                "type": ""
+              },
+              "weightConverted": 1,
+              "weightUnits": "lbs",
+              "priceUnits": "gp",
+              "actionType": "",
+              "soundEffect": "",
+              "attackParts": [],
+              "attack": {
+                "parts": []
+              }
+            },
+            "sort": 1800000,
+            "flags": {},
+            "img": "Art%20-%20Objects/nanite_hypogun.png",
+            "effects": [],
+            "labels": {
+              "equipped": "<i class=\"fas fa-times\"></i>",
+              "carried": "<i class=\"fas fa-check\"></i>",
+              "identified": "<i class=\"fas fa-check\"></i>",
+              "slot": "Slotless",
+              "equipmentType": "Miscellaneous",
+              "equipmentSubtype": "Other",
+              "armor": "",
+              "activation": "Standard Action",
+              "target": "",
+              "range": "Range: Touch",
+              "duration": "Instantaneous",
+              "damage": "",
+              "damageTypes": ""
+            },
+            "hasAttack": false,
+            "hasMultiAttack": false,
+            "hasDamage": false,
+            "hasAction": true,
+            "showUnidentifiedData": false,
+            "tag": "naniteHypogunBrown",
+            "isStack": false,
+            "hasUses": true,
+            "isCharged": true,
+            "price": 1000,
+            "empty": false,
+            "totalWeight": 1,
+            "units": "lbs"
+          }
+        },
+        "itemType": "Item",
+        "isLocked": false
+      }
+    },
+    "autoanimations": {
+      "killAnim": false,
+      "override": false,
+      "animType": "t1",
+      "animName": "",
+      "bards": {
+        "bardAnim": "a1",
+        "bardTarget": true,
+        "bardTargetAnim": "a1",
+        "bardTargetColor": "a1",
+        "bardSelf": true,
+        "marker": true,
+        "markerColor": "a1",
+        "markerColorTarget": "a1"
+      },
+      "spellVar": "a1",
+      "hmAnim": "a1",
+      "color": "n1",
+      "spellOptions": {
+        "spellLoops": 1
+      },
+      "uaStrikeType": "physical",
+      "dtvar": "dt1",
+      "divineSmite": {
+        "dsEnable": false,
+        "dsSelf": true,
+        "dsSelfDelay": 0,
+        "dsSelfColor": "a1",
+        "dsTarget": true,
+        "dsTargetDelay": 1250,
+        "dsTargetColor": "a1"
+      },
+      "explosion": false,
+      "explodeVariant": "ev1",
+      "explodeColor": "",
+      "explodeRadius": "0",
+      "explodeLoop": "1",
+      "allSounds": {
+        "explosion": {
+          "audioExplodeEnabled": false,
+          "file": "",
+          "delay": 100,
+          "volume": 0.25
+        },
+        "item": {
+          "enableAudio": false,
+          "file": "",
+          "delay": 100,
+          "volume": 0.25
+        }
+      },
+      "selfRadius": "5",
+      "animTint": "#ffffff",
+      "auraOpacity": 0.75,
+      "ctaOption": false,
+      "teleDist": 30,
+      "templates": {
+        "tempType": "a1",
+        "tempAnim": "",
+        "tempColor": "",
+        "tempLoop": 1,
+        "customAnim": false,
+        "customPath": ""
+      },
+      "animLevel": false,
+      "exAnimLevel": false,
+      "impactVar": "a1"
+    },
+    "core": {},
+    "item-piles": {
+      "item": {
+        "hidden": false,
+        "notForSale": false,
+        "infiniteQuantity": "default",
+        "displayQuantity": "default",
+        "free": false,
+        "keepZeroQuantity": false,
+        "disableNormalCost": false,
+        "cantBeSoldToMerchants": false,
+        "isService": false,
+        "keepOnMerchant": false,
+        "macro": "",
+        "customCategory": "",
+        "prices": [],
+        "vaultExpander": false,
+        "vaultSlot": null,
+        "addsCols": 0,
+        "addsRows": 0,
+        "x": null,
+        "y": null,
+        "width": 1,
+        "height": 1,
+        "canStack": "default",
+        "pick-up-stix": {
+          "pick-up-stix": {
+            "owner": {
+              "actorId": "zCm5d1F3MMIjXzAE"
+            },
+            "initialState": {
+              "count": 1,
+              "itemData": {
+                "name": "Nanite Hypogun (Brown)",
+                "type": "equipment",
+                "data": {
+                  "description": {
+                    "value": "<p>Color Primary Effect (1ch) Secondary Effect CL (5ch)</p>\n<p>Brown 1d8+1 healing Remove sickness 1st</p>",
+                    "chat": "",
+                    "unidentified": ""
+                  },
+                  "tags": [],
+                  "quantity": 1,
+                  "weight": 1,
+                  "price": 1000,
+                  "identified": true,
+                  "hp": {
+                    "max": 10,
+                    "value": 10
+                  },
+                  "hardness": 0,
+                  "carried": true,
+                  "unidentified": {
+                    "price": 0,
+                    "name": ""
+                  },
+                  "identifiedName": "Nanite Hypogun (Brown)",
+                  "changes": [],
+                  "changeFlags": {
+                    "loseDexToAC": false,
+                    "noStr": false,
+                    "noDex": false,
+                    "oneInt": false,
+                    "oneWis": false,
+                    "oneCha": false,
+                    "noEncumbrance": false,
+                    "mediumArmorFullSpeed": false,
+                    "heavyArmorFullSpeed": false
+                  },
+                  "contextNotes": [],
+                  "links": {
+                    "children": []
+                  },
+                  "equipped": false,
+                  "equipmentType": "misc",
+                  "equipmentSubtype": "other",
+                  "armor": {
+                    "value": 0,
+                    "dex": null,
+                    "acp": 0,
+                    "enh": 0
+                  },
+                  "spellFailure": 0,
+                  "slot": "slotless",
+                  "masterwork": false,
+                  "size": "med",
+                  "activation": {
+                    "cost": null,
+                    "type": "standard"
+                  },
+                  "measureTemplate": {
+                    "type": ""
+                  },
+                  "damage": {
+                    "parts": [],
+                    "critParts": [],
+                    "nonCritParts": []
+                  },
+                  "target": {
+                    "value": ""
+                  },
+                  "range": {
+                    "units": "touch",
+                    "value": null,
+                    "long": null
+                  },
+                  "duration": {
+                    "units": "inst",
+                    "value": null
+                  },
+                  "uses": {
+                    "per": "charges",
+                    "autoDeductCharges": true,
+                    "value": 4,
+                    "maxFormula": "10",
+                    "max": 10,
+                    "autoDeductChargesCost": "1"
+                  },
+                  "ability": {
+                    "critRange": null,
+                    "critMult": null,
+                    "attack": "wis",
+                    "damage": "",
+                    "damageMult": 1
+                  },
+                  "save": {
+                    "dc": "",
+                    "description": "",
+                    "type": ""
+                  },
+                  "weightConverted": 1,
+                  "weightUnits": "lbs",
+                  "priceUnits": "gp",
+                  "actionType": "",
+                  "soundEffect": "",
+                  "attackParts": [],
+                  "attack": {
+                    "parts": []
+                  }
+                },
+                "sort": 1800000,
+                "flags": {},
+                "img": "Art%20-%20Objects/nanite_hypogun.png",
+                "effects": [],
+                "labels": {
+                  "equipped": "<i class=\"fas fa-times\"></i>",
+                  "carried": "<i class=\"fas fa-check\"></i>",
+                  "identified": "<i class=\"fas fa-check\"></i>",
+                  "slot": "Slotless",
+                  "equipmentType": "Miscellaneous",
+                  "equipmentSubtype": "Other",
+                  "armor": "",
+                  "activation": "Standard Action",
+                  "target": "",
+                  "range": "Range: Touch",
+                  "duration": "Instantaneous",
+                  "damage": "",
+                  "damageTypes": ""
+                },
+                "hasAttack": false,
+                "hasMultiAttack": false,
+                "hasDamage": false,
+                "hasAction": true,
+                "showUnidentifiedData": false,
+                "tag": "naniteHypogunBrown",
+                "isStack": false,
+                "hasUses": true,
+                "isCharged": true,
+                "price": 1000,
+                "empty": false,
+                "totalWeight": 1,
+                "units": "lbs"
+              }
+            },
+            "itemType": "Item",
+            "isLocked": false
+          }
+        },
+        "autoanimations": {
+          "killAnim": false,
+          "override": false,
+          "animType": "t1",
+          "animName": "",
+          "bards": {
+            "bardAnim": "a1",
+            "bardTarget": true,
+            "bardTargetAnim": "a1",
+            "bardTargetColor": "a1",
+            "bardSelf": true,
+            "marker": true,
+            "markerColor": "a1",
+            "markerColorTarget": "a1"
+          },
+          "spellVar": "a1",
+          "hmAnim": "a1",
+          "color": "n1",
+          "spellOptions": {
+            "spellLoops": 1
+          },
+          "uaStrikeType": "physical",
+          "dtvar": "dt1",
+          "divineSmite": {
+            "dsEnable": false,
+            "dsSelf": true,
+            "dsSelfDelay": 0,
+            "dsSelfColor": "a1",
+            "dsTarget": true,
+            "dsTargetDelay": 1250,
+            "dsTargetColor": "a1"
+          },
+          "explosion": false,
+          "explodeVariant": "ev1",
+          "explodeColor": "",
+          "explodeRadius": "0",
+          "explodeLoop": "1",
+          "allSounds": {
+            "explosion": {
+              "audioExplodeEnabled": false,
+              "file": "",
+              "delay": 100,
+              "volume": 0.25
+            },
+            "item": {
+              "enableAudio": false,
+              "file": "",
+              "delay": 100,
+              "volume": 0.25
+            }
+          },
+          "selfRadius": "5",
+          "animTint": "#ffffff",
+          "auraOpacity": 0.75,
+          "ctaOption": false,
+          "teleDist": 30,
+          "templates": {
+            "tempType": "a1",
+            "tempAnim": "",
+            "tempColor": "",
+            "tempLoop": 1,
+            "customAnim": false,
+            "customPath": ""
+          },
+          "animLevel": false,
+          "exAnimLevel": false,
+          "impactVar": "a1"
+        },
+        "core": {
+          "sourceId": "Item.iIBxjtVUX9tfTXJD"
+        }
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>Color Black</p>\n<p>Primary Effect (1ch) 2d8+5 healing</p>\n<p>Secondary Effect CL (5ch) Lesser restoration 3rd</p>\n<p>Lesser restoration dispels any magical effects reducing one of the subject’s ability scores or cures 1d4 points of temporary <a href=\"https://www.d20pfsrd.com/basics-ability-scores/ability-scores#TOC-Ability-Score-Damage\">ability damage</a> to one of the subject’s ability scores. It also eliminates any <a href=\"https://www.d20pfsrd.com/gamemastering/conditions#TOC-Fatigued\">fatigue</a> suffered by the character, and improves an <a href=\"https://www.d20pfsrd.com/gamemastering/conditions#TOC-Exhausted\">exhausted</a> condition to <a href=\"https://www.d20pfsrd.com/gamemastering/conditions#TOC-Fatigued\">fatigued</a>. It does not restore permanent ability <a href=\"https://www.d20pfsrd.com/basics-ability-scores/ability-scores#TOC-Ability-Drain\">drain</a>.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 6000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Strange Gun"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 3,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false,
+      "noStr": false,
+      "noDex": false,
+      "oneInt": false,
+      "oneWis": false,
+      "oneCha": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "3p9kv4ca04ad0bkz",
+        "name": "Cure Moderate (1 charge)",
+        "img": "Art%20-%20Items/technological%20items/gun_hypostim_medical.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "heal",
+        "damage": {
+          "parts": [
+            {
+              "formula": "2d8 + 5",
+              "types": [
+                "positive"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "critRange": 20,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/tarkov_stim.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      },
+      {
+        "_id": "792m6rch9l98drpt",
+        "name": "Lesser Restoration (2 charges)",
+        "img": "Art%20-%20Items/technological%20items/gun_hypostim_medical.webp",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {
+          "autoDeductChargesCost": "2"
+        },
+        "actionType": "heal",
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "critRange": 20,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/tarkov_stim.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "notes": {
+          "effect": [
+            "Cures [[1d4]] points of temporary ability damage to one of the subject’s ability scores. It also eliminates any fatigue suffered by the character, and improves an exhausted condition to fatigued. It does not restore permanent ability drain."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 3,
+      "per": "charges",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "10",
+      "rechargeFormula": "",
+      "max": 10,
+      "pricePerUse": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "other",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "duration": {
+      "value": null,
+      "units": "inst"
+    },
+    "target": {
+      "value": ""
+    },
+    "attackName": "",
+    "attackBonus": "",
+    "critConfirmBonus": "",
+    "damage": {
+      "parts": [
+        [
+          "2d8+3",
+          "Healing"
+        ]
+      ],
+      "critParts": [],
+      "nonCritParts": []
+    },
+    "attackParts": [],
+    "formulaicAttacks": {
+      "count": {
+        "formula": "",
+        "value": null
+      },
+      "bonus": {
+        "formula": ""
+      },
+      "label": null
+    },
+    "formula": "",
+    "ability": {
+      "attack": "wis",
+      "damage": "",
+      "damageMult": 1,
+      "critRange": null,
+      "critMult": null
+    },
+    "save": {
+      "dc": "",
+      "type": "",
+      "description": ""
+    },
+    "soundEffect": "audio/effects/tarkov_stim.mp3",
+    "powerAttack": {
+      "multiplier": "",
+      "damageBonus": 2,
+      "critMultiplier": 1
+    },
+    "attackType": "weapon",
+    "nonlethal": false,
+    "attack": {
+      "parts": []
+    },
+    "conditionals": [],
+    "spellArea": ""
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274086716,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.nADm5RbXd9xLN0Tg",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

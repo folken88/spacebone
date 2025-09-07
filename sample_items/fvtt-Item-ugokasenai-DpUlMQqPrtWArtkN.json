@@ -1,0 +1,216 @@
+{
+  "name": "Ugokasenai",
+  "type": "equipment",
+  "img": "Art%20-%20Items/armor/armor_oyoroi_scary_blue_steel_.webp",
+  "system": {
+    "description": {
+      "value": "<h3>+2 Deathless O'Yoroi.</h3><p>Deathless effect absorbs the first 10 points of negative energy damage every round, and grants a 25% chance to negate any negative-levels incurred.</p><p>Adamantine plating reduces all incoming physical damage by 3 unless the weapon is of Adamantine quality or greater.</p><p>Heavy plating with a unique process to make the plates slick against incoming projectiles causes the wearer to operate as if they have the @UUID[Compendium.pf1.feats.Item.ACEQfonKVqh0fwkK]{Deflect Arrows} feat. That same heavy plating results in -4 penalty to using most ranged weapons (does not apply to crossbows or firearms).</p><p></p><p>Ugokasenai translated from Tian means \"Immovable.\"</p><h4>On the inside the of the face-plate is written:<br />自分の役割を知る</h4><h4>Tian: Jibun no yakuwari o shiru.</h4><h4>Translated: Know your role.</h4><img src=\"Art%20-%20Items/armor/armor_oyoroi_scary_blue_steel_.webp\" /><p></p><h4>This is part of a larger mantra recited by the Tian-Xia Crusaders who joined the war against Tar Baphon a thousand years ago. They were fearless, durable, and wore such heavy armor and equipment that they were immovable, but they were also vulnerable. \"Know your role\" reminds them to \"do your job but remember your limitations and part within the greater army.\"</h4><h4></h4>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 45
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 29800,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "armor"
+    },
+    "cursed": false,
+    "cl": 7,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 60,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 30,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "Oi9H7XfzOKF8Kddp",
+        "name": "Negate Negative Level Effect",
+        "img": "Art%20-%20Items/armor/armor_oyoroi_scary_blue_steel_.webp",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/hypetracks/scent_of_a_fuckyou.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "notes": {
+          "effect": [
+            "On a 3, the negative level effect is negated: [[1d4]]."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "armor",
+    "slot": "armor",
+    "equipmentSubtype": "heavyArmor",
+    "hands": 0,
+    "baseTypes": [
+      "O-Yoroi"
+    ],
+    "armor": {
+      "value": 8,
+      "dex": 2,
+      "acp": 6,
+      "enh": 2,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 35,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274081285,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.DpUlMQqPrtWArtkN",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

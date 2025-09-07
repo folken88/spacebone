@@ -1,0 +1,236 @@
+{
+  "name": "Ghoul Pie",
+  "type": "consumable",
+  "system": {
+    "description": {
+      "value": "<p>A famous recipe from @UUID[Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-journal-entries.JournalEntry.sqEE4iaGlPaZwFLC]{Savage Sustenance}</p><p>Provides @UUID[Compendium.pf1.spells.mz9yr5yhr0f3oqtp]{Darkvision}and Immune to Ghoul Touch / Ghoul Fever. for 4 hours.</p><p><span style=\"font-family:Signika, sans-serif\">A velvety and creamy pudding made with a combination of whipped cream, milk, and your choice of flavors such as chocolate, vanilla, or butterscotch. Served chilled in individual cups or bowls.</span></p><img src=\"modules/folken-games-fantasy-chef/images/burrata_in_cream_arcanograph_dd_magic_item_dark.jpg\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 350,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "pile of cream"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": "nec"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "uses": {
+      "value": 0,
+      "per": "single",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "pricePerUse": 0,
+      "max": 0
+    },
+    "actions": [
+      {
+        "_id": "ZqYMlApFn5GtrfKz",
+        "name": "Use",
+        "img": "modules/folken-games-fantasy-chef/images/burrata_in_cream_arcanograph_dd_magic_item_dark.jpg",
+        "activation": {
+          "cost": 1,
+          "type": "minute",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1"
+        },
+        "actionType": "other",
+        "soundEffect": "modules/folken-games-fantasy-chef/audio/slurp_hngggg.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "potion",
+    "showInQuickbar": false,
+    "masterwork": false,
+    "spellType": ""
+  },
+  "img": "modules/folken-games-fantasy-chef/images/burrata_in_cream_arcanograph_dd_magic_item_dark.jpg",
+  "effects": [],
+  "flags": {
+    "world": {
+      "buffToggle": {
+        "ZqYMlApFn5GtrfKz": {
+          "activate": [
+            "#jvLq58ZoLtw5qJxJ"
+          ]
+        }
+      }
+    },
+    "core": {},
+    "pf1": {
+      "migration": "11.4"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=buyPriceModifier": null,
+        "-=sellPriceModifier": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null,
+        "world": {
+          "buffToggle": {
+            "ZqYMlApFn5GtrfKz": {
+              "activate": [
+                "#jvLq58ZoLtw5qJxJ"
+              ]
+            }
+          }
+        },
+        "core": {
+          "sourceId": "Compendium.folken-games-fantasy-chef.folken-games-fantasy-cooking-items-pf1e.Item.cGMbThfkocAvX4Yp"
+        },
+        "pf1": {
+          "migration": "10.4"
+        },
+        "lilhelper": {
+          "item": {
+            "hideAttacks": false,
+            "autoPowerAttack": false,
+            "keen": false,
+            "skipDialog": 0,
+            "rollmodeOverride": "",
+            "rollOverride": ""
+          }
+        },
+        "item-piles": {
+          "item": {
+            "-=hidden": null,
+            "-=notForSale": null,
+            "-=infiniteQuantity": null,
+            "-=displayQuantity": null,
+            "-=free": null,
+            "-=keepZeroQuantity": null,
+            "-=disableNormalCost": null,
+            "-=cantBeSoldToMerchants": null,
+            "-=isService": null,
+            "-=keepOnMerchant": null,
+            "-=macro": null,
+            "-=customCategory": null,
+            "-=prices": null,
+            "-=buyPriceModifier": null,
+            "-=sellPriceModifier": null,
+            "-=vaultExpander": null,
+            "-=vaultSlot": null,
+            "-=addsCols": null,
+            "-=addsRows": null,
+            "-=x": null,
+            "-=y": null,
+            "-=width": null,
+            "-=height": null,
+            "-=flipped": null,
+            "-=vaultImage": null,
+            "-=vaultImageFlipped": null,
+            "-=canStack": null
+          }
+        }
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274116926,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.HVHN09l0Mm1p0zWX",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

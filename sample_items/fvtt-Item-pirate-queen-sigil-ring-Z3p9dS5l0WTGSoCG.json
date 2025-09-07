@@ -1,0 +1,256 @@
+{
+  "name": "Pirate Queen Sigil Ring",
+  "type": "equipment",
+  "img": "Art%20-%20Items/rings/ring_jolly_roger_skull_crossbones_besmara.webp",
+  "system": {
+    "description": {
+      "value": "<h2>Description</h2><p>This ring is made out of fused firearm bullets, making it a chunky but overall impressive ring.</p><h3>Twice per day:</h3><p>As a free action, when the wearer regains grit, she can choose to store it in the ring of grit mastery instead of regaining the grit point. She can store up to 2 grit points within the ring in this way. She can spend the grit points stored in the ring in the following ways.</p><p><strong>1 Grit Point stored within the ring:</strong></p><p>@UUID[Compendium.pf1.spells.Item.lvzq2mwkqmozolpl]{Freedom of Movement} for 1 round.</p><p></p><p><strong>2 Grit Points stored within the ring:</strong></p><p>@UUID[Compendium.pf1.spells.Item.myg2b9ww43nnlbr2]{Break Enchantment}</p><p></p><p><strong>2 Grit Points stored within the ring + All grit points by the bearer for the rest of the day:</strong> @UUID[Compendium.pf1.spells.Item.ojwg1ki98tq8xyh9]{Dimension Door}</p><p></p><p><strong>Any grit points stored in the ring disappear at the start of each day.</strong><br /></p><img src=\"Art%20-%20Items/rings/ring_jolly_roger_skull_crossbones_besmara.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 6840,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "ring"
+    },
+    "cursed": false,
+    "cl": 3,
+    "aura": {
+      "custom": true,
+      "school": "abjuration and evocation"
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 0,
+    "changes": [
+      {
+        "_id": "XR3Bjvo2",
+        "formula": "3",
+        "operator": "add",
+        "priority": 0,
+        "target": "ac",
+        "type": "deflection"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "MsaJROMjNRRwaYHl",
+        "name": "Freedom of Movement 1r",
+        "img": "Art%20-%20Icons/symbol_besmara_pirate_queen.webp",
+        "description": "<p><span style=\"font-family: ALBR55X, 'Font Awesome 5 Free'\">This spell enables you or a creature you touch to move and attack normally for the duration of the spell, even under the influence of magic that usually impedes movement, such as paralysis, solid fog, slow, and <em style=\"box-sizing: border-box; user-select: text;\">web.</em> All combat maneuver checks made to grapple the target automatically fail. The subject automatically succeeds on any combat maneuver checks and Escape Artist checks made to escape a grapple or a pin.</span></p><p style=\"box-sizing: border-box; user-select: text; margin: 0.5em 0px; color: rgb(25, 24, 19); font-family: ALBR55X, 'Font Awesome 5 Free'; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; text-align: start\"><span style=\"font-family: ALBR55X, 'Font Awesome 5 Free'\">The spell also allows the subject to move and attack normally while underwater, even with slashing weapons such as axes and swords or with bludgeoning weapons such as flails, hammers, and maces, provided that the weapon is wielded in the hand rather than hurled. The <em style=\"box-sizing: border-box; user-select: text;\">freedom of movement</em> spell does not, however, grant water breathing.</span></p>",
+        "activation": {
+          "cost": 1,
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "target": {
+          "value": "you or creature touched"
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1"
+        },
+        "actionType": "spellsave",
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + @abilities.cha.mod",
+          "type": "will",
+          "description": "Will negates",
+          "harmless": true
+        },
+        "soundEffect": "audio/hypetracks/but_you_have_heard_of_me_-_jack_sparrow_moment_first_escape%5BYoutubetomp3.sc%5D.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "nonlethal": true,
+        "ammo": {
+          "cost": 1
+        }
+      },
+      {
+        "_id": "nvp2K4PnXngFGSjb",
+        "name": "Break Enchantment",
+        "img": "Art%20-%20Icons/symbol_besmara_pirate_queen.webp",
+        "activation": {
+          "cost": 1,
+          "type": "minute",
+          "unchained": {
+            "cost": 1,
+            "type": "minute"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "target": {
+          "value": "up to one creature per level, all within 30 ft. of each other"
+        },
+        "range": {
+          "value": "25 + (floor(@details.level.value /2) * 5)",
+          "units": "ft"
+        },
+        "uses": {
+          "autoDeductChargesCost": "2"
+        },
+        "actionType": "spellsave",
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "description": "see text"
+        },
+        "soundEffect": "audio/hypetracks/but_you_have_heard_of_me_-_jack_sparrow_moment_first_escape%5BYoutubetomp3.sc%5D.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "notes": {
+          "effect": [
+            "Break Enchantment dispels one Enchantment, Transmutation, or Curse of up to caster level [[1d20 + @details.level.value -11]]."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 2,
+      "per": "charges",
+      "autoDeductChargesCost": "1",
+      "maxFormula": "2",
+      "rechargeFormula": "",
+      "pricePerUse": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "other",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273894230,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.Z3p9dS5l0WTGSoCG",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.4"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

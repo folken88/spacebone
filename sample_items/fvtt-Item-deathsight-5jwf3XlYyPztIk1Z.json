@@ -1,0 +1,249 @@
+{
+  "name": "Deathsight",
+  "type": "equipment",
+  "img": "Art%20-%20Items/technological%20items/magical_visor_tinted_blue_hud_of_runes__magic.webp",
+  "system": {
+    "description": {
+      "value": "<p>A technological marvel of extra-sensory augmentation, this device hones in on the weak points of any visible target. It can focus on structural integrity, operational components, or other vital areas.</p><p><strong>Aimed Spells:</strong></p><p>This translates into an alteration of the magical damage caused by the wearer. Any touch or ranged touch spell cast by the caster has its dice size reduced by one, but critical threat range and multiplier expanded by 1.</p><p>Eg: Scorching Ray for 4d6, 20x2 becomes 4d4, 19/3.</p><p><strong>Area Spells:</strong><br />This also alters AoE spells, focusing them and increasing their potency. Reduce your aoe damage spells by half radius for ball or square, or half length for ray or cone. Increase the dice size by 1. So Fireball is altered from 20' radius d6/level to 10'radius d8/level. Spellstat mod is added to final damage for the attack.</p><p><strong>Passive Bonuses:</strong></p><p>The goggles provide a constant +5 sight-based perception, as they highlight identified targets, and they can detect and highlight Invisible, Blurred, Displaced, and Ethereal targets. Ethereal targets may still be immune to material-plane effects.</p><p><strong>Contingency Effects:</strong></p><p>If the wearer confirms a critical with a spell, they gain the immediate-action \"Re-Peek\" - usable only in this instant. Re-Peek grants a 1 round Vanish effect and a dimension door 1d6 X 5 feet, variable by users level X 5', to an open square in their field of vision (towards the target they crit or beyond them).</p><img src=\"Art%20-%20Items/technological%20items/magical_visor_tinted_blue_hud_of_runes__magic.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 4
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 13000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Goggles"
+    },
+    "cursed": false,
+    "cl": 15,
+    "aura": {
+      "custom": false,
+      "school": "div"
+    },
+    "hp": {
+      "base": 35,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 25,
+    "changes": [
+      {
+        "_id": "dWkADkFu",
+        "formula": "5",
+        "operator": "add",
+        "priority": 0,
+        "target": "skill.per",
+        "type": "circumstance"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [
+      {
+        "text": "On Confirmed Crit: Re-Peek grants a 1 round Vanish effect and a dimension door [[d6 * 5]] feet, variable by [[@details.level.value * 5]] feet, to an open square in their field of vision (towards the target they crit or beyond them)",
+        "target": "attack"
+      }
+    ],
+    "actions": [
+      {
+        "_id": "n9HCqdpvLQGA8hrO",
+        "name": "Re-Peek",
+        "img": "Art%20-%20Items/technological%20items/magical_visor_tinted_blue_hud_of_runes__magic.webp",
+        "description": "<p>Wearer is transported somewhere between [[1d3*5]] feet and [[(1d6 * 5) + max(@abilities.cha.mod, @abilities.int.mod, @abilities.wis.mod)*5]] feet from their position when the critical was confirmed.</p>",
+        "activation": {
+          "cost": 1,
+          "type": "immediate",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "other",
+        "soundEffect": "audio/effects/qop_blink_full.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "notes": {
+          "effect": [
+            "Wearer is transported somewhere between [[1d3*5]] feet and [[(1d6 * 5) + max(@abilities.cha.mod, @abilities.int.mod, @abilities.wis.mod)*5]] feet from their position when the critical was confirmed."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "eyes",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [
+      "Dancing Scarves"
+    ],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": true,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "LocknKey": {
+      "IDKeysFlag": "",
+      "RemoveKeyonUseFlag": false,
+      "LPFormulaFlag": "",
+      "LPFormulaOverrideFlag": false,
+      "LBFormulaFlag": "",
+      "LBFormulaOverrideFlag": false,
+      "ReplacementItemFlag": ""
+    },
+    "core": {},
+    "world": {
+      "buffToggle": {
+        "n9HCqdpvLQGA8hrO": {
+          "activate": [
+            "#CzUjfesXdoTryUL4"
+          ]
+        }
+      }
+    },
+    "item-piles": {
+      "item": {
+        "-=hidden": null,
+        "-=notForSale": null,
+        "-=infiniteQuantity": null,
+        "-=displayQuantity": null,
+        "-=free": null,
+        "-=keepZeroQuantity": null,
+        "-=disableNormalCost": null,
+        "-=cantBeSoldToMerchants": null,
+        "-=isService": null,
+        "-=keepOnMerchant": null,
+        "-=macro": null,
+        "-=customCategory": null,
+        "-=prices": null,
+        "-=vaultExpander": null,
+        "-=vaultSlot": null,
+        "-=addsCols": null,
+        "-=addsRows": null,
+        "-=x": null,
+        "-=y": null,
+        "-=width": null,
+        "-=height": null,
+        "-=flipped": null,
+        "-=vaultImage": null,
+        "-=vaultImageFlipped": null,
+        "-=canStack": null
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "skipDialog": -1,
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274258623,
+    "modifiedTime": 1757274258623,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.5jwf3XlYyPztIk1Z",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

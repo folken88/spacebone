@@ -1,0 +1,135 @@
+{
+  "name": ".45-70 Government HP Cartridge",
+  "type": "loot",
+  "img": "Art%20-%20Items/ammunition/bullets_and_cartridges_45_government_71142.webp",
+  "effects": [],
+  "flags": {
+    "pf1": {
+      "migration": "11.1"
+    },
+    "core": {},
+    "item-piles": {
+      "item": {
+        "pf1": {
+          "abundant": false
+        },
+        "core": {
+          "sourceId": "Item.2R67RV1kzirNhAOW"
+        }
+      },
+      "version": "2.4.17"
+    },
+    "LocknKey": {
+      "IDKeysFlag": "",
+      "RemoveKeyonUseFlag": false,
+      "LPFormulaFlag": "",
+      "LPFormulaOverrideFlag": false,
+      "LBFormulaFlag": "",
+      "LBFormulaOverrideFlag": false,
+      "ReplacementItemFlag": ""
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>The .45-70 Government, also known as the .45-70 Springfield, .45-21⁄10\" Sharps, is a rifle cartridge that fires a 0.458 inch bullet diameter.</p><img src=\"Art%20-%20Items/ammunition/bullets_and_cartridges_45_government_71142.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "quantity": 125,
+    "weight": {
+      "value": 0.1
+    },
+    "equipped": false,
+    "carried": true,
+    "price": 15,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "bullet"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 12,
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "ammo",
+    "extraType": "dragoonBullet",
+    "abundant": false,
+    "conditionals": [],
+    "recoverChance": null,
+    "masterwork": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273905374,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.fHstxW07YgWXVKWQ",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

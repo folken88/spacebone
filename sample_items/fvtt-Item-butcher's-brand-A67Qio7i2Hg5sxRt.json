@@ -1,0 +1,259 @@
+{
+  "img": "Art%20-%20Items/swords/longsword_with_a_black_metal_handle_and_blade_made_of_ice_butchers_blade.webp",
+  "name": "Butcher's Brand",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/swords/longsword_with_a_black_metal_handle_and_blade_made_of_ice_butchers_blade.webp\" /><p>Forged in the final years of the Demonskin Wars, this cold iron sword is imbued with frost magic specifically to harm demonic invaders. The blade now pulses with icy energy, dealing an additional 1d6 cold damage. The sword warns the wielder of approaching demonic presence, subtly vibrating in their hand. This weapon once belonged to a commander who fell in defense of Northgarde's walls.</p>",
+      "instructions": "",
+      "unidentified": "<p>This sword is about 3-1/2 feet in length.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 4,
+      "total": 4,
+      "converted": {
+        "total": 4,
+        "value": 4
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 28315,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": false,
+    "unidentified": {
+      "price": 15,
+      "name": "Longsword"
+    },
+    "cursed": false,
+    "cl": 9,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 35,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 20,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [
+      {
+        "text": "Butcher's Brand grants +5 Perception when dealing with Demons, when held and unsheathed.",
+        "target": "skill.per"
+      },
+      {
+        "text": "Butcher's Brand grants +5 Sense Motive when dealing with Demons, when held and unsheathed.",
+        "target": "skill.sen"
+      }
+    ],
+    "actions": [
+      {
+        "_id": "jelb63mz9vrxa43c",
+        "ability": {
+          "attack": "str",
+          "critRange": 19,
+          "damage": "str",
+          "critMult": 2
+        },
+        "actionType": "mwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 8, @size)",
+              "types": [
+                "slashing"
+              ]
+            },
+            {
+              "formula": "1d6",
+              "types": [
+                "cold"
+              ]
+            }
+          ],
+          "critParts": [
+            {
+              "formula": "1d10",
+              "types": [
+                "cold"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {}
+        },
+        "name": "Attack",
+        "range": {
+          "units": "melee",
+          "value": "0"
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "uses": {},
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "soundEffect": "audio/effects/atla_icepunch.mp3"
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 3,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "1h",
+    "hands": 1,
+    "baseTypes": [
+      "Longsword"
+    ],
+    "weaponGroups": [
+      "bladesHeavy"
+    ],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "142, 147"
+      },
+      {
+        "id": "PZO1123",
+        "pages": "18"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273817225,
+    "modifiedTime": 1757273817225,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.A67Qio7i2Hg5sxRt",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

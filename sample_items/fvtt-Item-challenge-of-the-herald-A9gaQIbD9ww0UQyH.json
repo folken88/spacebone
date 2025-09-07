@@ -1,0 +1,217 @@
+{
+  "name": "Challenge of the Herald",
+  "type": "equipment",
+  "img": "Art%20-%20Items/armor/helmet_holy_white_metal_with_yellow_helmet.webp",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/armor/helmet_holy_white_metal_with_yellow_helmet.webp\" /><p>This Shining Crusade era artifact is legendary amongst the Iomedaean and Sarenite paladin legions. It was worn by many champions during their long campaign against the tyrant. Each time the wearer was killed, it was picked up by their allies and worn to symbolize the Crusade's tireless pursuit of victory at any cost. The last to wear it was a mortal Iomedae, but she set it aside when she left for Absalom to take the test of the Starstone.</p><p></p><p>The helmets constant granted powers to any good-aligned wearer are:<br />Darkvision 60'</p><p>+5 insight bonus to Perception and Sense Motive</p><p>Constant Shield of Faith at the wearer's level.<br />Constant Detect Evil, with no verbal or somatic component but the face of the wearer is obscured in darkness and only erie orange eyes are visible to others.<br /><br />The specific powers related to members of the shining crusade are:<br />Saranrae: Your offensive fire spells now deal half holy damage, and your offensive channels deal half fire damage. AoE effects like Fireball &amp; Channel push any undead in the area back as Improved Bull-rush. Increase the dice-type of your aoe attacks vs undead by 1.</p><p>Iomedae: Your sword gains the \"Holy\" property. If it was already holy, either by craft or by spell, it becomes brilliant-energy.</p><p>Torag: Your armor extends all its physical defense to touch AC. Constant Blindsense 60'.</p><p>Shelyn: Your healing channels and restoration spell dice are maximized. Those affected by your healing magic gain +4 morale bonus on fortitude saves for 24 hours.</p><p>Pharasma: All of your attacks are treated as having \"Smite Evil\" vs undead targets, bypassing any sub-mythic DR. Your are permanently invisible to undead, intelligent undead may save against this effect with a Will DC of 22, if they succeed they are immune to it for 24 hours.</p><p></p><p>Challenge of the Herald:</p><p>When worn, the suppresses the wearer's immunity to fear or mind-control effects. If the wearer fails a save vs an attack of this type, they are stunned for the duration and only a mythic being or death may dispel it. If they succeed at a save of this type from an enemy no less than 4 hd below them, the following effects occur:<br />+2 charges of Lay On Hands or Channel Positive are added, the wearer has the option to release this energy as an immediate action in the form of both an offensive undead-destroying channel and a healing version. If they are at maximum charges, this release happens automatically and the normal channel radius is doubled.</p><p>True Seeing 60' for 1 minute.</p><p>A dispel-magic that targets spells cast by evil sources centered on the wearer with a 20' radius and +20 to the caster level check.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 3
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 78000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "helmet"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 55,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 30,
+    "changes": [
+      {
+        "type": "insight",
+        "_id": "nfe0FPBv",
+        "operator": "add",
+        "priority": 0,
+        "formula": "5",
+        "target": "skill.per"
+      },
+      {
+        "type": "insight",
+        "operator": "add",
+        "priority": 0,
+        "formula": "5",
+        "target": "skill.sen",
+        "_id": "6wSQmGSS"
+      },
+      {
+        "type": "deflection",
+        "_id": "97PZ0pil",
+        "operator": "add",
+        "priority": 0,
+        "formula": "2 + min(3, floor((@details.level.value)/6))",
+        "target": "ac"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "LXfDMIIiOisCKBDr",
+        "name": "Charge Wearer",
+        "activation": {
+          "cost": 1,
+          "type": "passive",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "range": {
+          "value": null,
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "-2"
+        },
+        "actionType": "other",
+        "soundEffect": "audio/hypetracks/florence_no_light_breakage_remix_softer.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [
+      {
+        "_id": "3gxEZ6eM35lfRMhH",
+        "name": "Darkvision 60",
+        "img": "icons/svg/dice-target.svg",
+        "type": "script",
+        "value": "actor.update({ \"system.traits.senses.dv\": state ? 60 : 0});",
+        "category": "equip",
+        "hidden": false
+      }
+    ],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "head",
+    "equipmentSubtype": "",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "flags": {
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "core": {},
+    "pf1": {
+      "migration": "11.4"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274147240,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.A9gaQIbD9ww0UQyH",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

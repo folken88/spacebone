@@ -1,0 +1,294 @@
+{
+  "img": "Art%20-%20Items/weapons/dagger_evil_black_redeye_vampire.webp",
+  "name": "Bloodthirst Dagger",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/weapons/dagger_evil_black_redeye_vampire.webp\" /><p>This cursed blade grows hungrier over time. In addition to its enchantment, the dagger now allows its wielder to cast <em>vampiric touch</em> twice per day, siphoning life from enemies to heal its owner. The weapon, originally crafted by a vampire assassin, was once used to betray allies during the Shining Crusade and has since passed through many hands. It radiates a sinister aura, feeding on the blood spilled by its wielder.</p>",
+      "instructions": "",
+      "unidentified": "<p>A kukri is a curved blade, about 1 foot in length.</p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 2,
+      "total": 2,
+      "converted": {
+        "total": 2,
+        "value": 2
+      }
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 8308,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": false,
+    "unidentified": {
+      "price": 8,
+      "name": "Kukri"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "evo"
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "e0dy9qg1kj54t69v",
+        "ability": {
+          "attack": "dex",
+          "critRange": 18,
+          "damage": "dex",
+          "critMult": 2
+        },
+        "actionType": "mwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 4, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {}
+        },
+        "name": "Attack",
+        "range": {
+          "units": "melee",
+          "value": "0"
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "uses": {},
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "conditionals": [
+          {
+            "_id": "ZZsQRBpZWh8rHB84",
+            "name": "Vampiric Touch",
+            "modifiers": [
+              {
+                "_id": "AXzdW5pZ6npn9Vy1",
+                "formula": "3d8",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "negative"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "1XDWBqe2EzmTlSGZ",
+        "name": "Vampiric Touch Activation",
+        "img": "Art%20-%20Icons/bleeding%5Bstatus%2Cbleeding%2Cblood%5D.webp",
+        "activation": {
+          "cost": 1,
+          "type": "swift",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "range": {
+          "value": null,
+          "units": "personal"
+        },
+        "uses": {
+          "autoDeductChargesCost": "1",
+          "self": {
+            "value": 2,
+            "maxFormula": "2",
+            "per": "day"
+          }
+        },
+        "actionType": "other",
+        "soundEffect": "audio/effects/bounty_hunter_Shadow_Walk_quieter.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 2,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "light",
+    "hands": 1,
+    "baseTypes": [
+      "Kukri"
+    ],
+    "weaponGroups": [
+      "bladesLight"
+    ],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "fin": true,
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "142, 146"
+      },
+      {
+        "id": "PZO1123",
+        "pages": "18"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    },
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273822631,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.pFHFJfr355lgv7wo",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "name": "Crusader Captain's Breastplate",
+  "type": "equipment",
+  "img": "Art%20-%20Items/armor/armor_breastplate_black_skin_shell.webp",
+  "system": {
+    "description": {
+      "value": "<h3>Vigilant Rest:</h3><p>While the target of this spell is asleep, she retains some of her normal powers of perception. While she tunes out harmless sounds such as the crackling of the campfire, crickets, or light breezes, she does not take the normal +10 modifier to the DC of Perception checks she attempts while asleep.</p><p>If the target detects a threat or unexplained noise while sleeping, she can wake immediately and stand up from her sleeping position as a free action.</p><p>If the target is roused but returns to sleep during the spell's duration, she falls asleep immediately and does not count as having her sleep interrupted, even if she engaged in combat while she was awake.</p><h3>Construction</h3><p>This Mithral Breastplate is medium armor but is so perfectly constructed that it functions as light armor and has no movement speed penalty. Medium and Light Armor proficiency applies to this item.</p><img src=\"Art%20-%20Items/armor/armor_breastplate_black_skin_shell.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 12.5
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 5400,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "breastplate"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 40,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "armor",
+    "slot": "armor",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [
+      "Agile Breastplate"
+    ],
+    "armor": {
+      "value": 6,
+      "dex": 4,
+      "acp": 3,
+      "enh": 1,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 10,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.1"
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757273891771,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.cRa6eVESmkr8zxRA",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

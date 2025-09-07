@@ -1,0 +1,181 @@
+{
+  "name": "Shining Crusade Book of War Prayers",
+  "type": "equipment",
+  "img": "systems/pf1/icons/items/inventory/book.jpg",
+  "system": {
+    "description": {
+      "value": "<p><strong>Language: Taldane, notes compiled from a speech by one of the Lord Commanders of the Shining Crusade after they defeated and deposed the Whispering Tyrant.</strong></p><p></p><p><em>\"The gratitude of every home in Ustalav, and indeed throughout the world, except in the abodes of the guilty, goes out to the Knights of the Shining Crusade, undaunted by odds, unwearied in their constant challenge and mortal danger, are turning the tide of oppression by their prowess and by their devotion. <br /><br /><strong>Never in the field of conflict was so much owed by so many to so few.</strong></em></p><p><em>All hearts go out to the soldiers, whose brilliant actions we see with our own eyes day after day, but we must never forget that all the time, night after night, month after month, our battallions travel far into Gallowspire, find their targets in the darkness by the highest tactical skill, aim their attacks, often under the heaviest assault, often with serious loss, with deliberate, careful discrimination, and inflict shattering blows upon the whole of the technical and war-making structure of the Tyrant.</em></p><p><em>On no part of the Shining Crusade does the weight of the war fall more heavily than on the front line paladins who will play an invaluable part in the case of invasion and whose unflinching zeal it has been necessary in the meanwhile on numerous occasions to restrain…\"</em><strong><br /><br /><br />Book of War Prayers</strong> This small, leather-bound collection of war prayers features pages of fine vellum. If you have a <a href=\"https://www.d20pfsrd.com/basics-ability-scores/ability-scores#TOC-Charisma-Cha-\">Charisma</a> of 13 or higher, or at least 1 rank in <a href=\"https://www.d20pfsrd.com/skills/perform\">Perform</a> (oratory), you can read aloud prayers from the book before battle to hearten others for the trials to come. Reading prayers for this effect takes 5 minutes. </p><p>The first time this is done in a given day, the readers next  @Compendium[pf1.spells.wa0zb2pncesmm9lz]{Bless} spell has its duration increased to 1hr/level, bonus doubled to +2, and it applies to all saves. This still counts as a morale bonus and does not stack with other morale bonuses or bless spells.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 3500,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "book"
+    },
+    "cursed": false,
+    "cl": 8,
+    "aura": {
+      "custom": false,
+      "school": "enc"
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 5,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "MjSE0ZpVBfrsCsda",
+        "name": "Use",
+        "img": "systems/pf1/icons/items/inventory/book.jpg",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "uses": {},
+        "actionType": "other",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [
+      {
+        "_id": "EzK3zjji89BEPP2L",
+        "name": "War Quote",
+        "img": "icons/svg/dice-target.svg",
+        "type": "script",
+        "value": "game.tables.get(\"4DGnNaZ42bdKGPuU\").draw();",
+        "category": "use",
+        "hidden": false
+      }
+    ],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "other",
+    "slot": "slotless",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "skipDialog": -1
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274088886,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.VzxHQdPSWsQEvgHC",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

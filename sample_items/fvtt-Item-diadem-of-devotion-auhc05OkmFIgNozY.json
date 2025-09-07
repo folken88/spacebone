@@ -1,0 +1,178 @@
+{
+  "name": "Diadem of Devotion",
+  "type": "equipment",
+  "img": "Art%20-%20Items/artifacts/crown_of_sunlight_floats_like_a_halo_above_.webp",
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Items/artifacts/crown_of_sunlight_floats_like_a_halo_above_.webp\" /><p><span style=\"font-family:ALBR55X, 'Font Awesome 5 Free'\">A plain silver circlet. On the outer-facing ring in beautiful Taldane calligraphy:<br style=\"box-sizing:border-box;user-select:text;color:rgb(25, 24, 19);font-family:ALBR55X, 'Font Awesome 5 Free';font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" /><em style=\"box-sizing:border-box;user-select:text;color:rgb(25, 24, 19);font-family:ALBR55X, 'Font Awesome 5 Free';font-size:13px;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">Where loss and love intertwine<br style=\"box-sizing:border-box;user-select:text\" />True enlightenment we find.<br style=\"box-sizing:border-box;user-select:text\" /><br style=\"box-sizing:border-box;user-select:text\" /></em>On the inner ring, scratched in a crude scrawl with a sharp blade after the item had seen years of use:<br style=\"box-sizing:border-box;user-select:text;color:rgb(25, 24, 19);font-family:ALBR55X, 'Font Awesome 5 Free';font-size:13px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\" /><em style=\"box-sizing:border-box;user-select:text;color:rgb(25, 24, 19);font-family:ALBR55X, 'Font Awesome 5 Free';font-size:13px;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial\">I will never get over you.</em></span></p><p></p><p>This plain looking silver circlet radiates no magic or alignment auras until it is placed upon the head of a good-aligned positive channeler.</p><p>It then begins to glow and floats off their head, expanding into a bright ring of light that floats like a halo. While in this form, it bolsters positive channels by +2d6, and allows a new type of hybrid-channel.</p><p>Hybrid Channels both heal, at -1 dice of the channelers normal amount, and harm undead also at -1 dice of the channelers normal. This function costs 2 uses of the wearers channeling for that day.</p><p>All the wearers light spells see their durations extended, as the metamagic effect.</p><p>The circlet also functions as a cloak of resistance +4, adds +4 to the TouchAC of the wearer, and is a +2 wisdom +2 charisma enhancement item.</p><p></p><p></p><p></p>",
+      "instructions": "",
+      "unidentified": "<p>A plain silver circlet. On the outer-facing ring in beautiful Taldane calligraphy:<br /><em>Where loss and love intertwine<br />True enlightenment we find.<br /><br /></em><span style=\"font-family:ALBR55X, 'Font Awesome 5 Free'\">On the inner ring, scratched in a crude scrawl with a sharp blade after the item had seen years of use:</span><br /><em>I will never get over you.</em></p>"
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 34000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "silver circlet"
+    },
+    "cursed": false,
+    "cl": 18,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 35,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "changes": [
+      {
+        "_id": "LTR3D6vJ",
+        "formula": "4",
+        "operator": "add",
+        "priority": 0,
+        "target": "allSavingThrows",
+        "type": "resist"
+      },
+      {
+        "_id": "4UnoGEZA",
+        "formula": "4",
+        "operator": "add",
+        "priority": 0,
+        "target": "tac",
+        "type": "sacred"
+      },
+      {
+        "_id": "UcMsSw0v",
+        "formula": "2",
+        "operator": "add",
+        "priority": 0,
+        "target": "wis",
+        "type": "enh"
+      },
+      {
+        "_id": "ZJea6XHV",
+        "formula": "2",
+        "operator": "add",
+        "priority": 0,
+        "target": "cha",
+        "type": "enh"
+      }
+    ],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "wondrous",
+    "slot": "headband",
+    "equipmentSubtype": "lightArmor",
+    "hands": 0,
+    "baseTypes": [],
+    "armor": {
+      "value": 0,
+      "dex": null,
+      "acp": 0,
+      "enh": 0,
+      "material": {
+        "base": {
+          "value": "",
+          "custom": false
+        },
+        "normal": {
+          "value": "",
+          "custom": false
+        },
+        "addon": []
+      }
+    },
+    "spellFailure": 0,
+    "showInQuickbar": false,
+    "nonlethal": false
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.0"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274039589,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.auhc05OkmFIgNozY",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

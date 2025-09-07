@@ -1,0 +1,738 @@
+{
+  "name": "Curator",
+  "type": "weapon",
+  "img": "Art%20-%20Items/sinlaire/mukhlis-nur-sinlaire-sword21-024-origin-cut-copy.webp",
+  "flags": {
+    "core": {},
+    "item-piles": {
+      "item": {
+        "hidden": false,
+        "notForSale": false,
+        "infiniteQuantity": "default",
+        "displayQuantity": "default",
+        "free": false,
+        "keepZeroQuantity": false,
+        "disableNormalCost": false,
+        "cantBeSoldToMerchants": false,
+        "isService": false,
+        "keepOnMerchant": false,
+        "macro": "",
+        "customCategory": "",
+        "prices": [],
+        "vaultExpander": false,
+        "vaultSlot": null,
+        "addsCols": 0,
+        "addsRows": 0,
+        "x": null,
+        "y": null,
+        "width": 1,
+        "height": 1,
+        "canStack": "default",
+        "core": {
+          "sourceId": "Compendium.pf1.weapons-and-ammo.KtgSPHGqIRTwhwZM"
+        }
+      }
+    },
+    "LocknKey": {
+      "IDKeysFlag": "",
+      "RemoveKeyonUseFlag": false,
+      "LPFormulaFlag": "",
+      "LPFormulaOverrideFlag": false,
+      "LBFormulaFlag": "",
+      "LBFormulaOverrideFlag": false,
+      "ReplacementItemFlag": ""
+    },
+    "pf1": {
+      "migration": "11.8"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": true,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p><span style=\"font-family:ALBR55X\">This blue and gold mithral alloy hand-and-a-half sword can be wielded 2h with martial weapon proficiency, dealing 1.5x strength damage. Or it can be wielded 1h as an exotic weapon proficiency (katana or bastard sword proficiency will suffice). It strikes as magic/gold/silver for DR purposes.</span></p><h3><span style=\"font-family:ALBR55X\">Engraving:</span></h3><p><span style=\"font-family:ALBR55X\">It's blade is engraved with war-prayers that shift and change constantly, but always draw from deities and heroes of good or lawful alignment. As such it functions as a @UUID[Compendium.pf-content.pf-items.Item.qc5oNm0eGSixctIr]{Book of war prayers}, but requiring only 1 minute to recite instead of the usual 10 minutes to receive the @UUID[Compendium.folken-games-carrion-crown-pathfinder-rpg.folken-games-carrion-crown-items-pf1e.Item.T2inWv8ru1hKtCA9]{SuperBless} buff.</span></p><h3><span style=\"font-family:ALBR55X\">Enhancements:</span></h3><p><span style=\"font-family:ALBR55X\">When the blade is held straight up before the wielder's face, it provides the following benefits:</span></p><p><span style=\"font-family:ALBR55X\">The cast time of @UUID[Compendium.pf1.spells.Item.wa0zb2pncesmm9lz]{Bless}, @UUID[Compendium.pf1.spells.Item.hu8179fdqfkl0bqj]{Prayer}, and @UUID[Compendium.pf1.spells.Item.1i8b1v3dngkxj6jp]{Magic Circle against Evil} are reduced to a swift action and their effective radii is doubled.</span></p><h3><span style=\"font-family:ALBR55X\">Offensive:</span></h3><p><span style=\"font-family:ALBR55X\">@UUID[Compendium.pf1.class-abilities.Item.MpvhQz62qw68D2pd]{Bane} effects are empowered by this blade (+3 to hit, 3d6 damage instead of +2/2d6). @UUID[Compendium.pf1.class-abilities.Item.2TsDfK0SKC8IGVx4]{Smite Evil} attacks that cause damage via confirmed critical hit trigger a free @UUID[Compendium.pf1.class-abilities.Item.WhE4j0Jc82npdMCP]{Lay on Hands} on the wielder. @UUID[Compendium.pf1.class-abilities.Item.tHObxrPeyhimmz9V]{Channel Positive Energy} grants those that it heals +1ac per dice the wielder's channel heals, lasting until the wielders next turn.</span></p><h3><span style=\"font-family:ALBR55X\">Defensive:</span></h3><p><span style=\"font-family:ALBR55X\">The wielder is treated as having the @UUID[Compendium.pf-content.pf-feats.Item.DX6vy7YmF0UQVqOG]{Crane Style} feat, reducing their \"fight defensively\" penalty from -4 to -2, and providing an additionaly +1 dodge bonus to ac when using the Fight Defensively or Total Defense action.</span></p><h3><span style=\"font-family:ALBR55X\">Bracing:</span></h3><p><span style=\"font-family:ALBR55X\">If the wielder braces against a charge, their readied swing vs the target that charges them inflicts double weapon dice and double strength damage.</span></p><img src=\"Art%20-%20Items/sinlaire/mukhlis-nur-sinlaire-sword21-024-origin-cut-copy.webp\" /><p></p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 9
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 36000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": null,
+      "name": "sword"
+    },
+    "cursed": false,
+    "cl": 17,
+    "aura": {
+      "custom": false,
+      "school": "abj"
+    },
+    "hp": {
+      "base": 35,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 20,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "l4iuom4gf9rl7qbq",
+        "name": "1H Attack",
+        "img": "Art%20-%20Items/sinlaire/mukhlis-nur-sinlaire-sword21-024-origin-cut-copy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 10, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_slash_crunch1.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "VbUlOZqVspkKGn3t",
+            "name": "Bane",
+            "modifiers": [
+              {
+                "_id": "syrNPjgu6vjwZChh",
+                "formula": "3",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "untyped"
+              },
+              {
+                "_id": "9hDkigAlr9nq0AcR",
+                "formula": "3d6 + 3",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Vs Undead",
+            "modifiers": [
+              {
+                "formula": "1",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred",
+                "_id": "pjv3lhiwhl46c380"
+              },
+              {
+                "formula": "1",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "qmazljtciigva7fp",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "nPnogzNfJZTgGaQH"
+          },
+          {
+            "_id": "PD7WnwGKTZ6r5ony",
+            "name": "Flames of the Faithful",
+            "modifiers": [
+              {
+                "_id": "37gh8xOnX175ANjD",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ]
+              },
+              {
+                "_id": "GSVxAjjvPbFRic4c",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "OsJZDOeAssCSFgsx",
+        "name": "2H Attack",
+        "img": "Art%20-%20Items/sinlaire/mukhlis-nur-sinlaire-sword21-024-origin-cut-copy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 10, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "ceil(@attributes.bab.total / 5) - 1",
+            "bonus": "@formulaicAttack * -5",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 1.5,
+          "critRange": 19,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_hit_meaty7_crush.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1,
+          "type": "none"
+        },
+        "conditionals": [
+          {
+            "_id": "1L7IKXs7wGu48EGm",
+            "name": "Bane",
+            "modifiers": [
+              {
+                "_id": "syrNPjgu6vjwZChh",
+                "formula": "3",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "untyped"
+              },
+              {
+                "_id": "9hDkigAlr9nq0AcR",
+                "formula": "3d6 + 3",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Vs Undead",
+            "modifiers": [
+              {
+                "formula": "1",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred",
+                "_id": "pjv3lhiwhl46c380"
+              },
+              {
+                "formula": "1",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "qmazljtciigva7fp",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "0AeX0CrEFAANVfuL"
+          },
+          {
+            "_id": "vkCtd6du7qYqIlyB",
+            "name": "Flames of the Faithful",
+            "modifiers": [
+              {
+                "_id": "37gh8xOnX175ANjD",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ]
+              },
+              {
+                "_id": "GSVxAjjvPbFRic4c",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "iPLWgG4oYrynnqyU",
+        "name": "Brace vs Charge",
+        "img": "Art%20-%20Items/sinlaire/mukhlis-nur-sinlaire-sword21-024-origin-cut-copy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(2, 10, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 2,
+          "critRange": 19,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/rorouni_kenshin_charge_kill.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1,
+          "type": "none"
+        },
+        "conditionals": [
+          {
+            "_id": "TYVIuxkC8OmFw5do",
+            "name": "Bane",
+            "modifiers": [
+              {
+                "_id": "syrNPjgu6vjwZChh",
+                "formula": "3",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "untyped"
+              },
+              {
+                "_id": "9hDkigAlr9nq0AcR",
+                "formula": "3d6 + 3",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Vs Undead",
+            "modifiers": [
+              {
+                "formula": "1",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred",
+                "_id": "pjv3lhiwhl46c380"
+              },
+              {
+                "formula": "1",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "qmazljtciigva7fp",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "Ao337nPDXg7ZICCn"
+          },
+          {
+            "_id": "75bAhmRTq9VoprjF",
+            "name": "Flames of the Faithful",
+            "modifiers": [
+              {
+                "_id": "37gh8xOnX175ANjD",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ]
+              },
+              {
+                "_id": "GSVxAjjvPbFRic4c",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "hojqou6KSmte3gVN",
+        "name": "1H Attack (Dual Wield)",
+        "img": "Art%20-%20Items/sinlaire/mukhlis-nur-sinlaire-sword21-024-origin-cut-copy.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "0",
+          "units": "melee"
+        },
+        "uses": {},
+        "actionType": "mwak",
+        "attackBonus": "-2",
+        "damage": {
+          "parts": [
+            {
+              "formula": "sizeRoll(1, 10, @size)",
+              "types": [
+                "slashing"
+              ]
+            }
+          ]
+        },
+        "extraAttacks": {
+          "type": "standard",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          }
+        },
+        "ability": {
+          "attack": "str",
+          "damage": "str",
+          "damageMult": 1,
+          "critRange": 19,
+          "critMult": 2
+        },
+        "soundEffect": "audio/effects/sword_slash_crunch1.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "conditionals": [
+          {
+            "_id": "VbUlOZqVspkKGn3t",
+            "name": "Bane",
+            "modifiers": [
+              {
+                "_id": "syrNPjgu6vjwZChh",
+                "formula": "3",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "untyped"
+              },
+              {
+                "_id": "9hDkigAlr9nq0AcR",
+                "formula": "3d6 + 3",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "untyped"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Vs Undead",
+            "modifiers": [
+              {
+                "formula": "1",
+                "target": "attack",
+                "subTarget": "allAttack",
+                "type": "sacred",
+                "_id": "pjv3lhiwhl46c380"
+              },
+              {
+                "formula": "1",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "_id": "qmazljtciigva7fp",
+                "damageType": [
+                  "positive"
+                ]
+              }
+            ],
+            "_id": "nPnogzNfJZTgGaQH"
+          },
+          {
+            "_id": "KyNed6BWZtrf8SU1",
+            "name": "Flames of the Faithful",
+            "modifiers": [
+              {
+                "_id": "37gh8xOnX175ANjD",
+                "formula": "1d6",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ]
+              },
+              {
+                "_id": "GSVxAjjvPbFRic4c",
+                "formula": "1d10",
+                "target": "damage",
+                "subTarget": "allDamage",
+                "damageType": [
+                  "fire"
+                ],
+                "critical": "nonCrit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [
+      "Strikes as adamantine."
+    ],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 3,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "martial",
+    "weaponSubtype": "1h",
+    "hands": 1,
+    "baseTypes": [],
+    "weaponGroups": [
+      "bladesHeavy"
+    ],
+    "material": {
+      "base": {
+        "value": "",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "blc": true,
+      "brc": true,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "ato": false,
+      "sct": false,
+      "spc": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    }
+  },
+  "effects": [],
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274076067,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.QH9k0yGLDNUwgedK",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

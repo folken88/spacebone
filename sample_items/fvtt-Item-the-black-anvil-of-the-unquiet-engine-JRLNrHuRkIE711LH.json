@@ -1,0 +1,116 @@
+{
+  "name": "The Black Anvil of the Unquiet Engine",
+  "type": "loot",
+  "img": "Art%20-%20Assets/midjourney/folken88_an_evil_book_full_of_evil_science_techniques_for_nec_2f48c5d0-3ea0-479f-9d96-17ac2820151f_0.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.2"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<img src=\"Art%20-%20Assets/midjourney/folken88_an_evil_book_full_of_evil_science_techniques_for_nec_2f48c5d0-3ea0-479f-9d96-17ac2820151f_0.webp\" /><h3><strong>Properties and Powers</strong></h3><p><strong>1. Advanced Necromantic Knowledge (Ex)</strong><br />The Black Anvil contains instructions on creating <strong>advanced undead constructs</strong>. A necromancer using this book as a reference while crafting undead gains the following benefits:</p><ul><li><strong>Time Reduction</strong>: The crafting time for undead is reduced by 25%.</li><li><p><strong>Unique Templates</strong>: The book provides access to special templates for undead, including:</p><ul><li><strong>Necromechanical</strong>: Adds mechanical features like chains, sawblades, or reinforced plating (+2 AC, +2 Strength, and +10 ft. movement speed).</li><li><strong>Engine of Undeath</strong>: Grants a construct the ability to perform complex labor or multiple simultaneous tasks (gain an additional attack during full attacks or +10 to Craft/Profession checks).</li><li><strong>Terror Wrought</strong>: Causes the undead to emit a frightful presence (Will save DC 18 or become frightened for 1d4 rounds).</li></ul></li></ul><p><strong>2. Enchanted Preservation (Su)</strong><br />The tome is imbued with potent magical protections:</p><ul><li><strong>Nondetection</strong>: The book is under a constant <strong>Nondetection</strong> effect (CL 15th, DC 25 to overcome).</li><li><strong>Indestructibility</strong>: The tome is immune to damage from mundane sources and fire. Destroying it requires an <strong>Erase spell</strong> cast within a <strong>Hallow</strong> effect, followed by reducing the book to ashes with consecrated acid.</li><li><strong>Tamperproof</strong>: Attempts to magically alter its text fail, but mundane additions to the margins or blank pages at the back are possible, making it a strange hybrid of preserved original knowledge and user customization.</li></ul><p><strong>3. Whispered Guidance (Su)</strong><br />Those who study the book for 8 hours receive occasional \"whispers\" from the Tyrant's lingering influence, granting insights into their craft. The reader gains a +4 bonus to Knowledge (Arcana) checks related to necromancy for 24 hours but must succeed at a <strong>Will save (DC 20)</strong> or suffer 1 point of Wisdom damage from the overwhelming presence.</p><p><strong>4. Aura of Dread (Su)</strong><br />While open, the tome exudes a faint aura of fear within 20 feet. Living creatures must make a <strong>Will save (DC 19)</strong> or become shaken for as long as they remain in the area. This effect can be suppressed by closing the book.</p><hr /><h3><strong>Curse</strong></h3><p>The book's knowledge comes at a cost:</p><ul><li><strong>Corruption of Purpose</strong>: Every week the book is studied, the user must make a <strong>Will save (DC 22)</strong>. On a failed save, they become obsessed with creating increasingly horrific undead, gaining 1 point of corruption. At 3 corruption points, their alignment shifts one step closer to evil, and they become fanatically loyal to the Whispering Way's ideals.</li></ul><hr /><h3><strong>Contents</strong></h3><p>The Black Anvil is divided into several chapters, each focusing on a different type of undead construction:</p><ol><li><strong>Bone and Steel</strong>: Techniques for fusing skeletal remains with mechanical components.</li><li><strong>Necrotic Labor Engines</strong>: Methods to create laboring undead constructs such as loggers, miners, or siege workers.</li><li><strong>War Machines of Flesh</strong>: Instructions for assembling hybrid undead designed for combat, including siege-breakers and terror-spreaders.</li><li><strong>The Whispering Choir</strong>: Rituals for creating undead that can channel multiple voices for spellcasting or psychic effects.</li><li><strong>User Annotations</strong>: Dozens of scrawled notes and supplemental diagrams from past owners, ranging from bizarre experiments to chilling improvements on the book’s original designs.</li></ol><hr /><img src=\"Art%20-%20Scenes/carrioncrownscenes/ww-art/folken88_redraw_as_a_pencil_sketch_diagrammatical_-cref_http_49620634-dd65-4fb8-9291-de00a12a22a2_3.webp\" /><img src=\"Art%20-%20Scenes/carrioncrownscenes/ww-art/folken88_a_zombie_rifleman_bolt-action_rifle_with_scope_scary_07079ad8-6528-4c23-a8cc-bba0f42ee77b_0.webp\" /><img src=\"Art%20-%20Scenes/carrioncrownscenes/ww-art/folken88_httpss.mj.runax_oocsrcw0_scary_mask_on_a_gunslinger__a1f739e3-7219-45e9-8b43-25eff3e5b7de_3.webp\" />",
+      "instructions": "",
+      "unidentified": "<p>Bound in dark, unyielding leather with black iron cornerplates, the book radiates an aura of dread and fascination.</p><img src=\"Art%20-%20Assets/midjourney/folken88_an_evil_book_full_of_evil_science_techniques_for_nec_2f48c5d0-3ea0-479f-9d96-17ac2820151f_0.webp\" />"
+    },
+    "tags": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "quantity": 1,
+    "weight": {
+      "value": 1
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 34000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "book"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 15,
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "max": 0
+    },
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {
+        "Category": "Tools"
+      }
+    },
+    "scriptCalls": [],
+    "subType": "gear",
+    "extraType": "",
+    "abundant": false,
+    "masterwork": true
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274181670,
+    "modifiedTime": 1757274181670,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.JRLNrHuRkIE711LH",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}

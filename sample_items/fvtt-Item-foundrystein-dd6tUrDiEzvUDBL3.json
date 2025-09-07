@@ -1,0 +1,153 @@
+{
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "name": "Foundrystein",
+  "type": "consumable",
+  "flags": {
+    "beavers-crafting": {
+      "subtype": ""
+    },
+    "core": {},
+    "pf1": {
+      "migration": "11.8"
+    }
+  },
+  "img": "Art%20-%20Items/consumables/mug_foundrystein_steampunk_beer_cup_clear_sides_with_bioluminescent.webp",
+  "system": {
+    "description": {
+      "value": "<p>This copper-steel beer stein perfectly seals and preserves any liquid stored within it. At its tavern of origin, the Foundry Tavern in Torch of Numeria, these can be quickly refilled with a strange device unique to that location. This \"Tap\" as it is called, fills the stein with ice cold Cayden-Brew, imported from the distant South.</p><img src=\"Art%20-%20Items/consumables/mug_foundrystein_steampunk_beer_cup_clear_sides_with_bioluminescent.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 3
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 45,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "beermug"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 25,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 5,
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": "",
+      "pricePerUse": 0
+    },
+    "actions": [
+      {
+        "_id": "BtETTpis9ZqjqMfM",
+        "name": "Use",
+        "img": "Art%20-%20Items/consumables/mug_foundrystein_steampunk_beer_cup_clear_sides_with_bioluminescent.webp",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "unchained": {
+            "cost": 1,
+            "type": ""
+          }
+        },
+        "range": {
+          "units": "personal"
+        },
+        "uses": {},
+        "actionType": "heal",
+        "damage": {
+          "parts": [
+            {
+              "formula": "1",
+              "types": [
+                "nonlethal"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "15",
+          "type": "fort",
+          "description": "Save vs Enjoyment",
+          "harmless": false
+        },
+        "soundEffect": "audio/effects/beer_pour_glass.mp3",
+        "powerAttack": {
+          "multiplier": 0,
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "-5",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "notes": {
+          "effect": [
+            "Refreshing."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "potion",
+    "showInQuickbar": true
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274059215,
+    "modifiedTime": 1757274170826,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.dd6tUrDiEzvUDBL3",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

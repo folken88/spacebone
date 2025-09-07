@@ -1,0 +1,126 @@
+{
+  "name": ".308 762x51mm Blacksteel Deadslayer Cartridge",
+  "type": "loot",
+  "img": "Art%20-%20Items/ammunition/7.62x51_m80_banner.webp",
+  "effects": [],
+  "flags": {
+    "pf1": {
+      "migration": "11.0"
+    },
+    "core": {},
+    "item-piles": {
+      "item": {
+        "pf1": {
+          "abundant": false
+        },
+        "core": {
+          "sourceId": "Item.2R67RV1kzirNhAOW"
+        }
+      },
+      "version": "2.4.17"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>7.62x51mm Nosler cartridge. The bullet is loaded with two separate lead cores with a solid partition between them. The front part is torn quickly, delivering great energy. The base remains intact and provides deep penetration, even when hitting bones. Vs Undead, it delivers Piercing, slashing, or bludgeoning damage, whichever is greater.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "actions": [],
+    "attackNotes": [],
+    "effectNotes": [],
+    "quantity": 14,
+    "weight": {
+      "value": 0.1
+    },
+    "equipped": false,
+    "carried": true,
+    "price": 15,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "bullet"
+    },
+    "cursed": false,
+    "cl": 6,
+    "aura": {
+      "custom": false,
+      "school": "trs"
+    },
+    "hp": {
+      "base": 15,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 12,
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "ammo",
+    "extraType": "dragoonBullet",
+    "abundant": false,
+    "conditionals": [],
+    "recoverChance": null,
+    "masterwork": false
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757274185969,
+    "modifiedTime": 1757274185969,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.9L4YeMqoLLgWsno6",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "LJS9nI5Bz0zn7oMW",
+  "ownership": {
+    "default": 0
+  }
+}
