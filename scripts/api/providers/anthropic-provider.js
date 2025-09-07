@@ -26,9 +26,9 @@ export class AnthropicProvider extends BaseProvider {
     constructor(config) {
         super({
             endpoint: 'https://api.anthropic.com/v1/messages',
-            model: 'claude-4-sonnet',
+            model: 'claude-3-5-sonnet-20241022',  // Use working Claude model
             defaultOptions: {
-                max_tokens: 2000,
+                max_tokens: 4000,  // Increased for longer descriptions
                 temperature: 0.7,
                 top_p: 0.9
             },
@@ -103,7 +103,22 @@ export class AnthropicProvider extends BaseProvider {
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}));
-                throw new Error(`HTTP ${response.status}: ${errorData.error?.message || response.statusText}`);
+                
+                // Handle specific Anthropic error types
+                switch (response.status) {
+                    case 400:
+                        throw new Error(`Invalid request: ${errorData.error?.message || 'Bad request - check your prompt formatting'}`);
+                    case 401:
+                        throw new Error('Invalid API key - check your Anthropic API key in settings');
+                    case 403:
+                        throw new Error('Permission denied - API key lacks required permissions');
+                    case 429:
+                        throw new Error('Rate limit exceeded - please try again later');
+                    case 500:
+                        throw new Error('Anthropic server error - please try again in a moment');
+                    default:
+                        throw new Error(`HTTP ${response.status}: ${errorData.error?.message || response.statusText}`);
+                }
             }
 
             const data = await response.json();
@@ -187,9 +202,9 @@ export class AnthropicProvider extends BaseProvider {
     static getDefaultConfig() {
         return {
             endpoint: 'https://api.anthropic.com/v1/messages',
-            model: 'claude-4-sonnet',
+            model: 'claude-3-5-sonnet-20241022',  // Use working Claude model
             defaultOptions: {
-                max_tokens: 2000,
+                max_tokens: 4000,  // Increased for longer descriptions
                 temperature: 0.7,
                 top_p: 0.9
             }
@@ -203,27 +218,11 @@ export class AnthropicProvider extends BaseProvider {
     static getAvailableModels() {
         return [
             {
-                id: 'claude-4-sonnet',
-                name: 'Claude 4 Sonnet',
-                description: 'Latest Claude model with advanced reasoning and coding capabilities (2025)',
-                recommended: true,
-                maxTokens: 4000,
-                costPer1kTokens: 0.025
-            },
-            {
-                id: 'claude-4-haiku',
-                name: 'Claude 4 Haiku',
-                description: 'Fast and efficient Claude 4 variant for quick responses',
-                recommended: false,
-                maxTokens: 4000,
-                costPer1kTokens: 0.015
-            },
-            {
                 id: 'claude-3-5-sonnet-20241022',
                 name: 'Claude 3.5 Sonnet',
-                description: 'Previous generation model with excellent performance',
-                recommended: false,
-                maxTokens: 4000,
+                description: 'Latest available Claude model with excellent performance and reasoning',
+                recommended: true,
+                maxTokens: 8192,
                 costPer1kTokens: 0.015
             },
             {
@@ -231,8 +230,16 @@ export class AnthropicProvider extends BaseProvider {
                 name: 'Claude 3 Haiku',
                 description: 'Fast and cost-effective model for simpler tasks',
                 recommended: false,
-                maxTokens: 2000,
+                maxTokens: 4096,
                 costPer1kTokens: 0.005
+            },
+            {
+                id: 'claude-3-opus-20240229',
+                name: 'Claude 3 Opus',
+                description: 'Most powerful Claude 3 model for complex reasoning tasks',
+                recommended: false,
+                maxTokens: 4000,
+                costPer1kTokens: 0.015
             }
         ];
     }
