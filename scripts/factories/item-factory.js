@@ -108,7 +108,12 @@ export class ItemFactory {
     enhanceBaseItem(baseItem, itemData) {
         // Update basic properties
         baseItem.name = itemData.name;
-        baseItem.img = this.getDefaultIcon(itemData.type, itemData.subType);
+        baseItem.img = this.getDefaultIcon(itemData.type, itemData.subType, itemData.name);
+        
+        // Set equipment slot for PF1 system
+        if (itemData.type === 'equipment') {
+            baseItem.system.slot = this.getEquipmentSlot(itemData.subType, itemData.name);
+        }
         
         // Update system data
         baseItem.system.description = {
@@ -966,11 +971,18 @@ export class ItemFactory {
      * @returns {Object} Custom item data
      */
     buildCustomItem(itemData) {
+        const systemData = this.buildSystemData(itemData);
+        
+        // Set equipment slot for PF1 system
+        if (itemData.type === 'equipment') {
+            systemData.slot = this.getEquipmentSlot(itemData.subType, itemData.name);
+        }
+        
         const customItem = {
             name: itemData.name,
             type: this.mapItemType(itemData.type),
-            img: this.getDefaultIcon(itemData.type, itemData.subType),
-            system: this.buildSystemData(itemData),
+            img: this.getDefaultIcon(itemData.type, itemData.subType, itemData.name),
+            system: systemData,
             flags: {
                 [this.moduleId]: {
                     generated: true,
@@ -1018,7 +1030,7 @@ export class ItemFactory {
      * @param {string} subType - Item subtype
      * @returns {string} Icon path
      */
-    getDefaultIcon(type, subType) {
+    getDefaultIcon(type, subType, itemName = '') {
         // Comprehensive PF1 system icon mapping using actual system icons
         const iconMap = {
             'weapon': {
@@ -1135,24 +1147,70 @@ export class ItemFactory {
                 'wondrous': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
                 'wondrous item': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
                 
-                // Jewelry
+                // Jewelry & Worn Items
                 'ring': 'systems/pf1/icons/items/jewelry/ring-gold.jpg',
                 'amulet': 'systems/pf1/icons/items/jewelry/amulet-blue.jpg',
                 'necklace': 'systems/pf1/icons/items/jewelry/necklace-teeth.jpg',
                 'pendant': 'systems/pf1/icons/items/jewelry/pendant-blue.jpg',
+                'circlet': 'systems/pf1/icons/items/jewelry/ring-silver.jpg',
+                'crown': 'systems/pf1/icons/items/jewelry/ring-gold.jpg',
+                'tiara': 'systems/pf1/icons/items/jewelry/ring-silver.jpg',
+                'diadem': 'systems/pf1/icons/items/jewelry/ring-gold.jpg',
+                
+                // Head Slot Items
+                'headband': 'systems/pf1/icons/items/jewelry/ring-silver.jpg',
+                'hat': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
+                'cap': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
+                'helm': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
+                'hood': 'systems/pf1/icons/items/equipment/cloak-plain.jpg',
+                'mask': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
                 
                 // Magic Items
                 'rod': 'systems/pf1/icons/items/inventory/rod-star.jpg',
                 'staff': 'systems/pf1/icons/items/inventory/staff-simple.jpg',
                 'wand': 'systems/pf1/icons/items/inventory/wand-carved.jpg',
+                'orb': 'systems/pf1/icons/items/inventory/crystal-ball.jpg',
+                'crystal': 'systems/pf1/icons/items/inventory/crystal-ball.jpg',
+                'tome': 'systems/pf1/icons/items/inventory/book-red.jpg',
+                'book': 'systems/pf1/icons/items/inventory/book-red.jpg',
+                'manual': 'systems/pf1/icons/items/inventory/book-red.jpg',
+                'scroll case': 'systems/pf1/icons/items/inventory/scroll-bound.jpg',
                 
                 // Clothing & Equipment
                 'belt': 'systems/pf1/icons/items/equipment/belt-plain.jpg',
+                'sash': 'systems/pf1/icons/items/equipment/belt-plain.jpg',
                 'boots': 'systems/pf1/icons/items/equipment/boots-leather.jpg',
+                'shoes': 'systems/pf1/icons/items/equipment/boots-leather.jpg',
+                'slippers': 'systems/pf1/icons/items/equipment/boots-leather.jpg',
                 'cloak': 'systems/pf1/icons/items/equipment/cloak-plain.jpg',
+                'cape': 'systems/pf1/icons/items/equipment/cloak-plain.jpg',
+                'mantle': 'systems/pf1/icons/items/equipment/cloak-plain.jpg',
+                'robe': 'systems/pf1/icons/items/equipment/cloak-plain.jpg',
+                'vest': 'systems/pf1/icons/items/equipment/cloak-plain.jpg',
                 'gloves': 'systems/pf1/icons/items/equipment/gloves.jpg',
+                'gauntlets': 'systems/pf1/icons/items/equipment/gloves.jpg',
                 'bracers': 'systems/pf1/icons/items/equipment/bracers-leather.jpg',
+                'armbands': 'systems/pf1/icons/items/equipment/bracers-leather.jpg',
                 'helmet': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
+                
+                // Tools & Instruments
+                'lens': 'systems/pf1/icons/items/inventory/crystal-ball.jpg',
+                'goggles': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
+                'glasses': 'systems/pf1/icons/items/equipment/helmet-steel.jpg',
+                'instrument': 'systems/pf1/icons/items/inventory/lute.jpg',
+                'horn': 'systems/pf1/icons/items/inventory/horn.jpg',
+                'flute': 'systems/pf1/icons/items/inventory/lute.jpg',
+                'harp': 'systems/pf1/icons/items/inventory/lute.jpg',
+                'drum': 'systems/pf1/icons/items/inventory/lute.jpg',
+                
+                // Containers
+                'bag': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
+                'pouch': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
+                'sack': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
+                'quiver': 'systems/pf1/icons/items/weapons/arrow.PNG',
+                'case': 'systems/pf1/icons/items/inventory/scroll-bound.jpg',
+                'chest': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
+                'box': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
                 
                 // Default equipment
                 'default': 'systems/pf1/icons/items/inventory/bag-simple.jpg'
@@ -1175,10 +1233,72 @@ export class ItemFactory {
 
         // Normalize subType for lookup
         const normalizedSubType = subType ? subType.toLowerCase() : '';
+        const normalizedName = itemName ? itemName.toLowerCase() : '';
         
         // Try specific subtype first
         if (iconMap[type] && iconMap[type][normalizedSubType]) {
             return iconMap[type][normalizedSubType];
+        }
+        
+        // Smart name matching - look for keywords in item name
+        if (iconMap[type] && normalizedName) {
+            for (const [keyword, iconPath] of Object.entries(iconMap[type])) {
+                if (keyword !== 'default' && normalizedName.includes(keyword)) {
+                    console.log(`Spacebone | Smart icon match: "${normalizedName}" contains "${keyword}" -> ${iconPath}`);
+                    return iconPath;
+                }
+            }
+        }
+        
+        // Additional smart matching for common patterns
+        if (normalizedName) {
+            // Circlets, crowns, and head items
+            if (normalizedName.includes('circlet') || normalizedName.includes('crown') || 
+                normalizedName.includes('tiara') || normalizedName.includes('diadem')) {
+                return 'systems/pf1/icons/items/jewelry/ring-silver.jpg';
+            }
+            
+            // Cloaks and outer garments
+            if (normalizedName.includes('cloak') || normalizedName.includes('cape') || 
+                normalizedName.includes('mantle') || normalizedName.includes('robe')) {
+                return 'systems/pf1/icons/items/equipment/cloak-plain.jpg';
+            }
+            
+            // Boots and footwear
+            if (normalizedName.includes('boots') || normalizedName.includes('shoes') || 
+                normalizedName.includes('slippers')) {
+                return 'systems/pf1/icons/items/equipment/boots-leather.jpg';
+            }
+            
+            // Gloves and hand items
+            if (normalizedName.includes('gloves') || normalizedName.includes('gauntlets') || 
+                normalizedName.includes('bracers')) {
+                return 'systems/pf1/icons/items/equipment/gloves.jpg';
+            }
+            
+            // Belts and waist items
+            if (normalizedName.includes('belt') || normalizedName.includes('sash') || 
+                normalizedName.includes('girdle')) {
+                return 'systems/pf1/icons/items/equipment/belt-plain.jpg';
+            }
+            
+            // Magic items
+            if (normalizedName.includes('rod') || normalizedName.includes('staff') || 
+                normalizedName.includes('wand')) {
+                return iconMap.equipment.rod || 'systems/pf1/icons/items/inventory/rod-star.jpg';
+            }
+            
+            // Books and tomes
+            if (normalizedName.includes('book') || normalizedName.includes('tome') || 
+                normalizedName.includes('manual') || normalizedName.includes('grimoire')) {
+                return 'systems/pf1/icons/items/inventory/book-red.jpg';
+            }
+            
+            // Orbs and crystals
+            if (normalizedName.includes('orb') || normalizedName.includes('crystal') || 
+                normalizedName.includes('sphere')) {
+                return 'systems/pf1/icons/items/inventory/crystal-ball.jpg';
+            }
         }
         
         // Fall back to type default, then global default
@@ -1188,6 +1308,180 @@ export class ItemFactory {
         
         // Final fallback
         return 'systems/pf1/icons/items/inventory/bag-simple.jpg';
+    }
+
+    /**
+     * Get appropriate equipment slot for PF1 system
+     * @param {string} subType - Item subtype
+     * @param {string} itemName - Item name for smart matching
+     * @returns {string} PF1 equipment slot
+     */
+    getEquipmentSlot(subType, itemName = '') {
+        const normalizedSubType = subType ? subType.toLowerCase() : '';
+        const normalizedName = itemName ? itemName.toLowerCase() : '';
+        
+        // Direct subtype mapping
+        const slotMap = {
+            // Head slot items
+            'headband': 'head',
+            'circlet': 'head',
+            'crown': 'head',
+            'tiara': 'head',
+            'diadem': 'head',
+            'hat': 'head',
+            'cap': 'head',
+            'helm': 'head',
+            'helmet': 'head',
+            'hood': 'head',
+            'mask': 'head',
+            
+            // Neck slot items
+            'amulet': 'neck',
+            'necklace': 'neck',
+            'pendant': 'neck',
+            'collar': 'neck',
+            'torque': 'neck',
+            
+            // Ring slot items
+            'ring': 'ring',
+            
+            // Body slot items (armor/robes)
+            'robe': 'body',
+            'vest': 'body',
+            'shirt': 'body',
+            'tunic': 'body',
+            
+            // Shoulders slot items
+            'cloak': 'shoulders',
+            'cape': 'shoulders',
+            'mantle': 'shoulders',
+            
+            // Chest slot items
+            'brooch': 'chest',
+            'medallion': 'chest',
+            
+            // Belt slot items
+            'belt': 'belt',
+            'sash': 'belt',
+            'girdle': 'belt',
+            
+            // Feet slot items
+            'boots': 'feet',
+            'shoes': 'feet',
+            'slippers': 'feet',
+            'sandals': 'feet',
+            
+            // Hands slot items
+            'gloves': 'hands',
+            'gauntlets': 'hands',
+            'mitts': 'hands',
+            
+            // Wrists slot items
+            'bracers': 'wrists',
+            'armbands': 'wrists',
+            'cuffs': 'wrists',
+            'vambraces': 'wrists',
+            
+            // Wondrous items (no slot)
+            'wondrous': 'none',
+            'wondrous item': 'none',
+            'rod': 'none',
+            'staff': 'none',
+            'wand': 'none',
+            'orb': 'none',
+            'crystal': 'none',
+            'tome': 'none',
+            'book': 'none',
+            'manual': 'none',
+            'instrument': 'none',
+            'lens': 'none',
+            'goggles': 'eyes',
+            'glasses': 'eyes'
+        };
+        
+        // Try direct subtype mapping first
+        if (slotMap[normalizedSubType]) {
+            return slotMap[normalizedSubType];
+        }
+        
+        // Smart name matching for slot assignment
+        if (normalizedName) {
+            // Head slot detection
+            if (normalizedName.includes('circlet') || normalizedName.includes('crown') || 
+                normalizedName.includes('tiara') || normalizedName.includes('diadem') ||
+                normalizedName.includes('headband') || normalizedName.includes('helmet') ||
+                normalizedName.includes('hat') || normalizedName.includes('cap') ||
+                normalizedName.includes('hood') || normalizedName.includes('mask')) {
+                return 'head';
+            }
+            
+            // Neck slot detection
+            if (normalizedName.includes('amulet') || normalizedName.includes('necklace') || 
+                normalizedName.includes('pendant') || normalizedName.includes('collar') ||
+                normalizedName.includes('torque')) {
+                return 'neck';
+            }
+            
+            // Ring slot detection
+            if (normalizedName.includes('ring')) {
+                return 'ring';
+            }
+            
+            // Shoulders slot detection
+            if (normalizedName.includes('cloak') || normalizedName.includes('cape') || 
+                normalizedName.includes('mantle')) {
+                return 'shoulders';
+            }
+            
+            // Belt slot detection
+            if (normalizedName.includes('belt') || normalizedName.includes('sash') || 
+                normalizedName.includes('girdle')) {
+                return 'belt';
+            }
+            
+            // Feet slot detection
+            if (normalizedName.includes('boots') || normalizedName.includes('shoes') || 
+                normalizedName.includes('slippers') || normalizedName.includes('sandals')) {
+                return 'feet';
+            }
+            
+            // Hands slot detection
+            if (normalizedName.includes('gloves') || normalizedName.includes('gauntlets') || 
+                normalizedName.includes('mitts')) {
+                return 'hands';
+            }
+            
+            // Wrists slot detection
+            if (normalizedName.includes('bracers') || normalizedName.includes('armbands') || 
+                normalizedName.includes('cuffs') || normalizedName.includes('vambraces')) {
+                return 'wrists';
+            }
+            
+            // Body slot detection
+            if (normalizedName.includes('robe') || normalizedName.includes('vest') || 
+                normalizedName.includes('shirt') || normalizedName.includes('tunic')) {
+                return 'body';
+            }
+            
+            // Eyes slot detection
+            if (normalizedName.includes('goggles') || normalizedName.includes('glasses') || 
+                normalizedName.includes('monocle') || normalizedName.includes('eyepatch')) {
+                return 'eyes';
+            }
+            
+            // Slotless items
+            if (normalizedName.includes('rod') || normalizedName.includes('staff') || 
+                normalizedName.includes('wand') || normalizedName.includes('orb') ||
+                normalizedName.includes('crystal') || normalizedName.includes('tome') ||
+                normalizedName.includes('book') || normalizedName.includes('manual') ||
+                normalizedName.includes('instrument') || normalizedName.includes('horn') ||
+                normalizedName.includes('lens')) {
+                return 'none';
+            }
+        }
+        
+        // Default to no slot for unknown equipment
+        return 'none';
     }
 
     /**
