@@ -8,13 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Nothing yet
+- **Special Weapon Abilities**: Automatic detection and implementation of magical weapon properties (flaming, frost, shock, holy, etc.)
+- **Burst Abilities Support**: Full support for burst weapons with both normal and critical hit damage (flaming burst, icy burst, etc.)
+- **Critical Damage System**: Proper `damage.critParts` implementation for abilities that trigger on critical hits
+- **Custom Damage Parsing**: Advanced regex parsing for complex damage descriptions in LLM responses
 
 ### Changed
-- Nothing yet
+- **Special Abilities Processing**: Intelligent detection of burst vs. regular abilities with proper damage distribution
 
 ### Fixed
-- Nothing yet
+- **Damage Type Detection**: Burst abilities correctly add both normal damage and critical hit damage
+- **Ability Conflict Resolution**: Prevents duplicate damage types when multiple detection methods match
 
 ## [1.0.0] - 2025-09-07 - "Whispering Spirits" Release
 

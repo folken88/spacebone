@@ -136,6 +136,11 @@ export class ItemFactory {
             }
         }
 
+        // Add special weapon abilities from mechanical effects
+        if (itemData.type === 'weapon' && itemData.mechanical?.effects) {
+            this.addSpecialWeaponAbilities(baseItem, itemData.mechanical.effects);
+        }
+
         // Add caster level and aura
         if (itemData.casterLevel) {
             baseItem.system.cl = itemData.casterLevel;
@@ -165,6 +170,135 @@ export class ItemFactory {
             version: "1.0.0",
             originalData: itemData
         };
+    }
+
+    /**
+     * Add special weapon abilities to the weapon's attack actions
+     * @param {Object} baseItem - Base weapon item
+     * @param {string} mechanicalEffects - Description of mechanical effects
+     */
+    addSpecialWeaponAbilities(baseItem, mechanicalEffects) {
+        if (!baseItem.system.actions || baseItem.system.actions.length === 0) {
+            return; // No attack action to modify
+        }
+
+        const attackAction = baseItem.system.actions[0];
+        if (!attackAction.damage || !attackAction.damage.parts) {
+            return; // No damage structure to modify
+        }
+
+        // Define special abilities and their damage effects
+        const specialAbilities = {
+            'flaming': { formula: '1d6', type: 'fire' },
+            'frost': { formula: '1d6', type: 'cold' },
+            'shock': { formula: '1d6', type: 'electricity' },
+            'corrosive': { formula: '1d6', type: 'acid' },
+            'thundering': { formula: '1d8', type: 'sonic' },
+            'holy': { formula: '2d6', type: 'positive' },
+            'unholy': { formula: '2d6', type: 'negative' },
+            'anarchic': { formula: '2d6', type: 'chaotic' },
+            'axiomatic': { formula: '2d6', type: 'lawful' },
+            'vicious': { formula: '2d6', type: 'untyped' },
+            'wounding': { formula: '1', type: 'bleed' },
+        };
+
+        // Define burst abilities and their critical damage effects
+        const burstAbilities = {
+            'flaming burst': { normalFormula: '1d6', critFormula: '1d10', type: 'fire' },
+            'icy burst': { normalFormula: '1d6', critFormula: '1d10', type: 'cold' },
+            'shocking burst': { normalFormula: '1d6', critFormula: '1d10', type: 'electricity' },
+            'corrosive burst': { normalFormula: '1d6', critFormula: '1d10', type: 'acid' },
+            'thundering burst': { normalFormula: '1d8', critFormula: '1d10', type: 'sonic' },
+        };
+
+        const effects = mechanicalEffects.toLowerCase();
+        let damageAdded = false;
+
+        // Initialize critParts if it doesn't exist
+        if (!attackAction.damage.critParts) {
+            attackAction.damage.critParts = [];
+        }
+
+        // Check for burst abilities first (more specific)
+        for (const [abilityName, abilityData] of Object.entries(burstAbilities)) {
+            if (effects.includes(abilityName)) {
+                // Add normal damage
+                attackAction.damage.parts.push({
+                    formula: abilityData.normalFormula,
+                    types: [abilityData.type]
+                });
+                // Add critical damage
+                attackAction.damage.critParts.push({
+                    formula: abilityData.critFormula,
+                    types: [abilityData.type]
+                });
+                damageAdded = true;
+                console.log(`Spacebone | Added ${abilityName} ability: ${abilityData.normalFormula} ${abilityData.type} damage + ${abilityData.critFormula} on crit`);
+            }
+        }
+
+        // Check for regular special abilities (only if no burst version was found)
+        for (const [abilityName, abilityData] of Object.entries(specialAbilities)) {
+            if (effects.includes(abilityName) && !effects.includes(abilityName + ' burst')) {
+                // Add this damage type to the attack
+                attackAction.damage.parts.push({
+                    formula: abilityData.formula,
+                    types: [abilityData.type]
+                });
+                damageAdded = true;
+                console.log(`Spacebone | Added ${abilityName} ability: ${abilityData.formula} ${abilityData.type} damage`);
+            }
+        }
+
+        // Look for custom damage descriptions like "1d6 fire damage" or "additional 2d4 cold damage"
+        const customDamageRegex = /(?:additional\s+)?(\d+d\d+|\d+)\s+(fire|cold|electricity|acid|sonic|force|positive|negative|lawful|chaotic|good|evil|slashing|piercing|bludgeoning|untyped)\s+damage/gi;
+        let match;
+        
+        while ((match = customDamageRegex.exec(mechanicalEffects)) !== null) {
+            const formula = match[1];
+            const damageType = match[2].toLowerCase();
+            
+            // Avoid duplicating abilities we already added
+            const alreadyHasType = attackAction.damage.parts.some(part => 
+                part.types && part.types.includes(damageType)
+            );
+            
+            if (!alreadyHasType) {
+                attackAction.damage.parts.push({
+                    formula: formula,
+                    types: [damageType]
+                });
+                damageAdded = true;
+                console.log(`Spacebone | Added custom damage: ${formula} ${damageType} damage`);
+            }
+        }
+
+        // Look for critical-specific damage like "1d10 fire damage on critical hits"
+        const critDamageRegex = /(?:additional\s+)?(\d+d\d+|\d+)\s+(fire|cold|electricity|acid|sonic|force|positive|negative|lawful|chaotic|good|evil|slashing|piercing|bludgeoning|untyped)\s+damage\s+(?:on\s+)?(?:critical\s+hits?|crits?)/gi;
+        let critMatch;
+        
+        while ((critMatch = critDamageRegex.exec(mechanicalEffects)) !== null) {
+            const formula = critMatch[1];
+            const damageType = critMatch[2].toLowerCase();
+            
+            // Avoid duplicating critical damage we already added
+            const alreadyHasCritType = attackAction.damage.critParts.some(part => 
+                part.types && part.types.includes(damageType)
+            );
+            
+            if (!alreadyHasCritType) {
+                attackAction.damage.critParts.push({
+                    formula: formula,
+                    types: [damageType]
+                });
+                damageAdded = true;
+                console.log(`Spacebone | Added custom critical damage: ${formula} ${damageType} damage on crit`);
+            }
+        }
+
+        if (damageAdded) {
+            console.log(`Spacebone | Enhanced weapon with special abilities. Total damage parts: ${attackAction.damage.parts.length}`);
+        }
     }
 
     /**
