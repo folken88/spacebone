@@ -125,8 +125,18 @@ export class ItemFactory {
         baseItem.system.price = itemData.price || baseItem.system.price;
         baseItem.system.weight.value = itemData.weight || baseItem.system.weight.value;
         
+        // Handle masterwork and enhancement following pf1-magic-item-gen pattern
+        const isRequestedMasterwork = itemData.name && itemData.name.toLowerCase().includes('masterwork');
+        const hasEnhancement = itemData.enhancement && itemData.enhancement > 0;
+        const hasMagicalEffects = itemData.mechanical?.effects && itemData.mechanical.effects.trim() !== '';
+        
+        // Set masterwork status
+        if (isRequestedMasterwork || hasEnhancement || hasMagicalEffects) {
+            baseItem.system.masterwork = true;
+        }
+        
         // Add enhancement bonus for weapons/armor
-        if (itemData.enhancement) {
+        if (hasEnhancement) {
             if (itemData.type === 'weapon') {
                 baseItem.system.enh = itemData.enhancement;
                 baseItem.system.masterwork = true;
@@ -134,9 +144,28 @@ export class ItemFactory {
                     baseItem.system.material.addon.push('magic');
                 }
             } else if (itemData.type === 'armor') {
+                // Use proper PF1 armor enhancement path
                 baseItem.system.armor = baseItem.system.armor || {};
                 baseItem.system.armor.enh = itemData.enhancement;
                 baseItem.system.masterwork = true;
+                if (!baseItem.system.armor.material) {
+                    baseItem.system.armor.material = { addon: [] };
+                }
+                if (!baseItem.system.armor.material.addon.includes('magic')) {
+                    baseItem.system.armor.material.addon.push('magic');
+                }
+            }
+        }
+        
+        // Set magic flag for any magical effects
+        if (hasMagicalEffects || hasEnhancement) {
+            if (itemData.type === 'armor') {
+                baseItem.system.armor = baseItem.system.armor || {};
+                baseItem.system.armor.material = baseItem.system.armor.material || { addon: [] };
+                if (!baseItem.system.armor.material.addon.includes('magic')) {
+                    baseItem.system.armor.material.addon.push('magic');
+                }
+            } else {
                 if (!baseItem.system.material.addon.includes('magic')) {
                     baseItem.system.material.addon.push('magic');
                 }
@@ -976,6 +1005,36 @@ export class ItemFactory {
         // Set equipment slot for PF1 system
         if (itemData.type === 'equipment') {
             systemData.slot = this.getEquipmentSlot(itemData.subType, itemData.name);
+        }
+        
+        // Handle masterwork and enhancement following pf1-magic-item-gen pattern
+        const isRequestedMasterwork = itemData.name && itemData.name.toLowerCase().includes('masterwork');
+        const hasEnhancement = itemData.enhancement && itemData.enhancement > 0;
+        const hasMagicalEffects = itemData.mechanical?.effects && itemData.mechanical.effects.trim() !== '';
+        
+        // Set masterwork status
+        if (isRequestedMasterwork || hasEnhancement || hasMagicalEffects) {
+            systemData.masterwork = true;
+        }
+        
+        // Add enhancement bonus for weapons/armor
+        if (hasEnhancement) {
+            if (itemData.type === 'weapon') {
+                systemData.enh = itemData.enhancement;
+                systemData.masterwork = true;
+                if (!systemData.material.addon.includes('magic')) {
+                    systemData.material.addon.push('magic');
+                }
+            } else if (itemData.type === 'armor') {
+                // Use proper PF1 armor enhancement path
+                systemData.armor = systemData.armor || {};
+                systemData.armor.enh = itemData.enhancement;
+                systemData.masterwork = true;
+                systemData.armor.material = systemData.armor.material || { addon: [] };
+                if (!systemData.armor.material.addon.includes('magic')) {
+                    systemData.armor.material.addon.push('magic');
+                }
+            }
         }
         
         const customItem = {
