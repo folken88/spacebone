@@ -117,7 +117,14 @@ export class BaseProvider {
      * @protected
      */
     buildSystemPrompt(context) {
-        return `You are an expert Pathfinder 1e item creator. Fill out the item template below based on the user's request. Use your knowledge of Golarion lore and Pathfinder 1e mechanics to create balanced, interesting items.
+        return `You are an expert Pathfinder 1e item creator. You MUST follow the exact format specified below. Any deviation from this format will cause the system to fail.
+
+## CRITICAL REQUIREMENTS:
+- You MUST return ONLY the template between the markers
+- You MUST NOT include JSON, markdown code blocks, or any other formatting
+- You MUST NOT add explanatory text before or after the template
+- You MUST fill in ALL fields, even if with simple values
+- Your response MUST start with "=== ITEM TEMPLATE START ===" and end with "=== ITEM TEMPLATE END ==="
 
 ## TEMPLATE INSTRUCTIONS:
 - Replace [FIELD_NAME] with appropriate values
@@ -140,7 +147,8 @@ export class BaseProvider {
 - Level: ${context.level || '[AUTO-DETERMINE]'}
 - Region: ${context.region || '[AUTO-DETERMINE]'}
 
-Fill out this template and return it EXACTLY as shown (keep all field names and formatting):
+## MANDATORY RESPONSE FORMAT:
+Your response must be EXACTLY this template with filled values. Do NOT use JSON format. Do NOT use code blocks. Do NOT add extra text:
 
 === ITEM TEMPLATE START ===
 NAME: [Item Name]
@@ -170,7 +178,7 @@ SPELL_ABILITY_2: [Leave blank if no second ability, or add another if needed]
 SPELL_ABILITY_3: [Leave blank if no third ability, or add another if needed]
 === ITEM TEMPLATE END ===
 
-IMPORTANT: Return ONLY the filled template, starting with "=== ITEM TEMPLATE START ===" and ending with "=== ITEM TEMPLATE END ===". Do not include any other text or explanations.`;
+CRITICAL: Your entire response must be ONLY the filled template above. Nothing else. No JSON. No code blocks. No explanations. The system expects this exact format and will fail if you deviate from it.`;
     }
 
     /**
@@ -189,21 +197,11 @@ IMPORTANT: Return ONLY the filled template, starting with "=== ITEM TEMPLATE STA
             // Extract template content between markers
             const templateMatch = response.match(/=== ITEM TEMPLATE START ===([\s\S]*?)=== ITEM TEMPLATE END ===/);
             if (!templateMatch) {
-                console.log('[Spacebone Debug] No template markers found. Trying fallback to JSON parsing...');
+                console.log('[Spacebone Debug] No template markers found in response.');
+                console.log('[Spacebone Debug] Expected format: === ITEM TEMPLATE START === ... === ITEM TEMPLATE END ===');
+                console.log('[Spacebone Debug] Actual response:', response);
                 
-                // Fallback: Try to parse as JSON (for backward compatibility)
-                try {
-                    const jsonMatch = response.match(/\{[\s\S]*\}/);
-                    if (jsonMatch) {
-                        const itemData = JSON.parse(jsonMatch[0]);
-                        console.log('[Spacebone Debug] Successfully parsed as JSON:', itemData);
-                        return this.convertJsonToTemplate(itemData);
-                    }
-                } catch (jsonError) {
-                    console.log('[Spacebone Debug] JSON parsing also failed:', jsonError);
-                }
-                
-                throw new Error('No template found in response. Response should be between === ITEM TEMPLATE START === and === ITEM TEMPLATE END === markers.');
+                throw new Error('LLM did not follow the required template format. Response must be between === ITEM TEMPLATE START === and === ITEM TEMPLATE END === markers. Please check the LLM configuration and try again.');
             }
 
             const templateContent = templateMatch[1].trim();
