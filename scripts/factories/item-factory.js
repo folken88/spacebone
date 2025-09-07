@@ -174,6 +174,9 @@ export class ItemFactory {
             baseItem.system.creationCost = itemData.creationCost;
         }
 
+        // Add bonuses and contextual effects
+        this.addBonusesAndEffects(baseItem, itemData);
+
         // Add our module flags
         baseItem.flags = baseItem.flags || {};
         baseItem.flags[this.moduleId] = {
@@ -377,6 +380,244 @@ export class ItemFactory {
     }
 
     /**
+     * Add bonuses and contextual effects to items based on LLM data
+     * @param {Object} itemData - The item to modify
+     * @param {Object} llmData - LLM generated data
+     */
+    addBonusesAndEffects(itemData, llmData) {
+        // Initialize arrays if they don't exist
+        itemData.system.changes = itemData.system.changes || [];
+        itemData.system.contextNotes = itemData.system.contextNotes || [];
+
+        // Parse mechanical effects for bonuses
+        if (llmData.mechanical?.effects) {
+            this.parseBonusesFromText(itemData, llmData.mechanical.effects, llmData.name);
+        }
+
+        // Parse description for additional bonuses
+        if (llmData.description) {
+            this.parseBonusesFromText(itemData, llmData.description, llmData.name);
+        }
+    }
+
+    /**
+     * Parse text for bonus patterns and add appropriate changes/contextNotes
+     * @param {Object} itemData - Item to modify
+     * @param {string} text - Text to parse
+     * @param {string} itemName - Item name for context notes
+     */
+    parseBonusesFromText(itemData, text, itemName) {
+        const textLower = text.toLowerCase();
+
+        // Patterns for different types of bonuses
+        const bonusPatterns = [
+            // Ability scores: "+2 wisdom", "+4 to charisma"
+            { 
+                regex: /\+(\d+)\s+(?:to\s+)?(?:enhancement\s+)?(?:bonus\s+to\s+)?(strength|dexterity|constitution|intelligence|wisdom|charisma|str|dex|con|int|wis|cha)/gi,
+                handler: (match, bonus, ability) => this.addAbilityBonus(itemData, ability, parseInt(bonus))
+            },
+            
+            // Saving throws: "+3 to all saves", "+2 fortitude save"
+            {
+                regex: /\+(\d+)\s+(?:to\s+)?(?:all\s+)?(?:saving\s+throws?|saves?|fortitude|reflex|will)/gi,
+                handler: (match, bonus) => this.addSaveBonus(itemData, parseInt(bonus), match.toLowerCase())
+            },
+
+            // AC bonuses: "+4 armor bonus to AC", "+2 natural armor"
+            {
+                regex: /\+(\d+)\s+(?:armor\s+bonus\s+to\s+ac|natural\s+armor|ac|armor\s+class)/gi,
+                handler: (match, bonus) => this.addACBonus(itemData, parseInt(bonus), 'armor')
+            },
+
+            // Touch AC: "+4 to touch AC"
+            {
+                regex: /\+(\d+)\s+(?:to\s+)?touch\s+ac/gi,
+                handler: (match, bonus) => this.addTouchACBonus(itemData, parseInt(bonus))
+            },
+
+            // Skills: "+5 stealth", "+10 climb", "+3 to diplomacy"
+            {
+                regex: /\+(\d+)\s+(?:to\s+)?(?:bonus\s+(?:on|to)\s+)?(acrobatics|appraise|bluff|climb|craft|diplomacy|disable device|disguise|escape artist|fly|handle animal|heal|intimidate|knowledge|linguistics|perception|perform|profession|ride|sense motive|sleight of hand|spellcraft|stealth|survival|swim|use magic device)/gi,
+                handler: (match, bonus, skill) => this.addSkillBonus(itemData, skill, parseInt(bonus), itemName)
+            },
+
+            // Conditional bonuses: "+5 stealth in forests", "+3 vs undead"
+            {
+                regex: /\+(\d+)\s+(?:to\s+)?(\w+)\s+(?:in|when|against|vs\.?)\s+([^.!?]+)/gi,
+                handler: (match, bonus, skill, condition) => this.addContextualBonus(itemData, skill, parseInt(bonus), condition.trim(), itemName)
+            },
+
+            // Speed bonuses: "+20 climb speed", "swim speed 30"
+            {
+                regex: /(?:\+(\d+)\s+)?(?:(climb|swim|fly|burrow)\s+speed)\s+(?:of\s+)?(\d+)?/gi,
+                handler: (match, bonus, speedType, baseSpeed) => this.addSpeedBonus(itemData, speedType, parseInt(bonus || baseSpeed || 0))
+            }
+        ];
+
+        // Apply each pattern
+        bonusPatterns.forEach(pattern => {
+            let match;
+            while ((match = pattern.regex.exec(text)) !== null) {
+                try {
+                    pattern.handler(match, ...match.slice(1));
+                } catch (error) {
+                    console.warn(`Spacebone | Error parsing bonus "${match[0]}":`, error);
+                }
+            }
+        });
+    }
+
+    /**
+     * Add ability score bonus
+     */
+    addAbilityBonus(itemData, ability, bonus) {
+        const abilityMap = {
+            'strength': 'str', 'str': 'str',
+            'dexterity': 'dex', 'dex': 'dex', 
+            'constitution': 'con', 'con': 'con',
+            'intelligence': 'int', 'int': 'int',
+            'wisdom': 'wis', 'wis': 'wis',
+            'charisma': 'cha', 'cha': 'cha'
+        };
+
+        const target = abilityMap[ability.toLowerCase()];
+        if (target) {
+            itemData.system.changes.push({
+                _id: this.generateRandomId(),
+                formula: bonus.toString(),
+                target: target,
+                type: 'enh',
+                operator: 'add',
+                priority: 0
+            });
+            console.log(`Spacebone | Added ${target} +${bonus} enhancement bonus`);
+        }
+    }
+
+    /**
+     * Add saving throw bonus
+     */
+    addSaveBonus(itemData, bonus, matchText) {
+        let target = 'allSavingThrows';
+        
+        if (matchText.includes('fortitude')) target = 'fort';
+        else if (matchText.includes('reflex')) target = 'ref';
+        else if (matchText.includes('will')) target = 'will';
+
+        itemData.system.changes.push({
+            _id: this.generateRandomId(),
+            formula: bonus.toString(),
+            target: target,
+            type: 'resist',
+            operator: 'add',
+            priority: 0
+        });
+        console.log(`Spacebone | Added ${target} +${bonus} resistance bonus`);
+    }
+
+    /**
+     * Add AC bonus
+     */
+    addACBonus(itemData, bonus, bonusType) {
+        itemData.system.changes.push({
+            _id: this.generateRandomId(),
+            formula: bonus.toString(),
+            target: 'ac',
+            type: bonusType === 'natural' ? 'natural' : 'armor',
+            operator: 'add',
+            priority: 0
+        });
+        console.log(`Spacebone | Added AC +${bonus} ${bonusType} bonus`);
+    }
+
+    /**
+     * Add Touch AC bonus
+     */
+    addTouchACBonus(itemData, bonus) {
+        itemData.system.changes.push({
+            _id: this.generateRandomId(),
+            formula: bonus.toString(),
+            target: 'tac',
+            type: 'sacred',
+            operator: 'add',
+            priority: 0
+        });
+        console.log(`Spacebone | Added Touch AC +${bonus} sacred bonus`);
+    }
+
+    /**
+     * Add skill bonus
+     */
+    addSkillBonus(itemData, skill, bonus, itemName) {
+        const skillMap = {
+            'acrobatics': 'acr', 'appraise': 'apr', 'bluff': 'blu', 'climb': 'clm',
+            'craft': 'crf', 'diplomacy': 'dip', 'disable device': 'dis', 'disguise': 'dis',
+            'escape artist': 'esc', 'fly': 'fly', 'handle animal': 'han', 'heal': 'hea',
+            'intimidate': 'int', 'knowledge': 'kno', 'linguistics': 'lin', 'perception': 'per',
+            'perform': 'prf', 'profession': 'pro', 'ride': 'rid', 'sense motive': 'sen',
+            'sleight of hand': 'slt', 'spellcraft': 'spl', 'stealth': 'ste', 'survival': 'sur',
+            'swim': 'swm', 'use magic device': 'umd'
+        };
+
+        const target = skillMap[skill.toLowerCase()];
+        if (target) {
+            itemData.system.changes.push({
+                _id: this.generateRandomId(),
+                formula: bonus.toString(),
+                target: `skill.${target}`,
+                type: 'competence',
+                operator: 'add',
+                priority: 0
+            });
+            console.log(`Spacebone | Added ${skill} +${bonus} competence bonus`);
+        }
+    }
+
+    /**
+     * Add contextual bonus (shows as context note)
+     */
+    addContextualBonus(itemData, skill, bonus, condition, itemName) {
+        const skillMap = {
+            'stealth': 'skill.ste', 'diplomacy': 'skill.dip', 'intimidate': 'skill.int',
+            'perception': 'skill.per', 'survival': 'skill.sur', 'climb': 'skill.clm',
+            'swim': 'skill.swm', 'sleight of hand': 'skill.slt', 'bluff': 'skill.blu',
+            'sense motive': 'skill.sen', 'acrobatics': 'skill.acr'
+        };
+
+        const target = skillMap[skill.toLowerCase()] || 'misc';
+        
+        itemData.system.contextNotes.push({
+            text: `${itemName}: +${bonus} ${skill} ${condition}`,
+            target: target
+        });
+        console.log(`Spacebone | Added contextual bonus: +${bonus} ${skill} ${condition}`);
+    }
+
+    /**
+     * Add speed bonus
+     */
+    addSpeedBonus(itemData, speedType, speed) {
+        const speedTarget = `${speedType}Speed`;
+        
+        itemData.system.changes.push({
+            _id: this.generateRandomId(),
+            formula: speed.toString(),
+            target: speedTarget,
+            type: 'enh',
+            operator: 'add',
+            priority: 0
+        });
+        console.log(`Spacebone | Added ${speedType} speed +${speed}`);
+    }
+
+    /**
+     * Generate a random ID for changes
+     */
+    generateRandomId() {
+        return Math.random().toString(36).substring(2, 10);
+    }
+
+    /**
      * Build a custom item from scratch (fallback method)
      * @param {Object} itemData - LLM generated item data
      * @returns {Object} Custom item data
@@ -404,6 +645,9 @@ export class ItemFactory {
             const materialCost = calculateMaterialCost(detectedMaterial, customItem);
             customItem.system.price = (customItem.system.price || 0) + materialCost;
         }
+
+        // Add bonuses and contextual effects
+        this.addBonusesAndEffects(customItem, itemData);
 
         return customItem;
     }

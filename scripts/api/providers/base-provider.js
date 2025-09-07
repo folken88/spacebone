@@ -155,7 +155,12 @@ AURA: [school and strength, e.g. "moderate transmutation"]
 
 DESCRIPTION: [Rich description with lore, appearance, and mechanics. Include regional/historical context if relevant.]
 
-MECHANICAL_EFFECTS: [Complete mechanical description of what this item does, including bonuses, special abilities, activation methods, etc.]
+MECHANICAL_EFFECTS: [Complete mechanical description including:
+- Bonuses: "+2 wisdom", "+5 stealth", "+3 to all saves"
+- Conditional bonuses: "+5 stealth in forests", "+3 vs undead"
+- Special abilities: spell-like abilities, damage reduction, resistances
+- Activation methods: command word, use-activated, continuous
+Be specific with numbers and conditions.]
 
 CREATION_REQUIREMENTS: [Feats and spells needed to create this item]
 CREATION_COST: [Half the item's price in gold]

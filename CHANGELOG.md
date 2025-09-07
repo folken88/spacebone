@@ -17,11 +17,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Material Properties**: Complete material effects including weight modification, hardness changes, masterwork requirements, and armor category reduction
 - **Campaign Materials**: Custom materials inspired by user's campaign (Sea-Steel, Skymetal, Living Steel) with unique properties
 - **Material Cost Calculation**: Automatic price adjustments based on PF1 material pricing formulas
+- **Contextual Bonus System**: Full implementation of PF1 changes array and contextNotes for skill bonuses, ability scores, saves, and conditional effects
+- **Intelligent Bonus Detection**: Advanced regex parsing to extract bonuses from LLM text descriptions and mechanical effects
+- **PF1 Bonus Types**: Proper bonus type assignment (enhancement, competence, resistance, sacred, etc.) following PF1 stacking rules
+- **Conditional Bonuses**: Context notes for situational bonuses that appear during specific skill checks or conditions
 
 ### Changed
 - **Special Abilities Processing**: Intelligent detection of burst vs. regular abilities with proper damage distribution
 - **LLM Template**: Enhanced item generation template with dedicated MATERIAL field and comprehensive material guidance
 - **Material Integration**: Seamless integration of materials system with existing item creation workflow
+- **Bonus Detection**: Enhanced mechanical effects parsing with detailed examples and guidance for proper bonus formatting
 
 ### Fixed
 - **Damage Type Detection**: Burst abilities correctly add both normal damage and critical hit damage
