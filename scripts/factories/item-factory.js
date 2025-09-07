@@ -18,19 +18,22 @@ export class ItemFactory {
      */
     async createPF1Item(itemData) {
         try {
-            const pf1Data = {
-                name: itemData.name,
-                type: this.mapItemType(itemData.type),
-                img: this.getDefaultIcon(itemData.type, itemData.subType),
-                system: this.buildSystemData(itemData),
-                flags: {
-                    [this.moduleId]: {
-                        generated: true,
-                        version: "1.0.0",
-                        originalData: itemData
-                    }
+            let pf1Data;
+
+            // For weapons and armor, start with a base item from compendium
+            if (itemData.type === 'weapon' || itemData.type === 'armor') {
+                pf1Data = await this.getBaseItemFromCompendium(itemData);
+                if (pf1Data) {
+                    // Modify the base item with our generated data
+                    this.enhanceBaseItem(pf1Data, itemData);
+                } else {
+                    // Fallback to custom creation if no base found
+                    pf1Data = this.buildCustomItem(itemData);
                 }
-            };
+            } else {
+                // For equipment/consumables, build from scratch
+                pf1Data = this.buildCustomItem(itemData);
+            }
 
             // Validate the created item data
             this.validateItemData(pf1Data);
@@ -45,6 +48,144 @@ export class ItemFactory {
             console.error('Spacebone | Error creating PF1 item:', error);
             throw error;
         }
+    }
+
+    /**
+     * Get a base item from PF1 compendiums
+     * @param {Object} itemData - LLM generated item data
+     * @returns {Promise<Object|null>} Base item from compendium or null
+     */
+    async getBaseItemFromCompendium(itemData) {
+        try {
+            let packName;
+            if (itemData.type === 'weapon') {
+                packName = 'pf1.weapons-and-ammo';
+            } else if (itemData.type === 'armor') {
+                packName = 'pf1.armors-and-shields';
+            } else {
+                return null;
+            }
+
+            const pack = game.packs.get(packName);
+            if (!pack) {
+                console.warn(`Spacebone | Compendium ${packName} not found`);
+                return null;
+            }
+
+            const index = await pack.getDocuments();
+            const baseItem = index.find(item => {
+                if (item.type !== itemData.type) return false;
+                
+                // Match by name or subtype
+                const itemName = item.name.toLowerCase();
+                const subType = itemData.subType.toLowerCase();
+                
+                return itemName.includes(subType) || 
+                       subType.includes(itemName) ||
+                       item.system.baseTypes?.some(bt => bt.toLowerCase() === subType);
+            });
+
+            if (baseItem) {
+                console.log(`Spacebone | Found base item: ${baseItem.name} for ${itemData.subType}`);
+                return baseItem.toObject();
+            }
+
+            return null;
+
+        } catch (error) {
+            console.error('Spacebone | Error loading base item from compendium:', error);
+            return null;
+        }
+    }
+
+    /**
+     * Enhance a base item with LLM-generated data
+     * @param {Object} baseItem - Base item from compendium
+     * @param {Object} itemData - LLM generated item data
+     */
+    enhanceBaseItem(baseItem, itemData) {
+        // Update basic properties
+        baseItem.name = itemData.name;
+        baseItem.img = this.getDefaultIcon(itemData.type, itemData.subType);
+        
+        // Update system data
+        baseItem.system.description = {
+            value: this.formatDescription(itemData),
+            chat: "",
+            unidentified: baseItem.system.description?.unidentified || ""
+        };
+        
+        baseItem.system.price = itemData.price || baseItem.system.price;
+        baseItem.system.weight.value = itemData.weight || baseItem.system.weight.value;
+        
+        // Add enhancement bonus for weapons/armor
+        if (itemData.enhancement) {
+            if (itemData.type === 'weapon') {
+                baseItem.system.enh = itemData.enhancement;
+                baseItem.system.masterwork = true;
+                if (!baseItem.system.material.addon.includes('magic')) {
+                    baseItem.system.material.addon.push('magic');
+                }
+            } else if (itemData.type === 'armor') {
+                baseItem.system.armor = baseItem.system.armor || {};
+                baseItem.system.armor.enh = itemData.enhancement;
+                baseItem.system.masterwork = true;
+                if (!baseItem.system.material.addon.includes('magic')) {
+                    baseItem.system.material.addon.push('magic');
+                }
+            }
+        }
+
+        // Add caster level and aura
+        if (itemData.casterLevel) {
+            baseItem.system.cl = itemData.casterLevel;
+        }
+        
+        if (itemData.aura) {
+            const auraParts = itemData.aura.split(' ');
+            baseItem.system.aura = {
+                custom: false,
+                school: auraParts[1] || 'universal',
+                strength: auraParts[0] || 'faint'
+            };
+        }
+
+        // Add creation requirements and cost
+        if (itemData.requirements) {
+            baseItem.system.requirements = itemData.requirements;
+        }
+        if (itemData.creationCost) {
+            baseItem.system.creationCost = itemData.creationCost;
+        }
+
+        // Add our module flags
+        baseItem.flags = baseItem.flags || {};
+        baseItem.flags[this.moduleId] = {
+            generated: true,
+            version: "1.0.0",
+            originalData: itemData
+        };
+    }
+
+    /**
+     * Build a custom item from scratch (fallback method)
+     * @param {Object} itemData - LLM generated item data
+     * @returns {Object} Custom item data
+     */
+    buildCustomItem(itemData) {
+        return {
+            name: itemData.name,
+            type: this.mapItemType(itemData.type),
+            img: this.getDefaultIcon(itemData.type, itemData.subType),
+            system: this.buildSystemData(itemData),
+            flags: {
+                [this.moduleId]: {
+                    generated: true,
+                    version: "1.0.0",
+                    originalData: itemData
+                }
+            }
+        };
     }
 
     /**
@@ -293,12 +434,11 @@ export class ItemFactory {
 
         // Add weapon-specific data
         if (itemData.type === 'weapon') {
-            systemData.weaponSubtype = itemData.weaponSubtype || 'melee';
-            systemData.proficient = true;
+            const weaponData = this.buildWeaponData(itemData);
+            Object.assign(systemData, weaponData);
             
-            if (itemData.enhancement) {
-                systemData.enh = itemData.enhancement;
-            }
+            // Add weapon actions
+            systemData.actions = this.buildWeaponActions(itemData);
         }
 
         // Add consumable-specific data
@@ -394,6 +534,231 @@ export class ItemFactory {
             spell: 0,
             type: itemData.type === 'armor' ? (itemData.subType || 'light') : 'misc'
         };
+    }
+
+    /**
+     * Build weapon-specific system data
+     * @param {Object} itemData - Raw item data
+     * @returns {Object} Weapon system data
+     */
+    buildWeaponData(itemData) {
+        const weaponInfo = this.getWeaponInfo(itemData.subType);
+        
+        return {
+            weaponSubtype: weaponInfo.category || 'melee',
+            proficient: true,
+            held: weaponInfo.hands === 2 ? '2h' : (weaponInfo.hands === 1.5 ? '1h' : '1h'),
+            hands: weaponInfo.hands || 1,
+            subType: weaponInfo.proficiency || 'martial',
+            baseTypes: [weaponInfo.baseType || itemData.subType],
+            weaponGroups: weaponInfo.groups || [],
+            enh: itemData.enhancement || 0,
+            material: {
+                base: { value: "steel", custom: false },
+                normal: { value: "", custom: false },
+                addon: itemData.enhancement > 0 ? ["magic"] : []
+            }
+        };
+    }
+
+    /**
+     * Build weapon actions (attack mechanics)
+     * @param {Object} itemData - Raw item data
+     * @returns {Array} Weapon actions array
+     */
+    buildWeaponActions(itemData) {
+        const weaponInfo = this.getWeaponInfo(itemData.subType);
+        
+        return [{
+            _id: this.generateActionId(),
+            ability: {
+                attack: "_default",
+                critMult: weaponInfo.critMult || 2,
+                damage: "str"
+            },
+            actionType: "mwak",
+            activation: {
+                type: "attack",
+                unchained: { type: "attack" }
+            },
+            damage: {
+                parts: [{
+                    formula: `sizeRoll(${weaponInfo.damage.dice}, ${weaponInfo.damage.sides}, @size)`,
+                    types: [weaponInfo.damageType || "slashing"]
+                }]
+            },
+            duration: { units: "inst" },
+            extraAttacks: { type: "standard" },
+            name: "Attack",
+            range: {
+                units: weaponInfo.range || "melee",
+                value: weaponInfo.rangeValue || "0"
+            }
+        }];
+    }
+
+    /**
+     * Get weapon mechanical information
+     * @param {string} weaponType - Weapon type/subtype
+     * @returns {Object} Weapon mechanics data
+     */
+    getWeaponInfo(weaponType) {
+        const weaponData = {
+            // Two-Handed Weapons
+            'greataxe': {
+                damage: { dice: 1, sides: 12 },
+                critMult: 3,
+                damageType: 'slashing',
+                hands: 2,
+                category: '2h',
+                proficiency: 'martial',
+                baseType: 'Greataxe',
+                groups: ['axes']
+            },
+            'greatsword': {
+                damage: { dice: 2, sides: 6 },
+                critMult: 2,
+                damageType: 'slashing',
+                hands: 2,
+                category: '2h',
+                proficiency: 'martial',
+                baseType: 'Greatsword',
+                groups: ['heavy blades']
+            },
+            'greatclub': {
+                damage: { dice: 1, sides: 10 },
+                critMult: 2,
+                damageType: 'bludgeoning',
+                hands: 2,
+                category: '2h',
+                proficiency: 'martial',
+                baseType: 'Greatclub',
+                groups: ['clubs']
+            },
+            
+            // One-Handed Weapons
+            'longsword': {
+                damage: { dice: 1, sides: 8 },
+                critMult: 2,
+                damageType: 'slashing',
+                hands: 1,
+                category: 'melee',
+                proficiency: 'martial',
+                baseType: 'Longsword',
+                groups: ['heavy blades']
+            },
+            'battleaxe': {
+                damage: { dice: 1, sides: 8 },
+                critMult: 3,
+                damageType: 'slashing',
+                hands: 1,
+                category: 'melee',
+                proficiency: 'martial',
+                baseType: 'Battleaxe',
+                groups: ['axes']
+            },
+            'scimitar': {
+                damage: { dice: 1, sides: 6 },
+                critMult: 2,
+                damageType: 'slashing',
+                hands: 1,
+                category: 'melee',
+                proficiency: 'martial',
+                baseType: 'Scimitar',
+                groups: ['heavy blades']
+            },
+            'rapier': {
+                damage: { dice: 1, sides: 6 },
+                critMult: 2,
+                damageType: 'piercing',
+                hands: 1,
+                category: 'melee',
+                proficiency: 'martial',
+                baseType: 'Rapier',
+                groups: ['light blades']
+            },
+            'warhammer': {
+                damage: { dice: 1, sides: 8 },
+                critMult: 3,
+                damageType: 'bludgeoning',
+                hands: 1,
+                category: 'melee',
+                proficiency: 'martial',
+                baseType: 'Warhammer',
+                groups: ['hammers']
+            },
+            
+            // Light Weapons
+            'dagger': {
+                damage: { dice: 1, sides: 4 },
+                critMult: 2,
+                damageType: 'piercing',
+                hands: 1,
+                category: 'light',
+                proficiency: 'simple',
+                baseType: 'Dagger',
+                groups: ['light blades']
+            },
+            'shortsword': {
+                damage: { dice: 1, sides: 6 },
+                critMult: 2,
+                damageType: 'piercing',
+                hands: 1,
+                category: 'light',
+                proficiency: 'martial',
+                baseType: 'Short sword',
+                groups: ['light blades']
+            },
+            
+            // Ranged Weapons
+            'longbow': {
+                damage: { dice: 1, sides: 8 },
+                critMult: 3,
+                damageType: 'piercing',
+                hands: 2,
+                category: 'ranged',
+                proficiency: 'martial',
+                baseType: 'Longbow',
+                groups: ['bows'],
+                range: 'ft',
+                rangeValue: '100'
+            },
+            'shortbow': {
+                damage: { dice: 1, sides: 6 },
+                critMult: 3,
+                damageType: 'piercing',
+                hands: 2,
+                category: 'ranged',
+                proficiency: 'martial',
+                baseType: 'Shortbow',
+                groups: ['bows'],
+                range: 'ft',
+                rangeValue: '60'
+            }
+        };
+
+        // Normalize the weapon type for lookup
+        const normalizedType = weaponType.toLowerCase();
+        
+        // Return specific weapon data or default to longsword-like stats
+        return weaponData[normalizedType] || {
+            damage: { dice: 1, sides: 8 },
+            critMult: 2,
+            damageType: 'slashing',
+            hands: 1,
+            category: 'melee',
+            proficiency: 'martial',
+            baseType: weaponType,
+            groups: []
+        };
+    }
+
+    /**
+     * Generate a unique action ID
+     * @returns {string} Random action ID
+     */
+    generateActionId() {
+        return Math.random().toString(36).substring(2, 18);
     }
 
     /**
