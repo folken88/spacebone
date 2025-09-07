@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Intelligent Bonus Detection**: Advanced regex parsing to extract bonuses from LLM text descriptions and mechanical effects
 - **PF1 Bonus Types**: Proper bonus type assignment (enhancement, competence, resistance, sacred, etc.) following PF1 stacking rules
 - **Conditional Bonuses**: Context notes for situational bonuses that appear during specific skill checks or conditions
+- **Spell-Like Abilities System**: Complete conversion of SPELL_ABILITY template entries into proper FoundryVTT actions
+- **Comprehensive Spell Database**: Built-in support for 6+ common spells (Fireball, Lightning Bolt, Cure Light Wounds, etc.) with full mechanics
+- **Smart Spell Parsing**: Automatic parsing of activation types, uses per day, save DCs, and damage formulas
+- **Action Generation**: Creates proper PF1 actions with damage, saves, ranges, templates, and activation costs
 
 ### Changed
 - **Special Abilities Processing**: Intelligent detection of burst vs. regular abilities with proper damage distribution

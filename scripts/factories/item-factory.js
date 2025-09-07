@@ -398,6 +398,11 @@ export class ItemFactory {
         if (llmData.description) {
             this.parseBonusesFromText(itemData, llmData.description, llmData.name);
         }
+
+        // Add spell-like abilities as actions
+        if (llmData.spellLikeAbilities && llmData.spellLikeAbilities.length > 0) {
+            this.addSpellActions(itemData, llmData);
+        }
     }
 
     /**
@@ -615,6 +620,334 @@ export class ItemFactory {
      */
     generateRandomId() {
         return Math.random().toString(36).substring(2, 10);
+    }
+
+    /**
+     * Add spell-like abilities as actions
+     * @param {Object} itemData - Item to modify
+     * @param {Object} llmData - LLM generated data
+     */
+    addSpellActions(itemData, llmData) {
+        // Initialize actions array if it doesn't exist
+        itemData.system.actions = itemData.system.actions || [];
+
+        // Process each spell-like ability
+        llmData.spellLikeAbilities.forEach((spellAbility, index) => {
+            if (!spellAbility.name || spellAbility.name.toLowerCase().includes('leave blank')) {
+                return; // Skip empty entries
+            }
+
+            const spellAction = this.createSpellAction(spellAbility, llmData.casterLevel || 1);
+            if (spellAction) {
+                itemData.system.actions.push(spellAction);
+                console.log(`Spacebone | Added spell action: ${spellAbility.name} (${spellAbility.uses || '1/day'})`);
+            }
+        });
+
+        // Update item uses if we have spell actions
+        if (itemData.system.actions.length > 0) {
+            this.updateItemUses(itemData, llmData.spellLikeAbilities);
+        }
+    }
+
+    /**
+     * Create a spell action from spell ability data
+     * @param {Object} spellAbility - Spell ability data
+     * @param {number} casterLevel - Item's caster level
+     * @returns {Object} Action object
+     */
+    createSpellAction(spellAbility, casterLevel) {
+        const spellName = spellAbility.name;
+        const spellData = this.getSpellData(spellName);
+        
+        // Parse uses (e.g., "3/day", "1/day", "at-will")
+        const usesData = this.parseSpellUses(spellAbility.uses || '1/day');
+        
+        // Parse activation (e.g., "standard action", "command word")
+        const activationData = this.parseActivation(spellAbility.activation || 'standard action');
+
+        // Calculate save DC if spell allows save
+        const saveDC = this.calculateSaveDC(spellData, casterLevel, spellAbility);
+
+        const action = {
+            _id: this.generateRandomId(),
+            name: spellName,
+            img: spellData.icon || "systems/pf1/icons/spells/generic.jpg",
+            activation: {
+                cost: activationData.cost,
+                type: activationData.type,
+                unchained: {
+                    cost: activationData.unchainedCost || activationData.cost,
+                    type: activationData.unchainedType || activationData.type
+                }
+            },
+            actionType: spellData.actionType || 'other',
+            uses: usesData,
+            duration: spellData.duration || { units: 'inst' },
+            range: spellData.range || { units: 'personal' },
+            area: spellData.area || '',
+            powerAttack: {
+                damageBonus: 2,
+                critMultiplier: 1
+            },
+            naturalAttack: {
+                secondary: { attackBonus: "-5", damageMult: 0.5 },
+                primary: true
+            },
+            ammo: { type: "none", cost: 1 }
+        };
+
+        // Add save information if the spell allows a save
+        if (spellData.allowsSave && saveDC > 0) {
+            action.save = {
+                dc: saveDC.toString(),
+                type: spellData.saveType || 'ref',
+                description: spellData.saveDescription || 'see spell description',
+                harmless: false
+            };
+        }
+
+        // Add damage information for damage spells
+        if (spellData.damage) {
+            action.damage = this.createSpellDamage(spellData, casterLevel);
+        }
+
+        // Add measure template for area spells
+        if (spellData.template) {
+            action.measureTemplate = spellData.template;
+        }
+
+        return action;
+    }
+
+    /**
+     * Get spell data for common spells
+     * @param {string} spellName - Name of the spell
+     * @returns {Object} Spell data
+     */
+    getSpellData(spellName) {
+        const spellDatabase = {
+            'fireball': {
+                icon: "systems/pf1/icons/spells/fire-ball-fire-2.jpg",
+                actionType: 'spellsave',
+                allowsSave: true,
+                saveType: 'ref',
+                saveDescription: 'Reflex half',
+                damage: { formula: '1d6', type: 'fire', perLevel: true, maxLevel: 10 },
+                range: { value: "400", units: "ft" },
+                area: "20-ft.-radius spread",
+                duration: { units: 'inst' },
+                template: { type: "circle", size: "20", color: "#ff4500" }
+            },
+            'lightning bolt': {
+                icon: "systems/pf1/icons/spells/lightning-bolt.jpg",
+                actionType: 'spellsave',
+                allowsSave: true,
+                saveType: 'ref',
+                saveDescription: 'Reflex half',
+                damage: { formula: '1d6', type: 'electricity', perLevel: true, maxLevel: 10 },
+                range: { value: "120", units: "ft" },
+                area: "120-ft. line",
+                duration: { units: 'inst' },
+                template: { type: "ray", size: "120", color: "#1e90ff" }
+            },
+            'cure light wounds': {
+                icon: "systems/pf1/icons/spells/cure-light-wounds.jpg",
+                actionType: 'heal',
+                allowsSave: false,
+                damage: { formula: '1d8', type: 'healing', perLevel: true, maxLevel: 5, bonus: 1 },
+                range: { value: "touch", units: "touch" },
+                duration: { units: 'inst' }
+            },
+            'entangle': {
+                icon: "systems/pf1/icons/spells/entangle.jpg",
+                actionType: 'spellsave',
+                allowsSave: true,
+                saveType: 'ref',
+                saveDescription: 'Reflex partial; see text',
+                range: { value: "long", units: "long" },
+                area: "plants in a 40-ft.-radius spread",
+                duration: { value: "1 min./level", units: "spec", dismiss: true },
+                template: { type: "circle", size: "40", color: "#228b22" }
+            },
+            'feather fall': {
+                icon: "systems/pf1/icons/spells/feather-fall.jpg",
+                actionType: 'other',
+                allowsSave: false,
+                range: { value: "close", units: "close" },
+                duration: { value: "until landing or 1 round/level", units: "spec" }
+            },
+            'magic missile': {
+                icon: "systems/pf1/icons/spells/magic-missile.jpg",
+                actionType: 'damage',
+                allowsSave: false,
+                damage: { formula: '1d4', type: 'force', missiles: true, bonus: 1 },
+                range: { value: "medium", units: "medium" },
+                duration: { units: 'inst' }
+            }
+        };
+
+        return spellDatabase[spellName.toLowerCase()] || {
+            icon: "systems/pf1/icons/spells/generic.jpg",
+            actionType: 'other',
+            allowsSave: false,
+            range: { units: 'personal' },
+            duration: { units: 'inst' }
+        };
+    }
+
+    /**
+     * Parse spell uses string (e.g., "3/day", "at-will")
+     * @param {string} usesString - Uses string
+     * @returns {Object} Uses data
+     */
+    parseSpellUses(usesString) {
+        const usesLower = usesString.toLowerCase();
+        
+        if (usesLower.includes('at-will') || usesLower.includes('unlimited')) {
+            return {};
+        }
+
+        const match = usesString.match(/(\d+)\/(\w+)/);
+        if (match) {
+            const count = parseInt(match[1]);
+            const period = match[2];
+            
+            return {
+                autoDeductChargesCost: "1",
+                self: {
+                    value: count,
+                    maxFormula: count.toString(),
+                    per: period
+                }
+            };
+        }
+
+        // Default to 1/day
+        return {
+            autoDeductChargesCost: "1", 
+            self: {
+                value: 1,
+                maxFormula: "1",
+                per: "day"
+            }
+        };
+    }
+
+    /**
+     * Parse activation string
+     * @param {string} activationString - Activation string
+     * @returns {Object} Activation data
+     */
+    parseActivation(activationString) {
+        const actLower = activationString.toLowerCase();
+        
+        if (actLower.includes('immediate')) {
+            return { cost: 1, type: 'immediate' };
+        } else if (actLower.includes('swift')) {
+            return { cost: 1, type: 'swift' };
+        } else if (actLower.includes('move')) {
+            return { cost: 1, type: 'move' };
+        } else if (actLower.includes('full')) {
+            return { cost: 1, type: 'full' };
+        } else if (actLower.includes('command')) {
+            return { cost: 1, type: 'standard' };
+        } else {
+            return { cost: 1, type: 'standard' };
+        }
+    }
+
+    /**
+     * Calculate save DC for spell
+     * @param {Object} spellData - Spell data
+     * @param {number} casterLevel - Caster level
+     * @param {Object} spellAbility - Spell ability data
+     * @returns {number} Save DC
+     */
+    calculateSaveDC(spellData, casterLevel, spellAbility) {
+        if (!spellData.allowsSave) return 0;
+
+        // Check if DC is explicitly provided in description
+        const dcMatch = spellAbility.description?.match(/DC\s+(\d+)/i);
+        if (dcMatch) {
+            return parseInt(dcMatch[1]);
+        }
+
+        // Estimate spell level based on caster level and damage
+        let spellLevel = 1;
+        if (spellData.damage?.perLevel) {
+            spellLevel = Math.min(Math.floor(casterLevel / 2), 9);
+        }
+
+        // Basic DC calculation: 10 + spell level + ability modifier (assume 4 for magic items)
+        return 10 + spellLevel + 4;
+    }
+
+    /**
+     * Create damage data for spell
+     * @param {Object} spellData - Spell data
+     * @param {number} casterLevel - Caster level
+     * @returns {Object} Damage data
+     */
+    createSpellDamage(spellData, casterLevel) {
+        const damage = spellData.damage;
+        let formula = damage.formula;
+        
+        if (damage.perLevel) {
+            const level = Math.min(casterLevel, damage.maxLevel || 20);
+            formula = `${level}${damage.formula}`;
+        }
+        
+        if (damage.bonus) {
+            formula += ` + ${damage.bonus}`;
+        }
+
+        if (damage.missiles) {
+            // Magic missile special case
+            const missiles = Math.min(Math.floor(casterLevel / 2) + 1, 5);
+            formula = `${missiles}d4 + ${missiles}`;
+        }
+
+        return {
+            parts: [{
+                formula: formula,
+                types: [damage.type]
+            }]
+        };
+    }
+
+    /**
+     * Update item uses based on spell abilities
+     * @param {Object} itemData - Item data
+     * @param {Array} spellAbilities - Spell abilities
+     */
+    updateItemUses(itemData, spellAbilities) {
+        // Find the most restrictive use pattern
+        let mostRestrictive = null;
+        
+        spellAbilities.forEach(ability => {
+            if (!ability.uses || ability.uses.toLowerCase().includes('at-will')) return;
+            
+            const match = ability.uses.match(/(\d+)\/(\w+)/);
+            if (match) {
+                const count = parseInt(match[1]);
+                const period = match[2];
+                
+                if (!mostRestrictive || count < mostRestrictive.count) {
+                    mostRestrictive = { count, period };
+                }
+            }
+        });
+
+        if (mostRestrictive) {
+            itemData.system.uses = {
+                value: mostRestrictive.count,
+                per: mostRestrictive.period,
+                autoDeductChargesCost: "1",
+                maxFormula: mostRestrictive.count.toString(),
+                rechargeFormula: ""
+            };
+        }
     }
 
     /**
