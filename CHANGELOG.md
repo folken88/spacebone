@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **Aura School Detection**: Fixed issue where aura school types were not being properly set in FoundryVTT. The system now correctly maps full school names (e.g., "evocation") to PF1 abbreviations (e.g., "evo") for proper FoundryVTT integration.
+
 ### Added
 - **Special Weapon Abilities**: Automatic detection and implementation of magical weapon properties (flaming, frost, shock, holy, etc.)
 - **Burst Abilities Support**: Full support for burst weapons with both normal and critical hit damage (flaming burst, icy burst, etc.)

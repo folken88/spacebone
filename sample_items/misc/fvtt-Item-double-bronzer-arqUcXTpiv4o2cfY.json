@@ -1,0 +1,241 @@
+{
+  "folder": "Rq8oN79sHwnHm1XT",
+  "img": "modules/ship-combat-pf1/art/cannons/folken88_naval_cannon_on_wheel_with_two_barrels_side_by_side__1bfdb17b-ab84-47f7-9719-32f9304de3c2_2.webp",
+  "name": "Double Bronzer",
+  "system": {
+    "description": {
+      "value": "<img src=\"modules/ship-combat-pf1/art/cannons/folken88_naval_cannon_on_wheel_with_two_barrels_side_by_side__1bfdb17b-ab84-47f7-9719-32f9304de3c2_2.webp\" />",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [
+      "reload:5"
+    ],
+    "quantity": 1,
+    "weight": {
+      "value": 4000
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 5000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "cannon"
+    },
+    "cursed": false,
+    "cl": 0,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 150,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 10,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "ia8tzcyaivl5451t",
+        "ability": {
+          "critMult": 2,
+          "critRange": 20
+        },
+        "actionType": "rwak",
+        "activation": {
+          "type": "attack",
+          "unchained": {
+            "type": "attack",
+            "cost": 1
+          },
+          "cost": 1
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "10d8",
+              "types": [
+                "bludgeoning",
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "extraAttacks": {
+          "type": "custom",
+          "formula": {
+            "count": "",
+            "bonus": "",
+            "label": ""
+          },
+          "manual": [
+            {}
+          ]
+        },
+        "name": "Attack",
+        "range": {
+          "maxIncrements": 5,
+          "units": "ft",
+          "value": "60"
+        },
+        "ammo": {
+          "cost": 1
+        },
+        "uses": {},
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "soundEffect": "modules/ship-combat-pf1/art/audio/cannonfire/cannon-double_shot_01.mp3",
+        "naturalAttack": {
+          "primary": true,
+          "secondary": {
+            "attackBonus": "",
+            "damageMult": 0.5
+          }
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": null,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": null,
+    "proficient": false,
+    "held": "1h",
+    "ammo": {
+      "type": "siege",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "siege",
+    "weaponSubtype": "assault",
+    "hands": 1,
+    "baseTypes": [
+      "Cannon"
+    ],
+    "weaponGroups": [],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "sma": false,
+      "slf": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false
+    },
+    "showInQuickbar": true,
+    "sources": [
+      {
+        "id": "PZO1118",
+        "pages": "162"
+      }
+    ],
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    },
+    "showInCombat": false
+  },
+  "type": "weapon",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "pf1": {
+      "migration": "11.5"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1756838435156,
+    "modifiedTime": 1757007451979,
+    "lastModifiedBy": "3AMbhFgeBo1RWBCq",
+    "exportSource": {
+      "worldId": "03-shackletastic",
+      "uuid": "Item.arqUcXTpiv4o2cfY",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

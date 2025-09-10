@@ -1,0 +1,174 @@
+{
+  "type": "consumable",
+  "name": "Wand of Cure Serious Wounds",
+  "system": {
+    "description": {
+      "value": "<div class=\"spell-description\">\n  <p>\n  <strong>School</strong> Conjuration (Healing); <strong>Level</strong> Adept 3, Alchemist 3, Bard 3, Cleric 3, Druid 4, Hunter 4, Inquisitor 3, Investigator 3, Occultist 3, Oracle 3, Paladin 4, Ranger 4, Shaman 3, Skald 3, Spiritualist 3, Warpriest 3, Witch 4; <strong>Domain</strong> Healing 3\n    </p>\n  <p>\n  <strong>Casting Time</strong> Standard<br />\n  <strong>Components</strong> V, S<br />\n  </p>\n  <p>\n  <strong>Range</strong> Touch<br />\n  \n  <strong>Targets</strong> living creature touched<br />\n  \n  <strong>Duration</strong> <span>Instantaneous</span><br />\n    <strong>Saving Throw</strong> Will half; see text;\n    <strong>Spell Resistance</strong> yes; <strong>Harmless</strong> yes\n    <br />\n  </p>\n</div>\n<h3 class=\"description-header\">Description</h3><div class=\"description-body\"><p>This spell functions like @UUID[Compendium.pf1.spells.Item.xoc3vhg3btmfjauq]{cure light wounds}, except that it cures 3d8 points of damage + 1 point per caster level (maximum +15).</p></div>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [],
+    "quantity": 1,
+    "weight": {
+      "value": 0
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 0,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "Wand"
+    },
+    "cursed": false,
+    "cl": 5,
+    "aura": {
+      "custom": false,
+      "school": "con"
+    },
+    "hp": {
+      "value": 5,
+      "max": 5
+    },
+    "broken": false,
+    "hardness": 5,
+    "uses": {
+      "value": 50,
+      "per": "charges",
+      "autoDeductChargesCost": "",
+      "maxFormula": "50",
+      "rechargeFormula": "",
+      "pricePerUse": 225,
+      "max": 50
+    },
+    "actions": [
+      {
+        "_id": "rghj55zutpc5i7hy",
+        "actionType": "heal",
+        "activation": {
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "3d8 + min(15, @item.cl)",
+              "types": [
+                "positive"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "name": "Use",
+        "range": {
+          "units": "touch"
+        },
+        "save": {
+          "description": "Will half; see text",
+          "harmless": true,
+          "type": "will",
+          "dc": "10 + 3[Spell Level] + 1[Spellcasting Ability]"
+        },
+        "target": {
+          "value": "living creature touched"
+        },
+        "touch": true
+      },
+      {
+        "_id": "8ycjlfgb4Z9i1EbG",
+        "ability": {
+          "attack": "str"
+        },
+        "actionType": "msak",
+        "activation": {
+          "type": "standard",
+          "unchained": {
+            "cost": 2,
+            "type": "action"
+          }
+        },
+        "damage": {
+          "parts": [
+            {
+              "formula": "3d8 + min(15, @item.cl)",
+              "types": [
+                "positive"
+              ]
+            }
+          ]
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "img": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
+        "name": "Harm Undead",
+        "range": {
+          "units": "touch"
+        },
+        "save": {
+          "description": "Will half; see text",
+          "harmless": true,
+          "type": "will",
+          "dc": "10 + 3[Spell Level] + 1[Spellcasting Ability]"
+        },
+        "target": {
+          "value": "undead creature touched"
+        },
+        "touch": true
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "links": {
+      "children": [],
+      "charges": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "subType": "wand",
+    "showInQuickbar": false,
+    "spellType": "arcane",
+    "sources": [
+      {
+        "id": "PZO1110",
+        "pages": "263, 496"
+      }
+    ]
+  },
+  "img": "systems/pf1/icons/items/inventory/wand-star.jpg",
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757291137420,
+    "modifiedTime": 1757291137420,
+    "lastModifiedBy": "8IbKpD2W58KL9Hzb",
+    "exportSource": {
+      "worldId": "shiptest",
+      "uuid": "Item.fQ1LX5WWxqZPWzdY",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "ownership": {
+    "default": 0
+  }
+}

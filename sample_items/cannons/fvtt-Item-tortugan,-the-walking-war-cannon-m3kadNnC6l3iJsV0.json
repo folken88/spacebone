@@ -1,0 +1,241 @@
+{
+  "name": "Tortugan, the Walking War-Cannon",
+  "type": "weapon",
+  "img": "Art%20-%20Characters/construct/construct_tortugan_walking_war_cannon.webp",
+  "system": {
+    "description": {
+      "value": "<h3><strong>Walking War-Cannon \"Tortugan\"</strong></h3><p><em>Level 8 Construct (or Level 6 Animated Object)</em></p><p><strong>Aura</strong> faint transmutation; <strong>CL</strong> 8th<br /><strong>Construction Cost</strong> 20,000 gp; <strong>Market Price</strong> 40,000 gp</p><hr /><p><strong>Description:</strong><br />The Walking War-Cannon, colloquially referred to as the \"Tortugan,\" is an ingenious construct designed to act as both a self-mobile artillery piece and a defensive asset. Forged by an unknown but undeniably brilliant artisan, this construct resembles a giant tortoise made of reinforced steel and brass. Its \"head\" is a long-barreled 12-pounder cannon capable of delivering devastating shots comparable to naval weaponry. While it can walk under its own power, its movements are painstakingly slow, making it better suited for defensive positions or as a ship-mounted weapon.</p><p>When planted in place, the Tortugan uses its reinforced legs to stabilize itself, mitigating the recoil of its devastating shots. While largely defenseless due to its slow speed and lack of agility, it compensates with immense durability, boasting a reinforced shell-like exterior that can shrug off attacks long enough for it to unleash its destructive payload.</p><hr /><h3><strong>Stat Block:</strong></h3><p><strong>Type:</strong> Medium Construct<br /><strong>Alignment:</strong> Neutral<br /><strong>Speed:</strong> 5 ft. per turn (10 ft. per round)</p><hr /><h4><strong>Defenses:</strong></h4><p><strong>AC:</strong> 30 (10 base, -4 Dex, +24 natural)<br /><strong>HP:</strong> 80 (hardness 25; considered objects for repair purposes)<br /><strong>Fort:</strong> +9; <strong>Ref:</strong> -3; <strong>Will:</strong> +1<br /><strong>Immune:</strong> Construct traits (e.g., mind-affecting effects, poison, sleep, paralysis)</p><hr /><h4><strong>Offensive Stats:</strong></h4><p><strong>Cannon (primary weapon):</strong></p><ul><li><strong>Damage:</strong> 6d6 (12-pound shot, bludgeoning/piercing damage)</li><li><strong>Critical:</strong> 19-20/x3</li></ul><hr /><h4><strong>Abilities:</strong></h4><ul><li><strong>Strength:</strong> 28 (+9)</li><li><strong>Dexterity:</strong> 2 (-4)</li><li><strong>Constitution:</strong> 28 (+9; used only for construction and HP calculations)</li><li><strong>Intelligence:</strong> 3 (semi-sapient construct)</li><li><strong>Wisdom:</strong> 11 (+0)</li><li><strong>Charisma:</strong> 1 (-5)</li></ul><hr /><h4><strong>Special Qualities:</strong></h4><ul><li><strong>Self-Stabilizing Mount:</strong> When the Tortugan plants its feet (a free action), it gains a +8 bonus on stability checks to resist being moved (e.g., from bull rushes or high winds) and ignores penalties from firing on uneven ground.</li><li><strong>Coaxable Design:</strong> While it cannot understand complex commands, the Tortugan can be \"coaxed\" to follow simple verbal instructions or food-like bribes (such as coal or oil) with a successful DC 15 Handle Animal or Diplomacy check.</li><li><strong>Slow and Steady:</strong> The Tortugan cannot take 5-foot steps or make sudden changes in direction. It also cannot Dash, Charge, or Run.</li><li><strong>Weapon Bay Integration:</strong> A ship outfitted with a specialized weapon bay can mount the Tortugan as a cannon. The Tortugan cannot move while mounted, but its reload time can be reduced due to the crew's mechanical efficiency.</li></ul><hr /><h4><strong>Ship Combat Stats:</strong></h4><ul><li><strong>Type:</strong> Heavy Cannon</li><li><strong>Role:</strong> Ball Shot (Force damage, effective against hulls and components)</li><li><strong>Range Increment:</strong> 100 ft. Max: 5</li><li><strong>Damage:</strong> 8d6</li><li><strong>Reload Time:</strong> 3 rounds</li><li><strong>Special Effects:</strong> Ignores stability penalties incurred by ship movement.</li></ul><hr /><h3><strong>Construction:</strong></h3><p>The Tortugan requires intricate crafting techniques and a unique combination of magical components:</p><ul><li><strong>Craft Requirements:</strong> Craft Construct feat, Animate Object spell, fabricate spell, 10 lbs. of reinforced mithral alloy, and a soul shard to grant it semi-sapience.</li><li><strong>Creation Time:</strong> 45 days</li></ul><hr /><h3><strong>Lore:</strong></h3><p>Legends suggest that the Tortugan design was born of necessity when a stranded inventor needed a way to transport a cannon to defend their workshop. Others speculate that it was a failed attempt to create a mobile fortress. Regardless of its origins, the Tortugan is a marvel of magical engineering. While its lack of speed renders it ill-suited for many tactical scenarios, its durability and power have earned it a loyal following among adventurous captains and resourceful siege engineers.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [
+      "reload:4"
+    ],
+    "quantity": 1,
+    "weight": {
+      "value": 5000
+    },
+    "equipped": true,
+    "carried": true,
+    "price": 12400,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "cannon"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 80,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 25,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "ia8tzcyaivl5451t",
+        "name": "Attack",
+        "img": "icons/weapons/artillery/cannon-simple.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "100",
+          "units": "ft",
+          "maxIncrements": 10
+        },
+        "uses": {},
+        "actionType": "rwak",
+        "attackBonus": "(max(@abilities.int.mod, @abilities.dex.mod))",
+        "damage": {
+          "parts": [
+            {
+              "formula": "4d6",
+              "types": [
+                "bludgeoning",
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "critRange": 19,
+          "critMult": 2
+        },
+        "save": {
+          "dc": "10 + floor(@attributes.hd.total / 2) + @abilities.con.mod",
+          "type": "ref",
+          "description": "Reflex for half + negates prone.",
+          "harmless": false
+        },
+        "soundEffect": "modules/ship-combat-pf1/art/audio/cannonfire/cannon_mortar_tortugan_shot_only_.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        },
+        "notes": {
+          "footer": [
+            "Targets are knocked prone on hit unless they make their reflex save."
+          ]
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": true,
+    "enh": 1,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "siege",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "siege",
+    "weaponSubtype": "assault",
+    "hands": 1,
+    "baseTypes": [
+      "Cannon"
+    ],
+    "weaponGroups": [],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    },
+    "showInCombat": false
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "scene-packer": {
+      "hash": "e297dab62f0d39f5ed09eeafa56d990771fe6083"
+    },
+    "pf1": {
+      "migration": "11.5"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1757007451947,
+    "modifiedTime": 1757007451979,
+    "lastModifiedBy": "3AMbhFgeBo1RWBCq",
+    "exportSource": {
+      "worldId": "03-shackletastic",
+      "uuid": "Item.m3kadNnC6l3iJsV0",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "Rq8oN79sHwnHm1XT",
+  "ownership": {
+    "default": 0
+  }
+}

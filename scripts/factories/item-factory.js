@@ -690,13 +690,22 @@ export class ItemFactory {
 
             const spellAction = this.createSpellAction(spellAbility, llmData.casterLevel || 1);
             if (spellAction) {
+                // For consumables, adjust the action based on type
+                if (llmData.type === 'consumable') {
+                    spellAction.name = this.getConsumableActionName(llmData.subType);
+                    spellAction.ammo = { cost: 1 }; // Consume the item
+                }
+                
                 itemData.system.actions.push(spellAction);
                 console.log(`Spacebone | Added spell action: ${spellAbility.name} (${spellAbility.uses || '1/day'})`);
             }
         });
 
-        // Update item uses if we have spell actions
-        if (itemData.system.actions.length > 0) {
+        // Add proper uses data for consumables
+        if (llmData.type === 'consumable') {
+            this.setupConsumableUses(itemData, llmData);
+        } else if (itemData.system.actions.length > 0) {
+            // Update item uses for non-consumables
             this.updateItemUses(itemData, llmData.spellLikeAbilities);
         }
     }
@@ -2011,13 +2020,24 @@ export class ItemFactory {
     extractAuraSchool(aura) {
         if (!aura) return '';
         
-        const schools = [
-            'abjuration', 'conjuration', 'divination', 'enchantment',
-            'evocation', 'illusion', 'necromancy', 'transmutation'
-        ];
+        const schoolMap = {
+            'abjuration': 'abj',
+            'conjuration': 'con',
+            'divination': 'div',
+            'enchantment': 'enc',
+            'evocation': 'evo',
+            'illusion': 'ill',
+            'necromancy': 'nec',
+            'transmutation': 'trs'
+        };
         
         const lowerAura = aura.toLowerCase();
-        return schools.find(school => lowerAura.includes(school)) || '';
+        for (const [fullName, abbreviation] of Object.entries(schoolMap)) {
+            if (lowerAura.includes(fullName)) {
+                return abbreviation;
+            }
+        }
+        return '';
     }
 
     /**
@@ -2060,5 +2080,80 @@ export class ItemFactory {
         if (itemData.system.weight < 0) {
             throw new Error('Item weight cannot be negative');
         }
+    }
+
+    /**
+     * Get the appropriate action name for consumables
+     * @param {string} subType - Consumable subtype (potion, scroll, wand)
+     * @returns {string} Action name
+     */
+    getConsumableActionName(subType) {
+        switch (subType) {
+            case 'potion':
+                return 'Drink';
+            case 'scroll':
+                return 'Read';
+            case 'wand':
+                return 'Use';
+            default:
+                return 'Use';
+        }
+    }
+
+    /**
+     * Setup uses data for consumables
+     * @param {Object} itemData - Item data
+     * @param {Object} llmData - LLM data
+     */
+    setupConsumableUses(itemData, llmData) {
+        if (!itemData.system.uses) {
+            itemData.system.uses = {};
+        }
+
+        switch (llmData.subType) {
+            case 'potion':
+                itemData.system.uses = {
+                    value: null,
+                    per: 'single',
+                    autoDeductChargesCost: '',
+                    maxFormula: '',
+                    rechargeFormula: '',
+                    pricePerUse: 0
+                };
+                break;
+            case 'scroll':
+                itemData.system.uses = {
+                    value: null,
+                    per: 'single',
+                    autoDeductChargesCost: '',
+                    maxFormula: '',
+                    rechargeFormula: '',
+                    pricePerUse: 0
+                };
+                break;
+            case 'wand':
+                itemData.system.uses = {
+                    value: 50,
+                    per: 'charges',
+                    autoDeductChargesCost: '',
+                    maxFormula: '50',
+                    rechargeFormula: '',
+                    pricePerUse: Math.floor((llmData.price || 0) / 50),
+                    max: 50
+                };
+                break;
+            default:
+                itemData.system.uses = {
+                    value: 1,
+                    per: 'single',
+                    autoDeductChargesCost: '',
+                    maxFormula: '1',
+                    rechargeFormula: '',
+                    pricePerUse: 0
+                };
+        }
+
+        // Set subtype for consumables
+        itemData.system.subType = llmData.subType || 'potion';
     }
 }

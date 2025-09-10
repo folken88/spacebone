@@ -1,0 +1,236 @@
+{
+  "name": "Cannon, 12 Pounder",
+  "type": "weapon",
+  "img": "icons/weapons/artillery/cannon-simple.webp",
+  "system": {
+    "description": {
+      "value": "<p><b>Source</b> <em>Ultimate Combat pg. 162</em></p><h3>Statistics</h3><p><b>Damage</b> 6d6; <b>Critical</b> x4; <b>Range</b> 100 ft.; <b>Type</b> B and P</p><p><b>Crew</b> 2; <b>Aim</b> 1; <b>Load</b> 3; <b>Speed</b> 10 ft.</p><p><b>Category</b> Direct-Fire (Large); <b>Proficiency</b> Siege Engine</p><h3>Description</h3><p>Cannons are crafted of metal-some are cast in one piece, others welded with iron bands-and mounted either in the ground or on wooden frames. Cannons use black powder to propel their projectiles with great force. A cannon has a misfire range of 1 (20 feet). Cannons have a hardness of 10 and 70 hit points. Cannon balls cost 30 gp each and weigh 25 pounds.</p>",
+      "instructions": "",
+      "unidentified": ""
+    },
+    "tags": [
+      "reload3"
+    ],
+    "quantity": 1,
+    "weight": {
+      "value": 3000
+    },
+    "equipped": true,
+    "carried": false,
+    "price": 6000,
+    "size": "med",
+    "resizing": false,
+    "timeworn": false,
+    "artifact": false,
+    "identified": true,
+    "unidentified": {
+      "price": 0,
+      "name": "cannon"
+    },
+    "cursed": false,
+    "cl": 12,
+    "aura": {
+      "custom": false,
+      "school": ""
+    },
+    "hp": {
+      "base": 10,
+      "offset": 0
+    },
+    "broken": false,
+    "hardness": 10,
+    "changes": [],
+    "changeFlags": {
+      "immuneToMorale": false,
+      "loseDexToAC": false,
+      "noMediumEncumbrance": false,
+      "noHeavyEncumbrance": false,
+      "mediumArmorFullSpeed": false,
+      "heavyArmorFullSpeed": false,
+      "lowLightVision": false,
+      "seeInvisibility": false,
+      "seeInDarkness": false
+    },
+    "contextNotes": [],
+    "actions": [
+      {
+        "_id": "Vi61ckQXTXbj14kf",
+        "name": "Attack",
+        "img": "icons/weapons/artillery/cannon-simple.webp",
+        "activation": {
+          "cost": 1,
+          "type": "attack",
+          "unchained": {
+            "cost": 1,
+            "type": "nonaction"
+          }
+        },
+        "duration": {
+          "units": "inst"
+        },
+        "range": {
+          "value": "100",
+          "units": "ft",
+          "maxIncrements": 10
+        },
+        "uses": {},
+        "measureTemplate": {
+          "type": "ray",
+          "size": "120",
+          "color": "#ff0000",
+          "texture": null
+        },
+        "actionType": "rwak",
+        "attackBonus": "(max(@abilities.int.mod, @abilities.dex.mod))",
+        "damage": {
+          "parts": [
+            {
+              "formula": "8d6",
+              "types": [
+                "bludgeoning",
+                "piercing"
+              ]
+            }
+          ]
+        },
+        "ability": {
+          "critRange": 20,
+          "critMult": 2
+        },
+        "soundEffect": "modules/ship-combat-pf1/art/audio/cannonfire/cannon_punchy01.mp3",
+        "powerAttack": {
+          "damageBonus": 2,
+          "critMultiplier": 1
+        },
+        "naturalAttack": {
+          "secondary": {
+            "attackBonus": "",
+            "damageMult": 0.5
+          },
+          "primary": true
+        },
+        "ammo": {
+          "type": "none",
+          "cost": 1
+        }
+      }
+    ],
+    "attackNotes": [],
+    "effectNotes": [],
+    "uses": {
+      "value": 0,
+      "per": "",
+      "autoDeductChargesCost": "",
+      "maxFormula": "",
+      "rechargeFormula": ""
+    },
+    "links": {
+      "children": []
+    },
+    "tag": "",
+    "flags": {
+      "boolean": {},
+      "dictionary": {}
+    },
+    "scriptCalls": [],
+    "masterwork": false,
+    "enh": null,
+    "proficient": true,
+    "held": "1h",
+    "ammo": {
+      "type": "siege",
+      "capacity": null,
+      "misfire": null,
+      "explode": null
+    },
+    "subType": "siege",
+    "weaponSubtype": "assault",
+    "hands": 1,
+    "baseTypes": [
+      "Cannon"
+    ],
+    "weaponGroups": [],
+    "material": {
+      "base": {
+        "value": "steel",
+        "custom": false
+      },
+      "normal": {
+        "value": "",
+        "custom": false
+      },
+      "addon": []
+    },
+    "properties": {
+      "ato": false,
+      "blc": false,
+      "brc": false,
+      "dea": false,
+      "dis": false,
+      "dst": false,
+      "dbl": false,
+      "fin": false,
+      "frg": false,
+      "grp": false,
+      "imp": false,
+      "mnk": false,
+      "nnl": false,
+      "prf": false,
+      "rch": false,
+      "sct": false,
+      "spc": false,
+      "snd": false,
+      "thr": false,
+      "trp": false,
+      "sma": false,
+      "slf": false
+    },
+    "showInQuickbar": true,
+    "alignments": {
+      "lawful": false,
+      "chaotic": false,
+      "good": false,
+      "evil": false
+    },
+    "showInCombat": false
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "scene-packer": {
+      "hash": "84c92cd582ece6d4735ce4258308771a2745cdcd"
+    },
+    "pf1": {
+      "migration": "11.5"
+    },
+    "lilhelper": {
+      "item": {
+        "hideAttacks": false,
+        "autoPowerAttack": false,
+        "keen": false,
+        "skipDialog": 0,
+        "rollmodeOverride": "",
+        "rollOverride": ""
+      }
+    }
+  },
+  "_stats": {
+    "coreVersion": "13.348",
+    "systemId": "pf1",
+    "systemVersion": "11.8",
+    "createdTime": 1756597696906,
+    "modifiedTime": 1757007451979,
+    "lastModifiedBy": "3AMbhFgeBo1RWBCq",
+    "exportSource": {
+      "worldId": "03-shackletastic",
+      "uuid": "Item.AolyCHBrnSOLmSQ9",
+      "coreVersion": "13.348",
+      "systemId": "pf1",
+      "systemVersion": "11.8"
+    }
+  },
+  "folder": "Rq8oN79sHwnHm1XT",
+  "ownership": {
+    "default": 0
+  }
+}
