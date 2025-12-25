@@ -31,7 +31,7 @@ export class GeminiProvider extends BaseProvider {
                 temperature: 0.7,
                 topK: 40,
                 topP: 0.9,
-                maxOutputTokens: 2000
+                maxOutputTokens: 4000  // Increased for better item generation quality
             },
             ...config
         });
@@ -76,7 +76,19 @@ export class GeminiProvider extends BaseProvider {
             }
 
             const systemPrompt = this.buildSystemPrompt(context);
-            const userPrompt = `Create a Pathfinder 1e item: ${prompt}`;
+            
+            // Detect system for user prompt
+            const systemId = context.systemId || game?.system?.id || 'pf1';
+            const systemName = systemId === 'pf2e' ? 'Pathfinder 2e' : 'Pathfinder 1e';
+            
+            const userPrompt = `Create a ${systemName} item: ${prompt}
+
+CRITICAL INSTRUCTIONS:
+- You MUST respond using the exact template format specified in the system prompt
+- Start your response with "=== ITEM TEMPLATE START ===" and end with "=== ITEM TEMPLATE END ==="
+- You MUST create the item the user requested - do NOT refuse or say you cannot create it
+- If the user requests a firearm, pistol, gun, or advanced weapon, create it as a valid ${systemName} item
+- Fill in ALL template fields with appropriate values based on the user's description`;
 
             // Use proper role-based structure for better context management
             const requestData = {

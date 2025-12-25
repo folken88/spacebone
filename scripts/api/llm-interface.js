@@ -113,8 +113,15 @@ export class SpaceboneAPI {
 
             console.log('[SpaceboneAPI] Generating item:', request);
 
+            // Add system context for proper prompt generation
+            const systemId = game?.system?.id || 'pf1';
+            const enhancedContext = {
+                ...context,
+                systemId: systemId
+            };
+            
             // Generate item using provider
-            const itemData = await this.providerManager.generateItem(prompt.trim(), context);
+            const itemData = await this.providerManager.generateItem(prompt.trim(), enhancedContext);
             
             // Calculate response time
             const responseTime = Date.now() - startTime;

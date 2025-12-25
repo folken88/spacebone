@@ -1,7 +1,7 @@
 {
   "id": "folken-games-spacebone",
   "title": "Folken Games: Spacebone Item Creator",
-  "description": "AI-powered item creation assistant for Pathfinder 1e. Generates fully-functional PF1 items using LLM prompts to speed up GM prep time.",
+  "description": "AI-powered item creation assistant for Pathfinder 1e and 2e. Generates fully-functional PF1 and PF2 items using LLM prompts to speed up GM prep time.",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "11",
@@ -30,6 +30,11 @@
     "systems": [
       {
         "id": "pf1",
+        "type": "system",
+        "compatibility": {}
+      },
+      {
+        "id": "pf2e",
         "type": "system",
         "compatibility": {}
       }

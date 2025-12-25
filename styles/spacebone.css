@@ -60,7 +60,7 @@
    ================================================================ */
 
 /* Target ONLY our specific dialog window - Full Screen Background */
-.dialog.window-app.spacebone-dialog {
+.spacebone-dialog {
     border: 2px solid rgba(139, 92, 246, 0.8) !important;
     border-radius: 20px !important;
     backdrop-filter: blur(15px) !important;
@@ -69,14 +69,13 @@
         0 0 100px rgba(139, 92, 246, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     background: 
-        url('modules/folken-games-spacebone/art/images/spacebone_art_background.webp') center/cover,
-        rgba(0, 0, 0, 0.4) !important;
-    background-blend-mode: overlay !important;
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('modules/folken-games-spacebone/art/images/spacebone_art_background.webp') center/cover !important;
     min-height: 500px !important;
 }
 
 /* Window header styling - Sleek Modern Header */
-.dialog.window-app.spacebone-dialog .window-header {
+.spacebone-dialog .window-header {
     background: linear-gradient(135deg, 
         rgba(139, 92, 246, 0.95) 0%, 
         rgba(124, 58, 237, 0.95) 50%,
@@ -93,7 +92,7 @@
 }
 
 /* Window content styling - Glass Panel Container */
-.dialog.window-app.spacebone-dialog .window-content {
+.spacebone-dialog .window-content {
     background: transparent !important;
     border: none !important;
     border-radius: 0 0 18px 18px !important;
@@ -102,24 +101,22 @@
     font-family: 'Exo 2', 'Roboto', sans-serif !important;
 }
 
-/* Glass Panel Sections - Modern Dark Glass */
-.dialog.window-app.spacebone-dialog .glass-panel {
-    background: linear-gradient(135deg,
-        rgba(20, 20, 30, 0.9) 0%,
-        rgba(30, 30, 45, 0.85) 100%) !important;
+/* Glass Panel Sections - Modern Dark Glass - FORCE TRANSPARENCY */
+.spacebone-dialog .glass-panel {
+    background: rgba(30, 30, 50, 0.3) !important;
     border: 1px solid rgba(139, 92, 246, 0.6) !important;
-    border-radius: 15px !important;
+    border-radius: 12px !important;
     backdrop-filter: blur(12px) !important;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 6px 24px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 20px rgba(139, 92, 246, 0.2) !important;
-    padding: 20px !important;
-    margin-bottom: 16px !important;
+        0 0 15px rgba(139, 92, 246, 0.2) !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
     transition: all 0.3s ease !important;
 }
 
-.dialog.window-app.spacebone-dialog .glass-panel:hover {
+.spacebone-dialog .glass-panel:hover {
     border-color: rgba(139, 92, 246, 0.8) !important;
     box-shadow: 
         0 12px 40px rgba(0, 0, 0, 0.5),
@@ -164,24 +161,18 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Glass panel sections */
-.dialog.window-app.spacebone-dialog .glass-panel {
-    background: #353535 !important;
-    border: 1px solid rgba(139, 92, 246, 0.4) !important;
-    border-radius: 8px !important;
-    padding: 16px !important;
-}
+/* REMOVED: Duplicate rule - using the modern glassmorphism version above */
 
-.dialog.window-app.spacebone-dialog .glass-panel h3 {
+.spacebone-dialog .glass-panel h3 {
     color: #ffffff !important;
-    font-size: 18px !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
     font-family: 'Orbitron', 'Exo 2', 'Roboto', sans-serif !important;
-    margin: 0 0 16px 0 !important;
+    margin: 0 0 12px 0 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 12px !important;
-    text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    gap: 10px !important;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.8), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
 }
@@ -194,13 +185,14 @@
 }
 
 /* Form groups - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .form-group {
+.spacebone-dialog .form-group {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
+    margin-bottom: 8px;
 }
 
-.dialog.window-app.spacebone-dialog .form-group label {
+.spacebone-dialog .form-group label {
     color: #ffffff !important;
     font-size: 14px !important;
     font-weight: 500 !important;
@@ -208,28 +200,26 @@
 }
 
 /* Textarea styling - Futuristic Glass Input */
-.dialog.window-app.spacebone-dialog .spacebone-creator textarea {
-    background: linear-gradient(135deg,
-        rgba(15, 15, 25, 0.95) 0%,
-        rgba(25, 25, 40, 0.9) 100%) !important;
+.spacebone-dialog .spacebone-creator textarea {
+    background: rgba(25, 25, 40, 0.4) !important;
     border: 2px solid rgba(139, 92, 246, 0.4) !important;
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     color: #ffffff !important;
     font-family: 'Roboto Mono', 'Courier New', monospace !important;
-    font-size: 14px !important;
-    min-height: 100px !important;
-    padding: 16px !important;
+    font-size: 13px !important;
+    min-height: 80px !important;
+    padding: 12px !important;
     resize: vertical !important;
     transition: all 0.3s ease !important;
     width: 100% !important;
     box-sizing: border-box !important;
     backdrop-filter: blur(8px) !important;
     box-shadow: 
-        inset 0 2px 8px rgba(0, 0, 0, 0.3),
-        0 0 20px rgba(139, 92, 246, 0.1) !important;
+        inset 0 2px 6px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(139, 92, 246, 0.1) !important;
 }
 
-.dialog.window-app.spacebone-dialog .spacebone-creator textarea:focus {
+.spacebone-dialog .spacebone-creator textarea:focus {
     border-color: rgba(139, 92, 246, 0.8) !important;
     outline: none !important;
     box-shadow: 
@@ -239,17 +229,17 @@
     transform: scale(1.02) !important;
 }
 
-.dialog.window-app.spacebone-dialog .spacebone-creator textarea::placeholder {
+.spacebone-dialog .spacebone-creator textarea::placeholder {
     color: rgba(255, 255, 255, 0.5) !important;
     font-style: italic !important;
 }
 
 /* Example text styling - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .example-text {
+.spacebone-dialog .example-text {
     margin-top: 4px;
 }
 
-.dialog.window-app.spacebone-dialog .example-text small {
+.spacebone-dialog .example-text small {
     color: #9ca3af;
     font-style: italic;
     font-size: 12px;
@@ -257,32 +247,30 @@
 }
 
 /* SELECT DROPDOWNS - Futuristic Glass Selectors */
-.dialog.window-app.spacebone-dialog .spacebone-creator select {
-    background: linear-gradient(135deg,
-        rgba(15, 15, 25, 0.95) 0%,
-        rgba(25, 25, 40, 0.9) 100%) !important;
+.spacebone-dialog .spacebone-creator select {
+    background: rgba(25, 25, 40, 0.4) !important;
     border: 2px solid rgba(139, 92, 246, 0.4) !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     color: #ffffff !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 500 !important;
     font-family: 'Exo 2', 'Roboto', sans-serif !important;
-    padding: 12px 16px !important;
+    padding: 10px 14px !important;
     height: auto !important;
-    min-height: 44px !important;
-    line-height: 1.4 !important;
+    min-height: 38px !important;
+    line-height: 1.3 !important;
     transition: all 0.3s ease !important;
     width: 100% !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(8px) !important;
     box-shadow: 
-        inset 0 2px 8px rgba(0, 0, 0, 0.2),
-        0 0 15px rgba(139, 92, 246, 0.1) !important;
+        inset 0 2px 6px rgba(0, 0, 0, 0.2),
+        0 0 12px rgba(139, 92, 246, 0.1) !important;
     cursor: pointer !important;
 }
 
-.dialog.window-app.spacebone-dialog .spacebone-creator select:focus,
-.dialog.window-app.spacebone-dialog .spacebone-creator select:hover {
+.spacebone-dialog .spacebone-creator select:focus,
+.spacebone-dialog .spacebone-creator select:hover {
     border-color: rgba(139, 92, 246, 0.8) !important;
     background: linear-gradient(135deg,
         rgba(20, 20, 35, 0.95) 0%,
@@ -295,8 +283,8 @@
     transform: translateY(-1px) !important;
 }
 
-.dialog.window-app.spacebone-dialog .spacebone-creator select option {
-    background: rgba(15, 15, 25, 0.98) !important;
+.spacebone-dialog .spacebone-creator select option {
+    background: rgba(15, 15, 25, 0.7) !important;
     color: #ffffff !important;
     font-size: 14px !important;
     font-weight: 500 !important;
@@ -306,8 +294,8 @@
     border: none !important;
 }
 
-.dialog.window-app.spacebone-dialog .spacebone-creator select option:hover,
-.dialog.window-app.spacebone-dialog .spacebone-creator select option:focus {
+.spacebone-dialog .spacebone-creator select option:hover,
+.spacebone-dialog .spacebone-creator select option:focus {
     background: rgba(139, 92, 246, 0.3) !important;
     color: #ffffff !important;
 }
@@ -317,16 +305,16 @@
    ================================================================ */
 
 /* Form grid layout - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .form-grid {
+.spacebone-dialog .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
 /* Category-specific sections - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .weapon-specific,
-.dialog.window-app.spacebone-dialog .armor-specific,
-.dialog.window-app.spacebone-dialog .equipment-specific {
+.spacebone-dialog .weapon-specific,
+.spacebone-dialog .armor-specific,
+.spacebone-dialog .equipment-specific {
     padding: 12px;
     margin-top: 8px;
     background: rgba(20, 20, 25, 0.3);
@@ -334,9 +322,9 @@
     border-radius: 6px;
 }
 
-.dialog.window-app.spacebone-dialog .weapon-specific h4,
-.dialog.window-app.spacebone-dialog .armor-specific h4,
-.dialog.window-app.spacebone-dialog .equipment-specific h4 {
+.spacebone-dialog .weapon-specific h4,
+.spacebone-dialog .armor-specific h4,
+.spacebone-dialog .equipment-specific h4 {
     color: #f3f4f6;
     font-size: 14px;
     font-weight: 600;
@@ -348,60 +336,83 @@
    5. ICONS & VISUAL ELEMENTS - Status, Loading, etc.
    ================================================================ */
 
-/* CREATE BUTTON - Futuristic Action Button */
-.dialog.window-app.spacebone-dialog button[data-button="create"] {
+/* DIALOG BUTTONS SECTION - Glass Theme */
+.spacebone-dialog .dialog-buttons {
+    background: linear-gradient(135deg,
+        rgba(20, 20, 30, 0.6) 0%,
+        rgba(30, 30, 45, 0.55) 100%) !important;
+    border-top: 1px solid rgba(139, 92, 246, 0.4) !important;
+    backdrop-filter: blur(12px) !important;
+    padding: 12px 16px !important;
+}
+
+/* ALL BUTTONS - Base styling */
+.spacebone-dialog .dialog-buttons button {
+    background: linear-gradient(135deg,
+        rgba(60, 60, 80, 0.8) 0%,
+        rgba(70, 70, 90, 0.8) 100%) !important;
+    border: 2px solid rgba(139, 92, 246, 0.3) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-family: 'Exo 2', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    margin: 0 4px !important;
+}
+
+/* CREATE BUTTON (Primary) - Special styling for the create button */
+.spacebone-dialog .dialog-buttons button:first-child {
     background: linear-gradient(135deg,
         rgba(139, 92, 246, 0.9) 0%,
         rgba(124, 58, 237, 0.9) 50%,
         rgba(109, 40, 217, 0.9) 100%) !important;
     border: 2px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 15px !important;
+    border-radius: 10px !important;
     color: #ffffff !important;
     font-family: 'Orbitron', 'Exo 2', sans-serif !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
-    padding: 16px 32px !important;
+    padding: 12px 24px !important;
     text-transform: uppercase !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 1px !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
     backdrop-filter: blur(10px) !important;
     box-shadow: 
-        0 8px 25px rgba(139, 92, 246, 0.4),
+        0 4px 15px rgba(139, 92, 246, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        0 0 30px rgba(139, 92, 246, 0.3) !important;
-    transition: all 0.3s ease !important;
-    cursor: pointer !important;
-    width: 100% !important;
-    margin-top: 20px !important;
+        0 0 20px rgba(139, 92, 246, 0.3) !important;
 }
 
-.dialog.window-app.spacebone-dialog button[data-button="create"]:hover {
+.spacebone-dialog .dialog-buttons button:hover {
+    border-color: rgba(139, 92, 246, 0.6) !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Special hover for primary button */
+.spacebone-dialog .dialog-buttons button:first-child:hover {
     background: linear-gradient(135deg,
         rgba(159, 112, 255, 0.95) 0%,
         rgba(144, 78, 255, 0.95) 50%,
         rgba(129, 60, 237, 0.95) 100%) !important;
     border-color: rgba(255, 255, 255, 0.5) !important;
     box-shadow: 
-        0 12px 35px rgba(139, 92, 246, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(139, 92, 246, 0.5) !important;
-    transform: translateY(-3px) scale(1.02) !important;
-}
-
-.dialog.window-app.spacebone-dialog button[data-button="create"]:active {
-    transform: translateY(-1px) scale(0.98) !important;
-    box-shadow: 
-        0 6px 20px rgba(139, 92, 246, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2),
-        0 0 25px rgba(139, 92, 246, 0.4) !important;
+        0 8px 25px rgba(139, 92, 246, 0.5),
+        0 0 30px rgba(139, 92, 246, 0.4) !important;
+    transform: translateY(-2px) scale(1.02) !important;
 }
 
 /* Status indicator - Futuristic HUD Style */
-.dialog.window-app.spacebone-dialog .spacebone-status {
+.spacebone-dialog .spacebone-status {
     margin-top: 16px;
 }
 
-.dialog.window-app.spacebone-dialog #creation-status {
+.spacebone-dialog #creation-status {
     align-items: center;
     background: linear-gradient(135deg,
         rgba(59, 130, 246, 0.2) 0%,
@@ -421,18 +432,18 @@
     font-weight: 600;
 }
 
-.dialog.window-app.spacebone-dialog #creation-status.status-hidden {
+.spacebone-dialog #creation-status.status-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-.dialog.window-app.spacebone-dialog #creation-status.status-visible {
+.spacebone-dialog #creation-status.status-visible {
     opacity: 1;
     visibility: visible;
 }
 
 /* Loading spinner - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .spinner {
+.spacebone-dialog .spinner {
     animation: spin 1s linear infinite;
     height: 16px;
     width: 16px;
@@ -444,14 +455,14 @@
 }
 
 /* Error states - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .error-text {
+.spacebone-dialog .error-text {
     color: #ef4444;
     font-size: 12px;
     margin-top: 4px;
 }
 
 /* Success states - ONLY for our dialog */
-.dialog.window-app.spacebone-dialog .success-text {
+.spacebone-dialog .success-text {
     color: #10b981;
     font-size: 12px;
     margin-top: 4px;
@@ -467,18 +478,18 @@
    UTILITY CLASSES
    ================================================================ */
 
-.dialog.window-app.spacebone-dialog .hidden {
+.spacebone-dialog .hidden {
     display: none !important;
 }
 
-.dialog.window-app.spacebone-dialog .text-center {
+.spacebone-dialog .text-center {
     text-align: center;
 }
 
-.dialog.window-app.spacebone-dialog .mt-2 {
+.spacebone-dialog .mt-2 {
     margin-top: 8px;
 }
 
-.dialog.window-app.spacebone-dialog .mb-2 {
+.spacebone-dialog .mb-2 {
     margin-bottom: 8px;
 }

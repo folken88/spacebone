@@ -1132,30 +1132,30 @@ export class ItemFactory {
                 'two-bladed sword': 'systems/pf1/icons/items/weapons/sword-two-bladed.png',
                 
                 // Axes
-                'greataxe': 'systems/pf1/icons/items/weapons/greataxe.png',
-                'battleaxe': 'systems/pf1/icons/items/weapons/battleaxe.PNG',
-                'handaxe': 'systems/pf1/icons/items/weapons/handaxe.png',
-                'throwing axe': 'systems/pf1/icons/items/weapons/axe-throwing.png',
-                'dwarven waraxe': 'systems/pf1/icons/items/weapons/waraxe-dwarven.PNG',
+                'greataxe': 'modules/folken-games-spacebone/art/images/icon_axe_simple.webp',
+                'battleaxe': 'modules/folken-games-spacebone/art/images/icon_axe_simple.webp',
+                'handaxe': 'modules/folken-games-spacebone/art/images/icon_axe_simple.webp',
+                'throwing axe': 'modules/folken-games-spacebone/art/images/icon_axe_simple.webp',
+                'dwarven waraxe': 'modules/folken-games-spacebone/art/images/icon_axe_simple.webp',
                 
                 // Hammers & Maces
-                'warhammer': 'systems/pf1/icons/items/weapons/warhammer.png',
-                'light hammer': 'systems/pf1/icons/items/weapons/hammer-light.PNG',
-                'heavy mace': 'systems/pf1/icons/items/weapons/mace-heavy.PNG',
-                'light mace': 'systems/pf1/icons/items/weapons/mace-light.png',
-                'morningstar': 'systems/pf1/icons/items/weapons/morningstar.PNG',
+                'warhammer': 'modules/folken-games-spacebone/art/images/icon_hammer_simple.webp',
+                'light hammer': 'modules/folken-games-spacebone/art/images/icon_hammer_simple.webp',
+                'heavy mace': 'modules/folken-games-spacebone/art/images/icon_hammer_simple.webp',
+                'light mace': 'modules/folken-games-spacebone/art/images/icon_hammer_simple.webp',
+                'morningstar': 'modules/folken-games-spacebone/art/images/icon_hammer_simple.webp',
                 'club': 'systems/pf1/icons/items/weapons/club.PNG',
                 'greatclub': 'systems/pf1/icons/items/weapons/greatclub.png',
                 
                 // Spears & Polearms
-                'spear': 'systems/pf1/icons/items/weapons/spear.png',
-                'longspear': 'systems/pf1/icons/items/weapons/longspear.PNG',
-                'shortspear': 'systems/pf1/icons/items/weapons/shortspear.PNG',
-                'javelin': 'systems/pf1/icons/items/weapons/javelin.PNG',
-                'lance': 'systems/pf1/icons/items/weapons/lance.PNG',
-                'trident': 'systems/pf1/icons/items/weapons/trident.PNG',
-                'halberd': 'systems/pf1/icons/items/weapons/halberd.PNG',
-                'glaive': 'systems/pf1/icons/items/weapons/glaive.png',
+                'spear': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'longspear': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'shortspear': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'javelin': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'lance': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'trident': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'halberd': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
+                'glaive': 'modules/folken-games-spacebone/art/images/icon_spear_simple.webp',
                 
                 // Bows & Ranged
                 'longbow': 'systems/pf1/icons/items/weapons/longbow.PNG',
@@ -1166,9 +1166,9 @@ export class ItemFactory {
                 'sling': 'systems/pf1/icons/items/weapons/sling.png',
                 
                 // Daggers & Light Blades
-                'dagger': 'systems/pf1/icons/items/weapons/dagger.PNG',
-                'kukri': 'systems/pf1/icons/items/weapons/kukri.PNG',
-                'punching dagger': 'systems/pf1/icons/items/weapons/dagger-punching.PNG',
+                'dagger': 'modules/folken-games-spacebone/art/images/icon_dagger_simple.webp',
+                'kukri': 'modules/folken-games-spacebone/art/images/icon_dagger_simple.webp',
+                'punching dagger': 'modules/folken-games-spacebone/art/images/icon_dagger_simple.webp',
                 
                 // Exotic & Special
                 'whip': 'systems/pf1/icons/items/weapons/whip.png',
@@ -1189,8 +1189,15 @@ export class ItemFactory {
                 'heavy pick': 'systems/pf1/icons/items/weapons/pick-heavy.png',
                 'light pick': 'systems/pf1/icons/items/weapons/pick-light.PNG',
                 
+                // Siege Weapons & Cannons
+                'siege': 'modules/folken-games-spacebone/art/images/icon_cannon_simple.webp',
+                'cannon': 'modules/folken-games-spacebone/art/images/icon_cannon_simple.webp',
+                'ballista': 'modules/folken-games-spacebone/art/images/icon_cannon_simple.webp',
+                'catapult': 'modules/folken-games-spacebone/art/images/icon_cannon_simple.webp',
+                'trebuchet': 'modules/folken-games-spacebone/art/images/icon_cannon_simple.webp',
+                
                 // Default weapon
-                'default': 'systems/pf1/icons/items/weapons/longsword.png'
+                'default': 'modules/folken-games-spacebone/art/images/icon_sword_simple.webp'
             },
             
             'armor': {
@@ -1224,7 +1231,7 @@ export class ItemFactory {
                 'tower shield': 'systems/pf1/icons/items/armor/shield-tower.PNG',
                 
                 // Default armor
-                'default': 'systems/pf1/icons/items/armor/leather.PNG'
+                'default': 'modules/folken-games-spacebone/art/images/icon_armor_simple.webp'
             },
             
             'equipment': {
@@ -1298,21 +1305,26 @@ export class ItemFactory {
                 'box': 'systems/pf1/icons/items/inventory/bag-simple.jpg',
                 
                 // Default equipment
-                'default': 'systems/pf1/icons/items/inventory/bag-simple.jpg'
+                'default': 'modules/folken-games-spacebone/art/images/icon_spacebone.webp'
             },
             
             'consumable': {
-                'potion': 'systems/pf1/icons/items/potions/minor-blue.jpg',
-                'scroll': 'systems/pf1/icons/items/inventory/scroll-bound.jpg',
+                'potion': 'modules/folken-games-spacebone/art/images/icon_potion_simple.webp',
+                'scroll': 'modules/folken-games-spacebone/art/images/icon_scroll_simple.webp',
                 'wand': 'systems/pf1/icons/items/inventory/wand-carved.jpg',
-                'default': 'systems/pf1/icons/items/potions/minor-blue.jpg'
+                'default': 'modules/folken-games-spacebone/art/images/icon_potion_simple.webp'
             },
             
             'loot': {
                 'gem': 'systems/pf1/icons/items/inventory/gem-01.jpg',
                 'art': 'systems/pf1/icons/items/inventory/ornament-gold.jpg',
                 'trade': 'systems/pf1/icons/items/inventory/ingot-steel.jpg',
-                'default': 'systems/pf1/icons/items/inventory/gem-01.jpg'
+                'ammo': 'modules/folken-games-spacebone/art/images/icon_ammunition_ammo_simple.webp',
+                'default': 'modules/folken-games-spacebone/art/images/icon_ammunition_ammo_simple.webp'
+            },
+            
+            'spell': {
+                'default': 'modules/folken-games-spacebone/art/images/icon_spell_lightning_simple.webp'
             }
         };
 
@@ -1392,7 +1404,7 @@ export class ItemFactory {
         }
         
         // Final fallback
-        return 'systems/pf1/icons/items/inventory/bag-simple.jpg';
+        return 'modules/folken-games-spacebone/art/images/icon_spacebone.webp';
     }
 
     /**
@@ -1713,11 +1725,13 @@ export class ItemFactory {
      * @returns {Object} Armor data
      */
     buildArmorData(itemData) {
+        const armorInfo = this.getArmorInfo(itemData.subType);
+        
         return {
-            value: 0,
-            dex: null,
-            check: 0,
-            spell: 0,
+            value: armorInfo.value || 0,
+            dex: armorInfo.maxDex || null,
+            check: armorInfo.armorCheckPenalty || 0,
+            spell: armorInfo.arcaneSpellFailure || 0,
             type: itemData.type === 'armor' ? (itemData.subType || 'light') : 'misc'
         };
     }
@@ -1936,6 +1950,182 @@ export class ItemFactory {
             proficiency: 'martial',
             baseType: weaponType,
             groups: []
+        };
+    }
+
+    /**
+     * Get armor mechanical information
+     * @param {string} armorType - Armor type/subtype
+     * @returns {Object} Armor mechanics data
+     */
+    getArmorInfo(armorType) {
+        const armorData = {
+            // Light Armor
+            'padded': {
+                value: 1,
+                maxDex: 8,
+                armorCheckPenalty: 0,
+                arcaneSpellFailure: 5,
+                type: 'light'
+            },
+            'leather': {
+                value: 2,
+                maxDex: 6,
+                armorCheckPenalty: 0,
+                arcaneSpellFailure: 10,
+                type: 'light'
+            },
+            'studded leather': {
+                value: 3,
+                maxDex: 5,
+                armorCheckPenalty: -1,
+                arcaneSpellFailure: 15,
+                type: 'light'
+            },
+            'chain shirt': {
+                value: 4,
+                maxDex: 4,
+                armorCheckPenalty: -2,
+                arcaneSpellFailure: 20,
+                type: 'light'
+            },
+            
+            // Medium Armor
+            'hide': {
+                value: 3,
+                maxDex: 4,
+                armorCheckPenalty: -3,
+                arcaneSpellFailure: 20,
+                type: 'medium'
+            },
+            'scale mail': {
+                value: 4,
+                maxDex: 3,
+                armorCheckPenalty: -4,
+                arcaneSpellFailure: 25,
+                type: 'medium'
+            },
+            'chainmail': {
+                value: 5,
+                maxDex: 2,
+                armorCheckPenalty: -5,
+                arcaneSpellFailure: 30,
+                type: 'medium'
+            },
+            'breastplate': {
+                value: 5,
+                maxDex: 3,
+                armorCheckPenalty: -4,
+                arcaneSpellFailure: 25,
+                type: 'medium'
+            },
+            
+            // Heavy Armor
+            'splint mail': {
+                value: 6,
+                maxDex: 0,
+                armorCheckPenalty: -7,
+                arcaneSpellFailure: 40,
+                type: 'heavy'
+            },
+            'banded mail': {
+                value: 6,
+                maxDex: 1,
+                armorCheckPenalty: -6,
+                arcaneSpellFailure: 35,
+                type: 'heavy'
+            },
+            'half plate': {
+                value: 7,
+                maxDex: 0,
+                armorCheckPenalty: -7,
+                arcaneSpellFailure: 40,
+                type: 'heavy'
+            },
+            'full plate': {
+                value: 8,
+                maxDex: 1,
+                armorCheckPenalty: -6,
+                arcaneSpellFailure: 35,
+                type: 'heavy'
+            },
+            
+            // Shields
+            'buckler': {
+                value: 1,
+                maxDex: null,
+                armorCheckPenalty: -1,
+                arcaneSpellFailure: 5,
+                type: 'shield'
+            },
+            'light shield': {
+                value: 1,
+                maxDex: null,
+                armorCheckPenalty: -1,
+                arcaneSpellFailure: 5,
+                type: 'shield'
+            },
+            'light metal shield': {
+                value: 1,
+                maxDex: null,
+                armorCheckPenalty: -1,
+                arcaneSpellFailure: 5,
+                type: 'shield'
+            },
+            'light wooden shield': {
+                value: 1,
+                maxDex: null,
+                armorCheckPenalty: -1,
+                arcaneSpellFailure: 5,
+                type: 'shield'
+            },
+            'heavy shield': {
+                value: 2,
+                maxDex: null,
+                armorCheckPenalty: -2,
+                arcaneSpellFailure: 15,
+                type: 'shield'
+            },
+            'heavy metal shield': {
+                value: 2,
+                maxDex: null,
+                armorCheckPenalty: -2,
+                arcaneSpellFailure: 15,
+                type: 'shield'
+            },
+            'heavy wooden shield': {
+                value: 2,
+                maxDex: null,
+                armorCheckPenalty: -2,
+                arcaneSpellFailure: 15,
+                type: 'shield'
+            },
+            'heavy steel shield': {
+                value: 2,
+                maxDex: null,
+                armorCheckPenalty: -2,
+                arcaneSpellFailure: 15,
+                type: 'shield'
+            },
+            'tower shield': {
+                value: 4,
+                maxDex: 2,
+                armorCheckPenalty: -10,
+                arcaneSpellFailure: 50,
+                type: 'shield'
+            }
+        };
+
+        // Normalize the armor type for lookup
+        const normalizedType = armorType ? armorType.toLowerCase() : '';
+        
+        // Return specific armor data or default to chain shirt stats
+        return armorData[normalizedType] || {
+            value: 4,
+            maxDex: 4,
+            armorCheckPenalty: -2,
+            arcaneSpellFailure: 20,
+            type: 'light'
         };
     }
 

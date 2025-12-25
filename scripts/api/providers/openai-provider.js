@@ -73,13 +73,38 @@ export class OpenAIProvider extends BaseProvider {
             }
 
             const systemPrompt = this.buildSystemPrompt(context);
-            const userPrompt = `Create a Pathfinder 1e item: ${prompt}
+            
+            // Detect system for user prompt
+            const systemId = context.systemId || game?.system?.id || 'pf1';
+            const systemName = systemId === 'pf2e' ? 'Pathfinder 2e' : 'Pathfinder 1e';
+            
+            const userPrompt = `Create a ${systemName} item: ${prompt}
 
-IMPORTANT: You MUST respond using the exact template format specified in the system prompt. Start your response with "=== ITEM TEMPLATE START ===" and end with "=== ITEM TEMPLATE END ===".`;
+CRITICAL INSTRUCTIONS:
+- You MUST respond using the exact template format specified in the system prompt
+- Start your response with "=== ITEM TEMPLATE START ===" and end with "=== ITEM TEMPLATE END ==="
+- You MUST create the item the user requested - do NOT refuse or say you cannot create it
+- If the user requests a firearm, pistol, gun, or advanced weapon, create it as a valid ${systemName} item
+- Fill in ALL template fields with appropriate values based on the user's description`;
 
             // Use correct token parameter based on model
             const isNewerModel = this.config.model.startsWith('gpt-5') || this.config.model.startsWith('o1');
             const tokenParam = isNewerModel ? 'max_completion_tokens' : 'max_tokens';
+            
+            // Set appropriate token limits based on model
+            // GPT-5 and newer models need higher limits due to reasoning overhead
+            // GPT-4o and GPT-4 models support up to 4096 tokens for better responses
+            // GPT-3.5 supports up to 4096 tokens
+            let tokenLimit;
+            if (this.config.model.startsWith('gpt-5') || this.config.model.startsWith('o1')) {
+                tokenLimit = 4000; // Reasoning models
+            } else if (this.config.model.includes('gpt-4') || this.config.model.includes('gpt-4o')) {
+                tokenLimit = 4000; // GPT-4 models support up to 4096
+            } else if (this.config.model.includes('gpt-3.5')) {
+                tokenLimit = 2000; // GPT-3.5 is more limited
+            } else {
+                tokenLimit = this.config.defaultOptions.max_tokens || 4000; // Default to 4000 for better responses
+            }
             
             const requestData = {
                 model: this.config.model,
@@ -93,7 +118,7 @@ IMPORTANT: You MUST respond using the exact template format specified in the sys
                         content: userPrompt
                     }
                 ],
-                [tokenParam]: 1000,  // Set correct token parameter dynamically
+                [tokenParam]: tokenLimit,  // Set correct token parameter dynamically
                 ...this.config.defaultOptions
             };
 
@@ -239,7 +264,8 @@ IMPORTANT: You MUST respond using the exact template format specified in the sys
             endpoint: 'https://api.openai.com/v1/chat/completions',
             model: 'gpt-4o',
             defaultOptions: {
-                // Token limits set dynamically based on model type
+                max_tokens: 4000,  // Default to 4000 for better item generation quality
+                temperature: 0.7   // Balanced creativity
             }
         };
     }

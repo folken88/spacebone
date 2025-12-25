@@ -1,6 +1,6 @@
 /**
- * Spacebone Item Creator for FoundryVTT PF1
- * AI-powered item creation assistant for Pathfinder 1e
+ * Spacebone Item Creator for FoundryVTT
+ * AI-powered item creation assistant for Pathfinder 1e and 2e
  * 
  * @author Folken Games
  * @version 1.0.0
@@ -21,8 +21,38 @@ class Spacebone {
     
     static api = null;
     static itemFactory = null;
+    static pf2ItemFactory = null;
     static ui = null;
     static folderManager = null;
+    
+    /**
+     * Get the active game system ID
+     * @returns {string} System ID (e.g., 'pf1', 'pf2e')
+     */
+    static getSystemId() {
+        try {
+            return game.system?.id || 'pf1';
+        } catch (error) {
+            console.warn(`${this.NAME} | Error detecting system, defaulting to PF1:`, error);
+            return 'pf1';
+        }
+    }
+    
+    /**
+     * Check if current system is PF2e
+     * @returns {boolean} True if PF2e system
+     */
+    static isPF2e() {
+        return this.getSystemId() === 'pf2e';
+    }
+    
+    /**
+     * Check if current system is PF1
+     * @returns {boolean} True if PF1 system
+     */
+    static isPF1() {
+        return this.getSystemId() === 'pf1';
+    }
 
     /**
      * Initialize the Spacebone module
@@ -32,9 +62,32 @@ class Spacebone {
         
         // Initialize core components
         this.api = new SpaceboneAPI();
+        
+        // Initialize PF1 factory (always available for backward compatibility)
         this.itemFactory = new ItemFactory();
+        
+        // Initialize PF2e factory (only if needed, with error handling)
+        // Use dynamic import to prevent breaking PF1 if PF2 factory has issues
+        this.pf2ItemFactory = null;
+        try {
+            const { PF2ItemFactory } = await import('./factories/pf2-item-factory.js');
+            this.pf2ItemFactory = new PF2ItemFactory();
+        } catch (error) {
+            console.warn(`${this.NAME} | Failed to load/initialize PF2e factory (PF1 will still work):`, error);
+            this.pf2ItemFactory = null;
+        }
+        
         this.ui = new SpaceboneUI();
         this.folderManager = new FolderManager();
+        
+        // Log detected system
+        const systemId = this.getSystemId();
+        console.log(`${this.NAME} | Detected system: ${systemId}`);
+        
+        // Warn if PF2e is detected but factory failed to initialize
+        if (this.isPF2e() && !this.pf2ItemFactory) {
+            console.warn(`${this.NAME} | PF2e system detected but PF2e factory unavailable. PF2e item creation may not work.`);
+        }
         
         // Register settings
         this.registerSettings();
@@ -44,6 +97,14 @@ class Spacebone {
         
         // Setup hooks
         this.setupHooks();
+        
+        // Expose analysis function for debugging/learning PF2e items
+        if (this.pf2ItemFactory) {
+            globalThis.Spacebone.analyzePF2Item = async (itemName, itemType = 'weapon') => {
+                return await this.pf2ItemFactory.analyzePF2Item(itemName, itemType);
+            };
+            console.log(`${this.NAME} | PF2e item analysis function available: Spacebone.analyzePF2Item(itemName, itemType)`);
+        }
         
         console.log(`${this.NAME} | Initialization complete`);
     }
@@ -228,16 +289,54 @@ class Spacebone {
                 return null;
             }
 
-            // Convert LLM response to PF1 item
-            const pf1ItemData = await this.itemFactory.createPF1Item(itemData);
+            // Route to appropriate factory based on system
+            let systemItemData;
+            const systemId = this.getSystemId();
             
-            if (!pf1ItemData) {
-                ui.notifications.error('Failed to convert item data to PF1 format');
-                return null;
+            if (this.isPF2e()) {
+                // Try PF2e factory if available
+                if (this.pf2ItemFactory) {
+                    try {
+                        systemItemData = await this.pf2ItemFactory.createPF2Item(itemData);
+                        
+                        if (!systemItemData) {
+                            ui.notifications.error('Failed to convert item data to PF2e format');
+                            return null;
+                        }
+                    } catch (error) {
+                        console.error(`${this.NAME} | PF2e factory error, falling back to PF1:`, error);
+                        ui.notifications.warn('PF2e item creation failed, attempting PF1 format instead');
+                        // Fall through to PF1 as fallback
+                        systemItemData = await this.itemFactory.createPF1Item(itemData);
+                        
+                        if (!systemItemData) {
+                            ui.notifications.error('Failed to convert item data to PF1 format');
+                            return null;
+                        }
+                    }
+                } else {
+                    // PF2e factory not available, fall back to PF1
+                    console.warn(`${this.NAME} | PF2e factory not available, using PF1 factory as fallback`);
+                    ui.notifications.warn('PF2e factory unavailable, creating item in PF1 format');
+                    systemItemData = await this.itemFactory.createPF1Item(itemData);
+                    
+                    if (!systemItemData) {
+                        ui.notifications.error('Failed to convert item data to PF1 format');
+                        return null;
+                    }
+                }
+            } else {
+                // Default to PF1 (backward compatibility - this is the original behavior)
+                systemItemData = await this.itemFactory.createPF1Item(itemData);
+                
+                if (!systemItemData) {
+                    ui.notifications.error('Failed to convert item data to PF1 format');
+                    return null;
+                }
             }
 
             // Create the item directly in the world (no folder requirement)
-            const item = await Item.create(pf1ItemData);
+            const item = await Item.create(systemItemData);
 
             if (item) {
                 ui.notifications.info(`Created item: ${item.name}`);
