@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Anthropic API Version**: Updated Anthropic Claude API version header from `2023-06-01` to `2024-10-01` for improved compatibility and access to latest features (as of December 2025)
+
 ### Fixed
 - **Aura School Detection**: Fixed issue where aura school types were not being properly set in FoundryVTT. The system now correctly maps full school names (e.g., "evocation") to PF1 abbreviations (e.g., "evo") for proper FoundryVTT integration.
 

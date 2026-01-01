@@ -334,4 +334,110 @@ IMPORTANT: Your response MUST be valid JSON. Do not include any text before or a
 Focus on creating mechanically sound and balanced items that fit Pathfinder 1e conventions.
 Be creative with descriptions but precise with mechanical details.`;
     }
+
+    /**
+     * Generate actor data using OpenAI
+     * @param {string} prompt - The user's actor description prompt
+     * @param {Object} context - Additional context for generation
+     * @returns {Promise<Object>} Generated actor data
+     */
+    async generateActor(prompt, context = {}) {
+        try {
+            this.debug('Generating actor with OpenAI', { prompt, context });
+            
+            if (!this.isConfigured) {
+                throw new Error('OpenAI provider is not properly configured');
+            }
+
+            const systemPrompt = this.buildPF2ActorPrompt(context);
+            
+            const userPrompt = `Create a Pathfinder 2e character: ${prompt}
+
+CRITICAL INSTRUCTIONS:
+- You MUST respond using the exact template format specified in the system prompt
+- Start your response with "=== ACTOR TEMPLATE START ===" and end with "=== ACTOR TEMPLATE END ==="
+- Use your knowledge of Pathfinder 2e and Golarion to create an appropriate character
+- Fill in ALL template fields with appropriate values based on the user's description`;
+
+            const tokenLimit = this.config.model.startsWith('gpt-5') || this.config.model.startsWith('o1')
+                ? 4000
+                : (this.config.model.includes('gpt-4') || this.config.model.includes('gpt-4o'))
+                    ? 4000
+                    : 2000;
+            
+            const requestData = {
+                model: this.config.model,
+                messages: [
+                    {
+                        role: 'system',
+                        content: systemPrompt
+                    },
+                    {
+                        role: 'user',
+                        content: userPrompt
+                    }
+                ],
+                [this.config.model.startsWith('gpt-5') || this.config.model.startsWith('o1') ? 'max_completion_tokens' : 'max_tokens']: tokenLimit,
+                temperature: this.config.defaultOptions.temperature || 0.7
+            };
+
+            const response = await fetch(this.config.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.config.apiKey}`
+                },
+                body: JSON.stringify(requestData)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(`OpenAI API error: ${response.status} ${response.statusText} - ${errorData.error?.message || 'Unknown error'}`);
+            }
+
+            const data = await response.json();
+            this.debug('Received response from OpenAI', data);
+
+            if (!data.choices || !data.choices[0] || !data.choices[0].message || !data.choices[0].message.content) {
+                throw new Error('Invalid response format from OpenAI');
+            }
+
+            const responseText = data.choices[0].message.content;
+            return this.parseActorResponse(responseText);
+
+        } catch (error) {
+            this.handleError(error, 'actor generation');
+        }
+    }
+
+    /**
+     * Parse actor response from LLM
+     * @param {string} response - Raw LLM response
+     * @returns {Object} Parsed actor data
+     */
+    parseActorResponse(response) {
+        try {
+            const templateMatch = response.match(/=== ACTOR TEMPLATE START ===([\s\S]*?)=== ACTOR TEMPLATE END ===/);
+            if (!templateMatch) {
+                throw new Error('LLM did not follow the required template format for actors.');
+            }
+
+            const templateContent = templateMatch[1].trim();
+            const actorData = this.parseActorTemplate(templateContent);
+            
+            // Validate required fields
+            if (!actorData.name) {
+                throw new Error('Missing required field: name');
+            }
+            if (!actorData.class) {
+                throw new Error('Missing required field: class');
+            }
+
+            return actorData;
+
+        } catch (error) {
+            this.debug('Failed to parse actor response:', error);
+            throw new Error(`Failed to parse actor response: ${error.message}`);
+        }
+    }
 }

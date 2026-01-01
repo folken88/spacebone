@@ -156,6 +156,85 @@ export class SpaceboneAPI {
     }
 
     /**
+     * Generate actor data from user prompt using configured AI provider
+     * @param {string} prompt - User's actor creation prompt
+     * @param {Object} context - Additional context for generation
+     * @returns {Promise<Object>} Generated actor data
+     */
+    async generateActorData(prompt, context = {}) {
+        const startTime = Date.now();
+        let request = null;
+        
+        try {
+            // Validate input
+            if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
+                throw new Error('Invalid prompt provided');
+            }
+
+            // Re-initialize provider from current settings (in case they changed)
+            await this.providerManager.initializeFromSettings();
+            
+            // Get current provider
+            const provider = this.providerManager.getCurrentProvider();
+            if (!provider) {
+                throw new Error('No AI provider configured. Please configure an AI provider in the module settings.');
+            }
+
+            // Log request
+            request = {
+                id: this.generateRequestId(),
+                timestamp: new Date().toISOString(),
+                prompt: prompt.trim(),
+                context: context,
+                provider: provider.constructor.getDisplayName(),
+                startTime: startTime
+            };
+
+            console.log('[SpaceboneAPI] Generating actor:', request);
+
+            // Add system context
+            const systemId = game?.system?.id || 'pf2e';
+            const enhancedContext = {
+                ...context,
+                systemId: systemId
+            };
+            
+            // Generate actor using provider
+            const actorData = await this.providerManager.generateActor(prompt.trim(), enhancedContext);
+            
+            // Calculate response time
+            const responseTime = Date.now() - startTime;
+            
+            // Update request with result
+            request.endTime = Date.now();
+            request.responseTime = responseTime;
+            request.success = true;
+            request.actorData = actorData;
+            
+            // Add to history
+            this.addToHistory(request);
+            
+            console.log(`[SpaceboneAPI] Actor generated successfully in ${responseTime}ms`);
+            return actorData;
+
+        } catch (error) {
+            const responseTime = Date.now() - startTime;
+            
+            // Update request with error
+            if (request) {
+                request.endTime = Date.now();
+                request.responseTime = responseTime;
+                request.success = false;
+                request.error = error.message;
+                this.addToHistory(request);
+            }
+            
+            console.error(`[SpaceboneAPI] Error generating actor:`, error);
+            throw error;
+        }
+    }
+
+    /**
      * Get available AI providers
      * @returns {Array<Object>} Array of provider information
      */

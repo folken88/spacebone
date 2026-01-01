@@ -10,6 +10,7 @@ import { SpaceboneAPI } from './api/llm-interface.js';
 import { ItemFactory } from './factories/item-factory.js';
 import { SpaceboneUI } from './ui/spacebone-ui.js';
 import { FolderManager } from './utils/folder-manager.js';
+import { MCPHelper } from './utils/mcp-helper.js';
 
 
 /**
@@ -22,8 +23,10 @@ class Spacebone {
     static api = null;
     static itemFactory = null;
     static pf2ItemFactory = null;
+    static pf2ActorFactory = null;
     static ui = null;
     static folderManager = null;
+    static mcpHelper = null;
     
     /**
      * Get the active game system ID
@@ -76,9 +79,31 @@ class Spacebone {
             console.warn(`${this.NAME} | Failed to load/initialize PF2e factory (PF1 will still work):`, error);
             this.pf2ItemFactory = null;
         }
+
+        // Try to initialize PF2e actor factory (only for PF2e)
+        this.pf2ActorFactory = null;
+        if (this.isPF2e()) {
+            try {
+                const { PF2ActorFactory } = await import('./factories/pf2-actor-factory.js');
+                this.pf2ActorFactory = new PF2ActorFactory();
+            } catch (error) {
+                console.warn(`${this.NAME} | Failed to load/initialize PF2e actor factory:`, error);
+                this.pf2ActorFactory = null;
+            }
+        }
         
         this.ui = new SpaceboneUI();
         this.folderManager = new FolderManager();
+        this.mcpHelper = new MCPHelper();
+        
+        // Test MCP connection on initialization
+        this.mcpHelper.testConnection().then(connected => {
+            if (connected) {
+                console.log(`${this.NAME} | MCP connection available for testing and verification`);
+            } else {
+                console.warn(`${this.NAME} | MCP connection not available - direct FoundryVTT API will be used`);
+            }
+        });
         
         // Log detected system
         const systemId = this.getSystemId();
@@ -104,6 +129,21 @@ class Spacebone {
                 return await this.pf2ItemFactory.analyzePF2Item(itemName, itemType);
             };
             console.log(`${this.NAME} | PF2e item analysis function available: Spacebone.analyzePF2Item(itemName, itemType)`);
+        }
+        
+        // Expose MCP helper for testing and verification
+        if (this.mcpHelper) {
+            globalThis.Spacebone.mcp = this.mcpHelper;
+            globalThis.Spacebone.verifyActor = async (actor, expectedData) => {
+                return await this.mcpHelper.verifyActor(actor, expectedData);
+            };
+            globalThis.Spacebone.verifyItem = async (item, expectedData) => {
+                return await this.mcpHelper.verifyItem(item, expectedData);
+            };
+            globalThis.Spacebone.queryFoundry = async (query, params) => {
+                return await this.mcpHelper.queryFoundryData(query, params);
+            };
+            console.log(`${this.NAME} | MCP helper available: Spacebone.mcp, Spacebone.verifyActor(), Spacebone.verifyItem(), Spacebone.queryFoundry()`);
         }
         
         console.log(`${this.NAME} | Initialization complete`);
@@ -353,7 +393,122 @@ class Spacebone {
             return null;
         }
     }
+
+    /**
+     * Create a PF2e actor from a user prompt
+     * @param {string} prompt - User's actor description
+     * @returns {Promise<Actor|null>} Created actor or null if failed
+     */
+    static async createActor(prompt) {
+        try {
+            if (!this.isPF2e()) {
+                ui.notifications.warn('Actor creation is currently only supported for Pathfinder 2e.');
+                return null;
+            }
+
+            if (!this.pf2ActorFactory) {
+                ui.notifications.error('PF2e actor factory not available.');
+                return null;
+            }
+
+            if (!this.api) {
+                ui.notifications.error('Spacebone API not initialized.');
+                return null;
+            }
+
+            // Generate actor data from LLM
+            const actorData = await this.api.generateActorData(prompt.trim());
+            
+            if (!actorData) {
+                ui.notifications.error('Failed to generate actor data from LLM');
+                return null;
+            }
+
+            // Convert to PF2e actor format
+            const pf2ActorData = await this.pf2ActorFactory.createPF2Actor(actorData);
+            
+            if (!pf2ActorData) {
+                ui.notifications.error('Failed to convert actor data to PF2e format');
+                return null;
+            }
+
+            // Create the actor in FoundryVTT
+            const actor = await Actor.create(pf2ActorData, { renderSheet: true });
+            
+            if (actor) {
+                console.log(`${this.NAME} | Created actor: ${actor.name}`);
+                
+                // Verify actor creation if MCP helper is available
+                if (this.mcpHelper) {
+                    const verification = await this.mcpHelper.verifyActor(actor);
+                    if (!verification.valid) {
+                        console.warn(`${this.NAME} | Actor verification issues:`, verification.issues);
+                    } else {
+                        console.log(`${this.NAME} | Actor verified successfully:`, verification.details);
+                    }
+                }
+            }
+
+            return actor;
+
+        } catch (error) {
+            console.error(`${this.NAME} | Error creating actor:`, error);
+            ui.notifications.error(`Failed to create actor: ${error.message}`);
+            return null;
+        }
+    }
 }
+
+// Hook registration for ActorDirectory - match item directory pattern exactly
+Hooks.on("renderActorDirectory", (app, html, data) => {
+    // Only show for GMs
+    if (!game.user.isGM) return;
+
+    // Only show in PF2e
+    if (game.system.id !== 'pf2e') return;
+
+    // Copy item directory pattern exactly
+    if (game.release.generation >= 13) {
+        // For v13+, html is a raw DOM element
+        const footer = html.querySelector('.directory-footer');
+        if (!footer) return;
+        
+        // Check if button already exists
+        if (footer.querySelector('#spaceboneActorButton')) return;
+        
+        const section = document.createElement('section');
+        footer.append(section);
+        section.classList.add('spacebone-generator', 'button-div');
+        
+        const spaceboneButton = document.createElement('button');
+        spaceboneButton.type = 'button';
+        spaceboneButton.classList.add('create-entity', 'spaceboneButton');
+        spaceboneButton.id = 'spaceboneActorButton';
+        section.append(spaceboneButton);
+        spaceboneButton.addEventListener('click', () => {
+            if (Spacebone.ui) {
+                Spacebone.ui.openActorCreatorDialog();
+            }
+        });
+        const icon = document.createElement('i');
+        icon.classList.add('fas', 'fa-skull'); // Skull icon for Spacebone!
+        spaceboneButton.appendChild(icon);
+        const innerText = document.createTextNode('Spacebone');
+        spaceboneButton.appendChild(innerText);
+    }
+    else {
+        // For legacy versions, html is a jQuery object
+        if (html.find('#spaceboneActorButton').length > 0) return;
+        
+        const spaceboneButton = $("<button id='spaceboneActorButton' class='create-entity spaceboneButton'><i class='fas fa-skull'></i>Spacebone</button>");
+        html.find(".directory-footer").append(spaceboneButton);
+        spaceboneButton.click(() => {
+            if (Spacebone.ui) {
+                Spacebone.ui.openActorCreatorDialog();
+            }
+        });
+    }
+});
 
 // Hook registration exactly like pf1-magic-item-gen
 Hooks.on("renderItemDirectory", (app, html, data) => {

@@ -336,4 +336,113 @@ CRITICAL: You must respond with ONLY a valid JSON object. No additional text, ex
 Local models: Be precise and follow Pathfinder 1e rules exactly. Use proper JSON formatting with double quotes.
 Example format: {"name": "Item Name", "type": "weapon", "description": "..."}`;
     }
+
+    /**
+     * Generate actor data using Local LLM
+     * @param {string} prompt - The user's actor description prompt
+     * @param {Object} context - Additional context for generation
+     * @returns {Promise<Object>} Generated actor data
+     */
+    async generateActor(prompt, context = {}) {
+        try {
+            this.debug('Generating actor with Local LLM', { prompt, context });
+            
+            if (!this.isConfigured) {
+                throw new Error('Local LLM provider is not properly configured');
+            }
+
+            const systemPrompt = this.buildPF2ActorPrompt(context);
+            
+            const userPrompt = `Create a Pathfinder 2e character: ${prompt}
+
+CRITICAL INSTRUCTIONS:
+- You MUST respond using the exact template format specified in the system prompt
+- Start your response with "=== ACTOR TEMPLATE START ===" and end with "=== ACTOR TEMPLATE END ==="
+- Use your knowledge of Pathfinder 2e and Golarion to create an appropriate character
+- Fill in ALL template fields with appropriate values based on the user's description`;
+
+            const requestData = {
+                model: this.config.model,
+                messages: [
+                    {
+                        role: 'system',
+                        content: systemPrompt
+                    },
+                    {
+                        role: 'user',
+                        content: userPrompt
+                    }
+                ],
+                ...this.config.defaultOptions
+            };
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'User-Agent': 'FoundryVTT-Spacebone/1.0.0'
+            };
+
+            if (this.config.apiKey) {
+                headers['Authorization'] = `Bearer ${this.config.apiKey}`;
+            }
+
+            const response = await fetch(this.config.endpoint, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(requestData)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Local LLM API error: ${response.status} ${response.statusText} - ${errorText}`);
+            }
+
+            const data = await response.json();
+            this.debug('Received response from Local LLM', data);
+
+            let generatedText;
+            if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
+                generatedText = data.choices[0].message.content;
+            } else if (data.response) {
+                generatedText = data.response;
+            } else {
+                throw new Error('Invalid response format from Local LLM');
+            }
+
+            return this.parseActorResponse(generatedText);
+
+        } catch (error) {
+            this.handleError(error, 'actor generation');
+        }
+    }
+
+    /**
+     * Parse actor response from LLM
+     * @param {string} response - Raw LLM response
+     * @returns {Object} Parsed actor data
+     */
+    parseActorResponse(response) {
+        try {
+            const templateMatch = response.match(/=== ACTOR TEMPLATE START ===([\s\S]*?)=== ACTOR TEMPLATE END ===/);
+            if (!templateMatch) {
+                throw new Error('LLM did not follow the required template format for actors.');
+            }
+
+            const templateContent = templateMatch[1].trim();
+            const actorData = this.parseActorTemplate(templateContent);
+            
+            // Validate required fields
+            if (!actorData.name) {
+                throw new Error('Missing required field: name');
+            }
+            if (!actorData.class) {
+                throw new Error('Missing required field: class');
+            }
+
+            return actorData;
+
+        } catch (error) {
+            this.debug('Failed to parse actor response:', error);
+            throw new Error(`Failed to parse actor response: ${error.message}`);
+        }
+    }
 }

@@ -66,6 +66,253 @@ export class BaseProvider {
     }
 
     /**
+     * Generate actor data from user prompt
+     * @param {string} prompt - User's actor creation prompt
+     * @param {Object} context - Additional context for generation
+     * @returns {Promise<Object>} Generated actor data
+     * @abstract
+     */
+    async generateActor(prompt, context = {}) {
+        throw new Error('generateActor() must be implemented by subclass');
+    }
+
+    /**
+     * Build the system prompt for PF2e actor generation
+     * @param {Object} context - Generation context
+     * @returns {string} System prompt
+     * @protected
+     */
+    buildPF2ActorPrompt(context) {
+        return `You are an expert Pathfinder 2e character creator. You MUST follow the exact format specified below. Any deviation from this format will cause the system to fail.
+
+## CRITICAL REQUIREMENTS:
+- You MUST return ONLY the template between the markers
+- You MUST NOT include JSON, markdown code blocks, or any other formatting
+- You MUST NOT add explanatory text before or after the template
+- You MUST fill in ALL fields, even if with simple values
+- Your response MUST start with "=== ACTOR TEMPLATE START ===" and end with "=== ACTOR TEMPLATE END ==="
+- **CRITICAL**: The NAME field must contain ONLY the character name. NO descriptions or additional text!
+
+## PC vs NPC DETECTION:
+- **PC (character)**: Use when the prompt has significant detail, mentions a name, or describes a complex individual. PCs get full biography, personality, detailed backstory.
+- **NPC**: Use when the prompt is brief (e.g., "thug", "guard", "merchant"), explicitly says "npc", or describes a simple role. NPCs get minimal details (just blurb).
+
+## PATHFINDER 2E ACTOR SYSTEM:
+PF2e uses a structured character creation system:
+- **Levels**: 1-20 (use appropriate level based on prompt)
+- **Ancestries**: Human, Elf, Dwarf, Halfling, Gnome, Goblin, Orc, Leshy, Lizardfolk, Catfolk, Ratfolk, etc.
+- **Heritages**: Sub-ancestry options (e.g., Whisper Elf, Strong-Blooded Dwarf, Skilled Heritage Human)
+- **Classes**: Alchemist, Barbarian, Bard, Champion, Cleric, Druid, Fighter, Gunslinger, Inventor, Investigator, Magus, Monk, Oracle, Psychic, Ranger, Rogue, Sorcerer, Summoner, Swashbuckler, Witch, Wizard
+- **Backgrounds**: Use standard PF2e backgrounds from compendiums. Common ones: Acolyte, Artisan, Barkeep, Charlatan, Criminal, Emissary, Entertainer, Farmer, Guard, Hermit, Laborer, Merchant, Noble, Nomad, Peasant, Pilgrim, Sailor, Scholar, Scout, Street Urchin, Warrior, Field Medic, Martial Disciple, etc.
+- **Deities**: Sarenrae, Iomedae, Pharasma, Desna, Cayden Cailean, Asmodeus, etc. (optional, for divine classes)
+
+## GOLARION REGIONAL POPULATIONS & ANCESTRIES:
+Use regional demographics to choose appropriate ancestries:
+- **Alkenstar**: ~70% Human (mostly Garundi, Keleshite), ~15% Dwarf, ~10% Gnome, ~5% other. Industrial, firearms, technology-focused.
+- **Caliphas (Ustalav)**: ~85% Human (mostly Ustalavic), ~10% Dwarf, ~5% other. Gothic horror, undead themes, pale complexions.
+- **Absalom**: Highly diverse - ~40% Human (all ethnicities), ~15% Dwarf, ~10% Elf, ~10% Halfling, ~25% other. Melting pot.
+- **Katapesh**: ~60% Human (mostly Kelish), ~20% Halfling, ~10% Gnome, ~10% other. Desert trade city.
+- **Cheliax**: ~75% Human (mostly Chelaxian), ~15% Tiefling, ~10% other. Infernal, lawful evil.
+- **Varisia**: ~50% Human (Varisian, Shoanti), ~20% Dwarf, ~15% Elf, ~15% other. Frontier, diverse.
+- **Osirion**: ~80% Human (mostly Garundi, Keleshite), ~10% Dwarf, ~10% other. Desert, pharaonic.
+- **Tian Xia**: ~70% Human (Tian), ~15% Tengu, ~10% Kitsune, ~5% other. Oriental, honor-based.
+- **Mwangi Expanse**: ~40% Human (Mwangi), ~20% Lizardfolk, ~15% Orc, ~15% other. Jungle, tribal.
+- **Numeria**: ~60% Human (mostly Kellid), ~20% Android, ~20% other. Technological ruins.
+
+## BACKGROUND SELECTION GUIDELINES:
+Match backgrounds to the prompt's themes:
+- **"Rich kid" / "Noble" / "Wealthy"**: Noble, Merchant, or Emissary
+- **"Criminal" / "Thief" / "Rogue"**: Criminal, Street Urchin, or Charlatan
+- **"Former rich kid" + "Criminal"**: Noble (fallen) or Criminal (with Noble connections)
+- **"Soldier" / "Guard" / "Warrior"**: Warrior, Guard, or Martial Disciple
+- **"Scholar" / "Academic"**: Scholar, Acolyte, or Hermit
+- **"Religious" / "Cleric"**: Acolyte or Pilgrim
+- **"Artisan" / "Craftsman"**: Artisan or Laborer
+- **"Entertainer" / "Performer"**: Entertainer or Barkeep
+
+## ACTOR TEMPLATE FORMAT:
+=== ACTOR TEMPLATE START ===
+NAME: [Character name only - no descriptions]
+TYPE: [character/npc/familiar - use "npc" for simple roles like "thug", "guard", or when explicitly requested]
+LEVEL: [1-20, appropriate for prompt]
+ANCESTRY: [Human/Elf/Dwarf/Halfling/Gnome/Goblin/Orc/etc - choose based on regional demographics]
+HERITAGE: [Heritage name if specified, or leave blank for default - use standard PF2e heritages]
+CLASS: [Alchemist/Barbarian/Bard/Champion/Cleric/Druid/Fighter/Gunslinger/Inventor/Investigator/Magus/Monk/Oracle/Psychic/Ranger/Rogue/Sorcerer/Summoner/Swashbuckler/Witch/Wizard - choose based on prompt themes]
+BACKGROUND: [Standard PF2e background name - use compendium backgrounds like "Criminal", "Noble", "Warrior", etc.]
+DEITY: [Deity name if applicable, or leave blank]
+ETHNICITY: [Regional ethnicity from Golarion, e.g., Kelish, Varisian, Taldan, Garundi, Ustalavic, etc.]
+GENDER: [Gender and pronouns, e.g., "M/He/Him" or "F/She/Her" or "NB/They/Them"]
+AGE: [Age if specified, or leave blank]
+HEIGHT: [Height if specified, or leave blank]
+WEIGHT: [Weight if specified, or leave blank]
+NATIONALITY: [Nationality/region from Golarion, e.g., "Alkenstar", "Caliphas", "Absalom", "Katapesh"]
+LANGUAGES: [Comma-separated: common, elven, dwarven, etc. Always include common. Add regional languages based on nationality]
+APPEARANCE: [Physical description - appearance, clothing, distinguishing features. For NPCs, keep brief]
+BACKSTORY: [Character background story - where they're from, what they've done, motivations. For NPCs, keep very brief or just a sentence]
+PERSONALITY: [Personality traits, attitude, beliefs, likes, dislikes. For NPCs, keep brief or leave minimal]
+ABILITIES: [STR: X, DEX: X, CON: X, INT: X, WIS: X, CHA: X - use appropriate scores for class and level. For NPCs, use modifiers directly]
+TRAINED_SKILLS: [Comma-separated list of trained skills: athletics, acrobatics, stealth, etc. Use standard PF2e skill names]
+=== ACTOR TEMPLATE END ===
+
+## EXAMPLES:
+
+Example 1 - NPC prompt: "level 3 alkenstar criminal and former rich kid asshole"
+NAME: Marcus Vane
+TYPE: npc
+LEVEL: 3
+ANCESTRY: Human
+HERITAGE: 
+CLASS: Rogue
+BACKGROUND: Criminal
+DEITY: 
+ETHNICITY: Garundi
+GENDER: M/He/Him
+AGE: 24
+HEIGHT: 5'11"
+WEIGHT: 175 lbs
+NATIONALITY: Alkenstar
+LANGUAGES: common, dwarven
+APPEARANCE: A well-dressed but disheveled young man with expensive clothes showing signs of wear. Carries himself with arrogant entitlement despite his current circumstances.
+BACKSTORY: Born to wealthy Alkenstar merchants, Marcus squandered his inheritance and turned to crime when his family cut him off. Now works as a low-level criminal while maintaining his sense of superiority.
+PERSONALITY: Arrogant, entitled, and resentful of his fall from grace. Treats others with contempt.
+ABILITIES: STR: 10, DEX: 16, CON: 12, INT: 14, WIS: 10, CHA: 14
+TRAINED_SKILLS: deception, stealth, thievery, society
+
+Example 2 - PC prompt: "a level 5 rogue from Caliphas named Thaddeus"
+NAME: Thaddeus Blackwood
+TYPE: character
+LEVEL: 5
+ANCESTRY: Human
+HERITAGE: 
+CLASS: Rogue
+BACKGROUND: Criminal
+DEITY: 
+ETHNICITY: Ustalavic
+GENDER: M/He/Him
+AGE: 28
+HEIGHT: 5'10"
+WEIGHT: 165 lbs
+NATIONALITY: Caliphas
+LANGUAGES: common, thieves' cant
+APPEARANCE: A lean, pale man with dark hair and piercing gray eyes. Wears dark, practical clothing suitable for moving through shadows. Carries several concealed daggers and has a wary, watchful demeanor.
+BACKSTORY: Born in the shadowy streets of Caliphas, Thaddeus learned early that survival meant staying one step ahead of both the law and the undead that plague Ustalav. He became a skilled thief and information broker, navigating the city's dangerous underworld with cunning and stealth.
+PERSONALITY: Cautious and observant, Thaddeus trusts few people. He's pragmatic and resourceful, with a dark sense of humor born from living in a city where death is never far away.
+ABILITIES: STR: 12, DEX: 18, CON: 14, INT: 14, WIS: 12, CHA: 10
+TRAINED_SKILLS: acrobatics, athletics, deception, stealth, thievery, society
+
+Example 3 - Simple NPC: "thug"
+NAME: Bruiser
+TYPE: npc
+LEVEL: 1
+ANCESTRY: Human
+HERITAGE: 
+CLASS: Fighter
+BACKGROUND: Criminal
+DEITY: 
+ETHNICITY: 
+GENDER: M/He/Him
+AGE: 
+HEIGHT: 
+WEIGHT: 
+NATIONALITY: 
+LANGUAGES: common
+APPEARANCE: A burly, intimidating figure with scars and rough clothing.
+BACKSTORY: A common street thug who uses violence to get what he wants.
+PERSONALITY: Aggressive and opportunistic.
+ABILITIES: STR: 16, DEX: 12, CON: 14, INT: 8, WIS: 10, CHA: 8
+TRAINED_SKILLS: athletics, intimidation
+
+CRITICAL: Your entire response must be ONLY the filled template above. Nothing else. No JSON. No code blocks. No explanations. The system expects this exact format and will fail if you deviate from it.`;
+    }
+
+    /**
+     * Parse actor template from LLM response
+     * @param {string} templateContent - Template content between markers
+     * @returns {Object} Parsed actor data
+     * @protected
+     */
+    parseActorTemplate(templateContent) {
+        const actorData = {};
+        const lines = templateContent.split('\n');
+
+        for (const line of lines) {
+            const trimmedLine = line.trim();
+            if (!trimmedLine || trimmedLine.startsWith('===')) continue;
+
+            if (trimmedLine.startsWith('NAME:')) {
+                actorData.name = this.extractValue(trimmedLine, 'NAME:').trim();
+            } else if (trimmedLine.startsWith('TYPE:')) {
+                actorData.type = this.extractValue(trimmedLine, 'TYPE:').toLowerCase().trim();
+            } else if (trimmedLine.startsWith('LEVEL:')) {
+                actorData.level = this.extractValue(trimmedLine, 'LEVEL:').trim();
+            } else if (trimmedLine.startsWith('ANCESTRY:')) {
+                actorData.ancestry = this.extractValue(trimmedLine, 'ANCESTRY:').trim();
+            } else if (trimmedLine.startsWith('HERITAGE:')) {
+                actorData.heritage = this.extractValue(trimmedLine, 'HERITAGE:').trim();
+            } else if (trimmedLine.startsWith('CLASS:')) {
+                actorData.class = this.extractValue(trimmedLine, 'CLASS:').trim();
+            } else if (trimmedLine.startsWith('BACKGROUND:')) {
+                actorData.background = this.extractValue(trimmedLine, 'BACKGROUND:').trim();
+            } else if (trimmedLine.startsWith('DEITY:')) {
+                actorData.deity = this.extractValue(trimmedLine, 'DEITY:').trim();
+            } else if (trimmedLine.startsWith('ETHNICITY:')) {
+                actorData.ethnicity = this.extractValue(trimmedLine, 'ETHNICITY:').trim();
+            } else if (trimmedLine.startsWith('GENDER:')) {
+                actorData.gender = this.extractValue(trimmedLine, 'GENDER:').trim();
+            } else if (trimmedLine.startsWith('AGE:')) {
+                actorData.age = this.extractValue(trimmedLine, 'AGE:').trim();
+            } else if (trimmedLine.startsWith('HEIGHT:')) {
+                actorData.height = this.extractValue(trimmedLine, 'HEIGHT:').trim();
+            } else if (trimmedLine.startsWith('WEIGHT:')) {
+                actorData.weight = this.extractValue(trimmedLine, 'WEIGHT:').trim();
+            } else if (trimmedLine.startsWith('NATIONALITY:')) {
+                actorData.nationality = this.extractValue(trimmedLine, 'NATIONALITY:').trim();
+            } else if (trimmedLine.startsWith('LANGUAGES:')) {
+                actorData.languages = this.extractValue(trimmedLine, 'LANGUAGES:').trim();
+            } else if (trimmedLine.startsWith('APPEARANCE:')) {
+                actorData.appearance = this.extractValue(trimmedLine, 'APPEARANCE:').trim();
+            } else if (trimmedLine.startsWith('BACKSTORY:')) {
+                actorData.backstory = this.extractValue(trimmedLine, 'BACKSTORY:').trim();
+            } else if (trimmedLine.startsWith('PERSONALITY:')) {
+                const personality = this.extractValue(trimmedLine, 'PERSONALITY:').trim();
+                // Try to parse personality into components
+                actorData.attitude = personality;
+                actorData.beliefs = personality;
+                actorData.likes = '';
+                actorData.dislikes = '';
+            } else if (trimmedLine.startsWith('ABILITIES:')) {
+                const abilitiesStr = this.extractValue(trimmedLine, 'ABILITIES:').trim();
+                actorData.abilities = this.parseAbilities(abilitiesStr);
+            } else if (trimmedLine.startsWith('TRAINED_SKILLS:')) {
+                actorData.trainedSkills = this.extractValue(trimmedLine, 'TRAINED_SKILLS:').trim();
+            }
+        }
+
+        return actorData;
+    }
+
+    /**
+     * Parse abilities string into object
+     * @param {string} abilitiesStr - Abilities string (e.g., "STR: 12, DEX: 18, CON: 14")
+     * @returns {Object} Abilities object
+     * @protected
+     */
+    parseAbilities(abilitiesStr) {
+        const abilities = { str: 10, dex: 10, con: 10, int: 10, wis: 10, cha: 10 };
+        
+        const matches = abilitiesStr.matchAll(/(STR|DEX|CON|INT|WIS|CHA):\s*(\d+)/gi);
+        for (const match of matches) {
+            const ability = match[1].toLowerCase();
+            const value = parseInt(match[2]);
+            if (ability in abilities) {
+                abilities[ability] = value;
+            }
+        }
+        
+        return abilities;
+    }
+
+    /**
      * Test the connection to the AI provider
      * @returns {Promise<boolean>} True if connection is successful
      * @abstract

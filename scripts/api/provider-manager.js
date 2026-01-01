@@ -167,6 +167,24 @@ export class ProviderManager {
     }
 
     /**
+     * Generate actor data using the current provider
+     * @param {string} prompt - User's actor creation prompt
+     * @param {Object} context - Additional context for generation
+     * @returns {Promise<Object>} Generated actor data
+     */
+    async generateActor(prompt, context = {}) {
+        if (!this._currentProvider) {
+            throw new Error('No active provider set. Please configure an AI provider first.');
+        }
+
+        if (!this._currentProvider.isConfigured) {
+            throw new Error('Current provider is not properly configured.');
+        }
+
+        return await this._currentProvider.generateActor(prompt, context);
+    }
+
+    /**
      * Test connection for a specific provider
      * @param {string} providerId - The provider ID to test
      * @param {Object} config - Provider configuration to test

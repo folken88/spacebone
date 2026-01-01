@@ -15,6 +15,201 @@ export class SpaceboneUI {
     }
 
     /**
+     * Add the actor creator button to the actors sidebar
+     * @param {Application} app - The ActorDirectory application
+     * @param {jQuery} html - The rendered HTML
+     */
+    addActorCreatorButton(app, html) {
+        // Only show for GMs
+        if (!game.user.isGM) return;
+
+        // Only show in PF2e
+        if (game.system.id !== 'pf2e') return;
+
+        // Handle both v13+ (raw DOM) and legacy (jQuery) - match item directory pattern
+        if (game.release.generation >= 13) {
+            // For v13+, html is a raw DOM element
+            const footer = html.querySelector('.directory-footer');
+            if (!footer) {
+                console.warn('Spacebone | Could not find .directory-footer in ActorDirectory');
+                return;
+            }
+
+            // Check if button already exists
+            if (footer.querySelector('#spaceboneActorButton')) return;
+            
+            const section = document.createElement('section');
+            footer.append(section);
+            section.classList.add('spacebone-generator', 'button-div');
+            
+            const spaceboneButton = document.createElement('button');
+            spaceboneButton.type = 'button';
+            spaceboneButton.classList.add('create-entity', 'spaceboneButton');
+            spaceboneButton.id = 'spaceboneActorButton';
+            section.append(spaceboneButton);
+            spaceboneButton.addEventListener('click', () => this.openActorCreatorDialog());
+            const icon = document.createElement('i');
+            icon.classList.add('fas', 'fa-skull'); // Skull icon for Spacebone!
+            spaceboneButton.appendChild(icon);
+            const innerText = document.createTextNode('Spacebone');
+            spaceboneButton.appendChild(innerText);
+        }
+        else {
+            // For legacy versions, html is a jQuery object
+            if (html.find('#spaceboneActorButton').length > 0) return;
+            
+            const spaceboneButton = $("<button id='spaceboneActorButton' class='create-entity spaceboneButton'><i class='fas fa-skull'></i>Spacebone</button>");
+            html.find(".directory-footer").append(spaceboneButton);
+            spaceboneButton.click(() => this.openActorCreatorDialog());
+        }
+    }
+
+    /**
+     * Open the actor creator dialog
+     */
+    async openActorCreatorDialog() {
+        if (this.isDialogOpen) return;
+
+        // Check if API is configured
+        if (!this.isAPIConfigured()) {
+            ui.notifications.warn('Please configure your LLM API settings in module settings first.');
+            return;
+        }
+
+        this.isDialogOpen = true;
+
+        const dialog = new Dialog({
+            title: 'Spacebone AI Actor Creator',
+            content: await this.getActorDialogHTML(),
+            buttons: {
+                create: {
+                    icon: '<i class="fas fa-user"></i>',
+                    label: 'Create Actor',
+                    callback: (html) => this.handleActorCreation(html)
+                },
+                cancel: {
+                    icon: '<i class="fas fa-times"></i>',
+                    label: 'Cancel',
+                    callback: () => this.isDialogOpen = false
+                }
+            },
+            default: 'create',
+            close: () => this.isDialogOpen = false,
+            render: (html) => this.enhanceActorDialog(html)
+        }, {
+            width: 720,
+            height: 580,
+            resizable: true,
+            classes: ['spacebone-dialog']
+        });
+
+        dialog.render(true);
+    }
+
+    /**
+     * Get the actor dialog HTML content
+     * @returns {Promise<string>} Dialog HTML
+     */
+    async getActorDialogHTML() {
+        return `
+            <div class="spacebone-creator">
+                <!-- Header with Icon -->
+                <div class="spacebone-header">
+                    <i class="fas fa-skull spacebone-main-icon"></i>
+                    <h2>Spacebone AI Actor Creator</h2>
+                </div>
+                
+                <!-- AI Prompt Section -->
+                <div class="prompt-section glass-panel">
+                    <h3><i class="fas fa-magic"></i> AI Actor Prompt</h3>
+                    <div class="form-group">
+                        <label for="actor-prompt">Describe the character you want to create:</label>
+                        <textarea id="actor-prompt" name="actor-prompt" rows="3" placeholder="e.g., 'a level 5 rogue from Caliphas' or 'a level 3 cleric of Sarenrae named Kyra from Katapesh'"></textarea>
+                        <div class="example-text">
+                            <small><em>Example:</em> "a level 5 rogue from Caliphas" or "a level 3 cleric of Sarenrae named Kyra"</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spacebone-status">
+                    <div id="creation-status" class="status-hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Creating actor...</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Enhance the actor dialog after rendering
+     * @param {jQuery} html - The dialog HTML
+     */
+    enhanceActorDialog(html) {
+        // Auto-resize textarea
+        const textarea = html.find('#actor-prompt');
+        textarea.on('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+
+        // Focus on the textarea
+        textarea.focus();
+
+        // Handle Enter key (Ctrl+Enter to submit)
+        textarea.on('keydown', (event) => {
+            if (event.ctrlKey && event.key === 'Enter') {
+                html.closest('.dialog').find('[data-button="create"]').click();
+            }
+        });
+    }
+
+    /**
+     * Handle actor creation from dialog
+     * @param {jQuery} html - The dialog HTML
+     */
+    async handleActorCreation(html) {
+        const prompt = html.find('#actor-prompt').val().trim();
+        
+        if (!prompt) {
+            ui.notifications.warn('Please enter a description for the character you want to create.');
+            return;
+        }
+
+        // Show status
+        const statusEl = html.find('#creation-status');
+        statusEl.removeClass('status-hidden').addClass('status-visible');
+        
+        // Disable the create button
+        html.closest('.dialog').find('[data-button="create"]').prop('disabled', true);
+
+        try {
+            // Create the actor
+            const actor = await globalThis.Spacebone.createActor(prompt);
+            
+            this.isDialogOpen = false;
+            
+            if (actor) {
+                // Show success notification
+                const message = `Successfully created actor: <strong>${actor.name}</strong>`;
+                ui.notifications.info(message);
+            }
+
+        } catch (error) {
+            console.error('Spacebone | Error in actor creation:', error);
+            ui.notifications.error('Failed to create actor. Check the console for details.');
+            
+            // Re-enable the create button
+            html.closest('.dialog').find('[data-button="create"]').prop('disabled', false);
+            statusEl.removeClass('status-visible').addClass('status-hidden');
+            
+            // Don't close dialog on error
+            this.isDialogOpen = false;
+            return false;
+        }
+    }
+
+    /**
      * Add the item creator button to the items sidebar
      * @param {Application} app - The ItemDirectory application
      * @param {jQuery} html - The rendered HTML

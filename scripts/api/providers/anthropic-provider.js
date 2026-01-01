@@ -108,7 +108,7 @@ CRITICAL INSTRUCTIONS:
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': this.config.apiKey,
-                    'anthropic-version': '2023-06-01'
+                    'anthropic-version': '2024-10-01'
                 },
                 body: JSON.stringify(requestData)
             });
@@ -162,7 +162,7 @@ CRITICAL INSTRUCTIONS:
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': this.config.apiKey,
-                    'anthropic-version': '2023-06-01'
+                    'anthropic-version': '2024-10-01'
                 },
                 body: JSON.stringify({
                     model: this.config.model,
@@ -274,5 +274,99 @@ CRITICAL FORMATTING REQUIREMENTS:
 - Ensure all numeric values are properly formatted
 
 Claude, please focus on creating mechanically accurate Pathfinder 1e items with rich descriptions that would fit seamlessly into a tabletop campaign.`;
+    }
+
+    /**
+     * Generate actor data using Anthropic
+     * @param {string} prompt - The user's actor description prompt
+     * @param {Object} context - Additional context for generation
+     * @returns {Promise<Object>} Generated actor data
+     */
+    async generateActor(prompt, context = {}) {
+        try {
+            this.debug('Generating actor with Anthropic', { prompt, context });
+            
+            if (!this.isConfigured) {
+                throw new Error('Anthropic provider is not properly configured');
+            }
+
+            const systemPrompt = this.buildPF2ActorPrompt(context);
+            
+            const userPrompt = `Create a Pathfinder 2e character: ${prompt}
+
+CRITICAL INSTRUCTIONS:
+- You MUST respond using the exact template format specified in the system prompt
+- Start your response with "=== ACTOR TEMPLATE START ===" and end with "=== ACTOR TEMPLATE END ==="
+- Use your knowledge of Pathfinder 2e and Golarion to create an appropriate character
+- Fill in ALL template fields with appropriate values based on the user's description`;
+
+            const response = await fetch(this.config.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': this.config.apiKey,
+                    'anthropic-version': '2024-10-01'
+                },
+                body: JSON.stringify({
+                    model: this.config.model,
+                    max_tokens: 4000,
+                    messages: [
+                        {
+                            role: 'user',
+                            content: `${systemPrompt}\n\n${userPrompt}`
+                        }
+                    ]
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(`Anthropic API error: ${response.status} ${response.statusText} - ${errorData.error?.message || 'Unknown error'}`);
+            }
+
+            const data = await response.json();
+            this.debug('Received response from Anthropic', data);
+
+            if (!data.content || !data.content[0] || !data.content[0].text) {
+                throw new Error('Invalid response format from Anthropic');
+            }
+
+            const generatedText = data.content[0].text;
+            return this.parseActorResponse(generatedText);
+
+        } catch (error) {
+            this.handleError(error, 'actor generation');
+        }
+    }
+
+    /**
+     * Parse actor response from LLM
+     * @param {string} response - Raw LLM response
+     * @returns {Object} Parsed actor data
+     */
+    parseActorResponse(response) {
+        try {
+            const templateMatch = response.match(/=== ACTOR TEMPLATE START ===([\s\S]*?)=== ACTOR TEMPLATE END ===/);
+            if (!templateMatch) {
+                throw new Error('LLM did not follow the required template format for actors.');
+            }
+
+            const templateContent = templateMatch[1].trim();
+            const actorData = this.parseActorTemplate(templateContent);
+            
+            // Validate required fields
+            if (!actorData.name) {
+                throw new Error('Missing required field: name');
+            }
+            if (!actorData.class) {
+                throw new Error('Missing required field: class');
+            }
+
+            return actorData;
+
+        } catch (error) {
+            this.debug('Failed to parse actor response:', error);
+            throw new Error(`Failed to parse actor response: ${error.message}`);
+        }
     }
 }
