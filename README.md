@@ -1,6 +1,6 @@
 # Spacebone Item Creator
 
-An AI-powered item generation module for FoundryVTT's Pathfinder 1e system. Create detailed, balanced magic items using natural language prompts with support for multiple AI providers.
+An AI-powered item and actor creation module for FoundryVTT's Pathfinder 1e and 2e systems. Create detailed magic items and characters using natural language prompts with support for multiple AI providers.
 
 ## Features
 
@@ -10,11 +10,11 @@ An AI-powered item generation module for FoundryVTT's Pathfinder 1e system. Crea
 - **Google Gemini 2.0** - Multimodal AI with extended context
 - **Local LLMs** - Ollama, LM Studio, and other OpenAI-compatible services
 
-### 🎯 Intelligent Item Generation
-- Natural language prompts for item creation
-- Automatic Pathfinder 1e rule compliance
+### 🎯 Intelligent Item & Actor Generation
+- Natural language prompts for **items** (weapons, armor, equipment, consumables) and **actors** (PF1 & PF2e)
+- Automatic Pathfinder 1e/2e rule compliance
 - Regional flavor integration (Golarion settings)
-- Level-appropriate pricing and mechanics
+- Level-appropriate pricing, mechanics, and class levels
 - Rich descriptions with lore and appearance
 
 ### 🎨 Modern Interface
@@ -58,13 +58,22 @@ Model Name: gpt-5 (or desired model)
 4. Adjust any specific requirements if needed
 5. Click **Generate Item**
 
-### 3. Advanced Usage
+### 3. Create an Actor (PF1 or PF2e)
+
+1. Open the **Actors** sidebar tab
+2. Click the **🦴 Spacebone** button
+3. Enter a prompt like: *"A level 5 cleric of Sarenrae from Katapesh"* or *"A level 3 alkenstar rogue"*
+4. Click **Create Actor**
+
+### 4. Advanced Usage
 
 Use the configuration panel to specify:
 - **Item Type**: Weapon, Armor, Equipment, Consumable
 - **Item Level**: 1-20 (affects pricing and power)
 - **Regional Flavor**: Cheliax, Varisia, Alkenstar, etc.
 - **Specific Requirements**: Enhancement levels, materials, etc.
+
+For **actor creation**, prompts can include level, class, race/ancestry, region, and personality. The AI generates PCs or NPCs based on detail level.
 
 ## API Provider Setup
 
@@ -126,7 +135,10 @@ folken-games-spacebone/
 │   │   ├── provider-manager.js  # Provider registration and management
 │   │   └── llm-interface.js     # High-level API interface
 │   ├── factories/
-│   │   └── item-factory.js      # PF1 item data construction
+│   │   ├── item-factory.js      # PF1 item data construction
+│   │   ├── pf1-actor-factory.js # PF1 actor data construction
+│   │   ├── pf2-item-factory.js  # PF2e item data construction
+│   │   └── pf2-actor-factory.js # PF2e actor data construction
 │   ├── ui/
 │   │   └── spacebone-ui.js      # User interface management
 │   ├── utils/
@@ -157,9 +169,8 @@ The module uses a modular provider architecture:
 4. **SpaceboneAPI** - High-level interface for the UI layer
 
 ### Data Flow
-```
-User Input → SpaceboneUI → SpaceboneAPI → ProviderManager → AI Provider → Item Data → ItemFactory → FoundryVTT Item
-```
+- **Items**: `User Input → SpaceboneUI → SpaceboneAPI → ProviderManager → AI Provider → Item Data → ItemFactory / PF2ItemFactory → FoundryVTT Item`
+- **Actors**: `User Input → SpaceboneUI → SpaceboneAPI → ProviderManager → AI Provider → Actor Data → PF1ActorFactory / PF2ActorFactory → FoundryVTT Actor`
 
 ## Development
 
@@ -220,7 +231,11 @@ Enable debug mode in module settings to see detailed logs:
 **Button doesn't appear**
 - Ensure you're logged in as a GM
 - Check that the module is enabled
+- Actor button shows only for PF1 and PF2e systems; Items button shows for both
 - Try refreshing the page
+
+**Armor not showing in inventory / ghost encumbrance**
+- Fixed in recent versions: armor is now created as `type: "armor"` with correct slot, `baseTypes`, and `equipmentSubtype`. If you have old buggy armor (type "equipment", invisible but affecting encumbrance), delete it via console or replace it.
 
 **GPT-5 Model Issues ("max_tokens not supported")**
 - Go to Module Settings for "Folken Games Spacebone"
@@ -265,4 +280,4 @@ This module is licensed under the MIT License. See LICENSE file for details.
 
 ---
 
-*Generate amazing items for your Pathfinder campaigns with the power of AI!* 🦴✨
+*Generate amazing items and characters for your Pathfinder campaigns with the power of AI!* 🦴✨

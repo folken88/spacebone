@@ -1063,6 +1063,11 @@ export class ItemFactory {
             }
         }
         
+        if (itemData.type === 'armor') {
+            delete systemData.held;
+            delete systemData.hands;
+        }
+
         const customItem = {
             name: itemData.name,
             type: this.mapItemType(itemData.type),
@@ -1101,7 +1106,7 @@ export class ItemFactory {
         const typeMap = {
             'equipment': 'equipment',
             'weapon': 'weapon',
-            'armor': 'equipment',
+            'armor': 'armor',
             'consumable': 'consumable',
             'loot': 'loot'
         };
@@ -1620,11 +1625,16 @@ export class ItemFactory {
 
         // Add equipment-specific data
         if (itemData.type === 'equipment' || itemData.type === 'armor') {
-            systemData.subType = itemData.subType || 'wondrous';
-            systemData.slot = itemData.slot || 'none';
+            systemData.subType = itemData.subType || (itemData.type === 'armor' ? 'light' : 'wondrous');
+            systemData.slot = itemData.type === 'armor' ? 'armor' : (itemData.slot || 'none');
             systemData.equipped = false;
             systemData.armor = this.buildArmorData(itemData);
-            
+            if (itemData.type === 'armor') {
+                const armorInfo = this.getArmorInfo(itemData.subType);
+                systemData.baseTypes = ['armor'];
+                const cat = armorInfo.type || 'light';
+                systemData.equipmentSubtype = cat === 'shield' ? 'shield' : `${cat}Armor`;
+            }
             if (itemData.enhancement) {
                 systemData.armor.enh = itemData.enhancement;
             }
@@ -2266,8 +2276,10 @@ export class ItemFactory {
             throw new Error('Item price cannot be negative');
         }
 
-        // Validate weight
-        if (itemData.system.weight < 0) {
+        // Validate weight (PF1 uses { value: N })
+        const w = itemData.system.weight;
+        const weightVal = typeof w === 'object' && w && 'value' in w ? w.value : w;
+        if (typeof weightVal === 'number' && weightVal < 0) {
             throw new Error('Item weight cannot be negative');
         }
     }

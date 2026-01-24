@@ -193,7 +193,7 @@ export class SpaceboneAPI {
             console.log('[SpaceboneAPI] Generating actor:', request);
 
             // Add system context
-            const systemId = game?.system?.id || 'pf2e';
+            const systemId = game?.system?.id || 'pf1';
             const enhancedContext = {
                 ...context,
                 systemId: systemId

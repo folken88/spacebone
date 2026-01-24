@@ -77,6 +77,20 @@ export class BaseProvider {
     }
 
     /**
+     * Build the system prompt for actor generation (automatically selects PF1 or PF2e)
+     * @param {Object} context - Generation context (may include systemId: 'pf1' or 'pf2e')
+     * @returns {string} System prompt
+     * @protected
+     */
+    buildActorPrompt(context = {}) {
+        const systemId = context.systemId || game?.system?.id || 'pf2e';
+        if (systemId === 'pf1') {
+            return this.buildPF1ActorPrompt(context);
+        }
+        return this.buildPF2ActorPrompt(context);
+    }
+
+    /**
      * Build the system prompt for PF2e actor generation
      * @param {Object} context - Generation context
      * @returns {string} System prompt
@@ -226,6 +240,139 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
     }
 
     /**
+     * Build the system prompt for PF1 actor generation
+     * @param {Object} context - Generation context
+     * @returns {string} System prompt
+     * @protected
+     */
+    buildPF1ActorPrompt(context) {
+        return `You are an expert Pathfinder 1e character creator. You MUST follow the exact format specified below. Any deviation from this format will cause the system to fail.
+
+## CRITICAL REQUIREMENTS:
+- You MUST return ONLY the template between the markers
+- You MUST NOT include JSON, markdown code blocks, or any other formatting
+- You MUST NOT add explanatory text before or after the template
+- You MUST fill in ALL fields, even if with simple values
+- Your response MUST start with "=== ACTOR TEMPLATE START ===" and end with "=== ACTOR TEMPLATE END ==="
+- **CRITICAL**: The NAME field must contain ONLY the character name. NO descriptions or additional text!
+
+## PC vs NPC DETECTION:
+- **PC (character)**: Use when the prompt has significant detail, mentions a name, or describes a complex individual. PCs get full biography, personality, detailed backstory.
+- **NPC**: Use when the prompt is brief (e.g., "thug", "guard", "merchant"), explicitly says "npc", or describes a simple role. NPCs get minimal details.
+
+## PATHFINDER 1E ACTOR SYSTEM:
+PF1 uses a different system than PF2e:
+- **Levels**: 1-20 (use appropriate level based on prompt)
+- **Races**: Human, Elf, Dwarf, Halfling, Gnome, Half-Elf, Half-Orc, Tiefling, Aasimar, etc.
+- **Classes**: Alchemist, Barbarian, Bard, Cavalier, Cleric, Druid, Fighter, Gunslinger, Inquisitor, Investigator, Magus, Monk, Oracle, Paladin, Ranger, Rogue, Sorcerer, Summoner, Witch, Wizard
+- **Alignments**: Lawful Good (LG), Lawful Neutral (LN), Lawful Evil (LE), Neutral Good (NG), Neutral (N), Neutral Evil (NE), Chaotic Good (CG), Chaotic Neutral (CN), Chaotic Evil (CE)
+- **Deities**: Sarenrae, Iomedae, Pharasma, Desna, Cayden Cailean, Asmodeus, Abadar, etc. (optional, for divine classes)
+
+## GOLARION REGIONAL POPULATIONS & RACES:
+Use regional demographics to choose appropriate races:
+- **Alkenstar**: ~70% Human (mostly Garundi, Keleshite), ~15% Dwarf, ~10% Gnome, ~5% other. Industrial, firearms, technology-focused.
+- **Caliphas (Ustalav)**: ~85% Human (mostly Ustalavic), ~10% Dwarf, ~5% other. Gothic horror, undead themes, pale complexions.
+- **Absalom**: Highly diverse - ~40% Human (all ethnicities), ~15% Dwarf, ~10% Elf, ~10% Halfling, ~25% other. Melting pot.
+- **Katapesh**: ~60% Human (mostly Kelish), ~20% Halfling, ~10% Gnome, ~10% other. Desert trade city.
+- **Cheliax**: ~75% Human (mostly Chelaxian), ~15% Tiefling, ~10% other. Infernal, lawful evil.
+- **Varisia**: ~50% Human (Varisian, Shoanti), ~20% Dwarf, ~15% Elf, ~15% other. Frontier, diverse.
+- **Osirion**: ~80% Human (mostly Garundi, Keleshite), ~10% Dwarf, ~10% other. Desert, pharaonic.
+- **Tian Xia**: ~70% Human (Tian), ~15% Tengu, ~10% Kitsune, ~5% other. Oriental, honor-based.
+- **Mwangi Expanse**: ~40% Human (Mwangi), ~20% Lizardfolk, ~15% Orc, ~15% other. Jungle, tribal.
+- **Numeria**: ~60% Human (mostly Kellid), ~20% Android, ~20% other. Technological ruins.
+
+## ACTOR TEMPLATE FORMAT:
+=== ACTOR TEMPLATE START ===
+NAME: [Character name only - no descriptions]
+TYPE: [character/npc - use "npc" for simple roles like "thug", "guard", or when explicitly requested]
+LEVEL: [1-20, appropriate for prompt]
+RACE: [Human/Elf/Dwarf/Halfling/Gnome/Half-Elf/Half-Orc/Tiefling/Aasimar/etc - choose based on regional demographics]
+CLASS: [Alchemist/Barbarian/Bard/Cavalier/Cleric/Druid/Fighter/Gunslinger/Inquisitor/Investigator/Magus/Monk/Oracle/Paladin/Ranger/Rogue/Sorcerer/Summoner/Witch/Wizard - choose based on prompt themes]
+ALIGNMENT: [LG/LN/LE/NG/N/NE/CG/CN/CE - choose based on prompt]
+DEITY: [Deity name if applicable, or leave blank]
+ETHNICITY: [Regional ethnicity from Golarion, e.g., Kelish, Varisian, Taldan, Garundi, Ustalavic, etc.]
+GENDER: [Gender and pronouns, e.g., "M/He/Him" or "F/She/Her" or "NB/They/Them"]
+AGE: [Age if specified, or leave blank]
+HEIGHT: [Height if specified, or leave blank]
+WEIGHT: [Weight if specified, or leave blank]
+NATIONALITY: [Nationality/region from Golarion, e.g., "Alkenstar", "Caliphas", "Absalom", "Katapesh"]
+LANGUAGES: [Comma-separated: common, elven, dwarven, etc. Always include common. Add regional languages based on nationality]
+APPEARANCE: [Physical description - appearance, clothing, distinguishing features. For NPCs, keep brief]
+BACKSTORY: [Character background story - where they're from, what they've done, motivations. For NPCs, keep very brief or just a sentence]
+PERSONALITY: [Personality traits, attitude, beliefs, likes, dislikes. For NPCs, keep brief or leave minimal]
+ABILITIES: [STR: X, DEX: X, CON: X, INT: X, WIS: X, CHA: X - use appropriate scores for class and level. For NPCs, use appropriate scores]
+TRAINED_SKILLS: [Comma-separated list of trained skills: acrobatics, appraise, bluff, climb, craft, diplomacy, disable device, disguise, escape artist, fly, handle animal, heal, intimidate, knowledge (arcana), knowledge (dungeoneering), knowledge (engineering), knowledge (geography), knowledge (history), knowledge (local), knowledge (nature), knowledge (nobility), knowledge (planes), knowledge (religion), linguistics, perception, perform, profession, ride, sense motive, sleight of hand, spellcraft, stealth, survival, swim, use magic device]
+=== ACTOR TEMPLATE END ===
+
+## EXAMPLES:
+
+Example 1 - NPC prompt: "level 3 alkenstar criminal and former rich kid asshole"
+NAME: Marcus Vane
+TYPE: npc
+LEVEL: 3
+RACE: Human
+CLASS: Rogue
+ALIGNMENT: CN
+DEITY: 
+ETHNICITY: Garundi
+GENDER: M/He/Him
+AGE: 24
+HEIGHT: 5'11"
+WEIGHT: 175 lbs
+NATIONALITY: Alkenstar
+LANGUAGES: common, dwarven
+APPEARANCE: A well-dressed but disheveled young man with expensive clothes showing signs of wear. Carries himself with arrogant entitlement despite his current circumstances.
+BACKSTORY: Born to wealthy Alkenstar merchants, Marcus squandered his inheritance and turned to crime when his family cut him off. Now works as a low-level criminal while maintaining his sense of superiority.
+PERSONALITY: Arrogant, entitled, and resentful of his fall from grace. Treats others with contempt.
+ABILITIES: STR: 10, DEX: 16, CON: 12, INT: 14, WIS: 10, CHA: 14
+TRAINED_SKILLS: bluff, disable device, disable device, escape artist, perception, sleight of hand, stealth, use magic device
+
+Example 2 - PC prompt: "a level 5 rogue from Caliphas named Thaddeus"
+NAME: Thaddeus Blackwood
+TYPE: character
+LEVEL: 5
+RACE: Human
+CLASS: Rogue
+ALIGNMENT: CN
+DEITY: 
+ETHNICITY: Ustalavic
+GENDER: M/He/Him
+AGE: 28
+HEIGHT: 5'10"
+WEIGHT: 165 lbs
+NATIONALITY: Caliphas
+LANGUAGES: common, thieves' cant
+APPEARANCE: A lean, pale man with dark hair and piercing gray eyes. Wears dark, practical clothing suitable for moving through shadows. Carries several concealed daggers and has a wary, watchful demeanor.
+BACKSTORY: Born in the shadowy streets of Caliphas, Thaddeus learned early that survival meant staying one step ahead of both the law and the undead that plague Ustalav. He became a skilled thief and information broker, navigating the city's dangerous underworld with cunning and stealth.
+PERSONALITY: Cautious and observant, Thaddeus trusts few people. He's pragmatic and resourceful, with a dark sense of humor born from living in a city where death is never far away.
+ABILITIES: STR: 12, DEX: 18, CON: 14, INT: 14, WIS: 12, CHA: 10
+TRAINED_SKILLS: acrobatics, appraise, bluff, climb, disable device, escape artist, intimidate, knowledge (local), perception, sleight of hand, stealth, use magic device
+
+Example 3 - Simple NPC: "thug"
+NAME: Bruiser
+TYPE: npc
+LEVEL: 1
+RACE: Human
+CLASS: Fighter
+ALIGNMENT: NE
+DEITY: 
+ETHNICITY: 
+GENDER: M/He/Him
+AGE: 
+HEIGHT: 
+WEIGHT: 
+NATIONALITY: 
+LANGUAGES: common
+APPEARANCE: A burly, intimidating figure with scars and rough clothing.
+BACKSTORY: A common street thug who uses violence to get what he wants.
+PERSONALITY: Aggressive and opportunistic.
+ABILITIES: STR: 16, DEX: 12, CON: 14, INT: 8, WIS: 10, CHA: 8
+TRAINED_SKILLS: intimidate, perception
+
+CRITICAL: Your entire response must be ONLY the filled template above. Nothing else. No JSON. No code blocks. No explanations. The system expects this exact format and will fail if you deviate from it.`;
+    }
+
+    /**
      * Parse actor template from LLM response
      * @param {string} templateContent - Template content between markers
      * @returns {Object} Parsed actor data
@@ -245,10 +392,14 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
                 actorData.type = this.extractValue(trimmedLine, 'TYPE:').toLowerCase().trim();
             } else if (trimmedLine.startsWith('LEVEL:')) {
                 actorData.level = this.extractValue(trimmedLine, 'LEVEL:').trim();
+            } else if (trimmedLine.startsWith('RACE:')) {
+                actorData.race = this.extractValue(trimmedLine, 'RACE:').trim();
             } else if (trimmedLine.startsWith('ANCESTRY:')) {
                 actorData.ancestry = this.extractValue(trimmedLine, 'ANCESTRY:').trim();
             } else if (trimmedLine.startsWith('HERITAGE:')) {
                 actorData.heritage = this.extractValue(trimmedLine, 'HERITAGE:').trim();
+            } else if (trimmedLine.startsWith('ALIGNMENT:')) {
+                actorData.alignment = this.extractValue(trimmedLine, 'ALIGNMENT:').trim();
             } else if (trimmedLine.startsWith('CLASS:')) {
                 actorData.class = this.extractValue(trimmedLine, 'CLASS:').trim();
             } else if (trimmedLine.startsWith('BACKGROUND:')) {

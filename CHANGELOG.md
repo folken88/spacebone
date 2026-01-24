@@ -7,13 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-- **Anthropic API Version**: Updated Anthropic Claude API version header from `2023-06-01` to `2024-10-01` for improved compatibility and access to latest features (as of December 2025)
-
-### Fixed
-- **Aura School Detection**: Fixed issue where aura school types were not being properly set in FoundryVTT. The system now correctly maps full school names (e.g., "evocation") to PF1 abbreviations (e.g., "evo") for proper FoundryVTT integration.
-
 ### Added
+- **PF1 Actor Creation**: AI-generated Pathfinder 1e characters and NPCs from natural language prompts. Create actors from the **Actors** tab via the Spacebone button (PF1 and PF2e).
+- **PF1 Actor Factory**: `pf1-actor-factory.js` converts LLM actor data into PF1 actors (abilities, skills, details, class level, race/class items, equipment). Supports PCs and NPCs.
+- **PF1 Actor Prompts**: `buildPF1ActorPrompt()` in BaseProvider with PF1-specific template (RACE, CLASS, ALIGNMENT, TRAINED_SKILLS, etc.). Providers use `buildActorPrompt(context)` and pass `systemId` for PF1 vs PF2e.
+- **Actor UI for PF1**: Spacebone button and actor creator dialog now available for PF1 as well as PF2e. `Spacebone.createActor()` routes to PF1 or PF2e factory based on active system.
+- **PF1 HP / Level Handling**: Class level is set on compendium class items (`system.level`) so character level displays correctly. HP calculation uses average HP per level when not in max-HP mode; placeholder for PF1 max-HP setting detection (to be wired once exact setting key is verified).
 - **Special Weapon Abilities**: Automatic detection and implementation of magical weapon properties (flaming, frost, shock, holy, etc.)
 - **Burst Abilities Support**: Full support for burst weapons with both normal and critical hit damage (flaming burst, icy burst, etc.)
 - **Critical Damage System**: Proper `damage.critParts` implementation for abilities that trigger on critical hits
@@ -33,12 +32,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Action Generation**: Creates proper PF1 actions with damage, saves, ranges, templates, and activation costs
 
 ### Changed
+- **Anthropic API Version**: Updated Anthropic Claude API version header from `2023-06-01` to `2024-10-01` for improved compatibility and access to latest features (as of December 2025)
+- **Armor Item Type**: Armor items now use `type: "armor"` instead of `type: "equipment"`. Map updated in `mapItemType()`.
+- **Armor Slot & Metadata**: Armor always uses `slot: "armor"`. `baseTypes: ["armor"]` and `equipmentSubtype` (e.g. `heavyArmor` for full plate) are set from `getArmorInfo()`.
 - **Special Abilities Processing**: Intelligent detection of burst vs. regular abilities with proper damage distribution
 - **LLM Template**: Enhanced item generation template with dedicated MATERIAL field and comprehensive material guidance
 - **Material Integration**: Seamless integration of materials system with existing item creation workflow
 - **Bonus Detection**: Enhanced mechanical effects parsing with detailed examples and guidance for proper bonus formatting
 
 ### Fixed
+- **Aura School Detection**: Fixed issue where aura school types were not being properly set in FoundryVTT. The system now correctly maps full school names (e.g., "evocation") to PF1 abbreviations (e.g., "evo") for proper FoundryVTT integration.
+- **Armor Not Showing in Inventory / Ghost Encumbrance**: Armor created as equipment with wrong slot/baseTypes could be invisible in the Armor tab but still count for encumbrance. Fixed by using `type: "armor"`, `slot: "armor"`, correct `baseTypes`/`equipmentSubtype`, and stripping `held`/`hands` from armor.
+- **PF1 Class Level**: Class level is now set on the class item when creating PF1 actors, so “level 5 cleric” etc. display correctly.
+- **Weight Validation**: `validateItemData` now checks `system.weight.value` (PF1 structure) instead of `system.weight` when validating non-negative weight.
 - **Damage Type Detection**: Burst abilities correctly add both normal damage and critical hit damage
 - **Ability Conflict Resolution**: Prevents duplicate damage types when multiple detection methods match
 

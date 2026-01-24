@@ -23,6 +23,7 @@ class Spacebone {
     static api = null;
     static itemFactory = null;
     static pf2ItemFactory = null;
+    static pf1ActorFactory = null;
     static pf2ActorFactory = null;
     static ui = null;
     static folderManager = null;
@@ -68,6 +69,18 @@ class Spacebone {
         
         // Initialize PF1 factory (always available for backward compatibility)
         this.itemFactory = new ItemFactory();
+        
+        // Initialize PF1 actor factory (only for PF1)
+        this.pf1ActorFactory = null;
+        if (this.isPF1()) {
+            try {
+                const { PF1ActorFactory } = await import('./factories/pf1-actor-factory.js');
+                this.pf1ActorFactory = new PF1ActorFactory();
+            } catch (error) {
+                console.warn(`${this.NAME} | Failed to load/initialize PF1 actor factory:`, error);
+                this.pf1ActorFactory = null;
+            }
+        }
         
         // Initialize PF2e factory (only if needed, with error handling)
         // Use dynamic import to prevent breaking PF1 if PF2 factory has issues
@@ -395,21 +408,13 @@ class Spacebone {
     }
 
     /**
-     * Create a PF2e actor from a user prompt
+     * Create an actor from a user prompt (supports both PF1 and PF2e)
      * @param {string} prompt - User's actor description
      * @returns {Promise<Actor|null>} Created actor or null if failed
      */
     static async createActor(prompt) {
         try {
-            if (!this.isPF2e()) {
-                ui.notifications.warn('Actor creation is currently only supported for Pathfinder 2e.');
-                return null;
-            }
-
-            if (!this.pf2ActorFactory) {
-                ui.notifications.error('PF2e actor factory not available.');
-                return null;
-            }
+            const systemId = this.getSystemId();
 
             if (!this.api) {
                 ui.notifications.error('Spacebone API not initialized.');
@@ -424,16 +429,41 @@ class Spacebone {
                 return null;
             }
 
-            // Convert to PF2e actor format
-            const pf2ActorData = await this.pf2ActorFactory.createPF2Actor(actorData);
-            
-            if (!pf2ActorData) {
-                ui.notifications.error('Failed to convert actor data to PF2e format');
+            let systemActorData;
+
+            if (this.isPF2e()) {
+                // PF2e actor creation
+                if (!this.pf2ActorFactory) {
+                    ui.notifications.error('PF2e actor factory not available.');
+                    return null;
+                }
+
+                systemActorData = await this.pf2ActorFactory.createPF2Actor(actorData);
+                
+                if (!systemActorData) {
+                    ui.notifications.error('Failed to convert actor data to PF2e format');
+                    return null;
+                }
+            } else if (this.isPF1()) {
+                // PF1 actor creation
+                if (!this.pf1ActorFactory) {
+                    ui.notifications.error('PF1 actor factory not available.');
+                    return null;
+                }
+
+                systemActorData = await this.pf1ActorFactory.createPF1Actor(actorData);
+                
+                if (!systemActorData) {
+                    ui.notifications.error('Failed to convert actor data to PF1 format');
+                    return null;
+                }
+            } else {
+                ui.notifications.warn('Actor creation is currently only supported for Pathfinder 1e and 2e.');
                 return null;
             }
 
             // Create the actor in FoundryVTT
-            const actor = await Actor.create(pf2ActorData, { renderSheet: true });
+            const actor = await Actor.create(systemActorData, { renderSheet: true });
             
             if (actor) {
                 console.log(`${this.NAME} | Created actor: ${actor.name}`);
@@ -464,8 +494,9 @@ Hooks.on("renderActorDirectory", (app, html, data) => {
     // Only show for GMs
     if (!game.user.isGM) return;
 
-    // Only show in PF2e
-    if (game.system.id !== 'pf2e') return;
+    // Show in both PF1 and PF2e
+    const systemId = game.system?.id;
+    if (systemId !== 'pf1' && systemId !== 'pf2e') return;
 
     // Copy item directory pattern exactly
     if (game.release.generation >= 13) {

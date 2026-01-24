@@ -290,14 +290,16 @@ Claude, please focus on creating mechanically accurate Pathfinder 1e items with 
                 throw new Error('Anthropic provider is not properly configured');
             }
 
-            const systemPrompt = this.buildPF2ActorPrompt(context);
+            const systemPrompt = this.buildActorPrompt(context);
+            const systemId = context.systemId || game?.system?.id || 'pf2e';
+            const systemName = systemId === 'pf1' ? 'Pathfinder 1e' : 'Pathfinder 2e';
             
-            const userPrompt = `Create a Pathfinder 2e character: ${prompt}
+            const userPrompt = `Create a ${systemName} character: ${prompt}
 
 CRITICAL INSTRUCTIONS:
 - You MUST respond using the exact template format specified in the system prompt
 - Start your response with "=== ACTOR TEMPLATE START ===" and end with "=== ACTOR TEMPLATE END ==="
-- Use your knowledge of Pathfinder 2e and Golarion to create an appropriate character
+- Use your knowledge of ${systemName} and Golarion to create an appropriate character
 - Fill in ALL template fields with appropriate values based on the user's description`;
 
             const response = await fetch(this.config.endpoint, {

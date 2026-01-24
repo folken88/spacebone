@@ -23,8 +23,9 @@ export class SpaceboneUI {
         // Only show for GMs
         if (!game.user.isGM) return;
 
-        // Only show in PF2e
-        if (game.system.id !== 'pf2e') return;
+        // Show in both PF1 and PF2e
+        const systemId = game.system?.id;
+        if (systemId !== 'pf1' && systemId !== 'pf2e') return;
 
         // Handle both v13+ (raw DOM) and legacy (jQuery) - match item directory pattern
         if (game.release.generation >= 13) {
