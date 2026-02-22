@@ -7,6 +7,13 @@
  */
 
 import { SPECIAL_MATERIALS, applyMaterialToItem, calculateMaterialCost } from '../data/materials.js';
+import {
+    EQUIPMENT_BASE_PREFERENCES,
+    EQUIPMENT_FALLBACK_PACK,
+    CONSUMABLE_BASE_PREFERENCES,
+    CONSUMABLE_PACKS_TO_TRY
+} from '../data/compendium-bases.js';
+import { normalizeChangeTarget, normalizeModifierType } from '../data/pf1-item-schema.js';
 
 export class ItemFactory {
     constructor() {
@@ -22,18 +29,13 @@ export class ItemFactory {
         try {
             let pf1Data;
 
-            // For weapons and armor, start with a base item from compendium
-            if (itemData.type === 'weapon' || itemData.type === 'armor') {
-                pf1Data = await this.getBaseItemFromCompendium(itemData);
-                if (pf1Data) {
-                    // Modify the base item with our generated data
-                    this.enhanceBaseItem(pf1Data, itemData);
-                } else {
-                    // Fallback to custom creation if no base found
-                    pf1Data = this.buildCustomItem(itemData);
-                }
+            // Always try compendium base first for all item types (weapon, armor, equipment, consumable)
+            pf1Data = await this.getBaseItemFromCompendium(itemData);
+            if (pf1Data) {
+                // Clone-then-modify: apply LLM data onto compendium base
+                this.applyLLMDataToBase(pf1Data, itemData);
             } else {
-                // For equipment/consumables, build from scratch
+                // Fallback to custom creation only when no suitable base found
                 pf1Data = this.buildCustomItem(itemData);
             }
 
@@ -53,182 +55,241 @@ export class ItemFactory {
     }
 
     /**
-     * Get a base item from PF1 compendiums
+     * Get a base item from PF1 compendiums (weapon, armor, equipment, or consumable).
      * @param {Object} itemData - LLM generated item data
      * @returns {Promise<Object|null>} Base item from compendium or null
      */
     async getBaseItemFromCompendium(itemData) {
         try {
-            let packName;
-            if (itemData.type === 'weapon') {
-                packName = 'pf1.weapons-and-ammo';
-            } else if (itemData.type === 'armor') {
-                packName = 'pf1.armors-and-shields';
-            } else {
-                return null;
+            if (itemData.type === 'weapon' || itemData.type === 'armor') {
+                return await this._getBaseWeaponOrArmor(itemData);
             }
-
-            const pack = game.packs.get(packName);
-            if (!pack) {
-                console.warn(`Spacebone | Compendium ${packName} not found`);
-                return null;
+            if (itemData.type === 'equipment') {
+                return await this._getBaseEquipment(itemData);
             }
-
-            const index = await pack.getDocuments();
-            
-            // Find matching items
-            const matchingItems = index.filter(item => {
-                if (item.type !== itemData.type) return false;
-                
-                // Match by name or subtype
-                const itemName = item.name.toLowerCase();
-                const subType = itemData.subType.toLowerCase();
-                
-                return itemName.includes(subType) || 
-                       subType.includes(itemName) ||
-                       item.system.baseTypes?.some(bt => bt.toLowerCase() === subType);
-            });
-            
-            // Prefer standard weapons over exotic variants
-            let baseItem = matchingItems.find(item => {
-                const itemName = item.name.toLowerCase();
-                return !itemName.includes('dwarven') && 
-                       !itemName.includes('elven') && 
-                       !itemName.includes('orcish') && 
-                       !itemName.includes('pelletbow') &&
-                       !itemName.includes('repeating');
-            });
-            
-            // Fallback to any match if no standard version found
-            if (!baseItem && matchingItems.length > 0) {
-                baseItem = matchingItems[0];
+            if (itemData.type === 'consumable') {
+                return await this._getBaseConsumable(itemData);
             }
-
-            if (baseItem) {
-                console.log(`Spacebone | Found base item: ${baseItem.name} for ${itemData.subType}`);
-                return baseItem.toObject();
-            }
-
             return null;
-
         } catch (error) {
             console.error('Spacebone | Error loading base item from compendium:', error);
             return null;
         }
     }
 
+    async _getBaseWeaponOrArmor(itemData) {
+        const packName = itemData.type === 'weapon' ? 'pf1.weapons-and-ammo' : 'pf1.armors-and-shields';
+        const pack = game.packs.get(packName);
+        if (!pack) {
+            console.warn(`Spacebone | Compendium ${packName} not found`);
+            return null;
+        }
+        const index = await pack.getDocuments();
+        const matchingItems = index.filter(item => {
+            if (item.type !== itemData.type) return false;
+            const itemName = item.name.toLowerCase();
+            const subType = (itemData.subType || '').toLowerCase();
+            return itemName.includes(subType) || subType.includes(itemName) ||
+                item.system.baseTypes?.some(bt => bt.toLowerCase() === subType);
+        });
+        let baseItem = matchingItems.find(item => {
+            const itemName = item.name.toLowerCase();
+            return !itemName.includes('dwarven') && !itemName.includes('elven') &&
+                !itemName.includes('orcish') && !itemName.includes('pelletbow') && !itemName.includes('repeating');
+        });
+        if (!baseItem && matchingItems.length > 0) baseItem = matchingItems[0];
+        if (baseItem) {
+            console.log(`Spacebone | Found base item: ${baseItem.name} for ${itemData.subType}`);
+            return baseItem.toObject();
+        }
+        return null;
+    }
+
+    async _getBaseEquipment(itemData) {
+        const subType = (itemData.subType || 'wondrous').toLowerCase();
+        const slot = (itemData.slot || this.getEquipmentSlot(itemData.subType, itemData.name)).toLowerCase();
+        const preferredName = EQUIPMENT_BASE_PREFERENCES.bySubType[subType] ||
+            EQUIPMENT_BASE_PREFERENCES.bySlot[slot] ||
+            EQUIPMENT_BASE_PREFERENCES.bySubType.wondrous;
+        for (const packName of [EQUIPMENT_BASE_PREFERENCES.pack, EQUIPMENT_FALLBACK_PACK]) {
+            const pack = game.packs.get(packName);
+            if (!pack) continue;
+            const index = await pack.getDocuments();
+            const equipment = index.filter(item => item.type === 'equipment');
+            let base = equipment.find(item => item.name === preferredName);
+            if (!base && preferredName) {
+                base = equipment.find(item => item.name.toLowerCase().includes(preferredName.toLowerCase().slice(0, 15)));
+            }
+            if (!base && (subType === 'wondrous' || subType === 'ring' || subType === 'headband')) {
+                base = equipment.find(item => item.system?.slot === slot || item.system?.subType === subType) || equipment[0];
+            }
+            if (base) {
+                console.log(`Spacebone | Found equipment base: ${base.name} from ${packName}`);
+                return base.toObject();
+            }
+        }
+        return null;
+    }
+
+    async _getBaseConsumable(itemData) {
+        const subType = (itemData.subType || 'potion').toLowerCase();
+        const preferredName = CONSUMABLE_BASE_PREFERENCES.bySubType[subType] || CONSUMABLE_BASE_PREFERENCES.bySubType.potion;
+        for (const packName of CONSUMABLE_PACKS_TO_TRY) {
+            const pack = game.packs.get(packName);
+            if (!pack) continue;
+            const index = await pack.getDocuments();
+            const consumables = index.filter(item => item.type === 'consumable');
+            let base = consumables.find(item => item.name === preferredName);
+            if (!base) {
+                base = consumables.find(item => item.name.toLowerCase().includes(preferredName.toLowerCase().slice(0, 20)));
+            }
+            if (!base) {
+                base = consumables.find(item => (item.system?.consumableType || item.system?.subType || '').toLowerCase() === subType) || consumables[0];
+            }
+            if (base) {
+                console.log(`Spacebone | Found consumable base: ${base.name} from ${packName}`);
+                return base.toObject();
+            }
+        }
+        return null;
+    }
+
     /**
-     * Enhance a base item with LLM-generated data
-     * @param {Object} baseItem - Base item from compendium
+     * Apply LLM-generated data onto a compendium base (clone-then-modify).
+     * Handles all types: weapon, armor, equipment, consumable.
+     * Applies description, cost, weight, hardness, hp, materials, damage, enhancement,
+     * changes, contextNotes (conditional modifiers), actions (spell activations), uses (charges/communal).
+     * @param {Object} baseItem - Base item from compendium (will be mutated)
      * @param {Object} itemData - LLM generated item data
      */
-    enhanceBaseItem(baseItem, itemData) {
-        // Update basic properties
-        baseItem.name = itemData.name;
+    applyLLMDataToBase(baseItem, itemData) {
+        baseItem.name = itemData.name || baseItem.name;
         baseItem.img = this.getDefaultIcon(itemData.type, itemData.subType, itemData.name);
-        
-        // Set equipment slot for PF1 system
+
+        const sys = baseItem.system;
+        if (!sys) return;
+
         if (itemData.type === 'equipment') {
-            baseItem.system.slot = this.getEquipmentSlot(itemData.subType, itemData.name);
+            sys.slot = this.getEquipmentSlot(itemData.subType, itemData.name);
         }
-        
-        // Update system data
-        baseItem.system.description = {
+
+        sys.description = {
             value: this.formatDescription(itemData),
-            chat: "",
-            unidentified: baseItem.system.description?.unidentified || ""
+            chat: sys.description?.chat ?? "",
+            unidentified: sys.description?.unidentified ?? ""
         };
-        
-        baseItem.system.price = itemData.price || baseItem.system.price;
-        baseItem.system.weight.value = itemData.weight || baseItem.system.weight.value;
-        
-        // Handle masterwork and enhancement following pf1-magic-item-gen pattern
+
+        if (itemData.price != null) sys.price = itemData.price;
+        if (itemData.weight != null) {
+            if (typeof sys.weight === 'object' && sys.weight !== null) sys.weight.value = itemData.weight;
+            else sys.weight = { value: itemData.weight };
+        }
+        if (itemData.hardness != null) {
+            sys.hardness = sys.hardness || { base: 0, total: 0 };
+            sys.hardness.base = itemData.hardness;
+            sys.hardness.total = typeof sys.hardness.total === 'number' ? sys.hardness.total : itemData.hardness;
+        }
+        if (itemData.hp != null) {
+            sys.hp = sys.hp || { base: 0, offset: 0, max: 0, value: 0 };
+            sys.hp.base = itemData.hp;
+            sys.hp.value = itemData.hp;
+            sys.hp.max = sys.hp.max != null ? sys.hp.max : itemData.hp;
+            if (sys.hp.offset == null) sys.hp.offset = 0;
+        }
+
         const isRequestedMasterwork = itemData.name && itemData.name.toLowerCase().includes('masterwork');
         const hasEnhancement = itemData.enhancement && itemData.enhancement > 0;
-        const hasMagicalEffects = itemData.mechanical?.effects && itemData.mechanical.effects.trim() !== '';
-        
-        // Set masterwork status
+        const hasMagicalEffects = itemData.mechanical?.effects && String(itemData.mechanical.effects).trim() !== '';
         if (isRequestedMasterwork || hasEnhancement || hasMagicalEffects) {
-            baseItem.system.masterwork = true;
+            sys.masterwork = true;
         }
-        
-        // Add enhancement bonus for weapons/armor
+
         if (hasEnhancement) {
             if (itemData.type === 'weapon') {
-                baseItem.system.enh = itemData.enhancement;
-                baseItem.system.masterwork = true;
-                if (!baseItem.system.material.addon.includes('magic')) {
-                    baseItem.system.material.addon.push('magic');
-                }
-            } else if (itemData.type === 'armor') {
-                // Use proper PF1 armor enhancement path
-                baseItem.system.armor = baseItem.system.armor || {};
-                baseItem.system.armor.enh = itemData.enhancement;
-                baseItem.system.masterwork = true;
-                if (!baseItem.system.armor.material) {
-                    baseItem.system.armor.material = { addon: [] };
-                }
-                if (!baseItem.system.armor.material.addon.includes('magic')) {
-                    baseItem.system.armor.material.addon.push('magic');
+                sys.enh = itemData.enhancement;
+                if (sys.material?.addon && !sys.material.addon.includes('magic')) sys.material.addon.push('magic');
+            } else if (itemData.type === 'armor' && sys.armor) {
+                sys.armor.enh = itemData.enhancement;
+                if (sys.armor.material) {
+                    sys.armor.material.addon = sys.armor.material.addon || [];
+                    if (!sys.armor.material.addon.includes('magic')) sys.armor.material.addon.push('magic');
                 }
             }
         }
-        
-        // Set magic flag for any magical effects
         if (hasMagicalEffects || hasEnhancement) {
-            if (itemData.type === 'armor') {
-                baseItem.system.armor = baseItem.system.armor || {};
-                baseItem.system.armor.material = baseItem.system.armor.material || { addon: [] };
-                if (!baseItem.system.armor.material.addon.includes('magic')) {
-                    baseItem.system.armor.material.addon.push('magic');
-                }
-            } else {
-                if (!baseItem.system.material.addon.includes('magic')) {
-                    baseItem.system.material.addon.push('magic');
-                }
+            if (itemData.type === 'armor' && sys.armor?.material) {
+                if (!sys.armor.material.addon.includes('magic')) sys.armor.material.addon.push('magic');
+            } else if (sys.material?.addon && !sys.material.addon.includes('magic')) {
+                sys.material.addon.push('magic');
             }
         }
 
-        // Add special weapon abilities from mechanical effects
-        if (itemData.type === 'weapon' && itemData.mechanical?.effects) {
-            this.addSpecialWeaponAbilities(baseItem, itemData.mechanical.effects);
+        if (itemData.type === 'weapon') {
+            if (itemData.damage) {
+                this.applyWeaponDamage(baseItem, itemData.damage);
+            }
+            if (itemData.mechanical?.effects) {
+                this.addSpecialWeaponAbilities(baseItem, itemData.mechanical.effects);
+            }
+        }
+        if (itemData.type === 'armor' && itemData.armor && sys.armor) {
+            if (itemData.armor.value != null) sys.armor.value = itemData.armor.value;
+            if (itemData.armor.dex != null) sys.armor.dex = itemData.armor.dex;
+            if (itemData.armor.check != null) sys.armor.check = itemData.armor.check;
+            if (itemData.armor.spell != null) sys.armor.spell = itemData.armor.spell;
+            if (itemData.armor.type != null) sys.armor.type = itemData.armor.type;
         }
 
-        // Detect and apply special materials
         const detectedMaterial = this.detectMaterial(itemData);
         if (detectedMaterial) {
             applyMaterialToItem(baseItem, detectedMaterial);
-            // Update price with material cost
             const materialCost = calculateMaterialCost(detectedMaterial, baseItem);
-            baseItem.system.price = (baseItem.system.price || 0) + materialCost;
+            sys.price = (sys.price || 0) + materialCost;
         }
 
-        // Add caster level and aura
-        if (itemData.casterLevel) {
-            baseItem.system.cl = itemData.casterLevel;
-        }
-        
+        if (itemData.casterLevel != null) sys.cl = itemData.casterLevel;
         if (itemData.aura) {
-            const auraParts = itemData.aura.split(' ');
-            baseItem.system.aura = {
-                custom: false,
-                school: auraParts[1] || 'universal',
-                strength: auraParts[0] || 'faint'
+            sys.aura = {
+                custom: !!itemData.auraCustom,
+                school: this.extractAuraSchool(itemData.aura) || 'universal',
+                strength: this.extractAuraStrength(itemData.aura) || 'faint'
             };
         }
+        if (itemData.requirements != null) sys.requirements = itemData.requirements;
+        if (itemData.creationCost != null) sys.creationCost = itemData.creationCost;
 
-        // Add creation requirements and cost
-        if (itemData.requirements) {
-            baseItem.system.requirements = itemData.requirements;
+        if (Array.isArray(itemData.changes) && itemData.changes.length > 0) {
+            sys.changes = this.buildChangesData(itemData.changes);
+        } else {
+            this.addBonusesAndEffects(baseItem, itemData);
         }
-        if (itemData.creationCost) {
-            baseItem.system.creationCost = itemData.creationCost;
+        if (Array.isArray(itemData.contextNotes) && itemData.contextNotes.length > 0) {
+            sys.contextNotes = this.buildContextNotes(itemData.contextNotes);
+        }
+        if (Array.isArray(itemData.actions) && itemData.actions.length > 0) {
+            sys.actions = itemData.actions.map(a => ({
+                _id: a._id || this.generateRandomId(),
+                ...a
+            }));
+        }
+        if (itemData.uses && typeof itemData.uses === 'object') {
+            sys.uses = sys.uses || { value: null, per: '', autoDeductChargesCost: '', maxFormula: '', rechargeFormula: '' };
+            if (itemData.uses.value != null) sys.uses.value = itemData.uses.value;
+            if (itemData.uses.max != null) sys.uses.max = itemData.uses.max;
+            if (itemData.uses.per != null) sys.uses.per = String(itemData.uses.per);
+            if (itemData.uses.maxFormula != null) sys.uses.maxFormula = String(itemData.uses.maxFormula);
+            if (itemData.uses.rechargeFormula != null) sys.uses.rechargeFormula = String(itemData.uses.rechargeFormula);
+            if (itemData.uses.autoDeductChargesCost != null) {
+                sys.uses.autoDeductChargesCost = String(itemData.uses.autoDeductChargesCost);
+                if (itemData.uses.autoDeductCharges !== false) sys.uses.autoDeductCharges = true;
+            }
+            if (itemData.uses.pricePerUse != null) sys.uses.pricePerUse = itemData.uses.pricePerUse;
         }
 
-        // Add bonuses and contextual effects
-        this.addBonusesAndEffects(baseItem, itemData);
+        if (itemData.spellLikeAbilities?.length) {
+            this.addSpellActions(baseItem, itemData);
+        }
 
-        // Add our module flags
         baseItem.flags = baseItem.flags || {};
         baseItem.flags[this.moduleId] = {
             generated: true,
@@ -363,6 +424,46 @@ export class ItemFactory {
 
         if (damageAdded) {
             console.log(`Spacebone | Enhanced weapon with special abilities. Total damage parts: ${attackAction.damage.parts.length}`);
+        }
+    }
+
+    /**
+     * Apply LLM-specified damage (die, crit, damageType) to the weapon's first attack action.
+     * @param {Object} baseItem - Base weapon item (system.actions)
+     * @param {Object} damage - { die?: string, crit?: string, damageType?: string }
+     */
+    applyWeaponDamage(baseItem, damage) {
+        if (!baseItem?.system?.actions?.length) return;
+        const attackAction = baseItem.system.actions.find(a => a.actionType === 'mwak' || a.actionType === 'rwak') || baseItem.system.actions[0];
+        if (!attackAction) return;
+        attackAction.damage = attackAction.damage || { parts: [], critParts: [] };
+        const parts = attackAction.damage.parts;
+        const damageType = (damage.damageType || 'slashing').toLowerCase();
+        if (damage.die) {
+            const match = String(damage.die).trim().match(/^(\d+)d(\d+)$/i);
+            if (match) {
+                const dice = parseInt(match[1], 10);
+                const sides = parseInt(match[2], 10);
+                const formula = `sizeRoll(${dice}, ${sides}, @size)`;
+                if (parts.length > 0) {
+                    parts[0] = { formula, types: [damageType] };
+                } else {
+                    parts.push({ formula, types: [damageType] });
+                }
+            }
+        } else if (damage.damageType && parts.length > 0) {
+            parts[0].types = [damageType];
+        }
+        if (damage.crit && attackAction.ability) {
+            const rangeMult = String(damage.crit).match(/(\d+)\s*[-–]\s*20\s*\/\s*x(\d+)/i);
+            const multOnly = String(damage.crit).match(/20\s*\/\s*x(\d+)/i);
+            if (rangeMult) {
+                attackAction.ability.critRange = parseInt(rangeMult[1], 10);
+                attackAction.ability.critMult = parseInt(rangeMult[2], 10) || 2;
+            } else if (multOnly) {
+                attackAction.ability.critRange = 20;
+                attackAction.ability.critMult = parseInt(multOnly[1], 10) || 2;
+            }
         }
     }
 
@@ -1623,20 +1724,21 @@ export class ItemFactory {
             }
         };
 
-        // Add equipment-specific data
+        // Add equipment-specific data (slot, subType, equipped for all equipment)
         if (itemData.type === 'equipment' || itemData.type === 'armor') {
             systemData.subType = itemData.subType || (itemData.type === 'armor' ? 'light' : 'wondrous');
             systemData.slot = itemData.type === 'armor' ? 'armor' : (itemData.slot || 'none');
             systemData.equipped = false;
-            systemData.armor = this.buildArmorData(itemData);
+            // Only add armor data for actual armor/shield items (fix: do not add armor to wondrous/rings/etc.)
             if (itemData.type === 'armor') {
+                systemData.armor = this.buildArmorData(itemData);
                 const armorInfo = this.getArmorInfo(itemData.subType);
                 systemData.baseTypes = ['armor'];
                 const cat = armorInfo.type || 'light';
                 systemData.equipmentSubtype = cat === 'shield' ? 'shield' : `${cat}Armor`;
-            }
-            if (itemData.enhancement) {
-                systemData.armor.enh = itemData.enhancement;
+                if (itemData.enhancement) {
+                    systemData.armor.enh = itemData.enhancement;
+                }
             }
         }
 
@@ -2161,42 +2263,49 @@ export class ItemFactory {
     }
 
     /**
-     * Build uses data for consumables
+     * Build uses data for consumables (PF1 shape from live items).
      * @param {Object} itemData - Item data
-     * @returns {Object} Uses data
+     * @returns {Object} PF1 uses data (value, per, autoDeductChargesCost, maxFormula, rechargeFormula, etc.)
      */
     buildUsesData(itemData) {
-        if (!itemData.uses) {
-            return {
-                value: 0,
-                max: 0,
-                per: null,
-                autoDeductCharges: false
-            };
-        }
-
+        const empty = {
+            value: null,
+            per: '',
+            autoDeductChargesCost: '',
+            maxFormula: '',
+            rechargeFormula: '',
+            pricePerUse: 0
+        };
+        if (!itemData.uses) return empty;
+        const u = itemData.uses;
+        const max = u.max ?? u.value ?? 0;
         return {
-            value: itemData.uses.max || 0,
-            max: itemData.uses.max || 0,
-            per: itemData.uses.per || null,
-            autoDeductCharges: itemData.uses.autoDeductCharges || false
+            value: u.value ?? max,
+            max: max,
+            per: u.per != null ? String(u.per) : '',
+            autoDeductChargesCost: u.autoDeductChargesCost != null ? String(u.autoDeductChargesCost) : (max ? '1' : ''),
+            maxFormula: u.maxFormula != null ? String(u.maxFormula) : '',
+            rechargeFormula: u.rechargeFormula != null ? String(u.rechargeFormula) : '',
+            pricePerUse: u.pricePerUse ?? 0,
+            autoDeductCharges: !!u.autoDeductCharges || (max > 0 && u.autoDeductCharges !== false)
         };
     }
 
     /**
-     * Build changes data for mechanical effects
-     * @param {Array} changes - Changes array
+     * Build changes data for mechanical effects (PF1 shape from live items).
+     * PF1 expects: _id, formula, target, type (modifier type), operator "add", priority, value.
+     * @param {Array} changes - Changes array (formula, target, modifier/type, priority)
      * @returns {Array} PF1 changes data
      */
     buildChangesData(changes) {
         return changes.map(change => ({
-            formula: change.formula || "0",
-            target: change.target || "misc",
-            subTarget: change.subTarget || "",
-            modifier: change.modifier || "untyped",
-            priority: change.priority || 0,
-            value: 0,
-            continuous: true
+            _id: change._id || this.generateRandomId(),
+            formula: String(change.formula ?? "0").trim(),
+            target: normalizeChangeTarget(change.target || change.subTarget || "misc"),
+            type: normalizeModifierType(change.modifier || change.type || "untyped"),
+            operator: "add",
+            priority: Number(change.priority) || 0,
+            value: 0
         }));
     }
 
@@ -2219,7 +2328,8 @@ export class ItemFactory {
      */
     extractAuraSchool(aura) {
         if (!aura) return '';
-        
+        const lowerAura = aura.toLowerCase();
+        if (lowerAura.includes('misc')) return 'misc';
         const schoolMap = {
             'abjuration': 'abj',
             'conjuration': 'con',
@@ -2230,8 +2340,6 @@ export class ItemFactory {
             'necromancy': 'nec',
             'transmutation': 'trs'
         };
-        
-        const lowerAura = aura.toLowerCase();
         for (const [fullName, abbreviation] of Object.entries(schoolMap)) {
             if (lowerAura.includes(fullName)) {
                 return abbreviation;
@@ -2281,6 +2389,15 @@ export class ItemFactory {
         const weightVal = typeof w === 'object' && w && 'value' in w ? w.value : w;
         if (typeof weightVal === 'number' && weightVal < 0) {
             throw new Error('Item weight cannot be negative');
+        }
+
+        // Ensure non-armor items never have armor AC (e.g. value 4 on wondrous/rings)
+        const isArmor = itemData.type === 'armor';
+        if (!isArmor && itemData.system.armor) {
+            delete itemData.system.armor;
+            if (game.settings.get(this.moduleId, 'debugMode')) {
+                console.log('Spacebone | Stripped armor data from non-armor item:', itemData.name);
+            }
         }
     }
 
