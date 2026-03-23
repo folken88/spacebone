@@ -274,36 +274,28 @@ CRITICAL INSTRUCTIONS:
     static getAvailableModels() {
         return [
             {
-                id: 'gemini-2.0-pro',
-                name: 'Gemini 2.0 Pro',
-                description: 'Latest Gemini model with multimodal capabilities and extended context (2025)',
-                recommended: true,
-                maxTokens: 4000,
-                costPer1kTokens: 0.02
-            },
-            {
                 id: 'gemini-2.0-flash',
                 name: 'Gemini 2.0 Flash',
-                description: 'Fast and efficient Gemini 2.0 variant for quick responses',
-                recommended: false,
+                description: 'Fast and cost-effective, sufficient for item generation (Recommended)',
+                recommended: true,
                 maxTokens: 4000,
-                costPer1kTokens: 0.01
+                costPer1kTokens: 0.0001
             },
             {
-                id: 'gemini-1.5-pro',
-                name: 'Gemini 1.5 Pro',
-                description: 'Previous generation model with good performance',
+                id: 'gemini-2.5-pro',
+                name: 'Gemini 2.5 Pro',
+                description: 'Most capable Gemini for complex creations',
                 recommended: false,
-                maxTokens: 4000,
-                costPer1kTokens: 0.015
+                maxTokens: 8000,
+                costPer1kTokens: 0.007
             },
             {
-                id: 'gemini-1.5-flash',
-                name: 'Gemini 1.5 Flash',
-                description: 'Fast and cost-effective model for simpler tasks',
+                id: 'gemini-2.0-pro',
+                name: 'Gemini 2.0 Pro',
+                description: 'Previous generation, still capable',
                 recommended: false,
-                maxTokens: 2000,
-                costPer1kTokens: 0.005
+                maxTokens: 4000,
+                costPer1kTokens: 0.02
             }
         ];
     }

@@ -598,8 +598,16 @@ For potions, scrolls, and wands, include SPELL_ABILITY entries that replicate sp
 - For regional items ("from Cheliax"), add appropriate cultural flavor
 - For legendary items ("once worn by Iomedae"), create powerful abilities and high-level mechanics
 - Calculate prices using standard Pathfinder 1e formulas
-- Include spell-like abilities when appropriate (format as separate SPELL_ABILITY entries)
 - **For consumables (potions/scrolls/wands)**: Include the spell effect they replicate
+
+## ITEM POWER BY LEVEL (follow closely):
+- **Levels 1–3**: Masterwork or at best +1 magic only. No spell-like abilities, no elemental damage beyond the weapon itself.
+- **Levels 4–8**: +1 magic at most; may add at most 1d6 elemental damage (frost, shock, fire, acid, sonic) if the theme suggests it. No spell-like abilities (no SPELL_ABILITY entries).
+- **Level 9 and beyond**: Can have "weird" powers. **Feel free to add spell-like abilities**—players love them. Examples: a katana that does 1d8 slashing + 1d6 sonic and casts Silence once per day; a sword that casts Holy Smite 1/day; a staff with Frigid Touch 3/day. Include SPELL_ABILITY_1 (and 2–3 if appropriate) for level 9+ items when the theme or prompt suggests it.
+
+## SPELL-LIKE ABILITIES (level 9+ items only):
+- Format as SPELL_ABILITY entries. You may add optional SCALE_WITH: WIS (or INT or CHA) so uses scale with the wielder (e.g. "1/day base, or 4/day if wielder has +3 WIS" → USES: 1/day | SCALE_WITH: WIS).
+- Example: SPELL_ABILITY_1: NAME: Silence | ACTIVATION: standard action | USES: 1/day | SCALE_WITH: WIS | CASTER_LEVEL: 5 | DESCRIPTION: 20-ft radius, no sound.
 - Consider special materials when appropriate:
   * Mithral: Half weight, lighter armor category, higher cost
   * Adamantine: Extremely durable, bypasses hardness, damage reduction
@@ -641,7 +649,7 @@ Be specific with numbers and conditions.]
 CREATION_REQUIREMENTS: [Feats and spells needed to create this item]
 CREATION_COST: [Half the item's price in gold]
 
-SPELL_ABILITY_1: [NAME: Spell Name | ACTIVATION: standard action | USES: 1/day | CASTER_LEVEL: 15 | DESCRIPTION: What this spell does mechanically]
+SPELL_ABILITY_1: [NAME: Spell Name | ACTIVATION: standard action | USES: 1/day | SCALE_WITH: WIS or INT or CHA (optional) | CASTER_LEVEL: 15 | DESCRIPTION: What this spell does mechanically]
 SPELL_ABILITY_2: [Leave blank if no second ability, or add another if needed]
 SPELL_ABILITY_3: [Leave blank if no third ability, or add another if needed]
 === ITEM TEMPLATE END ===
@@ -837,12 +845,42 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
 
             const templateContent = templateMatch[1].trim();
             const itemData = this.parseTemplate(templateContent);
-            
+
             // Validate required fields
             const requiredFields = ['name', 'type', 'description'];
             for (const field of requiredFields) {
                 if (!itemData[field]) {
                     throw new Error(`Missing required field: ${field}`);
+                }
+            }
+
+            // Type coercion for numeric fields
+            const numericFields = ['price', 'weight', 'hardness', 'hp', 'enhancement',
+                                   'level', 'bulk', 'range', 'critMult', 'spellResistance'];
+            for (const field of numericFields) {
+                if (itemData[field] !== undefined && itemData[field] !== null && itemData[field] !== '') {
+                    const parsed = parseFloat(String(itemData[field]).replace(/[^0-9.\-]/g, ''));
+                    if (!isNaN(parsed)) {
+                        itemData[field] = parsed;
+                    }
+                }
+            }
+
+            // Normalize type to lowercase
+            if (itemData.type) {
+                itemData.type = itemData.type.toLowerCase().trim();
+            }
+
+            // Ensure description is a string
+            if (typeof itemData.description !== 'string') {
+                itemData.description = String(itemData.description || '');
+            }
+
+            // Ensure boolean fields are actual booleans
+            const boolFields = ['cursed', 'masterwork', 'identified', 'broken'];
+            for (const field of boolFields) {
+                if (itemData[field] !== undefined) {
+                    itemData[field] = itemData[field] === true || itemData[field] === 'true' || itemData[field] === 'yes';
                 }
             }
 
@@ -867,10 +905,12 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
             mechanical: {}
         };
 
-        // Parse each line of the template
+        // Parse each line of the template (multi-line supported for MECHANICAL_EFFECTS and DESCRIPTION)
         const lines = templateContent.split('\n');
-        
-        for (const line of lines) {
+        const fieldPrefixes = /^(NAME|TYPE|SUBTYPE|MATERIAL|PRICE|WEIGHT|ENHANCEMENT|CASTER_LEVEL|AURA|DESCRIPTION|MECHANICAL_EFFECTS|CREATION_REQUIREMENTS|CREATION_COST|SPELL_ABILITY_|LEVEL|RARITY|BULK|TRAITS|WEAPON_DATA|ARMOR_DATA|RUNES):/i;
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
             const trimmedLine = line.trim();
             if (!trimmedLine || trimmedLine.startsWith('//')) continue;
 
@@ -896,8 +936,20 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
                 itemData.aura = this.extractValue(trimmedLine, 'AURA:');
             } else if (trimmedLine.startsWith('DESCRIPTION:')) {
                 itemData.description = this.extractValue(trimmedLine, 'DESCRIPTION:');
+                while (i + 1 < lines.length) {
+                    const next = lines[i + 1].trim();
+                    if (!next || fieldPrefixes.test(next)) break;
+                    itemData.description += (itemData.description ? '\n' : '') + next;
+                    i++;
+                }
             } else if (trimmedLine.startsWith('MECHANICAL_EFFECTS:')) {
                 itemData.mechanical.effects = this.extractValue(trimmedLine, 'MECHANICAL_EFFECTS:');
+                while (i + 1 < lines.length) {
+                    const next = lines[i + 1].trim();
+                    if (!next || fieldPrefixes.test(next)) break;
+                    itemData.mechanical.effects += (itemData.mechanical.effects ? '\n' : '') + next;
+                    i++;
+                }
             } else if (trimmedLine.startsWith('CREATION_REQUIREMENTS:')) {
                 itemData.requirements = this.extractValue(trimmedLine, 'CREATION_REQUIREMENTS:');
             } else if (trimmedLine.startsWith('CREATION_COST:')) {
@@ -1036,10 +1088,17 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
                 ability.casterLevel = this.parseNumber(part.substring(13).trim());
             } else if (part.startsWith('DESCRIPTION:')) {
                 ability.description = part.substring(12).trim();
+            } else if (part.startsWith('SCALE_WITH:') || part.startsWith('USES_SCALE_WITH:')) {
+                const key = part.startsWith('SCALE_WITH:') ? 'SCALE_WITH:' : 'USES_SCALE_WITH:';
+                const val = part.substring(key.length).trim().toUpperCase();
+                if (['WIS', 'INT', 'CHA'].includes(val)) ability.usesScaleWith = val.toLowerCase();
             }
         }
 
-        return ability.name ? ability : null;
+        if (!ability.name || !ability.name.trim()) return null;
+        const nameLower = ability.name.trim().toLowerCase();
+        if (nameLower === 'use' || nameLower === 'n/a' || nameLower === '—' || nameLower === 'leave blank' || nameLower.startsWith('leave blank')) return null;
+        return ability;
     }
 
     /**

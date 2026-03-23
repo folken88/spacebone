@@ -262,10 +262,10 @@ CRITICAL INSTRUCTIONS:
     static getDefaultConfig() {
         return {
             endpoint: 'https://api.openai.com/v1/chat/completions',
-            model: 'gpt-4o',
+            model: 'gpt-4o-mini',
             defaultOptions: {
-                max_tokens: 4000,  // Default to 4000 for better item generation quality
-                temperature: 0.7   // Balanced creativity
+                max_tokens: 4000,
+                temperature: 0.7
             }
         };
     }
@@ -277,44 +277,28 @@ CRITICAL INSTRUCTIONS:
     static getAvailableModels() {
         return [
             {
-                id: 'gpt-5',
-                name: 'GPT-5',
-                description: 'Latest model with enhanced capabilities (uses max_completion_tokens)',
-                recommended: false,
+                id: 'gpt-4o-mini',
+                name: 'GPT-4o Mini',
+                description: 'Cost-effective, sufficient for item generation (Recommended)',
+                recommended: true,
                 maxTokens: 4000,
-                costPer1kTokens: 0.015
+                costPer1kTokens: 0.00015
             },
             {
                 id: 'gpt-4o',
                 name: 'GPT-4o',
-                description: 'Most capable model with superior reasoning and structured output (2024)',
-                recommended: true,
+                description: 'More capable for complex items',
+                recommended: false,
                 maxTokens: 4000,
-                costPer1kTokens: 0.01
+                costPer1kTokens: 0.005
             },
             {
                 id: 'gpt-4-turbo',
                 name: 'GPT-4 Turbo',
-                description: 'Fast and capable model, good balance of quality and speed',
+                description: 'Previous generation, still capable',
                 recommended: false,
                 maxTokens: 4000,
                 costPer1kTokens: 0.01
-            },
-            {
-                id: 'gpt-4',
-                name: 'GPT-4',
-                description: 'Previous generation model, still very capable',
-                recommended: false,
-                maxTokens: 4000,
-                costPer1kTokens: 0.02
-            },
-            {
-                id: 'gpt-3.5-turbo',
-                name: 'GPT-3.5 Turbo',
-                description: 'Fast and cost-effective model for simpler tasks',
-                recommended: false,
-                maxTokens: 2000,
-                costPer1kTokens: 0.002
             }
         ];
     }

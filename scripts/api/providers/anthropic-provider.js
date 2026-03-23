@@ -26,9 +26,9 @@ export class AnthropicProvider extends BaseProvider {
     constructor(config) {
         super({
             endpoint: 'https://api.anthropic.com/v1/messages',
-            model: 'claude-3-5-sonnet-20241022',  // Use working Claude model
+            model: 'claude-haiku-4-5-20251001',  // Cost-effective default, reliable for structured output
             defaultOptions: {
-                max_tokens: 4000,  // Increased for longer descriptions
+                max_tokens: 4000,
                 temperature: 0.7,
                 top_p: 0.9
             },
@@ -108,7 +108,7 @@ CRITICAL INSTRUCTIONS:
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': this.config.apiKey,
-                    'anthropic-version': '2024-10-01'
+                    'anthropic-version': '2025-04-14'
                 },
                 body: JSON.stringify(requestData)
             });
@@ -162,7 +162,7 @@ CRITICAL INSTRUCTIONS:
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': this.config.apiKey,
-                    'anthropic-version': '2024-10-01'
+                    'anthropic-version': '2025-04-14'
                 },
                 body: JSON.stringify({
                     model: this.config.model,
@@ -214,9 +214,9 @@ CRITICAL INSTRUCTIONS:
     static getDefaultConfig() {
         return {
             endpoint: 'https://api.anthropic.com/v1/messages',
-            model: 'claude-3-5-sonnet-20241022',  // Use working Claude model
+            model: 'claude-haiku-4-5-20251001',
             defaultOptions: {
-                max_tokens: 4000,  // Increased for longer descriptions
+                max_tokens: 4000,
                 temperature: 0.7,
                 top_p: 0.9
             }
@@ -230,28 +230,36 @@ CRITICAL INSTRUCTIONS:
     static getAvailableModels() {
         return [
             {
-                id: 'claude-3-5-sonnet-20241022',
-                name: 'Claude 3.5 Sonnet',
-                description: 'Latest available Claude model with excellent performance and reasoning',
+                id: 'claude-haiku-4-5-20251001',
+                name: 'Claude Haiku 4.5',
+                description: 'Fast and cost-effective — sufficient for item/actor generation (Recommended)',
                 recommended: true,
+                maxTokens: 8192,
+                costPer1kTokens: 0.001
+            },
+            {
+                id: 'claude-sonnet-4-6',
+                name: 'Claude Sonnet 4.6',
+                description: 'More capable for complex items with intricate rule interactions',
+                recommended: false,
+                maxTokens: 8192,
+                costPer1kTokens: 0.003
+            },
+            {
+                id: 'claude-opus-4-6',
+                name: 'Claude Opus 4.6',
+                description: 'Most powerful — use for highly complex or unusual creations',
+                recommended: false,
                 maxTokens: 8192,
                 costPer1kTokens: 0.015
             },
             {
-                id: 'claude-3-haiku-20240307',
-                name: 'Claude 3 Haiku',
-                description: 'Fast and cost-effective model for simpler tasks',
+                id: 'claude-3-5-sonnet-20241022',
+                name: 'Claude 3.5 Sonnet (Legacy)',
+                description: 'Previous generation, still capable',
                 recommended: false,
-                maxTokens: 4096,
-                costPer1kTokens: 0.005
-            },
-            {
-                id: 'claude-3-opus-20240229',
-                name: 'Claude 3 Opus',
-                description: 'Most powerful Claude 3 model for complex reasoning tasks',
-                recommended: false,
-                maxTokens: 4000,
-                costPer1kTokens: 0.015
+                maxTokens: 8192,
+                costPer1kTokens: 0.003
             }
         ];
     }
@@ -307,15 +315,16 @@ CRITICAL INSTRUCTIONS:
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': this.config.apiKey,
-                    'anthropic-version': '2024-10-01'
+                    'anthropic-version': '2025-04-14'
                 },
                 body: JSON.stringify({
                     model: this.config.model,
+                    system: systemPrompt,
                     max_tokens: 4000,
                     messages: [
                         {
                             role: 'user',
-                            content: `${systemPrompt}\n\n${userPrompt}`
+                            content: userPrompt
                         }
                     ]
                 })

@@ -174,12 +174,12 @@ class Spacebone {
             config: true,
             type: String,
                 choices: {
-                    'openai': 'OpenAI GPT (GPT-4o, GPT-4)',
-                    'anthropic': 'Anthropic Claude (Claude 4)',
-                    'gemini': 'Google Gemini (Gemini 2.0)',
+                    'anthropic': 'Anthropic Claude (Recommended)',
+                    'openai': 'OpenAI GPT',
+                    'gemini': 'Google Gemini',
                     'local': 'Local LLM (Ollama/LM Studio)'
                 },
-            default: 'openai',
+            default: 'anthropic',
             onChange: async (newProvider) => {
                 // Auto-update endpoint and model when provider changes
                 if (this.api && this.api.providerManager) {
@@ -241,7 +241,7 @@ class Spacebone {
             scope: 'world',
             config: true,
             type: String,
-            default: 'https://api.openai.com/v1/chat/completions'
+            default: 'https://api.anthropic.com/v1/messages'
         });
 
         game.settings.register(this.ID, 'model', {
@@ -250,7 +250,7 @@ class Spacebone {
             scope: 'world',
             config: true,
             type: String,
-            default: 'gpt-4o'
+            default: 'claude-haiku-4-5-20251001'
         });
 
         // Item Creation Settings

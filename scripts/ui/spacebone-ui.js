@@ -892,7 +892,14 @@ export class SpaceboneUI {
 
         } catch (error) {
             console.error('Spacebone | Error in item creation:', error);
-            ui.notifications.error('Failed to create item. Check the console for details.');
+            const userMsg = error.message.includes('template format')
+                ? 'The AI returned an invalid format. Try a simpler description or switch to a more capable model in settings.'
+                : error.message.includes('API key')
+                    ? 'API key issue — check your key in module settings.'
+                    : error.message.includes('Rate limit')
+                        ? 'Rate limited — wait a moment and try again.'
+                        : `Failed to create item: ${error.message}`;
+            ui.notifications.error(userMsg);
             
             // Re-enable the create button
             html.closest('.dialog').find('[data-button="create"]').prop('disabled', false);

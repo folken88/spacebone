@@ -120,9 +120,30 @@ export class SpaceboneAPI {
                 systemId: systemId
             };
             
-            // Generate item using provider
-            const itemData = await this.providerManager.generateItem(prompt.trim(), enhancedContext);
-            
+            // Generate item using provider (with retry on template parse failure)
+            let itemData;
+            let lastError;
+            const maxAttempts = 2;
+
+            for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+                try {
+                    itemData = await this.providerManager.generateItem(prompt.trim(), enhancedContext);
+                    break; // Success
+                } catch (err) {
+                    lastError = err;
+                    if (attempt < maxAttempts && err.message.includes('template format')) {
+                        console.warn(`[SpaceboneAPI] Attempt ${attempt} failed (template parse), retrying...`);
+                        ui.notifications.warn(`Generation attempt ${attempt} failed, retrying with stricter prompt...`);
+                        // Retry with a simplified context hint
+                        enhancedContext._retryAttempt = attempt;
+                    } else {
+                        throw err;
+                    }
+                }
+            }
+
+            if (!itemData) throw lastError;
+
             // Calculate response time
             const responseTime = Date.now() - startTime;
             
