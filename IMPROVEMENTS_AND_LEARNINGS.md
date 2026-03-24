@@ -69,3 +69,16 @@ MCP was used on the **Carrion Crown** world to inspect level 12–15 PCs (Vex 15
 ### Uses
 
 - Empty charges: both `value: null` (Shackles, Belt of Physical Perfection) and `value: 0` (God Tier Belt, Mithral Shirt) appear. Spacebone tolerates both when merging.
+
+## Implementation plan (SPACEBONE_IMPLEMENTATION_PLAN.md) – completed options
+
+Implementation followed `SPACEBONE_IMPLEMENTATION_PLAN.md` (from MCP learnings and pf1-magic-item-gen). The following are now supported:
+
+- **Schema:** Change targets **tac**, **nac**, **init**, **flySpeed**, **skill.per**; **aac** normalized to **ac**; modifier type **alchemical**; context note targets (ref, fort, will, skill.xxx) documented.
+- **Clone-then-modify:** Loot/ammo base from compendium (pf1.weapons-and-ammo) for non-siege ammo; HP/hardness from enhancement; **system.size** from item level; **unidentified** block and generic labels (tattoo, augment, badge, card, cannon, cannonball).
+- **Slot:** **slotless** used for slotless equipment (not "none"); **subType other** and tattoo handling (wondrous + slotless).
+- **Weapons:** Damage type **["ALL"]** for adaptive damage; **conditionals**, **attackName**, **extraAttacks.formula.label** preserved when merging LLM actions with base.
+- **Canonical PF1 abilities:** User intent (e.g. "flaming longsword level 15") maps to official ability and tier (e.g. Flaming Burst) via `pf1-weapon-abilities.js` and `matchCanonicalWeaponAbilities()`; applied in factory before fallback regex.
+- **Cannons:** **baseTypes: ["Cannon"]**, **weaponSubtype**, **ammo.type: "siege"**, **tags** (e.g. reload:3); cannon/siege in `getWeaponInfo` and `buildWeaponData`.
+- **Siege ammo:** **type: loot**, **subType: ammo**, **extraType: siege**, **weight.value** (caliber), **unidentified.name: cannonball**; build-from-scratch in `buildSystemData` when no compendium base.
+- **Compendium import:** Changes and contextNotes are **merged** with base (not replaced); base conditionals/flavor preserved when LLM does not supply them.

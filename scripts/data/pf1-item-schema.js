@@ -15,10 +15,12 @@ export const CHANGE_SHAPE = {
     value: 0
 };
 
-/** Common PF1 change targets (Shackles + Carrion Crown: belts, rings, Spell Prism, Muleback Cords, etc.). */
+/** Common PF1 change targets (Shackles, Carrion Crown, Iron Gods: belts, rings, tac, nac, skills, etc.). */
 export const CHANGE_TARGETS = {
     ac: 'ac',
     deflectionAC: 'ac',
+    tac: 'tac',       // touch AC (e.g. Numerian Knight's Breastplate)
+    nac: 'nac',       // natural AC (e.g. Dermal Plating)
     dex: 'dex',
     str: 'str',
     con: 'con',
@@ -29,10 +31,13 @@ export const CHANGE_TARGETS = {
     fort: 'fort',
     will: 'will',
     allSavingThrows: 'allSavingThrows',
+    init: 'init',     // initiative
+    flySpeed: 'flySpeed',
     skill_acr: 'skill.acr',
     skill_clm: 'skill.clm',
     skill_ste: 'skill.ste',
     skill_hea: 'skill.hea',
+    skill_per: 'skill.per',  // perception (e.g. 03 White Card)
     chaSkills: 'chaSkills',
     landSpeed: 'landSpeed',
     swimSpeed: 'swimSpeed',
@@ -42,13 +47,13 @@ export const CHANGE_TARGETS = {
     misc: 'misc'
 };
 
-/** PF1 modifier types for changes (type field). */
+/** PF1 modifier types for changes (type field). Includes alchemical (e.g. touch AC from Justice Gorls). */
 export const CHANGE_MODIFIER_TYPES = [
     'untyped', 'deflection', 'enh', 'competence', 'insight', 'resist',
-    'circumstance', 'natural', 'dodge', 'armor', 'shield', 'size', 'luck', 'moral'
+    'circumstance', 'natural', 'dodge', 'armor', 'shield', 'size', 'luck', 'moral', 'alchemical'
 ];
 
-/** PF1 context note: conditional text (e.g. "Chelish Agent: +2 on persuasion vs Chelish Citizens."). */
+/** PF1 context note: conditional text (e.g. "Chelish Agent: +2 on persuasion vs Chelish Citizens."). Valid targets include ref, fort, will, skill.ste, skill.per, and other skill.xxx. */
 export const CONTEXT_NOTE_SHAPE = { text: '', target: 'misc' };
 
 /** PF1 uses object (charges / communal pool). Empty when no charges. */
@@ -92,7 +97,13 @@ export const AURA_STRENGTHS = ['faint', 'moderate', 'strong', 'overwhelming'];
 export function normalizeChangeTarget(raw) {
     if (!raw || typeof raw !== 'string') return 'misc';
     const t = raw.trim().toLowerCase();
+    if (t === 'aac') return 'ac';  // legacy/typo seen in live data (e.g. Sandwalker's Ring)
     if (t === 'ac' || t === 'armor class') return 'ac';
+    if (t === 'tac' || t === 'touch ac') return 'tac';
+    if (t === 'nac' || t === 'natural ac' || t === 'natural armor') return 'nac';
+    if (t === 'init' || t === 'initiative') return 'init';
+    if (t === 'fly speed' || t === 'flyspeed') return 'flySpeed';
+    if (t === 'perception' || t === 'per') return 'skill.per';
     if (t === 'ref' || t === 'reflex') return 'ref';
     if (t === 'fort' || t === 'fortitude') return 'fort';
     if (t === 'will') return 'will';
@@ -124,6 +135,7 @@ export function normalizeModifierType(raw) {
     if (m === 'insight') return 'insight';
     if (m === 'resistance' || m === 'resist') return 'resist';
     if (m === 'circumstance') return 'circumstance';
+    if (m === 'alchemical') return 'alchemical';
     if (CHANGE_MODIFIER_TYPES.includes(m)) return m;
     return 'untyped';
 }
