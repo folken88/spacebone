@@ -82,3 +82,54 @@ Implementation followed `SPACEBONE_IMPLEMENTATION_PLAN.md` (from MCP learnings a
 - **Cannons:** **baseTypes: ["Cannon"]**, **weaponSubtype**, **ammo.type: "siege"**, **tags** (e.g. reload:3); cannon/siege in `getWeaponInfo` and `buildWeaponData`.
 - **Siege ammo:** **type: loot**, **subType: ammo**, **extraType: siege**, **weight.value** (caliber), **unidentified.name: cannonball**; build-from-scratch in `buildSystemData` when no compendium base.
 - **Compendium import:** Changes and contextNotes are **merged** with base (not replaced); base conditionals/flavor preserved when LLM does not supply them.
+
+---
+
+## v1.2.0: Ship Generation, Roll Tables, Actor Cloning, Tabbed UI (2026-03-24)
+
+### New Features
+
+**Ship Generation** (`ship-factory.js`)
+- Creates `ship-combat-pf1.ship` actors from text prompts
+- Ship class lookup (skiff/sloop/brig/frigate/galleon/man-o-war) with correct HP/AC/speed/gun deck stats
+- Faction-specific cannon templates: Chelish (heavy), Andoran Liberty Guns (light/crit), Taldor Hammers, Bronze Fleet, Shackles
+- Auto-generates ammunition (round/chain/grape shot), repair materials (faction-appropriate wood + siltstone), and sails
+- Only available when `ship-combat-pf1` module is active
+
+**Roll Table Generation** (`table-factory.js`)
+- Creates `RollTable` documents from text prompts (e.g., "d20 Fever Sea random encounters")
+- Supports any die formula (d6, d20, d100, 2d6)
+- Auto-normalizes ranges, deduplicates entries
+- Works from RollTable directory sidebar (new Spacebone button)
+
+**Actor Cloning** (`pf1-clone-factory.js`)
+- Deep-clones an existing actor and applies LLM-directed mutations
+- Preserves ALL items (feats, class, equipment, spells) from the source
+- Changes: name, race (with compendium swap), gender, deity, alignment, age, height, weight, personality, appearance
+- User-specified names in quotes are forced (overrides LLM)
+- Race swap removes old race item + racial feats, adds new ones from compendium
+
+**Tabbed Actor Dialog**
+- Actor creator now has tabs: Create NPC | Clone Actor | Create Ship
+- Ship tab only shows when ship-combat-pf1 is active
+- Tab state persisted on instance (fixes Foundry Dialog re-render losing DOM state)
+
+**House Rules in NPC Prompt**
+- Auto-granted feats documented (Power Attack, Piranha Strike, Dodge+Mobility, PBS+Precise Shot, etc.) — implicit, not added to sheet
+- Point buy tiers: 25 (PCs/villains), 20 (standard NPCs), 15 (jabronis)
+- Max HP per level, high magic campaign, Skull & Shackles setting
+
+**All Providers Updated**
+- `generateShip()`, `generateTable()`, `generateClone()` added to all 4 providers (Anthropic, OpenAI, Gemini, Local)
+- New template formats: SHIP TEMPLATE, TABLE TEMPLATE, CLONE TEMPLATE
+- Parsers in BaseProvider for all new template types
+
+### Bug Fixes
+- Fixed Dialog tab state loss: Foundry's Dialog re-renders HTML on button callback, losing DOM state. Now stores `_activeTab` on SpaceboneUI instance.
+- Fixed clone factory item IDs: `delete item._id` on all cloned items so Foundry generates fresh embedded document IDs.
+- Fixed clone name override: extracts user-specified names from quotes or "named X" patterns.
+
+### Technical Notes
+- Clone factory uses `foundry.utils.deepClone(sourceActor.toObject())` for perfect data preservation
+- Ship factory has static CANNON_TEMPLATES, AMMO_DEFAULTS, WOOD_TYPES lookup tables matching ship-combat-pf1's ShipConstants
+- Debug logging throughout all new factories, controllable via debugMode setting

@@ -8,6 +8,7 @@
 
 import { SpaceboneAPI } from './api/llm-interface.js';
 import { ItemFactory } from './factories/item-factory.js';
+import { ShipFactory } from './factories/ship-factory.js';
 import { SpaceboneUI } from './ui/spacebone-ui.js';
 import { FolderManager } from './utils/folder-manager.js';
 import { MCPHelper } from './utils/mcp-helper.js';
@@ -22,6 +23,9 @@ class Spacebone {
     
     static api = null;
     static itemFactory = null;
+    static shipFactory = null;
+    static tableFactory = null;
+    static cloneFactory = null;
     static pf2ItemFactory = null;
     static pf1ActorFactory = null;
     static pf2ActorFactory = null;
@@ -69,6 +73,28 @@ class Spacebone {
         
         // Initialize PF1 factory (always available for backward compatibility)
         this.itemFactory = new ItemFactory();
+
+        // Initialize ship factory (only if ship-combat-pf1 is active)
+        if (ShipFactory.isShipCombatActive()) {
+            this.shipFactory = new ShipFactory();
+            console.log(`${this.NAME} | Ship Combat PF1 detected — ship generation enabled`);
+        }
+
+        // Initialize table factory (dynamic import)
+        try {
+            const { TableFactory } = await import('./factories/table-factory.js');
+            this.tableFactory = new TableFactory();
+        } catch (error) {
+            console.warn(`${this.NAME} | Failed to load table factory:`, error);
+        }
+
+        // Initialize clone factory (dynamic import)
+        try {
+            const { PF1CloneFactory } = await import('./factories/pf1-clone-factory.js');
+            this.cloneFactory = new PF1CloneFactory();
+        } catch (error) {
+            console.warn(`${this.NAME} | Failed to load clone factory:`, error);
+        }
         
         // Initialize PF1 actor factory (only for PF1)
         this.pf1ActorFactory = null;
@@ -269,7 +295,7 @@ class Spacebone {
             scope: 'world',
             config: true,
             type: Boolean,
-            default: false
+            default: true
         });
 
         // Add a button in the settings to open the item creator
@@ -487,7 +513,152 @@ class Spacebone {
             return null;
         }
     }
+    /**
+     * Create a ship from a user prompt
+     * @param {string} prompt - Ship description
+     * @returns {Promise<Actor|null>} Created ship actor
+     */
+    static async createShip(prompt) {
+        try {
+            if (!this.shipFactory) {
+                ui.notifications.error('Ship factory not available. Is ship-combat-pf1 module active?');
+                return null;
+            }
+
+            const shipData = await this.api.generateShipData(prompt);
+            if (!shipData) {
+                ui.notifications.error('Failed to generate ship data from LLM');
+                return null;
+            }
+
+            return await this.shipFactory.createShip(shipData);
+        } catch (error) {
+            console.error(`${this.NAME} | Error creating ship:`, error);
+            ui.notifications.error(`Failed to create ship: ${error.message}`);
+            return null;
+        }
+    }
+
+    /**
+     * Clone an existing actor with mutations
+     * @param {string} sourceActorId - ID of the actor to clone
+     * @param {string} prompt - Description of changes to apply
+     * @returns {Promise<Actor|null>} Created actor
+     */
+    static async cloneActor(sourceActorId, prompt) {
+        try {
+            console.log(`${this.NAME} | cloneActor called — sourceId: "${sourceActorId}", prompt: "${prompt}"`);
+            console.log(`${this.NAME} | cloneFactory available: ${!!this.cloneFactory}`);
+
+            if (!this.cloneFactory) {
+                ui.notifications.error('Clone factory not available.');
+                return null;
+            }
+
+            const sourceActor = game.actors.get(sourceActorId);
+            if (!sourceActor) {
+                ui.notifications.error('Source actor not found.');
+                return null;
+            }
+
+            // Build a summary of the source actor for the LLM
+            const sourceItems = sourceActor.items.map(i => `${i.type}: ${i.name}`);
+            const sourceRace = sourceActor.items.find(i => i.type === 'race')?.name || 'Unknown';
+            const sourceClass = sourceActor.items.find(i => i.type === 'class')?.name || 'Unknown';
+            const sourceSummary = `Name: ${sourceActor.name}\nRace: ${sourceRace}\nClass: ${sourceClass}\nLevel: ${sourceActor.system?.details?.level?.value || 'unknown'}\nAlignment: ${sourceActor.system?.details?.alignment || 'unknown'}`;
+
+            const context = { sourceActorSummary: sourceSummary };
+            const mutations = await this.api.generateCloneData(prompt, context);
+
+            if (!mutations) {
+                ui.notifications.error('Failed to generate clone mutations from LLM');
+                return null;
+            }
+
+            // If the user specified a name in quotes, force it
+            const nameMatch = prompt.match(/['"]([^'"]+)['"]/);
+            if (nameMatch) {
+                console.log(`${this.NAME} | User specified name in quotes: "${nameMatch[1]}" — overriding LLM name "${mutations.name}"`);
+                mutations.name = nameMatch[1];
+            }
+
+            // If "named X" pattern, extract the name
+            if (!nameMatch) {
+                const namedMatch = prompt.match(/named\s+(\S+(?:\s+\S+)?)/i);
+                if (namedMatch) {
+                    console.log(`${this.NAME} | User specified "named ${namedMatch[1]}" — overriding LLM name "${mutations.name}"`);
+                    mutations.name = namedMatch[1].replace(/['"]/g, '');
+                }
+            }
+
+            console.log(`${this.NAME} | Final mutations:`, mutations);
+
+            return await this.cloneFactory.cloneAndMutate(sourceActorId, mutations);
+        } catch (error) {
+            console.error(`${this.NAME} | Error cloning actor:`, error);
+            ui.notifications.error(`Failed to clone actor: ${error.message}`);
+            return null;
+        }
+    }
+
+    /**
+     * Create a roll table from a user prompt
+     * @param {string} prompt - Table description
+     * @returns {Promise<RollTable|null>} Created table
+     */
+    static async createRollTable(prompt) {
+        try {
+            if (!this.tableFactory) {
+                ui.notifications.error('Table factory not available.');
+                return null;
+            }
+
+            const tableData = await this.api.generateTableData(prompt);
+            if (!tableData) {
+                ui.notifications.error('Failed to generate table data from LLM');
+                return null;
+            }
+
+            return await this.tableFactory.createTable(tableData);
+        } catch (error) {
+            console.error(`${this.NAME} | Error creating roll table:`, error);
+            ui.notifications.error(`Failed to create roll table: ${error.message}`);
+            return null;
+        }
+    }
 }
+
+// Hook registration for RollTableDirectory
+Hooks.on("renderRollTableDirectory", (app, html, data) => {
+    if (!game.user.isGM) return;
+
+    if (game.release.generation >= 13) {
+        const footer = html.querySelector('.directory-footer');
+        if (!footer || footer.querySelector('#spaceboneTableButton')) return;
+
+        const section = document.createElement('section');
+        footer.append(section);
+        section.classList.add('spacebone-generator', 'button-div');
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.classList.add('create-entity', 'spaceboneButton');
+        btn.id = 'spaceboneTableButton';
+        section.append(btn);
+        btn.addEventListener('click', () => {
+            if (Spacebone.ui) Spacebone.ui.openTableCreatorDialog();
+        });
+        const icon = document.createElement('i');
+        icon.classList.add('fas', 'fa-skull');
+        btn.appendChild(icon);
+        btn.appendChild(document.createTextNode('Spacebone'));
+    } else {
+        if (html.find('#spaceboneTableButton').length > 0) return;
+        const btn = $("<button id='spaceboneTableButton' class='create-entity spaceboneButton'><i class='fas fa-skull'></i>Spacebone</button>");
+        html.find(".directory-footer").append(btn);
+        btn.click(() => { if (Spacebone.ui) Spacebone.ui.openTableCreatorDialog(); });
+    }
+});
 
 // Hook registration for ActorDirectory - match item directory pattern exactly
 Hooks.on("renderActorDirectory", (app, html, data) => {

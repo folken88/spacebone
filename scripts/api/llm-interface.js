@@ -256,6 +256,75 @@ export class SpaceboneAPI {
     }
 
     /**
+     * Generate ship data from prompt
+     * @param {string} prompt - Ship description
+     * @param {Object} context - Generation context
+     * @returns {Promise<Object>} Generated ship data
+     */
+    async generateShipData(prompt, context = {}) {
+        const startTime = Date.now();
+        try {
+            if (!prompt?.trim()) throw new Error('Invalid prompt provided');
+            await this.providerManager.initializeFromSettings();
+            const provider = this.providerManager.getCurrentProvider();
+            if (!provider) throw new Error('No AI provider configured.');
+
+            const shipData = await this.providerManager.generateShip(prompt.trim(), context);
+            console.log(`[SpaceboneAPI] Ship generated in ${Date.now() - startTime}ms`);
+            return shipData;
+        } catch (error) {
+            console.error('[SpaceboneAPI] Error generating ship:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Generate roll table data from prompt
+     * @param {string} prompt - Table description
+     * @param {Object} context - Generation context
+     * @returns {Promise<Object>} Generated table data
+     */
+    async generateTableData(prompt, context = {}) {
+        const startTime = Date.now();
+        try {
+            if (!prompt?.trim()) throw new Error('Invalid prompt provided');
+            await this.providerManager.initializeFromSettings();
+            const provider = this.providerManager.getCurrentProvider();
+            if (!provider) throw new Error('No AI provider configured.');
+
+            const tableData = await this.providerManager.generateTable(prompt.trim(), context);
+            console.log(`[SpaceboneAPI] Table generated in ${Date.now() - startTime}ms`);
+            return tableData;
+        } catch (error) {
+            console.error('[SpaceboneAPI] Error generating table:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Generate clone mutation data from prompt
+     * @param {string} prompt - Mutation description
+     * @param {Object} context - Generation context including sourceActorSummary
+     * @returns {Promise<Object>} Generated mutation data
+     */
+    async generateCloneData(prompt, context = {}) {
+        const startTime = Date.now();
+        try {
+            if (!prompt?.trim()) throw new Error('Invalid prompt provided');
+            await this.providerManager.initializeFromSettings();
+            const provider = this.providerManager.getCurrentProvider();
+            if (!provider) throw new Error('No AI provider configured.');
+
+            const cloneData = await this.providerManager.generateClone(prompt.trim(), context);
+            console.log(`[SpaceboneAPI] Clone mutations generated in ${Date.now() - startTime}ms`);
+            return cloneData;
+        } catch (error) {
+            console.error('[SpaceboneAPI] Error generating clone:', error);
+            throw error;
+        }
+    }
+
+    /**
      * Get available AI providers
      * @returns {Array<Object>} Array of provider information
      */

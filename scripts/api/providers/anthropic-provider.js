@@ -364,7 +364,7 @@ CRITICAL INSTRUCTIONS:
 
             const templateContent = templateMatch[1].trim();
             const actorData = this.parseActorTemplate(templateContent);
-            
+
             // Validate required fields
             if (!actorData.name) {
                 throw new Error('Missing required field: name');
@@ -378,6 +378,120 @@ CRITICAL INSTRUCTIONS:
         } catch (error) {
             this.debug('Failed to parse actor response:', error);
             throw new Error(`Failed to parse actor response: ${error.message}`);
+        }
+    }
+
+    /**
+     * Generic Anthropic API call helper
+     * @param {string} systemPrompt - System prompt
+     * @param {string} userPrompt - User prompt
+     * @returns {Promise<string>} Raw response text
+     * @private
+     */
+    async _callAnthropic(systemPrompt, userPrompt) {
+        const response = await fetch(this.config.endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': this.config.apiKey,
+                'anthropic-version': '2025-04-14'
+            },
+            body: JSON.stringify({
+                model: this.config.model,
+                system: systemPrompt,
+                max_tokens: 4000,
+                messages: [{ role: 'user', content: userPrompt }]
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(`Anthropic API error: ${response.status} ${response.statusText} - ${errorData.error?.message || 'Unknown error'}`);
+        }
+
+        const data = await response.json();
+        if (!data.content?.[0]?.text) {
+            throw new Error('Invalid response format from Anthropic');
+        }
+
+        return data.content[0].text;
+    }
+
+    /**
+     * Generate ship data using Anthropic's API
+     * @param {string} prompt - Ship description
+     * @param {Object} context - Generation context
+     * @returns {Promise<Object>} Parsed ship data
+     */
+    async generateShip(prompt, context = {}) {
+        try {
+            this.debug('Generating ship with Anthropic', { prompt });
+
+            if (!this.isConfigured) throw new Error('Anthropic provider is not properly configured');
+
+            const systemPrompt = this.buildShipPrompt(context);
+            const userPrompt = `Create a ship: ${prompt}\n\nCRITICAL: Use the exact template format from the system prompt. Start with "=== SHIP TEMPLATE START ===" and end with "=== SHIP TEMPLATE END ==="`;
+
+            const text = await this._callAnthropic(systemPrompt, userPrompt);
+
+            const match = text.match(/=== SHIP TEMPLATE START ===([\s\S]*?)=== SHIP TEMPLATE END ===/);
+            if (!match) throw new Error('LLM did not follow the required template format for ships.');
+
+            return this.parseShipTemplate(match[1].trim());
+        } catch (error) {
+            this.handleError(error, 'ship generation');
+        }
+    }
+
+    /**
+     * Generate roll table data using Anthropic's API
+     * @param {string} prompt - Table description
+     * @param {Object} context - Generation context
+     * @returns {Promise<Object>} Parsed table data
+     */
+    async generateTable(prompt, context = {}) {
+        try {
+            this.debug('Generating table with Anthropic', { prompt });
+
+            if (!this.isConfigured) throw new Error('Anthropic provider is not properly configured');
+
+            const systemPrompt = this.buildTablePrompt(context);
+            const userPrompt = `Create a roll table: ${prompt}\n\nCRITICAL: Use the exact template format from the system prompt. Start with "=== TABLE TEMPLATE START ===" and end with "=== TABLE TEMPLATE END ==="`;
+
+            const text = await this._callAnthropic(systemPrompt, userPrompt);
+
+            const match = text.match(/=== TABLE TEMPLATE START ===([\s\S]*?)=== TABLE TEMPLATE END ===/);
+            if (!match) throw new Error('LLM did not follow the required template format for tables.');
+
+            return this.parseTableTemplate(match[1].trim());
+        } catch (error) {
+            this.handleError(error, 'table generation');
+        }
+    }
+
+    /**
+     * Generate clone mutation data using Anthropic's API
+     * @param {string} prompt - Mutation description
+     * @param {Object} context - Generation context including sourceActorSummary
+     * @returns {Promise<Object>} Parsed mutation data
+     */
+    async generateClone(prompt, context = {}) {
+        try {
+            this.debug('Generating clone mutations with Anthropic', { prompt });
+
+            if (!this.isConfigured) throw new Error('Anthropic provider is not properly configured');
+
+            const systemPrompt = this.buildClonePrompt(context);
+            const userPrompt = `Apply these changes to the source character: ${prompt}\n\nCRITICAL: Use the exact template format from the system prompt. Start with "=== CLONE TEMPLATE START ===" and end with "=== CLONE TEMPLATE END ==="`;
+
+            const text = await this._callAnthropic(systemPrompt, userPrompt);
+
+            const match = text.match(/=== CLONE TEMPLATE START ===([\s\S]*?)=== CLONE TEMPLATE END ===/);
+            if (!match) throw new Error('LLM did not follow the required template format for clones.');
+
+            return this.parseCloneTemplate(match[1].trim());
+        } catch (error) {
+            this.handleError(error, 'clone generation');
         }
     }
 }

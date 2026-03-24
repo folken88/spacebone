@@ -185,6 +185,45 @@ export class ProviderManager {
     }
 
     /**
+     * Generate ship data using current provider
+     * @param {string} prompt - Ship description
+     * @param {Object} context - Generation context
+     * @returns {Promise<Object>} Generated ship data
+     */
+    async generateShip(prompt, context = {}) {
+        if (!this._currentProvider) throw new Error('No active provider set.');
+        if (!this._currentProvider.isConfigured) throw new Error('Current provider is not properly configured.');
+        if (typeof this._currentProvider.generateShip !== 'function') throw new Error('Current provider does not support ship generation.');
+        return await this._currentProvider.generateShip(prompt, context);
+    }
+
+    /**
+     * Generate roll table data using current provider
+     * @param {string} prompt - Table description
+     * @param {Object} context - Generation context
+     * @returns {Promise<Object>} Generated table data
+     */
+    async generateTable(prompt, context = {}) {
+        if (!this._currentProvider) throw new Error('No active provider set.');
+        if (!this._currentProvider.isConfigured) throw new Error('Current provider is not properly configured.');
+        if (typeof this._currentProvider.generateTable !== 'function') throw new Error('Current provider does not support table generation.');
+        return await this._currentProvider.generateTable(prompt, context);
+    }
+
+    /**
+     * Generate clone mutation data using current provider
+     * @param {string} prompt - Mutation description
+     * @param {Object} context - Generation context including sourceActorSummary
+     * @returns {Promise<Object>} Generated mutation data
+     */
+    async generateClone(prompt, context = {}) {
+        if (!this._currentProvider) throw new Error('No active provider set.');
+        if (!this._currentProvider.isConfigured) throw new Error('Current provider is not properly configured.');
+        if (typeof this._currentProvider.generateClone !== 'function') throw new Error('Current provider does not support clone generation.');
+        return await this._currentProvider.generateClone(prompt, context);
+    }
+
+    /**
      * Test connection for a specific provider
      * @param {string} providerId - The provider ID to test
      * @param {Object} config - Provider configuration to test

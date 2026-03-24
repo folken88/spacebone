@@ -426,4 +426,98 @@ CRITICAL INSTRUCTIONS:
             throw new Error(`Failed to parse actor response: ${error.message}`);
         }
     }
+
+    /**
+     * Generic OpenAI API call helper
+     * @param {string} systemPrompt
+     * @param {string} userPrompt
+     * @returns {Promise<string>} Raw response text
+     * @private
+     */
+    async _callOpenAI(systemPrompt, userPrompt) {
+        const isNewerModel = this.config.model.startsWith('gpt-5') || this.config.model.startsWith('o1');
+        const tokenParam = isNewerModel ? 'max_completion_tokens' : 'max_tokens';
+
+        const response = await fetch(this.config.endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.config.apiKey}`
+            },
+            body: JSON.stringify({
+                model: this.config.model,
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: userPrompt }
+                ],
+                [tokenParam]: 4000,
+                temperature: 0.7
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(`OpenAI API error: ${response.status} - ${errorData.error?.message || response.statusText}`);
+        }
+
+        const data = await response.json();
+        if (!data.choices?.[0]?.message?.content) {
+            throw new Error('Invalid response format from OpenAI');
+        }
+        return data.choices[0].message.content;
+    }
+
+    async generateShip(prompt, context = {}) {
+        try {
+            this.debug('Generating ship with OpenAI', { prompt });
+            if (!this.isConfigured) throw new Error('OpenAI provider is not properly configured');
+
+            const text = await this._callOpenAI(
+                this.buildShipPrompt(context),
+                `Create a ship: ${prompt}\n\nCRITICAL: Use the exact template format. Start with "=== SHIP TEMPLATE START ===" and end with "=== SHIP TEMPLATE END ==="`
+            );
+
+            const match = text.match(/=== SHIP TEMPLATE START ===([\s\S]*?)=== SHIP TEMPLATE END ===/);
+            if (!match) throw new Error('LLM did not follow the required template format for ships.');
+            return this.parseShipTemplate(match[1].trim());
+        } catch (error) {
+            this.handleError(error, 'ship generation');
+        }
+    }
+
+    async generateTable(prompt, context = {}) {
+        try {
+            this.debug('Generating table with OpenAI', { prompt });
+            if (!this.isConfigured) throw new Error('OpenAI provider is not properly configured');
+
+            const text = await this._callOpenAI(
+                this.buildTablePrompt(context),
+                `Create a roll table: ${prompt}\n\nCRITICAL: Use the exact template format. Start with "=== TABLE TEMPLATE START ===" and end with "=== TABLE TEMPLATE END ==="`
+            );
+
+            const match = text.match(/=== TABLE TEMPLATE START ===([\s\S]*?)=== TABLE TEMPLATE END ===/);
+            if (!match) throw new Error('LLM did not follow the required template format for tables.');
+            return this.parseTableTemplate(match[1].trim());
+        } catch (error) {
+            this.handleError(error, 'table generation');
+        }
+    }
+
+    async generateClone(prompt, context = {}) {
+        try {
+            this.debug('Generating clone mutations with OpenAI', { prompt });
+            if (!this.isConfigured) throw new Error('OpenAI provider is not properly configured');
+
+            const text = await this._callOpenAI(
+                this.buildClonePrompt(context),
+                `Apply these changes to the source character: ${prompt}\n\nCRITICAL: Use the exact template format. Start with "=== CLONE TEMPLATE START ===" and end with "=== CLONE TEMPLATE END ==="`
+            );
+
+            const match = text.match(/=== CLONE TEMPLATE START ===([\s\S]*?)=== CLONE TEMPLATE END ===/);
+            if (!match) throw new Error('LLM did not follow the required template format for clones.');
+            return this.parseCloneTemplate(match[1].trim());
+        } catch (error) {
+            this.handleError(error, 'clone generation');
+        }
+    }
 }

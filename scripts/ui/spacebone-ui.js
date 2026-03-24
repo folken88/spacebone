@@ -12,6 +12,8 @@ export class SpaceboneUI {
         this.isDialogOpen = false;
         this.weaponsByType = {};
         this.armorsByType = {};
+        this._activeTab = 'npc';
+        this._dialogHtml = null;
     }
 
     /**
@@ -66,27 +68,27 @@ export class SpaceboneUI {
     }
 
     /**
-     * Open the actor creator dialog
+     * Open the actor creator dialog (tabbed: Create NPC, Clone Actor, Create Ship)
      */
     async openActorCreatorDialog() {
         if (this.isDialogOpen) return;
 
-        // Check if API is configured
         if (!this.isAPIConfigured()) {
             ui.notifications.warn('Please configure your LLM API settings in module settings first.');
             return;
         }
 
         this.isDialogOpen = true;
+        const hasShipCombat = game.modules.get('ship-combat-pf1')?.active ?? false;
 
         const dialog = new Dialog({
-            title: 'Spacebone AI Actor Creator',
-            content: await this.getActorDialogHTML(),
+            title: 'Spacebone AI Creator',
+            content: await this.getActorDialogHTML(hasShipCombat),
             buttons: {
                 create: {
-                    icon: '<i class="fas fa-user"></i>',
-                    label: 'Create Actor',
-                    callback: (html) => this.handleActorCreation(html)
+                    icon: '<i class="fas fa-magic"></i>',
+                    label: 'Create',
+                    callback: (html) => this.handleTabbedCreation(html)
                 },
                 cancel: {
                     icon: '<i class="fas fa-times"></i>',
@@ -96,10 +98,10 @@ export class SpaceboneUI {
             },
             default: 'create',
             close: () => this.isDialogOpen = false,
-            render: (html) => this.enhanceActorDialog(html)
+            render: (html) => this.enhanceActorDialog(html, hasShipCombat)
         }, {
-            width: 720,
-            height: 580,
+            width: 740,
+            height: 620,
             resizable: true,
             classes: ['spacebone-dialog']
         });
@@ -108,34 +110,83 @@ export class SpaceboneUI {
     }
 
     /**
-     * Get the actor dialog HTML content
+     * Get the tabbed actor dialog HTML
+     * @param {boolean} hasShipCombat - Whether ship-combat-pf1 is active
      * @returns {Promise<string>} Dialog HTML
      */
-    async getActorDialogHTML() {
+    async getActorDialogHTML(hasShipCombat = false) {
+        // Build actor options for clone dropdown
+        const actors = game.actors.filter(a => a.type === 'npc' || a.type === 'character');
+        const actorOptions = actors.sort((a, b) => a.name.localeCompare(b.name))
+            .map(a => `<option value="${a.id}">${a.name} (${a.type})</option>`).join('\n');
+
+        const shipTab = hasShipCombat ? `
+            <div class="spacebone-tab" data-tab="ship" style="display:none;">
+                <div class="prompt-section glass-panel">
+                    <h3><i class="fas fa-ship"></i> Create Ship</h3>
+                    <div class="form-group">
+                        <label for="ship-prompt">Describe the ship:</label>
+                        <textarea id="ship-prompt" rows="3" placeholder="e.g., 'a Chelish frigate with heavy armament' or 'a fast Andoran brig with Liberty Guns'"></textarea>
+                        <div class="example-text">
+                            <small>Classes: skiff, sloop, brig, frigate, galleon, man-o-war. Factions: chelish, andoran, taldor, shackles, bronze.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>` : '';
+
+        const shipTabBtn = hasShipCombat ? `<button class="spacebone-tab-btn" data-tab="ship"><i class="fas fa-ship"></i> Create Ship</button>` : '';
+
         return `
             <div class="spacebone-creator">
-                <!-- Header with Icon -->
                 <div class="spacebone-header">
                     <i class="fas fa-skull spacebone-main-icon"></i>
-                    <h2>Spacebone AI Actor Creator</h2>
+                    <h2>Spacebone AI Creator</h2>
                 </div>
-                
-                <!-- AI Prompt Section -->
-                <div class="prompt-section glass-panel">
-                    <h3><i class="fas fa-magic"></i> AI Actor Prompt</h3>
-                    <div class="form-group">
-                        <label for="actor-prompt">Describe the character you want to create:</label>
-                        <textarea id="actor-prompt" name="actor-prompt" rows="3" placeholder="e.g., 'a level 5 rogue from Caliphas' or 'a level 3 cleric of Sarenrae named Kyra from Katapesh'"></textarea>
-                        <div class="example-text">
-                            <small><em>Example:</em> "a level 5 rogue from Caliphas" or "a level 3 cleric of Sarenrae named Kyra"</small>
+
+                <div class="spacebone-tabs">
+                    <button class="spacebone-tab-btn active" data-tab="npc"><i class="fas fa-user"></i> Create NPC</button>
+                    <button class="spacebone-tab-btn" data-tab="clone"><i class="fas fa-clone"></i> Clone Actor</button>
+                    ${shipTabBtn}
+                </div>
+
+                <!-- Create NPC Tab -->
+                <div class="spacebone-tab active" data-tab="npc">
+                    <div class="prompt-section glass-panel">
+                        <h3><i class="fas fa-magic"></i> AI Actor Prompt</h3>
+                        <div class="form-group">
+                            <label for="actor-prompt">Describe the character:</label>
+                            <textarea id="actor-prompt" rows="3" placeholder="e.g., 'a level 7 half-elf magus from Osirion who favors the estoc'"></textarea>
+                            <div class="example-text">
+                                <small>Tier keywords: "villain/boss" = 25pt, default = 20pt, "jabroni/mook" = 15pt. Max HP, high magic.</small>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Clone Actor Tab -->
+                <div class="spacebone-tab" data-tab="clone" style="display:none;">
+                    <div class="prompt-section glass-panel">
+                        <h3><i class="fas fa-clone"></i> Clone & Mutate Actor</h3>
+                        <div class="form-group">
+                            <label for="clone-source">Source Actor:</label>
+                            <select id="clone-source">${actorOptions}</select>
+                        </div>
+                        <div class="form-group">
+                            <label for="clone-prompt">Changes to apply:</label>
+                            <textarea id="clone-prompt" rows="3" placeholder="e.g., 'make this a tiefling from south shackles' or 'female elf devotee of Calistria'"></textarea>
+                            <div class="example-text">
+                                <small>The clone keeps the source's class, level, feats, and equipment. Only specified traits change.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                ${shipTab}
+
                 <div class="spacebone-status">
                     <div id="creation-status" class="status-hidden">
                         <i class="fas fa-spinner fa-spin"></i>
-                        <span>Creating actor...</span>
+                        <span id="creation-status-text">Creating...</span>
                     </div>
                 </div>
             </div>
@@ -143,22 +194,38 @@ export class SpaceboneUI {
     }
 
     /**
-     * Enhance the actor dialog after rendering
+     * Enhance the tabbed actor dialog after rendering
      * @param {jQuery} html - The dialog HTML
+     * @param {boolean} hasShipCombat - Whether ship-combat-pf1 is active
      */
-    enhanceActorDialog(html) {
-        // Auto-resize textarea
-        const textarea = html.find('#actor-prompt');
-        textarea.on('input', function() {
+    enhanceActorDialog(html, hasShipCombat = false) {
+        // Store reference to live DOM
+        this._dialogHtml = html;
+        this._activeTab = 'npc';
+
+        // Tab switching — store active tab on the instance
+        const self = this;
+        html.find('.spacebone-tab-btn').on('click', function() {
+            const tab = $(this).data('tab');
+            self._activeTab = tab;
+            console.log(`Spacebone UI | Tab switched to: "${tab}"`);
+            html.find('.spacebone-tab-btn').removeClass('active');
+            $(this).addClass('active');
+            html.find('.spacebone-tab').hide();
+            html.find(`.spacebone-tab[data-tab="${tab}"]`).show();
+        });
+
+        // Auto-resize textareas
+        html.find('textarea').on('input', function() {
             this.style.height = 'auto';
             this.style.height = (this.scrollHeight) + 'px';
         });
 
-        // Focus on the textarea
-        textarea.focus();
+        // Focus first textarea
+        html.find('#actor-prompt').focus();
 
-        // Handle Enter key (Ctrl+Enter to submit)
-        textarea.on('keydown', (event) => {
+        // Ctrl+Enter to submit
+        html.find('textarea').on('keydown', (event) => {
             if (event.ctrlKey && event.key === 'Enter') {
                 html.closest('.dialog').find('[data-button="create"]').click();
             }
@@ -166,48 +233,153 @@ export class SpaceboneUI {
     }
 
     /**
-     * Handle actor creation from dialog
+     * Handle creation from the tabbed dialog
      * @param {jQuery} html - The dialog HTML
      */
-    async handleActorCreation(html) {
-        const prompt = html.find('#actor-prompt').val().trim();
-        
-        if (!prompt) {
-            ui.notifications.warn('Please enter a description for the character you want to create.');
-            return;
-        }
+    async handleTabbedCreation(html) {
+        // Use stored tab state — the callback html is a fresh render that loses tab state
+        const activeTab = this._activeTab;
+        const liveHtml = this._dialogHtml || html;
 
-        // Show status
-        const statusEl = html.find('#creation-status');
+        console.log(`Spacebone UI | handleTabbedCreation — activeTab: "${activeTab}"`);
+
+        const statusEl = liveHtml.find('#creation-status');
+        const statusText = liveHtml.find('#creation-status-text');
+
         statusEl.removeClass('status-hidden').addClass('status-visible');
-        
-        // Disable the create button
-        html.closest('.dialog').find('[data-button="create"]').prop('disabled', true);
+        liveHtml.closest('.dialog').find('[data-button="create"]').prop('disabled', true);
 
         try {
-            // Create the actor
-            const actor = await globalThis.Spacebone.createActor(prompt);
-            
-            this.isDialogOpen = false;
-            
-            if (actor) {
-                // Show success notification
-                const message = `Successfully created actor: <strong>${actor.name}</strong>`;
-                ui.notifications.info(message);
+            let result = null;
+
+            if (activeTab === 'npc') {
+                const prompt = liveHtml.find('#actor-prompt').val()?.trim();
+                if (!prompt) { ui.notifications.warn('Please enter a description.'); throw new Error('empty'); }
+                console.log(`Spacebone UI | Creating NPC: "${prompt}"`);
+                statusText.text('Generating NPC...');
+                result = await globalThis.Spacebone.createActor(prompt);
+            } else if (activeTab === 'clone') {
+                const sourceId = liveHtml.find('#clone-source').val();
+                const prompt = liveHtml.find('#clone-prompt').val()?.trim();
+                console.log(`Spacebone UI | Cloning — source: "${sourceId}", prompt: "${prompt}"`);
+                if (!sourceId) { ui.notifications.warn('Please select a source actor.'); throw new Error('empty'); }
+                if (!prompt) { ui.notifications.warn('Please describe the changes.'); throw new Error('empty'); }
+                statusText.text('Cloning actor...');
+                result = await globalThis.Spacebone.cloneActor(sourceId, prompt);
+            } else if (activeTab === 'ship') {
+                const prompt = liveHtml.find('#ship-prompt').val()?.trim();
+                if (!prompt) { ui.notifications.warn('Please describe the ship.'); throw new Error('empty'); }
+                console.log(`Spacebone UI | Creating ship: "${prompt}"`);
+                statusText.text('Generating ship...');
+                result = await globalThis.Spacebone.createShip(prompt);
+            } else {
+                console.warn(`Spacebone UI | Unknown tab: "${activeTab}"`);
             }
 
+            this.isDialogOpen = false;
+            if (result) {
+                ui.notifications.info(`Created: <strong>${result.name}</strong>`);
+            }
         } catch (error) {
-            console.error('Spacebone | Error in actor creation:', error);
-            ui.notifications.error('Failed to create actor. Check the console for details.');
-            
-            // Re-enable the create button
-            html.closest('.dialog').find('[data-button="create"]').prop('disabled', false);
+            if (error.message !== 'empty') {
+                console.error('Spacebone UI | Error in creation:', error);
+                ui.notifications.error('Failed to create. Check the console for details.');
+            }
+            liveHtml.closest('.dialog').find('[data-button="create"]').prop('disabled', false);
             statusEl.removeClass('status-visible').addClass('status-hidden');
-            
-            // Don't close dialog on error
             this.isDialogOpen = false;
             return false;
         }
+    }
+
+    /**
+     * Open the roll table creator dialog
+     */
+    async openTableCreatorDialog() {
+        if (this.isDialogOpen) return;
+
+        if (!this.isAPIConfigured()) {
+            ui.notifications.warn('Please configure your LLM API settings in module settings first.');
+            return;
+        }
+
+        this.isDialogOpen = true;
+
+        const dialog = new Dialog({
+            title: 'Spacebone AI Roll Table Creator',
+            content: `
+                <div class="spacebone-creator">
+                    <div class="spacebone-header">
+                        <i class="fas fa-skull spacebone-main-icon"></i>
+                        <h2>Spacebone Roll Table Creator</h2>
+                    </div>
+                    <div class="prompt-section glass-panel">
+                        <h3><i class="fas fa-dice-d20"></i> AI Table Prompt</h3>
+                        <div class="form-group">
+                            <label for="table-prompt">Describe the roll table:</label>
+                            <textarea id="table-prompt" rows="3" placeholder="e.g., '20-entry Fever Sea random encounter table' or 'd6 table of pirate ship names'"></textarea>
+                            <div class="example-text">
+                                <small>Specify the die formula (d6, d20, d100) and number of entries. Works for encounters, loot, names, weather, events, etc.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacebone-status">
+                        <div id="creation-status" class="status-hidden">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <span>Creating table...</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            buttons: {
+                create: {
+                    icon: '<i class="fas fa-dice-d20"></i>',
+                    label: 'Create Table',
+                    callback: async (html) => {
+                        const prompt = html.find('#table-prompt').val().trim();
+                        if (!prompt) { ui.notifications.warn('Please enter a table description.'); return false; }
+
+                        html.find('#creation-status').removeClass('status-hidden').addClass('status-visible');
+                        html.closest('.dialog').find('[data-button="create"]').prop('disabled', true);
+
+                        try {
+                            const table = await globalThis.Spacebone.createRollTable(prompt);
+                            this.isDialogOpen = false;
+                            if (table) ui.notifications.info(`Created table: <strong>${table.name}</strong>`);
+                        } catch (error) {
+                            console.error('Spacebone | Error creating table:', error);
+                            ui.notifications.error('Failed to create table.');
+                            html.closest('.dialog').find('[data-button="create"]').prop('disabled', false);
+                            html.find('#creation-status').removeClass('status-visible').addClass('status-hidden');
+                            this.isDialogOpen = false;
+                            return false;
+                        }
+                    }
+                },
+                cancel: {
+                    icon: '<i class="fas fa-times"></i>',
+                    label: 'Cancel',
+                    callback: () => this.isDialogOpen = false
+                }
+            },
+            default: 'create',
+            close: () => this.isDialogOpen = false,
+            render: (html) => {
+                html.find('#table-prompt').focus();
+                html.find('textarea').on('keydown', (event) => {
+                    if (event.ctrlKey && event.key === 'Enter') {
+                        html.closest('.dialog').find('[data-button="create"]').click();
+                    }
+                });
+            }
+        }, {
+            width: 720,
+            height: 480,
+            resizable: true,
+            classes: ['spacebone-dialog']
+        });
+
+        dialog.render(true);
     }
 
     /**

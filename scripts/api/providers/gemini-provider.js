@@ -421,4 +421,43 @@ CRITICAL INSTRUCTIONS:
             throw new Error(`Failed to parse actor response: ${error.message}`);
         }
     }
+
+    async _callGemini(systemPrompt, userPrompt) {
+        const url = `${this.config.endpoint}/${this.config.model}:generateContent?key=${this.config.apiKey}`;
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: `${systemPrompt}\n\n${userPrompt}` }] }],
+                generationConfig: { temperature: 0.7, maxOutputTokens: 4000 }
+            })
+        });
+        if (!response.ok) throw new Error(`Gemini API error: ${response.status}`);
+        const data = await response.json();
+        return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    }
+
+    async generateShip(prompt, context = {}) {
+        if (!this.isConfigured) throw new Error('Gemini not configured');
+        const text = await this._callGemini(this.buildShipPrompt(context), `Create a ship: ${prompt}\n\nUse the exact template format.`);
+        const match = text.match(/=== SHIP TEMPLATE START ===([\s\S]*?)=== SHIP TEMPLATE END ===/);
+        if (!match) throw new Error('Template format not followed');
+        return this.parseShipTemplate(match[1].trim());
+    }
+
+    async generateTable(prompt, context = {}) {
+        if (!this.isConfigured) throw new Error('Gemini not configured');
+        const text = await this._callGemini(this.buildTablePrompt(context), `Create a roll table: ${prompt}\n\nUse the exact template format.`);
+        const match = text.match(/=== TABLE TEMPLATE START ===([\s\S]*?)=== TABLE TEMPLATE END ===/);
+        if (!match) throw new Error('Template format not followed');
+        return this.parseTableTemplate(match[1].trim());
+    }
+
+    async generateClone(prompt, context = {}) {
+        if (!this.isConfigured) throw new Error('Gemini not configured');
+        const text = await this._callGemini(this.buildClonePrompt(context), `Apply these changes: ${prompt}\n\nUse the exact template format.`);
+        const match = text.match(/=== CLONE TEMPLATE START ===([\s\S]*?)=== CLONE TEMPLATE END ===/);
+        if (!match) throw new Error('Template format not followed');
+        return this.parseCloneTemplate(match[1].trim());
+    }
 }

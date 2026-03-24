@@ -447,4 +447,46 @@ CRITICAL INSTRUCTIONS:
             throw new Error(`Failed to parse actor response: ${error.message}`);
         }
     }
+
+    async _callLocal(systemPrompt, userPrompt) {
+        const response = await fetch(this.config.endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: this.config.model,
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    { role: 'user', content: userPrompt }
+                ],
+                max_tokens: 2000, temperature: 0.7, stream: false
+            })
+        });
+        if (!response.ok) throw new Error(`Local LLM error: ${response.status}`);
+        const data = await response.json();
+        return data.choices?.[0]?.message?.content || data.message?.content || '';
+    }
+
+    async generateShip(prompt, context = {}) {
+        if (!this.isConfigured) throw new Error('Local LLM not configured');
+        const text = await this._callLocal(this.buildShipPrompt(context), `Create a ship: ${prompt}\n\nUse the exact template format.`);
+        const match = text.match(/=== SHIP TEMPLATE START ===([\s\S]*?)=== SHIP TEMPLATE END ===/);
+        if (!match) throw new Error('Template format not followed');
+        return this.parseShipTemplate(match[1].trim());
+    }
+
+    async generateTable(prompt, context = {}) {
+        if (!this.isConfigured) throw new Error('Local LLM not configured');
+        const text = await this._callLocal(this.buildTablePrompt(context), `Create a roll table: ${prompt}\n\nUse the exact template format.`);
+        const match = text.match(/=== TABLE TEMPLATE START ===([\s\S]*?)=== TABLE TEMPLATE END ===/);
+        if (!match) throw new Error('Template format not followed');
+        return this.parseTableTemplate(match[1].trim());
+    }
+
+    async generateClone(prompt, context = {}) {
+        if (!this.isConfigured) throw new Error('Local LLM not configured');
+        const text = await this._callLocal(this.buildClonePrompt(context), `Apply these changes: ${prompt}\n\nUse the exact template format.`);
+        const match = text.match(/=== CLONE TEMPLATE START ===([\s\S]*?)=== CLONE TEMPLATE END ===/);
+        if (!match) throw new Error('Template format not followed');
+        return this.parseCloneTemplate(match[1].trim());
+    }
 }

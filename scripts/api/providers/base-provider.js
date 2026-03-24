@@ -263,10 +263,17 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
 ## PATHFINDER 1E ACTOR SYSTEM:
 PF1 uses a different system than PF2e:
 - **Levels**: 1-20 (use appropriate level based on prompt)
-- **Races**: Human, Elf, Dwarf, Halfling, Gnome, Half-Elf, Half-Orc, Tiefling, Aasimar, etc.
-- **Classes**: Alchemist, Barbarian, Bard, Cavalier, Cleric, Druid, Fighter, Gunslinger, Inquisitor, Investigator, Magus, Monk, Oracle, Paladin, Ranger, Rogue, Sorcerer, Summoner, Witch, Wizard
+- **Races**: Human, Elf, Dwarf, Halfling, Gnome, Half-Elf, Half-Orc, Tiefling, Aasimar, Tengu, Hobgoblin, etc.
+- **Classes**: Alchemist, Barbarian, Bard, Brawler, Cavalier, Cleric, Druid, Fighter, Gunslinger, Inquisitor, Investigator, Magus, Monk, Ninja, Oracle, Paladin, Ranger, Rogue, Sorcerer, Summoner, Swashbuckler, Witch, Wizard
 - **Alignments**: Lawful Good (LG), Lawful Neutral (LN), Lawful Evil (LE), Neutral Good (NG), Neutral (N), Neutral Evil (NE), Chaotic Good (CG), Chaotic Neutral (CN), Chaotic Evil (CE)
-- **Deities**: Sarenrae, Iomedae, Pharasma, Desna, Cayden Cailean, Asmodeus, Abadar, etc. (optional, for divine classes)
+- **Deities**: Sarenrae, Iomedae, Pharasma, Desna, Cayden Cailean, Asmodeus, Abadar, Besmara (pirate deity), Gozreh, etc. (optional, for divine classes)
+
+## HOUSE RULES (this campaign):
+- **Max HP**: Characters use maximum hit points per level (no rolling)
+- **Auto-granted feats** (FREE, do NOT count against feat slots, do NOT list these): Power Attack, Piranha Strike, Eschew Materials, Scribe Scroll, all Craft feats, Fencing Grace, Dodge+Mobility (combined), Point-Blank Shot+Precise Shot (combined)
+- **Point buy tiers**: PCs/major villains = 25 points, standard NPCs = 20 points, jabronis (unimportant) = 15 points. If the prompt says "jabroni" or "mook", use 15-point build. If the prompt says "villain" or "boss", use 25-point.
+- **High magic**: More magic items than standard wealth-by-level
+- **Setting**: Skull & Shackles AP (pirate campaign in the Shackles region of Golarion)
 
 ## GOLARION REGIONAL POPULATIONS & RACES:
 Use regional demographics to choose appropriate races:
@@ -1205,6 +1212,272 @@ CRITICAL: Your entire response must be ONLY the filled template above. Nothing e
         }
         
         throw new Error(message);
+    }
+
+    // ==========================================
+    // SHIP GENERATION PROMPTS
+    // ==========================================
+
+    /**
+     * Build the system prompt for ship generation
+     * @param {Object} context - Generation context
+     * @returns {string} System prompt
+     * @protected
+     */
+    buildShipPrompt(context = {}) {
+        return `You are an expert at creating ships for the Pathfinder 1e ship-combat-pf1 FoundryVTT module. You MUST follow the exact format specified below.
+
+## CRITICAL REQUIREMENTS:
+- You MUST return ONLY the template between the markers
+- You MUST NOT include JSON, markdown code blocks, or any other formatting
+- Your response MUST start with "=== SHIP TEMPLATE START ===" and end with "=== SHIP TEMPLATE END ==="
+
+## SHIP CLASSES (pick one):
+| Class | HP | AC | Speed | Guns | Crew |
+|-------|----|----|-------|------|------|
+| skiff | 200 | 10 | 5 | 1 | 2-6 |
+| sloop | 500 | 12 | 11 | 4 | 6-16 |
+| brig | 800 | 14 | 9 | 8 | 12-24 |
+| frigate | 1200 | 16 | 13 | 16 | 18-36 |
+| galleon | 1800 | 18 | 7 | 24 | 24-48 |
+| manowar | 2500 | 20 | 10 | 32 | 30-60 |
+
+## FACTIONS & CANNON TYPES:
+- **Chelish**: Long 12 (6d6), 18 Pounder (10d6), 24 Pounder (12d6), 32 Pounder (14d6) — heavy, expensive, devastating
+- **Andoran**: Liberty Gun Mk I (4d6), Mk II (6d6), Mk III (8d6, 19-20/x3, magical) — lighter, cheaper, better crits
+- **Taldor**: 9 Pound Hammer (6d6) — balanced workhorses
+- **Bronze Fleet**: 9 Pounder (6d6) — standard equipment
+- **Shackles/Pirate**: Carronade (8d6, short range), Long Nine (6d6, long range) — mixed salvaged weapons
+
+## SHIP TEMPLATE FORMAT:
+=== SHIP TEMPLATE START ===
+NAME: [Ship name - be creative and thematic]
+CLASS: [skiff/sloop/brig/frigate/galleon/manowar]
+FACTION: [chelish/andoran/taldor/bronze/shackles]
+CANNON_1: [Cannon name] | [quantity]
+CANNON_2: [Cannon name] | [quantity] (optional, for mixed armament)
+CANNON_3: [Cannon name] | [quantity] (optional)
+DESCRIPTION: [Brief ship description - history, appearance, reputation]
+=== SHIP TEMPLATE END ===
+
+## EXAMPLE:
+=== SHIP TEMPLATE START ===
+NAME: Blacktide Raider
+CLASS: brig
+FACTION: shackles
+CANNON_1: Carronade | 4
+CANNON_2: Long Nine | 4
+DESCRIPTION: A fast pirate brig with a dark-stained hull, known for striking at dawn and disappearing before naval patrols arrive.
+=== SHIP TEMPLATE END ===
+
+CRITICAL: Your entire response must be ONLY the filled template above. Nothing else.`;
+    }
+
+    /**
+     * Parse ship template from LLM response
+     * @param {string} templateContent - Template content between markers
+     * @returns {Object} Parsed ship data
+     * @protected
+     */
+    parseShipTemplate(templateContent) {
+        const shipData = { cannons: [] };
+        const lines = templateContent.split('\n');
+
+        for (const line of lines) {
+            const trimmedLine = line.trim();
+            if (!trimmedLine || trimmedLine.startsWith('===')) continue;
+
+            if (trimmedLine.startsWith('NAME:')) {
+                shipData.name = this.extractValue(trimmedLine, 'NAME:').trim();
+            } else if (trimmedLine.startsWith('CLASS:')) {
+                shipData.shipClass = this.extractValue(trimmedLine, 'CLASS:').toLowerCase().trim();
+            } else if (trimmedLine.startsWith('FACTION:')) {
+                shipData.faction = this.extractValue(trimmedLine, 'FACTION:').toLowerCase().trim();
+            } else if (trimmedLine.match(/^CANNON_\d+:/)) {
+                const cannonStr = trimmedLine.replace(/^CANNON_\d+:\s*/, '');
+                const parts = cannonStr.split('|').map(s => s.trim());
+                if (parts.length >= 2) {
+                    shipData.cannons.push({ name: parts[0], quantity: parseInt(parts[1]) || 1 });
+                }
+            } else if (trimmedLine.startsWith('DESCRIPTION:')) {
+                shipData.description = this.extractValue(trimmedLine, 'DESCRIPTION:').trim();
+            }
+        }
+
+        return shipData;
+    }
+
+    // ==========================================
+    // ROLL TABLE GENERATION PROMPTS
+    // ==========================================
+
+    /**
+     * Build the system prompt for roll table generation
+     * @param {Object} context - Generation context
+     * @returns {string} System prompt
+     * @protected
+     */
+    buildTablePrompt(context = {}) {
+        return `You are an expert at creating roll tables for tabletop RPGs. You MUST follow the exact format specified below.
+
+## CRITICAL REQUIREMENTS:
+- You MUST return ONLY the template between the markers
+- You MUST NOT include JSON, markdown code blocks, or any other formatting
+- Your response MUST start with "=== TABLE TEMPLATE START ===" and end with "=== TABLE TEMPLATE END ==="
+- Each entry MUST have a range (e.g., "1-2") and text separated by a pipe "|"
+- Ranges must cover the entire die range with no gaps or overlaps
+
+## TABLE TEMPLATE FORMAT:
+=== TABLE TEMPLATE START ===
+NAME: [Table name]
+FORMULA: [Die formula, e.g., 1d20, 1d100, 1d6, 2d6]
+DESCRIPTION: [Brief description of what this table is for]
+ENTRY_1: [low]-[high] | [Result text]
+ENTRY_2: [low]-[high] | [Result text]
+... (continue for all entries)
+=== TABLE TEMPLATE END ===
+
+## EXAMPLE:
+=== TABLE TEMPLATE START ===
+NAME: Random Weather at Sea
+FORMULA: 1d6
+DESCRIPTION: Daily weather conditions for ocean travel
+ENTRY_1: 1 | Calm seas, light breeze — perfect sailing weather
+ENTRY_2: 2 | Overcast with steady winds — good progress
+ENTRY_3: 3 | Fog rolls in — visibility reduced to 100 ft
+ENTRY_4: 4 | Rain squalls — Perception checks at -4, decks are slippery
+ENTRY_5: 5 | Strong storm — Profession (sailor) DC 15 or take 2d6 damage to sails
+ENTRY_6: 6 | Hurricane force winds — Profession (sailor) DC 20 or capsize risk
+=== TABLE TEMPLATE END ===
+
+CRITICAL: Your entire response must be ONLY the filled template above. Nothing else. Make entries flavorful and mechanically useful.`;
+    }
+
+    /**
+     * Parse table template from LLM response
+     * @param {string} templateContent - Template content between markers
+     * @returns {Object} Parsed table data
+     * @protected
+     */
+    parseTableTemplate(templateContent) {
+        const tableData = { entries: [] };
+        const lines = templateContent.split('\n');
+
+        for (const line of lines) {
+            const trimmedLine = line.trim();
+            if (!trimmedLine || trimmedLine.startsWith('===')) continue;
+
+            if (trimmedLine.startsWith('NAME:')) {
+                tableData.name = this.extractValue(trimmedLine, 'NAME:').trim();
+            } else if (trimmedLine.startsWith('FORMULA:')) {
+                tableData.formula = this.extractValue(trimmedLine, 'FORMULA:').trim();
+            } else if (trimmedLine.startsWith('DESCRIPTION:')) {
+                tableData.description = this.extractValue(trimmedLine, 'DESCRIPTION:').trim();
+            } else if (trimmedLine.match(/^ENTRY_\d+:/)) {
+                const entryStr = trimmedLine.replace(/^ENTRY_\d+:\s*/, '');
+                const parts = entryStr.split('|').map(s => s.trim());
+                if (parts.length >= 2) {
+                    const rangeParts = parts[0].split('-').map(s => parseInt(s.trim()));
+                    const low = rangeParts[0] || 1;
+                    const high = rangeParts.length > 1 ? rangeParts[1] : low;
+                    tableData.entries.push({ range: [low, high], text: parts[1] });
+                }
+            }
+        }
+
+        return tableData;
+    }
+
+    // ==========================================
+    // CLONE / MUTATION PROMPTS
+    // ==========================================
+
+    /**
+     * Build the system prompt for actor cloning with mutations
+     * @param {Object} context - Generation context including source actor summary
+     * @returns {string} System prompt
+     * @protected
+     */
+    buildClonePrompt(context = {}) {
+        const sourceInfo = context.sourceActorSummary || 'No source actor info provided';
+
+        return `You are an expert at modifying Pathfinder 1e characters. You will receive information about an existing character and a description of changes to apply. You MUST return ONLY the changed fields in the exact format below.
+
+## CRITICAL REQUIREMENTS:
+- You MUST return ONLY the template between the markers
+- Only include fields that CHANGE from the source. Leave out fields that stay the same.
+- You MUST always include NAME (generate a unique new name)
+- Your response MUST start with "=== CLONE TEMPLATE START ===" and end with "=== CLONE TEMPLATE END ==="
+
+## SOURCE ACTOR:
+${sourceInfo}
+
+## CLONE TEMPLATE FORMAT:
+=== CLONE TEMPLATE START ===
+NAME: [New unique name appropriate for the race/culture/setting]
+RACE: [New race if changed, omit if same]
+GENDER: [New gender if changed, e.g., "F/She/Her"]
+DEITY: [New deity if changed]
+ALIGNMENT: [New alignment if changed, e.g., CN]
+AGE: [New age]
+HEIGHT: [New height]
+WEIGHT: [New weight]
+ETHNICITY: [New ethnicity if changed]
+PERSONALITY: [Brief personality description for this unique individual]
+APPEARANCE: [Brief physical description]
+=== CLONE TEMPLATE END ===
+
+## GUIDELINES:
+- If the user specifies a name (e.g., "named Barney" or "'Barney'"), you MUST use that exact name
+- If no name is specified, generate one that fits the race and cultural background
+- If changing race, pick appropriate physical traits (height, weight)
+- Keep the class, level, and equipment the same (those come from the source)
+- Make the personality distinct from the source — this should feel like a unique individual
+- Use Golarion lore for cultural details
+
+CRITICAL: Your entire response must be ONLY the filled template above. Nothing else.`;
+    }
+
+    /**
+     * Parse clone template from LLM response
+     * @param {string} templateContent - Template content between markers
+     * @returns {Object} Parsed mutation data
+     * @protected
+     */
+    parseCloneTemplate(templateContent) {
+        const mutations = {};
+        const lines = templateContent.split('\n');
+
+        for (const line of lines) {
+            const trimmedLine = line.trim();
+            if (!trimmedLine || trimmedLine.startsWith('===')) continue;
+
+            if (trimmedLine.startsWith('NAME:')) {
+                mutations.name = this.extractValue(trimmedLine, 'NAME:').trim();
+            } else if (trimmedLine.startsWith('RACE:')) {
+                mutations.race = this.extractValue(trimmedLine, 'RACE:').trim();
+            } else if (trimmedLine.startsWith('GENDER:')) {
+                mutations.gender = this.extractValue(trimmedLine, 'GENDER:').trim();
+            } else if (trimmedLine.startsWith('DEITY:')) {
+                mutations.deity = this.extractValue(trimmedLine, 'DEITY:').trim();
+            } else if (trimmedLine.startsWith('ALIGNMENT:')) {
+                mutations.alignment = this.extractValue(trimmedLine, 'ALIGNMENT:').trim();
+            } else if (trimmedLine.startsWith('AGE:')) {
+                mutations.age = this.extractValue(trimmedLine, 'AGE:').trim();
+            } else if (trimmedLine.startsWith('HEIGHT:')) {
+                mutations.height = this.extractValue(trimmedLine, 'HEIGHT:').trim();
+            } else if (trimmedLine.startsWith('WEIGHT:')) {
+                mutations.weight = this.extractValue(trimmedLine, 'WEIGHT:').trim();
+            } else if (trimmedLine.startsWith('ETHNICITY:')) {
+                mutations.ethnicity = this.extractValue(trimmedLine, 'ETHNICITY:').trim();
+            } else if (trimmedLine.startsWith('PERSONALITY:')) {
+                mutations.personality = this.extractValue(trimmedLine, 'PERSONALITY:').trim();
+            } else if (trimmedLine.startsWith('APPEARANCE:')) {
+                mutations.appearance = this.extractValue(trimmedLine, 'APPEARANCE:').trim();
+            }
+        }
+
+        return mutations;
     }
 
     /**
